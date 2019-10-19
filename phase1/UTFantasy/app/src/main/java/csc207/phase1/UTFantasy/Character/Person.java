@@ -2,7 +2,7 @@ package csc207.phase1.UTFantasy.Character;
 
 import java.util.ArrayList;
 
-import csc207.phase1.UTFantasy.Pokemon;
+import csc207.phase1.UTFantasy.Pet.Pokemon;
 
 class Person {
 
@@ -10,7 +10,7 @@ class Person {
         this.name = name;
         this.gender = gender;
         this.bag = new ArrayList<>();
-        this.pokemon = new ArrayList<>();
+        this.pokemon = new ArrayList<Pokemon>();
     }
     /**
      * name of this person*/
