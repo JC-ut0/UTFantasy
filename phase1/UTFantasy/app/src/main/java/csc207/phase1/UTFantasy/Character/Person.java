@@ -11,7 +11,7 @@ class Person {
         this.name = name;
         this.gender = gender;
         this.bag = new ArrayList<>();
-        this.pokemon = new ArrayList<>();
+        this.pokemon = new ArrayList<Pokemon>();
     }
     /**
      * name of this person*/
