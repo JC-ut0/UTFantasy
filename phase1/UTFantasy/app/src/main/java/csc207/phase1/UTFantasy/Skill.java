@@ -2,16 +2,11 @@ package csc207.phase1.UTFantasy;
 
 public abstract class Skill {
 
-    private int damage;
-    private String status;
+    int damage;
+    String status;
     /**
      * power points of this skill */
-    private int PP;
-
-    public Skill(int damage, int pp) {
-        this.damage = damage;
-        this.PP = pp;
-    }
+    int PP;
 
     public void setStatus(String status) {
         this.status = status;
