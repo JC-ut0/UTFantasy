@@ -1,15 +1,11 @@
 package csc207.phase1.UTFantasy.Pet;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import android.app.Person;
 
-import csc207.phase1.UTFantasy.Skill;
+import csc207.phase1.UTFantasy.AllSkills.Skill;
 
 public abstract class Pokemon {
-    /**
-     * name of pokemon*/
-    private String name;
+
     /**
      * first coordinate*/
     private int x;
@@ -36,16 +32,11 @@ public abstract class Pokemon {
      * person that this pokemon belongs to*/
     private Person master;
 
-    Pokemon(String name){
-        this.name = name;
+    Pokemon(){
         this.level = 1;
-        this.HP = 10;
         this.EXP = 0;
     }
 
-    String getName(){
-        return name;
-    }
 
     int getX(){
         return x;
@@ -97,8 +88,8 @@ public abstract class Pokemon {
     }
 
     public void updateSkills(Skill addSkill, Skill removeSkill) {
-
     }
+
     public Person getMaster() {
         return master;
     }
@@ -114,8 +105,6 @@ public abstract class Pokemon {
     public void setEXP(int EXP) {
         this.EXP = EXP;
     }
-
-
 
 
 }
