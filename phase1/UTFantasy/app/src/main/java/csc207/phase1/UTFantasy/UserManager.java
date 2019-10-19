@@ -3,15 +3,15 @@ package csc207.phase1.UTFantasy;
 import java.util.HashMap;
 
 public class UserManager {
-    private HashMap<String, User> map;
+    private static HashMap<String, User> userHashMap;
 
-    public UserManager(HashMap<String, User> map) {
-        this.map = map;
+    public UserManager(HashMap<String, User> userHashMap) {
+        this.userHashMap = userHashMap;
     }
 
-    boolean login(String name, String password){
-        if(map.containsKey(name)){
-            String ps = map.get(name).getPassword();
+     public static boolean login(String name, String password){
+        if(userHashMap.containsKey(name)){
+            String ps = userHashMap.get(name).getPassword();
             return password.equals(ps);
         }
         return false;
@@ -20,6 +20,14 @@ public class UserManager {
         User user = new User(name, password);
         return user;
     }
+
+    public static User getUser(String accountStr) {
+        if (userHashMap.containsKey((accountStr))) {
+            return userHashMap.get(accountStr);
+        }
+        return null;
+    }
+
     void logout(){
 
     }

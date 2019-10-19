@@ -33,7 +33,7 @@ public class CustomizeActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Intent login_intent = getIntent();
-        final User user = login_intent.getParcelableExtra("user");
+        final User user = (User) login_intent.getSerializableExtra("user");
         super.onCreate(savedInstanceState);
         // set the content view of this activity to activity_customize
         setContentView(R.layout.activity_customize);

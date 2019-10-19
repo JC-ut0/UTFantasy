@@ -14,3 +14,8 @@ Add and implement MapView.java, MainThread.java, UnitDraw.java. Implement MainAc
 #######
 # Step 3
 Add lawn.png
+
+#######
+# Step 4
+Updated LoginActivity, now some exceptions will be caught.
+Updated FightActivity(halfWay)
