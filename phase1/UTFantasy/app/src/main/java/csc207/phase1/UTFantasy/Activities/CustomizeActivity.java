@@ -1,4 +1,4 @@
-package csc207.phase1.UTFantasy;
+package csc207.phase1.UTFantasy.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+
+import csc207.phase1.UTFantasy.MainActivity;
+import csc207.phase1.UTFantasy.R;
 
 public class CustomizeActivity extends Activity {
 

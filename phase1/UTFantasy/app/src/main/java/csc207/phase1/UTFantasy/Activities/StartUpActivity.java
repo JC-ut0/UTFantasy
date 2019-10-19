@@ -1,10 +1,12 @@
-package csc207.phase1.UTFantasy;
+package csc207.phase1.UTFantasy.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+
+import csc207.phase1.UTFantasy.R;
 
 /**
  * The activity that got launched when launching the app
