@@ -8,8 +8,12 @@ public class User {
     private String password;
     private Player player;
 
-    public User(String name, Player player) {
+    public User(String name, String password) {
         this.name = name;
+        this.password = password;
+    }
+
+    public void setPlayer(Player player) {
         this.player = player;
     }
 

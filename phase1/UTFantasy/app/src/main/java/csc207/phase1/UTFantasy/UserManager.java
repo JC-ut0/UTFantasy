@@ -9,10 +9,16 @@ public class UserManager {
         this.map = map;
     }
 
-    void login(){
-
+    boolean login(String name, String password){
+        if(map.containsKey(name)){
+            String ps = map.get(name).getPassword();
+            return password.equals(ps);
+        }
+        return false;
     }
-
+    void register(String name, String password){
+        User user = new User(name, password);
+    }
     void logout(){
 
     }
