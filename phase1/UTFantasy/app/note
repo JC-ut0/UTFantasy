@@ -1,0 +1,8 @@
+########
+# Step 1
+Added note to the project.
+Construct a basic frame of the project.
+Now we have MainThread.
+Activities: MainActivity, StartupActivity(done), LoginActivity(halfWay), CustomizeActivity(halfWay), FightActivity, ShopActivity, MenuActivity.
+Managers: UserManager (more later, FightManager, MenuManager)
+Completed Files: None
