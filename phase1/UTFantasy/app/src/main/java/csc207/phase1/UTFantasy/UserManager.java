@@ -16,8 +16,9 @@ public class UserManager {
         }
         return false;
     }
-    void register(String name, String password){
+    public static User register(String name, String password){
         User user = new User(name, password);
+        return user;
     }
     void logout(){
 

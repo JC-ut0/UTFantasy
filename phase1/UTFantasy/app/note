@@ -6,3 +6,7 @@ Now we have MainThread.
 Activities: MainActivity, StartupActivity(done), LoginActivity(halfWay), CustomizeActivity(halfWay), FightActivity, ShopActivity, MenuActivity.
 Managers: UserManager (more later, FightManager, MenuManager)
 Completed Files: None
+
+########
+# Step 2
+Add and implement MapView.java, MainThread.java, UnitDraw.java. Implement MainActivity.

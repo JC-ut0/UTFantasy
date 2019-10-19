@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import csc207.phase1.UTFantasy.MainActivity;
 import csc207.phase1.UTFantasy.R;
+import csc207.phase1.UTFantasy.User;
+import csc207.phase1.UTFantasy.UserManager;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText account, pwd;
@@ -61,9 +63,10 @@ public class LoginActivity extends AppCompatActivity {
                     // case register button is clicked
                     case R.id.btn_register:
                         // TODO: register, store all information about this user to local, exception need to be implemented
-//                      User.register();
+                        User user = UserManager.register(accountStr,pwdStr);
                         // if it is a new user, register, go to set up activity
                         Intent register_intent = new Intent(LoginActivity.this, CustomizeActivity.class);
+                        register_intent.putExtra("user", user);
                         startActivity(register_intent);
                         break;
                     default:
