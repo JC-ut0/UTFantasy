@@ -1,4 +1,4 @@
-package csc207.phase1.UTFantasy;
+package csc207.phase1.UTFantasy.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import csc207.phase1.UTFantasy.MainActivity;
+import csc207.phase1.UTFantasy.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText account, pwd;

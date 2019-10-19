@@ -14,12 +14,12 @@
         android:fullBackupContent="@xml/backup_descriptor">
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".StartUpActivity"
+            android:name=".Activities.StartUpActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CustomizeActivity"
+        <activity android:name=".Activities.CustomizeActivity"
             android:screenOrientation="landscape">
         </activity>
 
