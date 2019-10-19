@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".StartUpActivity"
+        <activity android:name=".Activities.StartUpActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CustomizeActivity"
+        <activity android:name=".Activities.CustomizeActivity"
             android:screenOrientation="landscape">
         </activity>
 

@@ -1,6 +1,6 @@
 package csc207.phase1.UTFantasy;
 
-abstract class Skill {
+public abstract class Skill {
 
     private int damage;
     private String status;

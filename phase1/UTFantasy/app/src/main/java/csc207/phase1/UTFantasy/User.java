@@ -1,5 +1,7 @@
 package csc207.phase1.UTFantasy;
 
+import csc207.phase1.UTFantasy.Character.Player;
+
 public class User {
 
     private String name;
