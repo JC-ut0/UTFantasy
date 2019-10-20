@@ -34,8 +34,8 @@
         <EditText
             android:id="@+id/pwd"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginBottom="286dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
             android:autofillHints=""
             android:hint="@string/password"
             android:inputType="text" />
@@ -58,16 +58,18 @@
 
     <TextView
         android:id="@+id/pop_up_message"
-        android:layout_width="250dp"
-        android:layout_height="116dp"
+        android:layout_width="252dp"
+        android:layout_height="65dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="199dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginBottom="99dp"
+        android:layout_marginTop="314dp"
+        android:layout_marginBottom="16dp"
         android:background="#DFD9D9"
+        android:backgroundTintMode="add"
         android:text="@string/account"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:visibility="gone"
         tools:visibility="visible" />
 
