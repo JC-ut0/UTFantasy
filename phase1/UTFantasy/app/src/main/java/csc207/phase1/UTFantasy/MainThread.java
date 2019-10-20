@@ -27,6 +27,7 @@ public class MainThread extends Thread {
                 canvas = surfaceHolder.lockCanvas();
                 mapView.update();
                 mapView.draw(canvas);
+                sleep(25);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {

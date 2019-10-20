@@ -1,13 +1,6 @@
 package csc207.phase1.UTFantasy.Character;
 
-import android.content.Intent;
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-
-import csc207.phase1.UTFantasy.MainActivity;
 
 public class Player extends Person implements Serializable{
     /**
@@ -15,21 +8,33 @@ public class Player extends Person implements Serializable{
      */
     private int money;
 
-    void setMoney(int money) {
-        this.money = money;
+    public Player(String name, String gender) {
+        super(name,gender);
+        this.money = 0;
+    }
+
+    public void move(String direction) {
+        switch (direction){
+            case("left"):
+                x -=1;
+                break;
+            case("right"):
+                x += 1;
+                break;
+            case("up"):
+                y -= 1;
+                break;
+            case("down"):
+                y +=1;
+                break;
+        }
     }
 
     int getMoney() {
         return money;
     }
 
-    public Player(String name, String gender) {
-        super(name,gender);
-        this.money = 0;
+    void setMoney(int money) {
+        this.money = money;
     }
-
-    void move() {
-    }
-
-
 }

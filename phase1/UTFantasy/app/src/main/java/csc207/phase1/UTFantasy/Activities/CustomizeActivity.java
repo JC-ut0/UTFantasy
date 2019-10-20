@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.MainActivity;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 

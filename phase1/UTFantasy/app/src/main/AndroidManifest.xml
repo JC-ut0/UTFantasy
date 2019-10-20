@@ -32,7 +32,7 @@
             android:screenOrientation="landscape">
         </activity>
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".Activities.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>

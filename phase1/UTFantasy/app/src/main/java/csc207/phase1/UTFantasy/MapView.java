@@ -1,6 +1,7 @@
 package csc207.phase1.UTFantasy;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -14,15 +15,7 @@ import csc207.phase1.UTFantasy.Character.Player;
 
 public class MapView extends SurfaceView implements SurfaceHolder.Callback {
 
-    public final Player player;
-
-    public static int getScreenWidth() {
-        return screenWidth;
-    }
-
-    public static int getScreenHeight() {
-        return screenHeight;
-    }
+    public Player player;
 
     /**
      * Screen width.
@@ -75,7 +68,7 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
 
         width = screenWidth / unitWidth;
         height = screenHeight / unitHeight;
-//        player.setLocation(width/2, height/2 );
+        player.setLocation(width/2, height/2 );
         mapManager = new MapManager(width, height, this);
         setFocusable(true);
     }
@@ -117,11 +110,21 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        mapManager.draw(canvas);
+        int screenX = width/2 - player.getX();
+        int screenY = height/2 - player.getY();
+        mapManager.draw(canvas, screenX, screenY);
     }
 
     public Bitmap getLawn() {
-        Bitmap lawn = BitmapFactory.decodeResource(getResources(), R.drawable.lawn);
-        return lawn;
+        return BitmapFactory.decodeResource(getResources(), R.drawable.lawn);
+    }
+
+    // it pronounces pikaCHOU
+    public Bitmap getPikachu() {
+        Bitmap pikachu = BitmapFactory.decodeResource(getResources(), R.drawable.pikachu);
+//        pikachu = pikachu.copy(Bitmap.Config.ARGB_8888, true);
+//        pikachu.setWidth(unitWidth);
+//        pikachu.setHeight(unitHeight);
+        return pikachu;
     }
 }

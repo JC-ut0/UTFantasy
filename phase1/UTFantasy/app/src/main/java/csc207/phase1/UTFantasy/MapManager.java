@@ -15,6 +15,11 @@ public class MapManager {
     ArrayList<UnitDraw> land;
 
     /**
+     * the 2-d list that represents the trees in this map
+     */
+    ArrayList<UnitDraw> trees;
+
+    /**
      * the width of the whole map
      */
     private int mapWidth = 50;
@@ -54,36 +59,32 @@ public class MapManager {
         this.height = h;
         land = new ArrayList<>();
         this.mapView = mapView;
-        Player player = mapView.player;
-        player.setLocation(width/2, height/2 );
     }
 
     void update(int x, int y) {
         ArrayList<UnitDraw> screenUnits = new ArrayList<>();
         for (UnitDraw unit : land) {
-            System.out.println("check one unit");
             if ((x - width / 2 < unit.x) && (unit.x < x + width / 2) &&
                     (y - height / 2 < unit.y) && (unit.y < y + height / 2)) {
                 screenUnits.add(unit);
             }
         }
         currentDraw = screenUnits;
-        System.out.println("length of currentdraw " + currentDraw.size());
     }
 
 
-    void draw(Canvas canvas) {
+    void draw(Canvas canvas, int screenX, int screenY) {
         for (UnitDraw unit : currentDraw) {
-            unit.draw(canvas);
+            unit.draw(canvas, screenX, screenY);
         }
     }
 
     public void addItems() {
-
         for (int a = 0; a < mapWidth; a++) {
             for (int b = 0; b < mapHeight; b++) {
                 land.add(new UnitDraw(mapView.getLawn(), a, b));
             }
         }
+        land.add(new UnitDraw(mapView.getPikachu(), 23, 12));
     }
 }

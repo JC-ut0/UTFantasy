@@ -32,9 +32,8 @@ public class UnitDraw {
     /**
      * draw this UnitDraw at its location
      */
-    void draw(Canvas canvas) {
-        canvas.drawBitmap(bitmap, x * MapView.unitWidth, y * MapView.unitHeight, null);
-        System.out.println("get drawed!");
+    void draw(Canvas canvas, int screenX, int screenY) {
+        canvas.drawBitmap(bitmap, (x + screenX) * MapView.unitWidth, (screenY + y) * MapView.unitHeight, null);
 
     }
 }
