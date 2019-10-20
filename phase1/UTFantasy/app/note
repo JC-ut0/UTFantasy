@@ -11,11 +11,16 @@ Completed Files: None
 # Step 2
 Add and implement MapView.java, MainThread.java, UnitDraw.java. Implement MainActivity.
 
-#######
+########
 # Step 3
 Add lawn.png
 
-#######
+########
 # Step 4
 Updated LoginActivity, now some exceptions will be caught.
 Updated FightActivity(halfWay)
+
+########
+# Step 5
+Implement walk functionality.
+Rewrite main_activity content form. Now formed as (FrameLayout(RelativeLayout(palette),mapView))
