@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
     android:paddingLeft="16dp"
+    android:paddingTop="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="16dp">
+    android:paddingBottom="16dp">
 
     <Button
         android:id="@+id/btn_register"
@@ -35,10 +35,9 @@
             android:id="@+id/pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
             android:autofillHints=""
             android:hint="@string/password"
-            android:inputType="text" />
+            android:inputType="textPassword" />
 
     </LinearLayout>
 
@@ -55,22 +54,5 @@
         android:layout_marginEnd="-357dp"
         android:layout_marginBottom="0dp"
         android:text="@string/login" />
-
-    <TextView
-        android:id="@+id/pop_up_message"
-        android:layout_width="252dp"
-        android:layout_height="65dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="199dp"
-        android:layout_marginTop="314dp"
-        android:layout_marginBottom="16dp"
-        android:background="#DFD9D9"
-        android:backgroundTintMode="add"
-        android:text="@string/account"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:visibility="gone"
-        tools:visibility="visible" />
 
 </RelativeLayout>

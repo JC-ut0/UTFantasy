@@ -3,20 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
     android:paddingLeft="16dp"
+    android:paddingTop="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="16dp">
+    android:paddingBottom="16dp">
 
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="146dp"
-        android:layout_height="72dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="150dp"
-        android:text="@string/register" />
 
     <LinearLayout
         android:layout_width="697dp"
@@ -43,6 +34,16 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_register"
+        android:layout_width="146dp"
+        android:layout_height="72dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="150dp"
+        android:text="@string/register" />
+
+    <Button
         android:id="@+id/btn_log"
         android:layout_width="146dp"
         android:layout_height="72dp"
@@ -51,9 +52,9 @@
         android:layout_alignEnd="@+id/btn_register"
         android:layout_alignBottom="@+id/btn_register"
         android:layout_marginStart="211dp"
-        android:layout_marginTop="-1dp"
-        android:layout_marginEnd="-185dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-221dp"
+        android:layout_marginBottom="0dp"
         android:text="@string/login" />
 
     <TextView
