@@ -24,3 +24,7 @@ Updated FightActivity(halfWay)
 # Step 5
 Implement walk functionality.
 Rewrite main_activity content form. Now formed as (FrameLayout(RelativeLayout(palette),mapView))
+
+########
+# Step 6
+add basic interaction of fight activity
