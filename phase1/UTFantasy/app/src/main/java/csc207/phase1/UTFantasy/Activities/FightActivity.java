@@ -11,6 +11,7 @@ import android.telecom.TelecomManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,10 +31,11 @@ public class FightActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fight);
 
         // the bottom layout
-        RelativeLayout bottomLayout = findViewById(R.id.bottom_layout);
+        LinearLayout bottomLayout = findViewById(R.id.bottom_layout);
 
         // skill section and menu section
-        final ConstraintLayout skillSection = findViewById(R.id.skillSection);
+        final LinearLayout fightBox = findViewById(R.id.fightBox);
+        final RelativeLayout skillSection = findViewById(R.id.skillSection);
         final FrameLayout menuSection = findViewById(R.id.menuSection);
 
         // instance of skill buttons
@@ -49,7 +51,7 @@ public class FightActivity extends AppCompatActivity {
         Button run = findViewById(R.id.run);
 
         // text view and corresponding layout
-        FrameLayout battleSection = findViewById(R.id.battleSection);
+        final FrameLayout battleSection = findViewById(R.id.battleSection);
         final TextView battleInfo = findViewById(R.id.battle_info);
         final FrameLayout skillInfoSection = findViewById(R.id.skillInformationSection);
         final TextView skillInfo = findViewById(R.id.skill_info);
@@ -70,6 +72,18 @@ public class FightActivity extends AppCompatActivity {
             }
         });
 
+        // implement menu buttons onClickListener
+        fight.setOnClickListener(new View.OnClickListener() {
+                                     @Override
+                                     public void onClick(View view) {
+                                         menuSection.setVisibility(View.GONE);
+                                         battleSection.setVisibility(View.GONE);
+                                         fightBox.setVisibility(View.VISIBLE);
+                                         clickable = false;
+                                     }
+                                 }
+        );
+
         // implement skill buttons onClickListener
         final View.OnClickListener skillClick = new View.OnClickListener() {
             @Override
@@ -88,9 +102,8 @@ public class FightActivity extends AppCompatActivity {
                         message("Skill four");
                         break;
                 }
-                skillInfoSection.setVisibility(View.GONE);
-                skillSection.setVisibility(View.GONE);
-                battleInfo.setVisibility(View.VISIBLE);
+                fightBox.setVisibility(View.GONE);
+                battleSection.setVisibility(View.VISIBLE);
                 clickable = true;
             }
         };
@@ -98,19 +111,6 @@ public class FightActivity extends AppCompatActivity {
         skill_2.setOnClickListener(skillClick);
         skill_3.setOnClickListener(skillClick);
         skill_4.setOnClickListener(skillClick);
-
-        // implement menu buttons onClickListener
-        fight.setOnClickListener(new View.OnClickListener() {
-                                     @Override
-                                     public void onClick(View view) {
-                                         menuSection.setVisibility(View.GONE);
-                                         battleInfo.setVisibility(View.GONE);
-                                         skillSection.setVisibility(View.VISIBLE);
-                                         skillInfoSection.setVisibility(View.VISIBLE);
-                                         clickable = false;
-                                     }
-                                 }
-        );
     }
 
     private void message(String str) {
