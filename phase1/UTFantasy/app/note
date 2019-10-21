@@ -29,7 +29,11 @@ Rewrite main_activity content form. Now formed as (FrameLayout(RelativeLayout(pa
 # Step 6
 add basic interaction of fight activity
 
-#######
+########
 # Step 7
 User can log in and register, all data will be stored to local (data.text)
 Issue: if User chooses to log in, he will get a new 'ET' player because the data of player is not stored locally.
+
+########
+# Step 8
+Correct fight action under fight activity, now this action can do basic function correctly
