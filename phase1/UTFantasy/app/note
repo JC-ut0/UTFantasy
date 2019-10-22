@@ -37,3 +37,10 @@ Issue: if User chooses to log in, he will get a new 'ET' player because the data
 ########
 # Step 8
 Correct fight action under fight activity, now this action can do basic function correctly
+
+########
+# Step 9
+Now we have a unique UserManager!!!!!!
+All data are stored locally! Pleas get User and Player from the unique UserManager!!!!
+Do not use getSerializableExtra any more, unless there is no other solution.
+Call UserManager's save(Context) method if you want to save the data locally!

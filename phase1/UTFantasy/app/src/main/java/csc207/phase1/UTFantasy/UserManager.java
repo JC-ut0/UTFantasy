@@ -1,25 +1,48 @@
 package csc207.phase1.UTFantasy;
 
+import android.content.Context;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
 /**
- * A class to manage all the Users. Will be initialized in the login activity.
+ * A Singleton class to manage all the Users. Will be initialized in the login activity.
  */
-public class UserManager {
+public class UserManager implements Serializable {
 
     /**
      * A static HashMap that keys are UserName, values are User instance.
      */
     private HashMap<String, User> userHashMap;
 
-    private String path;
+    private static UserManager userManager;
+
+    private String userFile = "user";
 
     /**
-     * Constructor of UserManager.
+     * Singleton Constructor of UserManager.
      */
-    public UserManager() {
+    private UserManager() {
+        // read local file, update the userHashMap
+    }
 
+    /**
+     * always return a same UserManager.
+     *
+     * @return a UserManager
+     */
+    public static UserManager getUserManager() {
+        if (userManager == null) {
+            userManager = new UserManager();
+        }
+        return userManager;
     }
 
     public boolean login(String name, String password) {
@@ -56,7 +79,32 @@ public class UserManager {
         this.userHashMap = userHashMap;
     }
 
-    void save() {
+    public void save(Context context) {
+        try {
+            FileOutputStream fos = context.openFileOutput(userFile, Context.MODE_PRIVATE);
+            ObjectOutputStream outputStream = new ObjectOutputStream(fos);
+            outputStream.writeObject(userHashMap);
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
+
+    public void loadUser(Context context) throws Exception {
+        try {
+            FileInputStream fis = context.openFileInput(userFile);
+            if (fis != null) {
+                ObjectInputStream inputStream = new ObjectInputStream(fis);
+                userHashMap = (HashMap<String, User>) inputStream.readObject();
+                if (userHashMap == null) userHashMap = new HashMap<>();
+                inputStream.close();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            userHashMap = new HashMap<>();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

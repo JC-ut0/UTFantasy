@@ -23,15 +23,24 @@ public class User implements Serializable {
         return name;
     }
 
-    public String getPassword() {
+    String getPassword() {
         return password;
+    }
+
+    /**
+     * return whether the User has a player.
+     *
+     * @return whether the User has a player.
+     */
+    public boolean hasPlayer() {
+        return player != null;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public  Player getPlayer() {
+    public Player getPlayer() {
         return player;
     }
 }

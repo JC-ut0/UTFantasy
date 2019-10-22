@@ -1,12 +1,8 @@
 package csc207.phase1.UTFantasy.Activities;
 
-import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,28 +10,42 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.MapView;
-import csc207.phase1.UTFantasy.R;
+import csc207.phase1.UTFantasy.UserManager;
 
 public class MainActivity extends AppCompatActivity {
 
     /**
      * the intent of MainActivity
      */
+    Intent intent;
 
     /**
      * the player
      */
     Player p;
 
+    /**
+     * The unique UserManager.
+     */
+    UserManager userManager = UserManager.getUserManager();
+
+    /**
+     * The name of the current User.
+     */
+    String username;
+
 
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        p = (Player) intent.getSerializableExtra("player");
+        intent = getIntent();
+        username = intent.getStringExtra("username");
+        p = userManager.getUser(username).getPlayer();
 
         MapView mapView = new MapView(this, p);
         FrameLayout frame = new FrameLayout(this);
