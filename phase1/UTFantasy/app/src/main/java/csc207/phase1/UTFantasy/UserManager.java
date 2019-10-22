@@ -28,13 +28,16 @@ public class UserManager implements Serializable {
 
     private static UserManager userManager;
 
-    private String userFile = "user";
+    private String userFile = "user.txt";
+
+    private String playerFile = "player.txt";
 
     /**
      * Singleton Constructor of UserManager.
      */
     private UserManager() {
         // read local file, update the userHashMap
+        userHashMap = new HashMap<>();
     }
 
     /**
@@ -86,13 +89,34 @@ public class UserManager implements Serializable {
     public void save(Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(userFile, Context.MODE_PRIVATE);
+            FileOutputStream playFos = context.openFileOutput(playerFile, Context.MODE_PRIVATE);
             ObjectOutputStream outputStream = new ObjectOutputStream(fos);
+            ObjectOutputStream playerOS = new ObjectOutputStream(playFos);
             outputStream.writeObject(userHashMap);
+            playerOS.writeObject(userManager);
             outputStream.close();
+            playerOS.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void loadUserManager(Context context) throws Exception {
+        try {
+            FileInputStream fis = context.openFileInput(playerFile);
+            if (fis != null) {
+                ObjectInputStream inputStream = new ObjectInputStream(fis);
+                userManager = (UserManager) inputStream.readObject();
+                if (userManager == null) userManager = new UserManager();
+                inputStream.close();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            message("FileReading problem, the userHashMap is set to be empty!", context);
+        }
     }
 
     public void loadUser(Context context) throws Exception {

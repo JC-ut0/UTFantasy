@@ -29,8 +29,9 @@ public class LoginActivity extends AppCompatActivity {
         final Button btn_log = findViewById(R.id.btn_log);
         final Button btn_register = findViewById(R.id.btn_register);
 
+        // firstly load the userManager
         try {
-            userManager.loadUser(LoginActivity.this);
+            userManager.loadUserManager(LoginActivity.this);
         } catch (Exception e) {
             e.printStackTrace();
         }

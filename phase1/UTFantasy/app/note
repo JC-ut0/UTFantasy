@@ -44,3 +44,7 @@ Now we have a unique UserManager!!!!!!
 All data are stored locally! Pleas get User and Player from the unique UserManager!!!!
 Do not use getSerializableExtra any more, unless there is no other solution.
 Call UserManager's save(Context) method if you want to save the data locally!
+
+#######
+# Step 10
+Changed Skill class to interface.
