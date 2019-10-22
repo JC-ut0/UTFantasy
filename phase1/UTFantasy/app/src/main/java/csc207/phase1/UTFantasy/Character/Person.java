@@ -2,19 +2,20 @@ package csc207.phase1.UTFantasy.Character;
 
 import java.util.ArrayList;
 
-import csc207.phase1.UTFantasy.Pokemon;
+import csc207.phase1.UTFantasy.Pet.Pokemon;
 
 class Person {
+    Person(){}
 
     Person(String name, String gender){
         this.name = name;
         this.gender = gender;
         this.bag = new ArrayList<>();
-        this.pokemon = new ArrayList<>();
+        this.pokemon = new ArrayList<Pokemon>();
     }
     /**
      * name of this person*/
-    private String name;
+    protected String name;
 
     String getName(){
         return name;
@@ -22,9 +23,9 @@ class Person {
 
     /**
      * first coordinate*/
-    private int x;
+    protected int x;
 
-    int getX(){
+    public int getX(){
         return x;
     }
     void set(int x){
@@ -32,48 +33,48 @@ class Person {
     }
     /**
      * second coordinate*/
-    private int y;
+    protected int y;
 
-    int getY(){
+    public int getY(){
         return y;
     }
-    void setY(int y){
+    public void setY(int y){
         this.y = y;
     }
     /**
      * gender of this person*/
-    private String gender;
+    protected String gender;
 
-    String getGender(){
+    public String getGender(){
         return gender;
     }
 
     /**
      * objects in this person's bag*/
-    private ArrayList<String> bag;
+    protected ArrayList<String> bag;
 
     ArrayList<String> getBag(){
         return bag;
     }
 
-    void setBag(String item){
+    public void setBag(String item){
         bag.add(item);
     }
 
     /**
      * pokemons this person has*/
-    private ArrayList<Pokemon> pokemon;
+    protected ArrayList<Pokemon> pokemon;
 
     ArrayList<Pokemon> getPokemon(){
         return pokemon;
     }
 
-    void setPokemon(Pokemon pokemon){
+    public void setPokemon(Pokemon pokemon){
         this.pokemon.add(pokemon);
     }
 
 
-    void setLocation(int x, int y){
+    public void setLocation(int x, int y){
         this.x = x;
         this.y = y;
     }

@@ -12,8 +12,10 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import csc207.phase1.UTFantasy.MainActivity;
+import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.R;
+import csc207.phase1.UTFantasy.User;
+import csc207.phase1.UTFantasy.UserManager;
 
 public class CustomizeActivity extends Activity {
 
@@ -30,6 +32,11 @@ public class CustomizeActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Intent login_intent = getIntent();
+        final UserManager userManager = UserManager.getUserManager();
+        final String username = login_intent.getStringExtra("username");
+        assert username != null;
+
         super.onCreate(savedInstanceState);
         // set the content view of this activity to activity_customize
         setContentView(R.layout.activity_customize);
@@ -79,8 +86,11 @@ public class CustomizeActivity extends Activity {
                     Intent intent = new Intent(CustomizeActivity.this, MainActivity.class);
 
                     // pass in name and gender to MainActivity
-                    intent = intent.putExtra("name", name);
-                    intent = intent.putExtra("gender", gender);
+                    Player player = new Player(name, gender);
+                    User user = userManager.getUser(username);
+                    user.setPlayer(player);
+                    userManager.save(CustomizeActivity.this);
+                    intent.putExtra("username", username);
 
                     // now go to main activity
                     startActivity(intent);

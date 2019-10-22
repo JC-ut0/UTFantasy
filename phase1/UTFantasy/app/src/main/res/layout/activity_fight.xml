@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.FightActivity">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginStart="0dp"
+        android:background="@drawable/fight_background">
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="731dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_box"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:id="@+id/battleSection"
+            android:layout_width="366dp"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/battle_info"
+                android:layout_width="240dp"
+                android:layout_height="98dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="114dp"
+                android:text="battle information..."
+                android:textColor="#FFFF"
+                android:textSize="25sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/menuSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/text_box"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/fight"
+                android:layout_width="163dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/transparent"
+                android:text="FIGHT"
+                android:textColor="#FFFF"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/bag"
+                android:layout_width="163dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="183dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/transparent"
+                android:text="BAG"
+                android:textColor="#FFFF"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/pokemon"
+                android:layout_width="163dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:background="@android:color/transparent"
+                android:text="POKEMON"
+                android:textColor="#FFFF"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/run"
+                android:layout_width="163dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="183dp"
+                android:layout_marginTop="50dp"
+                android:background="@android:color/transparent"
+                android:text="RUN"
+                android:textColor="#FFFF"
+                android:textSize="25sp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/fightBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:id="@+id/skillSection"
+                android:layout_width="488dp"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/skillInformationSection"
+                android:background="@drawable/text_box">
+
+                <Button
+                    android:id="@+id/skill_1"
+                    android:layout_width="219dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:text="skill1"
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/skill_2"
+                    android:layout_width="219dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="244dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:text="skill 2"
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/skill_3"
+                    android:layout_width="219dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@android:color/transparent"
+                    android:text="skill3"
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/skill_4"
+                    android:layout_width="219dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="244dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@android:color/transparent"
+                    android:text="skill4"
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/skillInformationSection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/text_box">
+
+                <TextView
+                    android:id="@+id/skill_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="113dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="skill information..."
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

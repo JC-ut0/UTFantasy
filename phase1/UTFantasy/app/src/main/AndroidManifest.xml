@@ -5,6 +5,7 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -12,7 +13,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".Activities.StartUpActivity"
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Activities.StartUpActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,12 +27,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.CustomizeActivity"
-            android:screenOrientation="landscape">
-        </activity>
+        <activity
+            android:name=".Activities.CustomizeActivity"
+            android:screenOrientation="landscape" />
 
-        <activity android:name=".MainActivity"
-            android:screenOrientation="landscape">
+        <activity
+            android:name=".Activities.MainActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity
+            android:name=".Activities.FightActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+
         </activity>
 
     </application>

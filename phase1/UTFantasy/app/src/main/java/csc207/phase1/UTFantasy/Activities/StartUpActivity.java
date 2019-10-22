@@ -29,12 +29,12 @@ public class StartUpActivity extends Activity {
             public void run() {
                 try{
                     // show the start up picture for 5 seconds
-                    sleep(5000);
+                    sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
                     // call the intent to go to next activity
-                    Intent intent = new Intent(StartUpActivity.this, CustomizeActivity.class);
+                    Intent intent = new Intent(StartUpActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
             }

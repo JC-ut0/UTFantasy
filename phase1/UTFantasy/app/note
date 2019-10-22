@@ -1,0 +1,46 @@
+########
+# Step 1
+Added note to the project.
+Construct a basic frame of the project.
+Now we have MainThread.
+Activities: MainActivity, StartupActivity(done), LoginActivity(halfWay), CustomizeActivity(halfWay), FightActivity, ShopActivity, MenuActivity.
+Managers: UserManager (more later, FightManager, MenuManager)
+Completed Files: None
+
+########
+# Step 2
+Add and implement MapView.java, MainThread.java, UnitDraw.java. Implement MainActivity.
+
+########
+# Step 3
+Add lawn.png
+
+########
+# Step 4
+Updated LoginActivity, now some exceptions will be caught.
+Updated FightActivity(halfWay)
+
+########
+# Step 5
+Implement walk functionality.
+Rewrite main_activity content form. Now formed as (FrameLayout(RelativeLayout(palette),mapView))
+
+########
+# Step 6
+add basic interaction of fight activity
+
+########
+# Step 7
+User can log in and register, all data will be stored to local (data.text)
+Issue: if User chooses to log in, he will get a new 'ET' player because the data of player is not stored locally.
+
+########
+# Step 8
+Correct fight action under fight activity, now this action can do basic function correctly
+
+########
+# Step 9
+Now we have a unique UserManager!!!!!!
+All data are stored locally! Pleas get User and Player from the unique UserManager!!!!
+Do not use getSerializableExtra any more, unless there is no other solution.
+Call UserManager's save(Context) method if you want to save the data locally!

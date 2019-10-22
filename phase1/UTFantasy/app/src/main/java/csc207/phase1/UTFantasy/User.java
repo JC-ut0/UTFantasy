@@ -1,8 +1,10 @@
 package csc207.phase1.UTFantasy;
 
+import java.io.Serializable;
+
 import csc207.phase1.UTFantasy.Character.Player;
 
-public class User {
+public class User implements Serializable {
 
     private String name;
     private String password;
@@ -21,8 +23,17 @@ public class User {
         return name;
     }
 
-    public String getPassword() {
+    String getPassword() {
         return password;
+    }
+
+    /**
+     * return whether the User has a player.
+     *
+     * @return whether the User has a player.
+     */
+    public boolean hasPlayer() {
+        return player != null;
     }
 
     public void setPassword(String password) {
