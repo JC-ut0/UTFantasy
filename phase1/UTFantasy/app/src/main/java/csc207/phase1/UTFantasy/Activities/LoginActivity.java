@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    message("Erro:" + e);
                 }
             }
         });
@@ -95,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     class ImproperUserSettingException extends Exception {
-        // ToDO: complete this Exception when the user typed Improper User name of password.
         ImproperUserSettingException() {
         }
 

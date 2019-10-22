@@ -2,6 +2,8 @@ package csc207.phase1.UTFantasy;
 
 import android.content.Context;
 
+import androidx.appcompat.app.AlertDialog;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,6 +13,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
+
+import csc207.phase1.UTFantasy.Activities.LoginActivity;
 
 /**
  * A Singleton class to manage all the Users. Will be initialized in the login activity.
@@ -105,6 +109,16 @@ public class UserManager implements Serializable {
             userHashMap = new HashMap<>();
         } catch (IOException e) {
             e.printStackTrace();
+            message("FileReading problem, the userHashMap is set to be empty!", context);
+            userHashMap = new HashMap<>();
         }
+    }
+
+    private void message(String str, Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("UT Fantasy");
+        builder.setMessage(str);
+        builder.setPositiveButton("OK", null);
+        builder.show();
     }
 }
