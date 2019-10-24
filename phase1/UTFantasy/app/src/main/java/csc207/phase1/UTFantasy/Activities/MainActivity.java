@@ -108,21 +108,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 p.move("left");
-                System.out.println("left");
             }
         });
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 p.move("right");
-                System.out.println("right");
             }
         });
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 p.move("up");
-                System.out.println("up");
             }
         });
         downButton.setOnClickListener(new View.OnClickListener() {

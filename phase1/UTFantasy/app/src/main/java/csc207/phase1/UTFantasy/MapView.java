@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -20,11 +21,11 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
     /**
      * Screen width.
      */
-    static private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+    static int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
     /**
      * Screen height.
      */
-    static private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+    static int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
     /**
      * the largest x value of the screen coordinate system
@@ -61,15 +62,15 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
         this.player = p;
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
-        Bitmap lawn = getLawn();
 
-        unitWidth = lawn.getWidth();
-        unitHeight = lawn.getHeight();
+        unitWidth = 88;
+        unitHeight = 88;
 
-        width = screenWidth / unitWidth;
-        height = screenHeight / unitHeight;
-        player.setLocation(width/2, height/2 );
+        width = 31;
+        height = 17;
+        player.setLocation(16, 9);
         mapManager = new MapManager(width, height, this);
+        player.mapManager = mapManager;
         setFocusable(true);
     }
 
@@ -110,21 +111,40 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        int screenX = width/2 - player.getX();
-        int screenY = height/2 - player.getY();
+        int screenX = width / 2 - player.getX();
+        int screenY = height / 2 - player.getY();
         mapManager.draw(canvas, screenX, screenY);
     }
 
     public Bitmap getLawn() {
-        return BitmapFactory.decodeResource(getResources(), R.drawable.lawn);
+        Bitmap lawn = BitmapFactory.decodeResource(getResources(), R.drawable.lawn);
+        int width = lawn.getWidth();
+        int height = lawn.getHeight();
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        matrix.postScale((float) 1.5, (float) 1.5);
+
+        // resize lawn
+        lawn = Bitmap.createBitmap(
+                lawn, 0, 0, width, height, matrix, false);
+        return lawn;
     }
 
-    // it pronounces pikaCHOU
-    public Bitmap getPikachu() {
-        Bitmap pikachu = BitmapFactory.decodeResource(getResources(), R.drawable.pikachu);
-//        pikachu = pikachu.copy(Bitmap.Config.ARGB_8888, true);
-//        pikachu.setWidth(unitWidth);
-//        pikachu.setHeight(unitHeight);
-        return pikachu;
+    public Bitmap getTree() {
+        Bitmap tree = BitmapFactory.decodeResource(getResources(), R.drawable.tree);
+        return tree;
+    }
+
+    public Bitmap getPlayerDownDirection(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.player_down);
+    }
+    public Bitmap getPlayerUpDirection(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.player_up);
+    }
+    public Bitmap getPlayerLeftDirection(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.player_left);
+    }
+    public Bitmap getPlayerRightDirection(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.player_right);
     }
 }
