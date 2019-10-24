@@ -89,7 +89,7 @@ public class CustomizeActivity extends Activity {
                     Player player = new Player(name, gender);
                     User user = userManager.getUser(username);
                     user.setPlayer(player);
-                    userManager.save(CustomizeActivity.this);
+                    userManager.saveUserManager(CustomizeActivity.this);
                     intent.putExtra("username", username);
 
                     // now go to main activity

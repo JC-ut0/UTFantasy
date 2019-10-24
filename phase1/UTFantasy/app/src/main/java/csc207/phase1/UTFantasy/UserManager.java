@@ -52,12 +52,14 @@ public class UserManager implements Serializable {
         return userManager;
     }
 
-    public boolean login(String name, String password) {
+    public User login(String name, String password) {
         if (userHashMap.containsKey(name)) {
             String pwd = Objects.requireNonNull(userHashMap.get(name)).getPassword();
-            return password.equals(pwd);
+            if (password.equals(pwd)){
+                return userHashMap.get(name);
+            }
         }
-        return false;
+        return null;
     }
 
     public User register(String name, String password) {
@@ -86,7 +88,7 @@ public class UserManager implements Serializable {
         this.userHashMap = userHashMap;
     }
 
-    public void save(Context context) {
+    public void saveUserManager(Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(userFile, Context.MODE_PRIVATE);
             FileOutputStream playFos = context.openFileOutput(playerFile, Context.MODE_PRIVATE);
@@ -116,25 +118,6 @@ public class UserManager implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
             message("FileReading problem, the userHashMap is set to be empty!", context);
-        }
-    }
-
-    public void loadUser(Context context) throws Exception {
-        try {
-            FileInputStream fis = context.openFileInput(userFile);
-            if (fis != null) {
-                ObjectInputStream inputStream = new ObjectInputStream(fis);
-                userHashMap = (HashMap<String, User>) inputStream.readObject();
-                if (userHashMap == null) userHashMap = new HashMap<>();
-                inputStream.close();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            userHashMap = new HashMap<>();
-        } catch (IOException e) {
-            e.printStackTrace();
-            message("FileReading problem, the userHashMap is set to be empty!", context);
-            userHashMap = new HashMap<>();
         }
     }
 

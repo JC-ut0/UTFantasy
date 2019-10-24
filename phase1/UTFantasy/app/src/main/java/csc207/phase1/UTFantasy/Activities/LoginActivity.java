@@ -53,11 +53,12 @@ public class LoginActivity extends AppCompatActivity {
                     message("Error:" + e);
                 }
                 // login if loop
-                if (userManager.login(accountStr, passwordStr)) {
-                    logInAction();
-                } else {
+                User user = userManager.login(accountStr, passwordStr);
+                if (user == null){
                     // log in failed . pop up a window shows failure.
                     message("@string/account or password is not correct!");
+                } else {
+                    logInAction(user);
                 }
             }
         });
@@ -116,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
     private void newPlayerAction() {
         // this is a new user, saveFile the info of this user, go to set up activity
         User user = userManager.register(accountStr, passwordStr);
-        userManager.save(LoginActivity.this);
+        userManager.saveUserManager(LoginActivity.this);
         Intent register_intent = new Intent(LoginActivity.this, CustomizeActivity.class);
         // prevent User coming back to this activity!
         register_intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -124,9 +125,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(register_intent);
     }
 
-    private void logInAction() {
+    private void logInAction(User user) {
         // log in succeeded. pop up a window shows success. Get user Id here.
-        User user = userManager.getUser(accountStr);
         if (user.hasPlayer()) {
             // go to MainActivity after logged in
             Intent login_intent = new Intent(LoginActivity.this, MainActivity.class);

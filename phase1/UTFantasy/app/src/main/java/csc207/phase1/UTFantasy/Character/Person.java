@@ -1,10 +1,11 @@
 package csc207.phase1.UTFantasy.Character;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 
-class Person {
+class Person implements Serializable {
     Person(){}
 
     Person(String name, String gender){
