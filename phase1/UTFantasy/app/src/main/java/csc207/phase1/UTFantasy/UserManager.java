@@ -28,13 +28,16 @@ public class UserManager implements Serializable {
 
     private static UserManager userManager;
 
-    private String userFile = "user";
+    private String userFile = "user.txt";
+
+    private String playerFile = "player.txt";
 
     /**
      * Singleton Constructor of UserManager.
      */
     private UserManager() {
         // read local file, update the userHashMap
+        userHashMap = new HashMap<>();
     }
 
     /**
@@ -49,12 +52,14 @@ public class UserManager implements Serializable {
         return userManager;
     }
 
-    public boolean login(String name, String password) {
+    public User login(String name, String password) {
         if (userHashMap.containsKey(name)) {
             String pwd = Objects.requireNonNull(userHashMap.get(name)).getPassword();
-            return password.equals(pwd);
+            if (password.equals(pwd)){
+                return userHashMap.get(name);
+            }
         }
-        return false;
+        return null;
     }
 
     public User register(String name, String password) {
@@ -83,34 +88,36 @@ public class UserManager implements Serializable {
         this.userHashMap = userHashMap;
     }
 
-    public void save(Context context) {
+    public void saveUserManager(Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(userFile, Context.MODE_PRIVATE);
+            FileOutputStream playFos = context.openFileOutput(playerFile, Context.MODE_PRIVATE);
             ObjectOutputStream outputStream = new ObjectOutputStream(fos);
+            ObjectOutputStream playerOS = new ObjectOutputStream(playFos);
             outputStream.writeObject(userHashMap);
+            playerOS.writeObject(userManager);
             outputStream.close();
+            playerOS.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    public void loadUser(Context context) throws Exception {
+    public void loadUserManager(Context context) throws Exception {
         try {
-            FileInputStream fis = context.openFileInput(userFile);
+            FileInputStream fis = context.openFileInput(playerFile);
             if (fis != null) {
                 ObjectInputStream inputStream = new ObjectInputStream(fis);
-                userHashMap = (HashMap<String, User>) inputStream.readObject();
-                if (userHashMap == null) userHashMap = new HashMap<>();
+                userManager = (UserManager) inputStream.readObject();
+                if (userManager == null) userManager = new UserManager();
                 inputStream.close();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            userHashMap = new HashMap<>();
         } catch (IOException e) {
             e.printStackTrace();
             message("FileReading problem, the userHashMap is set to be empty!", context);
-            userHashMap = new HashMap<>();
         }
     }
 

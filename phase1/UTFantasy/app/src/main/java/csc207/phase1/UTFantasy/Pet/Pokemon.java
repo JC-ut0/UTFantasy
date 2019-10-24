@@ -7,57 +7,67 @@ import csc207.phase1.UTFantasy.AllSkills.Skill;
 public abstract class Pokemon {
 
     /**
-     * first coordinate*/
-    private int x;
+     * first coordinate
+     */
+    protected int x;
     /**
-     * second coordinate*/
-    private int y;
+     * second coordinate
+     */
+    protected int y;
     /**
      * skills this pokemon have
-     * there are four different skills*/
-    private Skill[] skills;
+     * there are four different skills
+     */
+    protected Skill[] skills = new Skill[4];
     /**
-     * level of this pokemon*/
-    private int level;
+     * level of this pokemon
+     */
+    protected int level;
     /**
-     * status of this pokemon*/
-    private String status;
+     * status of this pokemon
+     */
+    protected String status;
     /**
-     * health point of this pokemon*/
-    private int HP;
+     * health point of this pokemon
+     */
+    protected int HP;
     /**
-     * experience this pokemon has*/
-    private int EXP;
+     * experience this pokemon has
+     */
+    protected int EXP;
     /**
-     * person that this pokemon belongs to*/
-    private Person master;
+     * person that this pokemon belongs to
+     */
+    protected Person master;
 
-    Pokemon(){
+    Pokemon() {
         this.level = 1;
         this.EXP = 0;
     }
 
 
-    int getX(){
+    int getX() {
         return x;
     }
-    void set(int x){
+
+    public void setX(int x) {
         this.x = x;
     }
 
-    int getY(){
+    int getY() {
         return y;
     }
-    void setY(int y){
+
+    void setY(int y) {
         this.y = y;
     }
 
-    void setLocation(int x, int y){
+    void setLocation(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    int getLevel(){
+    int getLevel() {
         return level;
     }
 
@@ -65,17 +75,19 @@ public abstract class Pokemon {
         this.level = level;
     }
 
-    void setStatus(String status){
+    void setStatus(String status) {
         this.status = status;
     }
-    String getStatus(){
+
+    String getStatus() {
         return status;
     }
 
-    void setHP(int hp){
+    void setHP(int hp) {
         HP = hp;
     }
-    int getHP(){
+
+    int getHP() {
         return HP;
     }
 

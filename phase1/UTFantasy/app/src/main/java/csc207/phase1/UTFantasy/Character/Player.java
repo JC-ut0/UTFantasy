@@ -1,8 +1,6 @@
 package csc207.phase1.UTFantasy.Character;
 
-import java.io.Serializable;
-
-public class Player extends Person implements Serializable{
+public class Player extends Person {
     /**
      * the amount this player has
      */
