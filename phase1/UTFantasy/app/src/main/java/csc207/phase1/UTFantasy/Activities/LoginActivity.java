@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.R;
@@ -45,18 +44,18 @@ public class LoginActivity extends AppCompatActivity {
                     accountStr = account.getText().toString().trim();
                     passwordStr = pwd.getText().toString().trim();
                     if (accountStr.equals("")) {
-                        message("Please Enter your Account");
+                        userManager.message("Please Enter your Account", LoginActivity.this);
                     } else if (passwordStr.equals("")) {
-                        message("Please Enter your Password");
+                        userManager.message("Please Enter your Password", LoginActivity.this);
                     }
                 } catch (Exception e) {
-                    message("Error:" + e);
+                    userManager.message("Error:" + e, LoginActivity.this);
                 }
                 // login if loop
                 User user = userManager.login(accountStr, passwordStr);
                 if (user == null){
                     // log in failed . pop up a window shows failure.
-                    message("@string/account or password is not correct!");
+                    userManager.message("@string/account or password is not correct!", LoginActivity.this);
                 } else {
                     logInAction(user);
                 }
@@ -80,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else if (accountStr.contains(";")) {
                         throw new ImproperUserSettingException("Invalid punctuation is used.");
                     } else if (userManager.getUserHashMap().containsKey(accountStr)) {
-                        message("The UserName is used.");
+                        userManager.message("The UserName is used.", LoginActivity.this);
                     } else if (accountStr.contains("\n")) {
                         throw new ImproperUserSettingException("Invalid punctuation is used.");
                     } else if (accountStr.contains("fuck")) {
@@ -90,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    message("Erro:" + e);
+                    userManager.message("Error:" + e, LoginActivity.this);
                 }
             }
         });
@@ -99,19 +98,12 @@ public class LoginActivity extends AppCompatActivity {
 
     class ImproperUserSettingException extends Exception {
         ImproperUserSettingException() {
+            super();
         }
 
         ImproperUserSettingException(String str) {
             super(str);
         }
-    }
-
-    private void message(String str) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-        builder.setTitle("UT Fantasy");
-        builder.setMessage(str);
-        builder.setPositiveButton("OK", null);
-        builder.show();
     }
 
     private void newPlayerAction() {

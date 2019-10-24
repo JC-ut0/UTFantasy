@@ -7,5 +7,8 @@ public class HealerNPC extends NPC {
         super(name, gender);
     }
 
-    void heal(){}
+    /**
+     * HealerNPC's ability is heal.
+     */
+    void ability(){}
 }

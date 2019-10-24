@@ -7,6 +7,8 @@ public class SalerNPC extends NPC {
         super(name, gender);
     }
 
-    void trade(){}
-
+    /**
+     * HealerNPC's ability is Trade.
+     */
+    void ability(){}
 }
