@@ -1,6 +1,7 @@
 package csc207.phase1.UTFantasy;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -28,15 +29,12 @@ public class UserManager implements Serializable {
 
     private static UserManager userManager;
 
-    private String userFile = "user.txt";
-
-    private String playerFile = "player.txt";
+    private String userFile = "user";
 
     /**
      * Singleton Constructor of UserManager.
      */
     private UserManager() {
-        // read local file, update the userHashMap
         userHashMap = new HashMap<>();
     }
 
@@ -55,7 +53,7 @@ public class UserManager implements Serializable {
     public User login(String name, String password) {
         if (userHashMap.containsKey(name)) {
             String pwd = Objects.requireNonNull(userHashMap.get(name)).getPassword();
-            if (password.equals(pwd)){
+            if (password.equals(pwd)) {
                 return userHashMap.get(name);
             }
         }
@@ -75,8 +73,19 @@ public class UserManager implements Serializable {
         return null;
     }
 
-    void logout() {
-
+    /**
+     * Save the current User's file, logout and got to LoginActivity.
+     *
+     * @param context The Context that calls this logout method.
+     */
+    void logout(Context context) {
+        // save file first
+        saveUserManager(context);
+        // go back to User Activity from the current Activity
+        Intent intent = new Intent(context, LoginActivity.class);
+        // prevent User coming back to this activity!
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
 
@@ -91,13 +100,9 @@ public class UserManager implements Serializable {
     public void saveUserManager(Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(userFile, Context.MODE_PRIVATE);
-            FileOutputStream playFos = context.openFileOutput(playerFile, Context.MODE_PRIVATE);
             ObjectOutputStream outputStream = new ObjectOutputStream(fos);
-            ObjectOutputStream playerOS = new ObjectOutputStream(playFos);
-            outputStream.writeObject(userHashMap);
-            playerOS.writeObject(userManager);
+            outputStream.writeObject(userManager);
             outputStream.close();
-            playerOS.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -106,11 +111,12 @@ public class UserManager implements Serializable {
 
     public void loadUserManager(Context context) throws Exception {
         try {
-            FileInputStream fis = context.openFileInput(playerFile);
+            FileInputStream fis = context.openFileInput(userFile);
             if (fis != null) {
                 ObjectInputStream inputStream = new ObjectInputStream(fis);
-                userManager = (UserManager) inputStream.readObject();
-                if (userManager == null) userManager = new UserManager();
+                UserManager localUserManager = (UserManager) inputStream.readObject();
+                userHashMap = localUserManager.userHashMap;
+                if (userHashMap == null) userHashMap = new HashMap<>();
                 inputStream.close();
             }
         } catch (FileNotFoundException e) {
@@ -121,10 +127,10 @@ public class UserManager implements Serializable {
         }
     }
 
-    private void message(String str, Context context) {
+    public void message(String message, Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("UT Fantasy");
-        builder.setMessage(str);
+        builder.setMessage(message);
         builder.setPositiveButton("OK", null);
         builder.show();
     }
