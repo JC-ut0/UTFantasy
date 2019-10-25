@@ -43,8 +43,8 @@ public class MenuActivity extends AppCompatActivity {
                 Toast.makeText(MenuActivity.this, items[position], Toast.LENGTH_SHORT).show();
             }
         });
-        listView1.setVisibility(View.INVISIBLE);
-//        listView2.setVisibility(View.INVISIBLE);
+//        listView1.setVisibility(View.INVISIBLE);
+        listView2.setVisibility(View.INVISIBLE);
 
         ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
