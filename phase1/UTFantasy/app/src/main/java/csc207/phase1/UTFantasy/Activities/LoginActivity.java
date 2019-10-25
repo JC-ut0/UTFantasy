@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,21 +42,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // exceptions we need to consider
                 try {
-                    accountStr = account.getText().toString().trim();
-                    passwordStr = pwd.getText().toString().trim();
-                    if (accountStr.equals("")) {
-                        userManager.message("Please Enter your Account", LoginActivity.this);
-                    } else if (passwordStr.equals("")) {
-                        userManager.message("Please Enter your Password", LoginActivity.this);
-                    }
+                    nonEmptyAccountOrPassword();
                 } catch (Exception e) {
-                    userManager.message("Error:" + e, LoginActivity.this);
+                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
                 }
-                // login if loop
+                // login if
                 User user = userManager.login(accountStr, passwordStr);
-                if (user == null){
+                if (user == null) {
                     // log in failed . pop up a window shows failure.
-                    userManager.message("@string/account or password is not correct!", LoginActivity.this);
+                    Toast.makeText(LoginActivity.this, "@string/account or password is not correct!", Toast.LENGTH_LONG).show();
                 } else {
                     logInAction(user);
                 }
@@ -66,33 +61,47 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // when register button is clicked
                 try {
-                    accountStr = account.getText().toString().trim();
-                    passwordStr = pwd.getText().toString().trim();
-                    if (accountStr.equals("")) {
-                        throw new ImproperUserSettingException("Please Enter your Account");
-                    } else if (passwordStr.equals("")) {
-                        throw new ImproperUserSettingException("Please Enter your Password");
-                    } else if (passwordStr.length() < 6) {
-                        throw new ImproperUserSettingException("Your Password need to have at least 6 letters.");
-                    } else if (passwordStr.contains(";")) {
-                        throw new ImproperUserSettingException("Invalid punctuation is used.");
-                    } else if (accountStr.contains(";")) {
-                        throw new ImproperUserSettingException("Invalid punctuation is used.");
-                    } else if (userManager.getUserHashMap().containsKey(accountStr)) {
-                        userManager.message("The UserName is used.", LoginActivity.this);
-                    } else if (accountStr.contains("\n")) {
-                        throw new ImproperUserSettingException("Invalid punctuation is used.");
-                    } else if (accountStr.contains("fuck")) {
-                        throw new ImproperUserSettingException("Please be polite!");
-                    } else {
-                        newPlayerAction();
-                    }
+                    validateUsernameAndPassword();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    userManager.message("Error:" + e, LoginActivity.this);
+                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    private void nonEmptyAccountOrPassword() {
+        accountStr = account.getText().toString().trim();
+        passwordStr = pwd.getText().toString().trim();
+        if (accountStr.equals("")) {
+            Toast.makeText(LoginActivity.this, "Please Enter your Account", Toast.LENGTH_LONG).show();
+        } else if (passwordStr.equals("")) {
+            Toast.makeText(LoginActivity.this, "Please Enter your Password", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void validateUsernameAndPassword() throws ImproperUserSettingException {
+        accountStr = account.getText().toString().trim();
+        passwordStr = pwd.getText().toString().trim();
+        if (accountStr.equals("")) {
+            throw new ImproperUserSettingException("Please Enter your Account");
+        } else if (passwordStr.equals("")) {
+            throw new ImproperUserSettingException("Please Enter your Password");
+        } else if (passwordStr.length() < 6) {
+            throw new ImproperUserSettingException("Your Password need to have at least 6 letters.");
+        } else if (passwordStr.contains(";")) {
+            throw new ImproperUserSettingException("Invalid punctuation is used.");
+        } else if (accountStr.contains(";")) {
+            throw new ImproperUserSettingException("Invalid punctuation is used.");
+        } else if (userManager.getUserHashMap().containsKey(accountStr)) {
+            Toast.makeText(LoginActivity.this, "The UserName is used.", Toast.LENGTH_LONG).show();
+        } else if (accountStr.contains("\n")) {
+            throw new ImproperUserSettingException("Invalid punctuation is used.");
+        } else if (accountStr.contains("fuck")) {
+            throw new ImproperUserSettingException("Please be polite!");
+        } else {
+            newPlayerAction();
+        }
     }
 
 

@@ -21,7 +21,6 @@ import csc207.phase1.UTFantasy.Activities.LoginActivity;
  * A Singleton class to manage all the Users. Will be initialized in the login activity.
  */
 public class UserManager implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     /**
      * A static HashMap that keys are UserName, values are User instance.
@@ -30,13 +29,12 @@ public class UserManager implements Serializable {
 
     private static UserManager userManager;
 
-    private String userFile = "user.txt";
+    private String userFile = "user";
 
     /**
      * Singleton Constructor of UserManager.
      */
     private UserManager() {
-        // read local file, update the userHashMap
         userHashMap = new HashMap<>();
     }
 
@@ -116,8 +114,9 @@ public class UserManager implements Serializable {
             FileInputStream fis = context.openFileInput(userFile);
             if (fis != null) {
                 ObjectInputStream inputStream = new ObjectInputStream(fis);
-                userManager = (UserManager) inputStream.readObject();
-                if (userManager == null) userManager = new UserManager();
+                UserManager localUserManager = (UserManager) inputStream.readObject();
+                userHashMap = localUserManager.userHashMap;
+                if (userHashMap == null) userHashMap = new HashMap<>();
                 inputStream.close();
             }
         } catch (FileNotFoundException e) {
