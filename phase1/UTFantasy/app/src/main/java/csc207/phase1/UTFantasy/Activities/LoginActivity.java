@@ -30,11 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button btn_register = findViewById(R.id.btn_register);
 
         // firstly load the userManager
-        try {
-            userManager.loadUserManager(LoginActivity.this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        userManager.loadUserManager(LoginActivity.this);
 
         // when log in button is clicked
         btn_log.setOnClickListener(new View.OnClickListener() {

@@ -1,7 +1,6 @@
 package csc207.phase1.UTFantasy;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -11,6 +10,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import csc207.phase1.UTFantasy.Character.Player;
+import csc207.phase1.UTFantasy.Pet.Pikachu;
 
 
 public class MapView extends SurfaceView implements SurfaceHolder.Callback {
@@ -68,7 +68,7 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
 
         width = screenWidth / unitWidth;
         height = screenHeight / unitHeight;
-        player.setLocation(width/2, height/2 );
+        player.setLocation(width / 2, height / 2);
         mapManager = new MapManager(width, height, this);
         setFocusable(true);
     }
@@ -82,7 +82,6 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
 
         mapManager.addItems();
-
         thread.setRunning(true);
         thread.start();
     }
@@ -110,8 +109,8 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        int screenX = width/2 - player.getX();
-        int screenY = height/2 - player.getY();
+        int screenX = width / 2 - player.getX();
+        int screenY = height / 2 - player.getY();
         mapManager.draw(canvas, screenX, screenY);
     }
 
@@ -119,12 +118,12 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
         return BitmapFactory.decodeResource(getResources(), R.drawable.lawn);
     }
 
-    // it pronounces pikaCHOU
     public Bitmap getPikachu() {
-        Bitmap pikachu = BitmapFactory.decodeResource(getResources(), R.drawable.pikachu);
-//        pikachu = pikachu.copy(Bitmap.Config.ARGB_8888, true);
-//        pikachu.setWidth(unitWidth);
-//        pikachu.setHeight(unitHeight);
-        return pikachu;
+        System.out.println(Pikachu.getProfile_id());
+        return BitmapFactory.decodeResource(getResources(), Pikachu.getProfile_id());
+    }
+
+    public Bitmap getTree() {
+        return BitmapFactory.decodeResource(getResources(), R.drawable.tree);
     }
 }
