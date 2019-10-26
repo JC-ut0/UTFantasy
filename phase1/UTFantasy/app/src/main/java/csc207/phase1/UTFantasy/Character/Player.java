@@ -1,6 +1,9 @@
 package csc207.phase1.UTFantasy.Character;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import csc207.phase1.UTFantasy.Products.Product;
 
 public class Player extends Person implements Serializable{
     /**
@@ -36,5 +39,11 @@ public class Player extends Person implements Serializable{
 
     void setMoney(int money) {
         this.money = money;
+    }
+
+    void addAll(ArrayList<Product> arr){
+        for (int i = 0; i < arr.size(); i++){
+            setBag(arr.get(i));
+        }
     }
 }

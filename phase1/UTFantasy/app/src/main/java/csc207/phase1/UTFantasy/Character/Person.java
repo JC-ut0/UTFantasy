@@ -3,6 +3,7 @@ package csc207.phase1.UTFantasy.Character;
 import java.util.ArrayList;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
+import csc207.phase1.UTFantasy.Products.Product;
 
 class Person {
     Person(){}
@@ -10,7 +11,7 @@ class Person {
     Person(String name, String gender){
         this.name = name;
         this.gender = gender;
-        this.bag = new ArrayList<>();
+        this.bag = new ArrayList<Product>();
         this.pokemon = new ArrayList<Pokemon>();
     }
     /**
@@ -51,13 +52,13 @@ class Person {
 
     /**
      * objects in this person's bag*/
-    protected ArrayList<String> bag;
+    protected ArrayList<Product> bag;
 
-    ArrayList<String> getBag(){
+    ArrayList<Product> getBag(){
         return bag;
     }
 
-    public void setBag(String item){
+    public void setBag(Product item){
         bag.add(item);
     }
 

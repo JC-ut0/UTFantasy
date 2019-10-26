@@ -7,5 +7,5 @@ public class HealerNPC extends NPC {
         super(name, gender);
     }
 
-    void heal(){}
+    void function(){}
 }

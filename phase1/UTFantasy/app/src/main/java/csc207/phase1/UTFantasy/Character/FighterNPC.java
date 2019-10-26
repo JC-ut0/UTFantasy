@@ -5,5 +5,5 @@ public class FighterNPC extends NPC {
         super(name, gender);
     }
 
-    void move(){}
+    void function(){}
 }
