@@ -26,9 +26,9 @@ import csc207.phase1.UTFantasy.UserManager;
 
 public class ShopActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
     SalerNPC alice = SalerNPC.getAlice();
-    private PinkPotion PinkP = new PinkPotion();
-    private RedPotion RP = new RedPotion();
-    private PurplePotion PurpleP = new PurplePotion();
+    PinkPotion PinkP = PinkPotion.getPink();
+    RedPotion RP = RedPotion.getRed();
+    PurplePotion PurpleP = PurplePotion.getPurple();
     int num;
     Product product;
     Intent intent;
@@ -43,9 +43,9 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
-        intent = getIntent();
-        username = intent.getStringExtra("username");
-        player = userManager.getUser(username).getPlayer();
+//        intent = getIntent();
+//        username = intent.getStringExtra("username");
+//        player = userManager.getUser(username).getPlayer();
 
 
         final Button button1 = findViewById(R.id.choose_red);
@@ -53,15 +53,15 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         final Button button3 = findViewById(R.id.choose_purple);
         final ImageButton button4 = findViewById(R.id.back_to_main);
 
-//        if (true) {
-//            UserManager userManager = UserManager.getUserManager();
-//            userManager.message("Create a new User", ShopActivity.this);
-//            User user = new User("2", "123456");
-//            user.setPlayer(new Player("ET", "ET"));
+        if (true) {
+            UserManager userManager = UserManager.getUserManager();
+            userManager.message("Create a new User", ShopActivity.this);
+            User user = new User("2", "123456");
+            user.setPlayer(new Player("ET", "ET"));
 //            user.getPlayer().addPokemon(new Pikachu());
-//            player = user.getPlayer();
-//            player.setMoney(1000);
-//        }
+            player = user.getPlayer();
+            player.setMoney(1000);
+        }
         moneyLeft = player.getMoney();
 
         money = findViewById(R.id.money);
@@ -114,10 +114,10 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         num = Integer.valueOf(amount);
         alice.ability(player, num, product);
         if (!alice.isAffordable()) {
-            Toast.makeText(ShopActivity.this, "You do not have enough money.",
+            Toast.makeText(ShopActivity.this, "You don't have enough money.",
                     Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(ShopActivity.this, "Products are in your bag.",
+            Toast.makeText(ShopActivity.this, "You have purchased " + amount +" "+ product +"(s)",
                     Toast.LENGTH_SHORT).show();
         }
         moneyLeft = player.getMoney();
