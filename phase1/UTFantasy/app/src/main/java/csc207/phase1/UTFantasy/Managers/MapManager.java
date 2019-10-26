@@ -1,8 +1,11 @@
-package csc207.phase1.UTFantasy;
+package csc207.phase1.UTFantasy.Managers;
 
 import android.graphics.Canvas;
 
 import java.util.ArrayList;
+
+import csc207.phase1.UTFantasy.MapView;
+import csc207.phase1.UTFantasy.UnitDraw;
 
 public class MapManager {
 
@@ -59,14 +62,14 @@ public class MapManager {
      * @param w the width of the map
      * @param h the height of the map
      */
-    MapManager(int w, int h, MapView mapView) {
+    public MapManager(int w, int h, MapView mapView) {
         this.width = w;
         this.height = h;
         lowMap = new ArrayList<>();
         this.mapView = mapView;
     }
 
-    void update(int x, int y) {
+    public void update(int x, int y) {
         currentLow = new ArrayList<>();
         currentHigh = new ArrayList<>();
         for (UnitDraw unit : lowMap) {
@@ -88,7 +91,7 @@ public class MapManager {
     }
 
 
-    void draw(Canvas canvas) {
+    public void draw(Canvas canvas) {
 
         for (UnitDraw unit : currentLow) {
             unit.draw(canvas);

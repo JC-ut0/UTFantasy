@@ -32,7 +32,7 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mybagitem);
+        setContentView(R.layout.activity_my_bag_item);
 
 
         final ListView listView1 = (ListView) findViewById(R.id.list_view);

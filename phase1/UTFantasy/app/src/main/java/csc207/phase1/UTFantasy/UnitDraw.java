@@ -15,12 +15,12 @@ public class UnitDraw {
     /**
      * the x coordinate of this UnitDraw
      */
-    float x;
+    public float x;
 
     /**
      * the y coordinate of this UnitDraw
      */
-    float y;
+    public float y;
 
     /**
      * the x coordinate of this UnitDraw on the screen coordinate system
@@ -56,7 +56,7 @@ public class UnitDraw {
         return y;
     }
 
-    UnitDraw(Bitmap bitmap, float x, float y) {
+    public UnitDraw(Bitmap bitmap, float x, float y) {
         this.bitmap = bitmap;
         this.x = x;
         this.y = y;
@@ -65,7 +65,7 @@ public class UnitDraw {
     /**
      * draw this UnitDraw at its location
      */
-    void draw(Canvas canvas) {
+    public void draw(Canvas canvas) {
         canvas.drawBitmap(bitmap, screenX * MapView.unitWidth, screenY * MapView.unitHeight, null);
     }
 }

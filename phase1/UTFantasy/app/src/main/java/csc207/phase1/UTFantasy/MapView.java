@@ -1,7 +1,6 @@
 package csc207.phase1.UTFantasy;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -12,9 +11,10 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import csc207.phase1.UTFantasy.Character.Player;
+import csc207.phase1.UTFantasy.Managers.MapManager;
 
 
-public class MapView extends SurfaceView implements SurfaceHolder.Callback {
+public class MapView extends SurfaceView implements SurfaceHolder.Callback{
 
     public Player player;
 
@@ -62,8 +62,6 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback {
         this.player = p;
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
-        System.out.println("screenWidth pixel" + screenWidth);
-        System.out.println("screen height pixel" + screenHeight);
         unitWidth = 88;
         unitHeight = 88;
 

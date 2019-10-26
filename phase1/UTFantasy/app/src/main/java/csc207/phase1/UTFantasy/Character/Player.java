@@ -2,7 +2,7 @@ package csc207.phase1.UTFantasy.Character;
 
 import java.io.Serializable;
 
-import csc207.phase1.UTFantasy.MapManager;
+import csc207.phase1.UTFantasy.Managers.MapManager;
 
 public class Player extends Person implements Serializable {
     /**

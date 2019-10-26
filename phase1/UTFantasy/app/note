@@ -53,3 +53,9 @@ Changed Skill class to interface.
 # Step 11
 Draw the player in the middle of the screen, player appearance will change corresponding to the his or her moving direction
 Make the player not able to cross the trees. change the map to a proper size. Add some trees to the map
+
+########
+# Step 12
+Reformat MainActivity content, now the most basic frame layout is written in XML and MapView is added into a linear layout inside the frame layout
+Add a menu button so that user can click on the menu button to check his or her bag or close the menu
+Add button A and B to the MainActivity
