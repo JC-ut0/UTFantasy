@@ -140,4 +140,30 @@
 
     </RelativeLayout>
 
+    <RelativeLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@drawable/start_up_image"
+        android:visibility="gone">
+        <ProgressBar
+            android:id="@+id/loadScreen"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/loading"
+            android:layout_alignParentBottom="true"
+            />
+        <TextView
+            android:id="@+id/myHealthInfo"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/loadScreen"
+            android:layout_alignTop="@+id/loadScreen"
+            android:layout_alignEnd="@+id/loadScreen"
+            android:layout_alignBottom="@+id/loadScreen"
+            android:text="100/100"
+            android:textColor="@android:color/background_dark"
+            android:gravity="center" />
+    </RelativeLayout>
 </FrameLayout>

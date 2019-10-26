@@ -6,9 +6,10 @@ import csc207.phase1.UTFantasy.R;
 public class Pikachu extends Pokemon {
 
     public Pikachu() {
+        super();
         setHp(10);
         // set its first skill to be QuickAttack
-        skills[0] = new QuickAttack();
+        skills.add( new QuickAttack());
         profileID = R.drawable.pikachu;
         pokemonName = "Pikachu";
     }

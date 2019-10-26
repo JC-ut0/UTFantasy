@@ -58,4 +58,14 @@
         android:textOff=""
         android:textOn="" />
 
+    <ImageButton
+        android:id="@+id/back_to_main"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/return_button" />
+
 </RelativeLayout>

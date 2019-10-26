@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -46,7 +47,7 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * The items in the Player's bag.
      */
-    String items[];// = new String[]{"poison1","poison2","poison3","poison4","poison5","poison6"};
+    String items[] = new String[]{"poison1","poison2","poison3","poison4","poison5","poison6"};
     /**
      * All the pokemon information, including the pokemon names, images, and info.
      */
@@ -64,6 +65,7 @@ public class MenuActivity extends AppCompatActivity {
      * The Toogle button for switching between pokemon and items.
      */
     ToggleButton toggleButton;
+    ImageButton backtomain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,13 +73,17 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_bag_item);
 
         // get the Player
-        try{
+//        try{
+//        intent = getIntent();
+//        username = intent.getStringExtra("username");
+//        p = userManager.getUser(username).getPlayer();}
+//        catch (NullPointerException e){
+//            System.out.println("nonono");
+//        }
+
         intent = getIntent();
         username = intent.getStringExtra("username");
-        p = userManager.getUser(username).getPlayer();}
-        catch (NullPointerException e){
-            System.out.println("nonono");
-        }
+        p = userManager.getUser(username).getPlayer();
 
         //get all the information from the Player's bag
         //First, the pokemon
@@ -135,6 +141,14 @@ public class MenuActivity extends AppCompatActivity {
         // The textview of the String: MY BAG
         TextView textView = (TextView)findViewById(R.id.textView);
 
+        backtomain = (ImageButton)findViewById(R.id.back_to_main);
+        backtomain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
 
     /**
@@ -143,7 +157,11 @@ public class MenuActivity extends AppCompatActivity {
     class CustomAdpater extends BaseAdapter{
         @Override
         public int getCount() {
-            return images.size();
+            if (images == null){
+                return 0;
+            }else{
+                return images.size();
+            }
         }
 
         @Override

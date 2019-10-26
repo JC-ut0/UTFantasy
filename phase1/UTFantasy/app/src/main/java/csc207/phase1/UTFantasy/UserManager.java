@@ -105,7 +105,7 @@ public class UserManager implements Serializable {
      *
      * @param context The Context that calls this logout method.
      */
-    void logout(Context context) {
+    public void logout(Context context) {
         // save file first
         saveUserManager(context);
         // go back to User Activity from the current Activity

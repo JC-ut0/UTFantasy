@@ -1,10 +1,11 @@
 package csc207.phase1.UTFantasy.Pet;
 
-import android.app.Person;
-
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
+
 import csc207.phase1.UTFantasy.AllSkills.Skill;
+import csc207.phase1.UTFantasy.Character.Person;
 import csc207.phase1.UTFantasy.R;
 
 public abstract class Pokemon {
@@ -23,7 +24,7 @@ public abstract class Pokemon {
      * skills this pokemonList have
      * there are four different skills
      */
-    protected Skill[] skills = new Skill[4];
+    protected ArrayList<Skill> skills;
     /**
      * level of this pokemonList
      */
@@ -32,6 +33,14 @@ public abstract class Pokemon {
      * status of this pokemonList
      */
     protected String status;
+    /**
+     * the attack of this pokemon
+     */
+    protected int attack;
+    /**
+     * the defense of this pokemon
+     */
+    protected int defense;
     /**
      * health point of this pokemonList
      */
@@ -43,11 +52,18 @@ public abstract class Pokemon {
     /**
      * person that this pokemonList belongs to
      */
-    protected csc207.phase1.UTFantasy.Character.Person master;
+    protected Person master;
     /**
      * The unique profile id for each Pokemon. ID can be used to draw this Pokemon.
      */
     protected int profileID;
+
+    /**
+     * The list of types of this pokemon
+     */
+    protected String type;
+
+
     /**
      * Speed determines
      */
@@ -56,10 +72,18 @@ public abstract class Pokemon {
     Pokemon() {
         this.level = 1;
         this.exp = 0;
+        skills = new ArrayList<>();
     }
 
+    public int getSpeed(){
+        return speed;
+    }
 
-    int getX() {
+    public void setSpeed(int speed){
+        this.speed= speed;
+    }
+
+    public int getX() {
         return x;
     }
 
@@ -67,7 +91,7 @@ public abstract class Pokemon {
         this.x = x;
     }
 
-    int getY() {
+    public int getY() {
         return y;
     }
 
@@ -80,7 +104,7 @@ public abstract class Pokemon {
         this.y = y;
     }
 
-    int getLevel() {
+    public int getLevel() {
         return level;
     }
 
@@ -104,18 +128,18 @@ public abstract class Pokemon {
         return hp;
     }
 
-    public Skill[] getSkills() {
+    public ArrayList<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(Skill[] skills) {
-        this.skills = skills;
+    public void addSkills(Skill skills) {
+        this.skills.add(skills);
     }
 
     public void updateSkills(Skill addSkill, Skill removeSkill) {
     }
 
-    public csc207.phase1.UTFantasy.Character.Person getMaster() {
+    public Person getMaster() {
         return master;
     }
 
@@ -140,13 +164,44 @@ public abstract class Pokemon {
         return profileID;
     }
 
+    public int getAttack(){
+        return attack;
+    }
+
+    public void setAttack(int attack){
+        this.attack = attack;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense){
+        this.defense = defense;
+    }
+
+    public String getType(){
+        return this.type;
+    }
+
+    public void setType(String type){
+        this.type = type;
+    }
+
+    public int getSkillNum(){
+        return skills.size();
+    }
     @NonNull
     @Override
     public String toString() {
         return pokemonName + "    LV" + level;
     }
 
-    public void setMaster(csc207.phase1.UTFantasy.Character.Person master) {
+    public void setMaster(Person master) {
         this.master = master;
+    }
+
+    public boolean isAlive() {
+        return hp == 0;
     }
 }

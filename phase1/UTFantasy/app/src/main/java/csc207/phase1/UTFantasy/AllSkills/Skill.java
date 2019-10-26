@@ -2,14 +2,14 @@ package csc207.phase1.UTFantasy.AllSkills;
 
 public abstract class Skill {
     /**
-     * The damage of the skill.
+     * The power of the skill.
      */
-    protected int damage;
+    protected int power;
 
     /**
      * The special status of this skill.
      */
-    protected String status;
+    protected String effect;
 
     /**
      * power points of this skill
@@ -26,12 +26,12 @@ public abstract class Skill {
      */
     protected String name;
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setEffect(String effect) {
+        this.effect = effect;
     }
 
-    public int getDamage() {
-        return damage;
+    public int getpower() {
+        return power;
     }
 
     public int getPp() {
@@ -42,16 +42,23 @@ public abstract class Skill {
         this.pp = pp;
     }
 
-    public String getStatus() {
-        return status;
+    public String getEffect() {
+        return effect;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public void setpower(int power) {
+        this.power = power;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

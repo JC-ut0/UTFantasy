@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.Character.Player;
+import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
@@ -52,11 +53,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
 //        User user = userManager.getUser(username);
 //        p = user.getPlayer();
 
-//        if (user == null){
-//            UserManager userManager = UserManager.getUserManager();
-//            userManager.loadUserManager(PlayerInfoActivity.this);
-//            user = userManager.getUser("1");
-//        }
+
 //        assert user != null;
 //        p = user.getPlayer();
 //        assert p != null;
@@ -65,6 +62,14 @@ public class PlayerInfoActivity extends AppCompatActivity {
 //        assert pokemonList != null;
 //        currentPokemon = pokemonList.get(0);
 //        assert currentPokemon != null;
+
+        if (true) {
+            UserManager userManager = UserManager.getUserManager();
+            userManager.message("Create a new User", PlayerInfoActivity.this);
+            User user = new User("2", "123456");
+            user.setPlayer(new Player("ET", "ET"));
+            user.getPlayer().addPokemon(new Pikachu());
+        }
 
 
         profile = (ImageView) findViewById(R.id.profileimage);
@@ -94,8 +99,8 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
 
 
-        ImageButton back = (ImageButton)findViewById(R.id.back_to_main);
-        back.setOnClickListener(new View.OnClickListener() {
+        backtomain = (ImageButton)findViewById(R.id.back_to_main);
+        backtomain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
