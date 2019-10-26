@@ -11,7 +11,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.Managers.MapManager;
 
 
 public class MapView extends SurfaceView implements SurfaceHolder.Callback{
