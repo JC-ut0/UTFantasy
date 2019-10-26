@@ -1,6 +1,6 @@
 package csc207.phase1.UTFantasy.Character;
 
-import csc207.phase1.UTFantasy.Managers.MapManager;
+import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 
 public class Player extends Person {
