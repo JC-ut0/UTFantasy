@@ -7,7 +7,7 @@ public class Psyduck extends Pokemon {
     public Psyduck(){
         pokemonName = "Psyduck";
         setHp(10);
-        skills.set(0, new Scratch());
+        skills[0] = new Scratch();
         profileID = R.drawable.psyduck;
     }
 }
