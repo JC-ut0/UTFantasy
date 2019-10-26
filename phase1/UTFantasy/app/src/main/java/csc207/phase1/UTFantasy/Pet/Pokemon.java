@@ -24,7 +24,7 @@ public abstract class Pokemon {
      * skills this pokemonList have
      * there are four different skills
      */
-    protected ArrayList<Skill> skills = new ArrayList<Skill>();
+    protected ArrayList<Skill> skills;
     /**
      * level of this pokemonList
      */
@@ -72,6 +72,7 @@ public abstract class Pokemon {
     Pokemon() {
         this.level = 1;
         this.exp = 0;
+        skills = new ArrayList<>();
     }
 
     public int getSpeed(){
@@ -198,5 +199,9 @@ public abstract class Pokemon {
 
     public void setMaster(Person master) {
         this.master = master;
+    }
+
+    public boolean isAlive() {
+        return hp == 0;
     }
 }

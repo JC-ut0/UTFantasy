@@ -9,6 +9,7 @@
     tools:context=".Activities.FightActivity">
 
     <RelativeLayout
+
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
         android:layout_height="260dp"
@@ -16,44 +17,76 @@
         android:background="@drawable/fight_background">
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="157dp"
-            android:layout_height="147dp"
+            android:id="@+id/rivalPokemon"
+            android:layout_width="128dp"
+            android:layout_height="114dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="108dp"
-            android:layout_marginBottom="95dp"
+            android:layout_marginEnd="135dp"
+            android:layout_marginBottom="99dp"
             app:srcCompat="@drawable/pikachu" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/myPokemon"
             android:layout_width="168dp"
             android:layout_height="145dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="479dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginEnd="481dp"
+            android:layout_marginBottom="-13dp"
             app:srcCompat="@drawable/pikachu" />
 
         <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
+            android:id="@+id/myHealthBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="118dp"
-            android:layout_height="29dp"
-            android:layout_alignEnd="@+id/imageView"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="-85dp"
-            android:layout_marginBottom="109dp" />
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/myPokemon"
+            android:layout_alignEnd="@+id/myPokemon"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="29dp"
+            android:layout_marginBottom="12dp"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/health_bar" />
+
+        <TextView
+            android:id="@+id/myHealthInfo"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/myHealthBar"
+            android:layout_alignTop="@+id/myHealthBar"
+            android:layout_alignEnd="@+id/myHealthBar"
+            android:layout_alignBottom="@+id/myHealthBar"
+            android:text="0/0"
+            android:textColor="@android:color/background_dark"
+            android:gravity="center" />
 
         <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="118dp"
-            android:layout_height="29dp"
-            android:layout_alignEnd="@+id/imageView"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="-460dp"
-            android:layout_marginBottom="202dp" />
+            android:id="@+id/rivalHealthBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/rivalPokemon"
+            android:layout_alignTop="@+id/rivalPokemon"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="-23dp"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/health_bar" />
+
+        <TextView
+            android:id="@+id/rivalHealthInfo"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/rivalHealthBar"
+            android:layout_alignTop="@+id/rivalHealthBar"
+            android:layout_alignEnd="@+id/rivalHealthBar"
+            android:layout_alignBottom="@+id/rivalHealthBar"
+            android:gravity="center"
+            android:text="0/0"
+            android:textColor="@android:color/background_dark" />
+
     </RelativeLayout>
 
     <LinearLayout
@@ -206,5 +239,7 @@
                     android:textSize="25sp" />
             </FrameLayout>
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>
