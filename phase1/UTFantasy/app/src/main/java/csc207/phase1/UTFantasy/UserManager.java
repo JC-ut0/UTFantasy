@@ -1,6 +1,7 @@
 package csc207.phase1.UTFantasy;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -22,21 +23,24 @@ import csc207.phase1.UTFantasy.Activities.LoginActivity;
 public class UserManager implements Serializable {
 
     /**
-     * A static HashMap that keys are UserName, values are User instance.
+     * A  HashMap that keys are UserName, values are User instance.
      */
     private HashMap<String, User> userHashMap;
 
+    /**
+     * A unique userManager that will be only created once.
+     */
     private static UserManager userManager;
 
-    private String userFile = "user.txt";
-
-    private String playerFile = "player.txt";
+    /**
+     * Where all user data are stored.
+     */
+    private String userFile = "user";
 
     /**
      * Singleton Constructor of UserManager.
      */
     private UserManager() {
-        // read local file, update the userHashMap
         userHashMap = new HashMap<>();
     }
 
@@ -52,78 +56,148 @@ public class UserManager implements Serializable {
         return userManager;
     }
 
-    public User login(String name, String password) {
-        if (userHashMap.containsKey(name)) {
-            String pwd = Objects.requireNonNull(userHashMap.get(name)).getPassword();
-            if (password.equals(pwd)){
-                return userHashMap.get(name);
+    /**
+     * Login by username and password.
+     *
+     * @param username the username of the User.
+     * @param password the password of the User.
+     * @return A User if logged in successfully, null if not.
+     */
+    public User login(String username, String password) {
+        if (userHashMap.containsKey(username)) {
+            String pwd = Objects.requireNonNull(userHashMap.get(username)).getPassword();
+            if (password.equals(pwd)) {
+                return userHashMap.get(username);
             }
         }
         return null;
     }
 
-    public User register(String name, String password) {
-        User user = new User(name, password);
-        userHashMap.put(name, user);
+    /**
+     * Register using username and password. Update the userHapMap after resisting.
+     *
+     * @param username the username of the User.
+     * @param password the password of the User.
+     * @return A new User.
+     */
+    public User register(String username, String password) {
+        User user = new User(username, password);
+        userHashMap.put(username, user);
         return user;
     }
 
-    public User getUser(String accountStr) {
-        if (userHashMap.containsKey((accountStr))) {
-            return userHashMap.get(accountStr);
+    /**
+     * Get the User in userHashMap if the username is in the userHapMap.
+     *
+     * @param username the username of the User.
+     * @return a User if the username is in the userHashMap, null if not.
+     */
+    public User getUser(String username) {
+        if (userHashMap.containsKey((username))) {
+            return userHashMap.get(username);
         }
         return null;
     }
 
-    void logout() {
-
+    /**
+     * Save the current User's file, logout and got to LoginActivity.
+     *
+     * @param context The Context that calls this logout method.
+     */
+    void logout(Context context) {
+        // save file first
+        saveUserManager(context);
+        // go back to User Activity from the current Activity
+        Intent intent = new Intent(context, LoginActivity.class);
+        // prevent User coming back to this activity!
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
 
+    /**
+     * Return userHashMap
+     *
+     * @return userHashMap
+     */
     public HashMap<String, User> getUserHashMap() {
         return userHashMap;
     }
 
+    /**
+     * Set a new userHashMap.
+     *
+     * @param userHashMap a new userHashMap.
+     */
     public void setUserHashMap(HashMap<String, User> userHashMap) {
         this.userHashMap = userHashMap;
     }
 
+    /**
+     * Save all data of UserManager to local.
+     *
+     * @param context the Activity(Context) that calls this method.
+     */
     public void saveUserManager(Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(userFile, Context.MODE_PRIVATE);
-            FileOutputStream playFos = context.openFileOutput(playerFile, Context.MODE_PRIVATE);
             ObjectOutputStream outputStream = new ObjectOutputStream(fos);
-            ObjectOutputStream playerOS = new ObjectOutputStream(playFos);
-            outputStream.writeObject(userHashMap);
-            playerOS.writeObject(userManager);
+            outputStream.writeObject(userManager);
             outputStream.close();
-            playerOS.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void loadUserManager(Context context) throws Exception {
+    /**
+     * Load data from local, and update the UserManager.
+     *
+     * @param context the Activity(Context) that calls this method.
+     */
+    public void loadUserManager(Context context) {
         try {
-            FileInputStream fis = context.openFileInput(playerFile);
+            FileInputStream fis = context.openFileInput(userFile);
             if (fis != null) {
                 ObjectInputStream inputStream = new ObjectInputStream(fis);
-                userManager = (UserManager) inputStream.readObject();
-                if (userManager == null) userManager = new UserManager();
+                UserManager localUserManager = (UserManager) inputStream.readObject();
+                userHashMap = localUserManager.userHashMap;
+                if (userHashMap == null) userHashMap = new HashMap<>();
                 inputStream.close();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+            userHashMap = new HashMap<>();
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
-            message("FileReading problem, the userHashMap is set to be empty!", context);
         }
+
     }
 
-    private void message(String str, Context context) {
+    /**
+     * Build a dialog that title is UT Fantasy.
+     *
+     * @param message The message of the dialog.
+     * @param context The Activity that calls this method.
+     */
+    public void message(String message, Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("UT Fantasy");
-        builder.setMessage(str);
+        builder.setMessage(message);
+        builder.setPositiveButton("OK", null);
+        builder.show();
+    }
+
+    /**
+     * Build a dialog .
+     *
+     * @param title   The title of the dialog.
+     * @param message The message of the dialog.
+     * @param context The Activity that calls this method.
+     */
+    public void message(String title, String message, Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(title);
+        builder.setMessage(message);
         builder.setPositiveButton("OK", null);
         builder.show();
     }

@@ -6,8 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.R;
@@ -30,11 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button btn_register = findViewById(R.id.btn_register);
 
         // firstly load the userManager
-        try {
-            userManager.loadUserManager(LoginActivity.this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        userManager.loadUserManager(LoginActivity.this);
 
         // when log in button is clicked
         btn_log.setOnClickListener(new View.OnClickListener() {
@@ -42,21 +38,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // exceptions we need to consider
                 try {
-                    accountStr = account.getText().toString().trim();
-                    passwordStr = pwd.getText().toString().trim();
-                    if (accountStr.equals("")) {
-                        message("Please Enter your Account");
-                    } else if (passwordStr.equals("")) {
-                        message("Please Enter your Password");
-                    }
+                    nonEmptyAccountOrPassword();
                 } catch (Exception e) {
-                    message("Error:" + e);
+                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
                 }
-                // login if loop
+                // login if
                 User user = userManager.login(accountStr, passwordStr);
-                if (user == null){
+                if (user == null) {
                     // log in failed . pop up a window shows failure.
-                    message("@string/account or password is not correct!");
+                    Toast.makeText(LoginActivity.this, "@string/account or password is not correct!", Toast.LENGTH_LONG).show();
                 } else {
                     logInAction(user);
                 }
@@ -67,51 +57,58 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // when register button is clicked
                 try {
-                    accountStr = account.getText().toString().trim();
-                    passwordStr = pwd.getText().toString().trim();
-                    if (accountStr.equals("")) {
-                        throw new ImproperUserSettingException("Please Enter your Account");
-                    } else if (passwordStr.equals("")) {
-                        throw new ImproperUserSettingException("Please Enter your Password");
-                    } else if (passwordStr.length() < 6) {
-                        throw new ImproperUserSettingException("Your Password need to have at least 6 letters.");
-                    } else if (passwordStr.contains(";")) {
-                        throw new ImproperUserSettingException("Invalid punctuation is used.");
-                    } else if (accountStr.contains(";")) {
-                        throw new ImproperUserSettingException("Invalid punctuation is used.");
-                    } else if (userManager.getUserHashMap().containsKey(accountStr)) {
-                        message("The UserName is used.");
-                    } else if (accountStr.contains("\n")) {
-                        throw new ImproperUserSettingException("Invalid punctuation is used.");
-                    } else if (accountStr.contains("fuck")) {
-                        throw new ImproperUserSettingException("Please be polite!");
-                    } else {
-                        newPlayerAction();
-                    }
+                    validateUsernameAndPassword();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    message("Erro:" + e);
+                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
 
+    private void nonEmptyAccountOrPassword() {
+        accountStr = account.getText().toString().trim();
+        passwordStr = pwd.getText().toString().trim();
+        if (accountStr.equals("")) {
+            Toast.makeText(LoginActivity.this, "Please Enter your Account", Toast.LENGTH_LONG).show();
+        } else if (passwordStr.equals("")) {
+            Toast.makeText(LoginActivity.this, "Please Enter your Password", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void validateUsernameAndPassword() throws ImproperUserSettingException {
+        accountStr = account.getText().toString().trim();
+        passwordStr = pwd.getText().toString().trim();
+        if (accountStr.equals("")) {
+            throw new ImproperUserSettingException("Please Enter your Account");
+        } else if (passwordStr.equals("")) {
+            throw new ImproperUserSettingException("Please Enter your Password");
+        } else if (passwordStr.length() < 6) {
+            throw new ImproperUserSettingException("Your Password need to have at least 6 letters.");
+        } else if (passwordStr.contains(";")) {
+            throw new ImproperUserSettingException("Invalid punctuation is used.");
+        } else if (accountStr.contains(";")) {
+            throw new ImproperUserSettingException("Invalid punctuation is used.");
+        } else if (userManager.getUserHashMap().containsKey(accountStr)) {
+            Toast.makeText(LoginActivity.this, "The UserName is used.", Toast.LENGTH_LONG).show();
+        } else if (accountStr.contains("\n")) {
+            throw new ImproperUserSettingException("Invalid punctuation is used.");
+        } else if (accountStr.contains("fuck")) {
+            throw new ImproperUserSettingException("Please be polite!");
+        } else {
+            newPlayerAction();
+        }
+    }
+
 
     class ImproperUserSettingException extends Exception {
         ImproperUserSettingException() {
+            super();
         }
 
         ImproperUserSettingException(String str) {
             super(str);
         }
-    }
-
-    private void message(String str) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-        builder.setTitle("UT Fantasy");
-        builder.setMessage(str);
-        builder.setPositiveButton("OK", null);
-        builder.show();
     }
 
     private void newPlayerAction() {

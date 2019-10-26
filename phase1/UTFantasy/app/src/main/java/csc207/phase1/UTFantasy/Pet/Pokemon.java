@@ -2,9 +2,13 @@ package csc207.phase1.UTFantasy.Pet;
 
 import android.app.Person;
 
+import androidx.annotation.NonNull;
+
 import csc207.phase1.UTFantasy.AllSkills.Skill;
 
 public abstract class Pokemon {
+
+    protected String pokemonName;
 
     /**
      * first coordinate
@@ -119,4 +123,9 @@ public abstract class Pokemon {
     }
 
 
+    @NonNull
+    @Override
+    public String toString() {
+        return pokemonName + "    LV" + level;
+    }
 }
