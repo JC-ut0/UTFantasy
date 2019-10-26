@@ -22,9 +22,12 @@ public class Product {
         return name;
     }
 
-    @NonNull
-    @Override
+
     public String toString() {
         return name;
+    }
+
+    public int getProfile_id(){
+        return profileID;
     }
 }

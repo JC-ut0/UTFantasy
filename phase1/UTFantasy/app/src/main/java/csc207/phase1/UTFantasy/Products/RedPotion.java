@@ -5,7 +5,7 @@ import csc207.phase1.UTFantasy.R;
 public class RedPotion extends Product {
     private static String name = "Read Potion";
     private static int price = 200;
-    private static int photoId = R.drawable.red;
+    private static int rofileID = R.drawable.red;
 
     private static RedPotion red;
 
@@ -21,8 +21,4 @@ public class RedPotion extends Product {
     }
 
 
-    public static int getProfile_id() {
-        //The unique profile id for each PinkPotion. ID can be used to draw this Pokemon.
-        return photoId;
-    }
 }
