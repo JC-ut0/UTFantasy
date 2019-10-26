@@ -1,4 +1,4 @@
-package csc207.phase1.UTFantasy.Managers;
+package csc207.phase1.UTFantasy;
 
 import android.graphics.Canvas;
 
