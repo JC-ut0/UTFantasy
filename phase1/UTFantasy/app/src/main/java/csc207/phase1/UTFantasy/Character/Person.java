@@ -67,7 +67,7 @@ class Person implements Serializable {
     }
 
 
-    ArrayList<String> getBag() {
+    public ArrayList<String> getBag() {
         return bag;
     }
 
@@ -76,11 +76,11 @@ class Person implements Serializable {
     }
 
 
-    ArrayList<Pokemon> getPokemon() {
+    public ArrayList<Pokemon> getPokemon() {
         return pokemon;
     }
 
-    public void setPokemon(Pokemon pokemon) {
+    public void addPokemon(Pokemon pokemon) {
         this.pokemon.add(pokemon);
     }
 

@@ -28,7 +28,7 @@ public class Player extends Person {
         }
     }
 
-    int getMoney() {
+    public int getMoney() {
         return money;
     }
 
