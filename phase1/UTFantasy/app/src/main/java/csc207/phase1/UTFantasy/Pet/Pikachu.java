@@ -8,7 +8,7 @@ public class Pikachu extends Pokemon {
     public Pikachu() {
         setHp(10);
         // set its first skill to be QuickAttack
-        skills[0] = new QuickAttack();
+        skills.set(0, new QuickAttack());
         profileID = R.drawable.pikachu;
         pokemonName = "Pikachu";
     }
