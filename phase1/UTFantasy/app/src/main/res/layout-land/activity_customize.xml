@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#FFFF00">
+    android:background="@drawable/player_background">
 
     <TextView
         android:id="@+id/text_view_name"
         style="@android:style/Widget.TextView.PopupMenu"
-        android:layout_width="307dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="213dp"
-        android:layout_marginBottom="302dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="148dp"
         android:text="What is your name?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_centerHorizontal="true" />
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/text_view_gender"
         style="@android:style/Widget.TextView.PopupMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="317dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="97dp"
         android:text="Are you a boy or a girl?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:visibility="gone"/>
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <EditText
         android:id="@+id/edit_text_name"
-        android:layout_width="219dp"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="79dp"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="256dp"
-        android:layout_marginTop="149dp"
+        android:layout_marginTop="162dp"
         android:layout_marginEnd="256dp">
 
     </EditText>
@@ -47,6 +52,7 @@
         android:id="@+id/textView2"
         android:layout_width="152dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -57,23 +63,27 @@
 
     <Button
         android:id="@+id/button_a"
-        android:layout_width="62dp"
-        android:layout_height="61dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="103dp"
-        android:text="A" />
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/circle_button"
+        android:text="A"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/button_b"
-        android:layout_width="62dp"
-        android:layout_height="61dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="26dp"
-        android:text="B" />
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/circle_button"
+        android:text="B"
+        android:textSize="30sp" />
 
     <!--        android:visibility="gone"-->
 <!--        />-->
@@ -86,10 +96,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="261dp"
-        android:layout_marginTop="198dp"
-        android:layout_marginEnd="337dp"
-        android:layout_marginBottom="95dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="295dp"
+        android:layout_marginTop="162dp"
+        android:layout_marginEnd="303dp"
+        android:layout_marginBottom="131dp"
         android:visibility="gone">
 
         <RadioButton
@@ -97,14 +109,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="boy"
-            android:visibility="gone"/>
+            android:textSize="20sp"
+            android:visibility="gone" />
 
         <RadioButton
             android:id="@+id/radio_button_girl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="girl"
-            android:visibility="gone"/>
+            android:textSize="20sp"
+            android:visibility="gone" />
 
 
     </RadioGroup>
