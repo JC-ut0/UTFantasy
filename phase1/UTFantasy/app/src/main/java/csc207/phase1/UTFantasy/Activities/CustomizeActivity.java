@@ -29,11 +29,11 @@ public class CustomizeActivity extends Activity {
 
     // the gender of the player
     private String gender;
+    UserManager userManager = UserManager.getUserManager();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Intent login_intent = getIntent();
-        final UserManager userManager = UserManager.getUserManager();
         final String username = login_intent.getStringExtra("username");
         assert username != null;
 
@@ -89,7 +89,7 @@ public class CustomizeActivity extends Activity {
                     Player player = new Player(name, gender);
                     User user = userManager.getUser(username);
                     user.setPlayer(player);
-                    userManager.save(CustomizeActivity.this);
+                    userManager.saveUserManager(CustomizeActivity.this);
                     intent.putExtra("username", username);
 
                     // now go to main activity

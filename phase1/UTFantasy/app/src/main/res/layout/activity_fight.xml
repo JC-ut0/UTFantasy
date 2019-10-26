@@ -15,6 +15,45 @@
         android:layout_marginStart="0dp"
         android:background="@drawable/fight_background">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="157dp"
+            android:layout_height="147dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="95dp"
+            app:srcCompat="@drawable/pikachu" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="168dp"
+            android:layout_height="145dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="479dp"
+            android:layout_marginBottom="1dp"
+            app:srcCompat="@drawable/pikachu" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="118dp"
+            android:layout_height="29dp"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-85dp"
+            android:layout_marginBottom="109dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="118dp"
+            android:layout_height="29dp"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-460dp"
+            android:layout_marginBottom="202dp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -116,7 +155,6 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
-                    android:text="skill1"
                     android:textColor="#FFFF"
                     android:textSize="25sp" />
 
@@ -127,7 +165,6 @@
                     android:layout_marginStart="244dp"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
-                    android:text="skill 2"
                     android:textColor="#FFFF"
                     android:textSize="25sp" />
 
@@ -138,7 +175,6 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="50dp"
                     android:background="@android:color/transparent"
-                    android:text="skill3"
                     android:textColor="#FFFF"
                     android:textSize="25sp" />
 
@@ -149,7 +185,6 @@
                     android:layout_marginStart="244dp"
                     android:layout_marginTop="50dp"
                     android:background="@android:color/transparent"
-                    android:text="skill4"
                     android:textColor="#FFFF"
                     android:textSize="25sp" />
             </RelativeLayout>

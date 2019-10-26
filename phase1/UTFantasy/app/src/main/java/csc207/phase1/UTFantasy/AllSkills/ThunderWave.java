@@ -5,7 +5,8 @@ public class ThunderWave extends Skill {
     public ThunderWave() {
         damage = 15;
         status = " ";
-        PP = 3;
+        pp = 3;
         type = "electronic";
+        name = "ThunderWave";
     }
 }

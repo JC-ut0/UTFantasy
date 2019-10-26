@@ -1,80 +1,92 @@
 package csc207.phase1.UTFantasy.Character;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 
-class Person {
-    Person(){}
+public class Person implements Serializable {
+    /**
+     * name of this person
+     */
+    protected String name;
+    /**
+     * first coordinate
+     */
+    protected int x;
+    /**
+     * second coordinate
+     */
+    protected int y;
+    /**
+     * gender of this person
+     */
+    protected String gender;
+    /**
+     * objects in this person's bag
+     */
+    protected ArrayList<String> bag;
+    /**
+     * pokemons that this person has
+     */
+    // todo: change name to pokemonList
+    protected ArrayList<Pokemon> pokemon;
+    /**
+     * pokemons that this person has
+     */
+    protected int maxSizeOfPokmonList = 6;
 
-    Person(String name, String gender){
+    Person() {
+    }
+
+    Person(String name, String gender) {
         this.name = name;
         this.gender = gender;
         this.bag = new ArrayList<>();
-        this.pokemon = new ArrayList<Pokemon>();
+        this.pokemon = new ArrayList<>();
     }
-    /**
-     * name of this person*/
-    protected String name;
 
-    String getName(){
+    String getName() {
         return name;
     }
 
-    /**
-     * first coordinate*/
-    protected int x;
-
-    public int getX(){
+    public int getX() {
         return x;
     }
-    void set(int x){
-        this.x = x;
-    }
-    /**
-     * second coordinate*/
-    protected int y;
 
-    public int getY(){
+    public int getY() {
         return y;
     }
-    public void setY(int y){
-        this.y = y;
-    }
-    /**
-     * gender of this person*/
-    protected String gender;
 
-    public String getGender(){
+
+    public String getGender() {
         return gender;
     }
 
-    /**
-     * objects in this person's bag*/
-    protected ArrayList<String> bag;
 
-    ArrayList<String> getBag(){
+    ArrayList<String> getBag() {
         return bag;
     }
 
-    public void setBag(String item){
+    public void setBag(String item) {
         bag.add(item);
     }
 
-    /**
-     * pokemons this person has*/
-    protected ArrayList<Pokemon> pokemon;
 
-    ArrayList<Pokemon> getPokemon(){
+    public ArrayList<Pokemon> getPokemonList() {
         return pokemon;
     }
 
-    public void setPokemon(Pokemon pokemon){
+    // TODO; set to boolean?
+    public void addPokemon(Pokemon pokemon) {
+        if (this.pokemon.size() >= maxSizeOfPokmonList) {
+            return;
+        }
         this.pokemon.add(pokemon);
+        pokemon.setMaster(this);
     }
 
-
-    public void setLocation(int x, int y){
+    public void setLocation(int x, int y) {
         this.x = x;
         this.y = y;
     }
