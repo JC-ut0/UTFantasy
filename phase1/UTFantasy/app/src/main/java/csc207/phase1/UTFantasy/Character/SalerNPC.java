@@ -6,46 +6,35 @@ import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Products.Product;
 
 public class SalerNPC extends NPC {
-    public SalerNPC(String name, String gender) {
-        super(name, gender);
-    }
-    private ArrayList<Product> shoppingCart = new ArrayList<>();
-    private Player player;
+    private static SalerNPC alice;
 
-    public void addItem(Product product){
-        shoppingCart.add(product);
+    private SalerNPC() {
+        super("Alice", "Female");
     }
 
-    public void removeItem(Product product) {
-        if (shoppingCart.contains(product)){
-            shoppingCart.remove(product);
+    public static SalerNPC getAlice() {
+        if (alice == null) {
+            alice = new SalerNPC();
         }
+        return alice;
     }
 
-    private int calculateTotal(){
-        int total = 0;
-        for (int i = 0; i < shoppingCart.size(); i++){
-           total += shoppingCart.get(i).getPrice();
-        }
-        return total;
-    }
+    private boolean affordable;
 
-    private void clearShoppingCart(){
-        shoppingCart.clear();
-    }
-
-    public void function(){
-        if (player.getMoney() > calculateTotal()){
-            ArrayList<Product> arr = new ArrayList<>(shoppingCart);
-            player.addAll(arr);
+    public void ability(Player player, int num, Product product) {
+        int total = num * product.getPrice();
+        if (player.getMoney() > total) {
             int money = player.getMoney();
-            int total = calculateTotal();
             money -= total;
             player.setMoney(money);
-        }else{
-            System.out.println("You can not afford these.");
+            affordable = true;
+        } else {
+            affordable = false;
         }
-        clearShoppingCart();
+    }
+
+    public boolean isAffordable() {
+        return affordable;
     }
 
 }

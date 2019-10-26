@@ -10,14 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
+
+import csc207.phase1.UTFantasy.Activities.LoginActivity;
+import csc207.phase1.UTFantasy.Activities.ShopActivity;
+import csc207.phase1.UTFantasy.Products.Product;
 
 public class ExampleDialog extends AppCompatDialogFragment {
 
     private EditText editTextAmount;
     private TextView textView;
     private ExampleDialogListener listener;
+
+    //    private TextView notice;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -39,6 +46,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
                     }
                 });
 
+
         editTextAmount = view.findViewById(R.id.amount);
         textView = view.findViewById(R.id.potion_amount);
         return builder.create();
@@ -55,7 +63,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
         }
     }
 
-    public interface ExampleDialogListener{
+    public interface ExampleDialogListener {
         void applyTexts(String amount);
     }
 }

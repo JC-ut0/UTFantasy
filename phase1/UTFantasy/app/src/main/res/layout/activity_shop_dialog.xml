@@ -30,7 +30,21 @@
         android:layout_marginEnd="73dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:hint="amount" />
+        android:hint="amount"
+        android:inputType="number"/>
+
+    <!--<TextView
+        android:id="@+id/notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/amount"
+        android:layout_alignEnd="@+id/amount"
+        android:layout_alignBottom="@+id/amount"
+        android:layout_marginStart="141dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="53dp"
+        android:text="Please Enter Numbers"
+        android:textSize="16sp" />-->
 
 
 </RelativeLayout>

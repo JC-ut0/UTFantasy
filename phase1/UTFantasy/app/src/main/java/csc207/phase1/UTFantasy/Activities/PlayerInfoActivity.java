@@ -51,14 +51,14 @@ public class PlayerInfoActivity extends AppCompatActivity {
 //        intent = getIntent();
 //        username = intent.getStringExtra("username");
 //        User user = userManager.getUser(username);
-//        p = user.getPlayer();
+//        player = user.getPlayer();
 
 
 //        assert user != null;
-//        p = user.getPlayer();
-//        assert p != null;
-//        p.addPokemon(new Pikachu());
-//        pokemonList = p.getPokemonList();
+//        player = user.getPlayer();
+//        assert player != null;
+//        player.addPokemon(new Pikachu());
+//        pokemonList = player.getPokemonList();
 //        assert pokemonList != null;
 //        currentPokemon = pokemonList.get(0);
 //        assert currentPokemon != null;
@@ -79,7 +79,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
         character_description = (TextView) findViewById(R.id.description);
 
 
-//        if (p.getGender().equals("male")){
+//        if (player.getGender().equals("male")){
 //            profile.setImageResource(R.drawable.charater_male);
 //            character_gender.setText("Gender: Male");
 //        }else{
@@ -87,7 +87,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
 //            character_gender.setText("Gender: Female");
 //        }
 
-//        int moneynum = p.getMoney();
+//        int moneynum = player.getMoney();
 
         profile.setImageResource(R.drawable.character_female);
         character_name.setText("Xiaoming");
