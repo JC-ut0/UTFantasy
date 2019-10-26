@@ -41,33 +41,65 @@ public class FightManager {
         waterMap.put("normal", (float)1);
         waterMap.put("water", (float) 0.5);
         waterMap.put("electric", (float)1);
+        waterMap.put("dragon", (float)0.5);
+        waterMap.put("psychic", (float)1);
 
         // the outer hash map for self is type fire
         HashMap<String, Float> fireMap = new HashMap<String, Float>();
         typeMap.put("fire", fireMap);
         // the inner hash maps for fire key
-        waterMap.put("fire", (float) 0.5);
-        waterMap.put("normal", (float)1);
-        waterMap.put("water", (float) 0.5);
-        waterMap.put("electric", (float)1);
+        fireMap.put("fire", (float) 0.5);
+        fireMap.put("normal", (float)1);
+        fireMap.put("water", (float) 0.5);
+        fireMap.put("electric", (float)1);
+        fireMap.put("dragon", (float)0.5);
+        fireMap.put("psychic", (float)1);
 
-        // the outer hash map for self is type water
+        // the outer hash map for self is type normal
         HashMap<String, Float> normalMap = new HashMap<String, Float>();
         typeMap.put("normal", normalMap);
         // the inner hash maps for water key
-        waterMap.put("fire", (float) 1);
-        waterMap.put("normal", (float)1);
-        waterMap.put("water", (float) 1);
-        waterMap.put("electric", (float)1);
+        normalMap.put("fire", (float) 1);
+        normalMap.put("normal", (float)1);
+        normalMap.put("water", (float) 1);
+        normalMap.put("electric", (float)1);
+        normalMap.put("psychic", (float)1);
+        normalMap.put("dragon", (float)1);
 
-        // the outer hash map for self is type water
+        // the outer hash map for self is type electric
         HashMap<String, Float> electricMap = new HashMap<String, Float>();
         typeMap.put("electric", electricMap);
         // the inner hash maps for water key
-        waterMap.put("fire", (float) 1);
-        waterMap.put("normal", (float)1);
-        waterMap.put("water", (float) 2);
-        waterMap.put("electric", (float)0.5);
+        electricMap.put("fire", (float) 1);
+        electricMap.put("normal", (float)1);
+        electricMap.put("water", (float) 2);
+        electricMap.put("electric", (float)0.5);
+        electricMap.put("dragon", (float)0.5);
+        electricMap.put("psychic", (float)1);
+
+
+        // the outer hash map for self is type dragon
+        HashMap<String, Float> dragonMap = new HashMap<String, Float>();
+        typeMap.put("dragon", dragonMap);
+        // the inner hash map for dragon key
+        dragonMap.put("fire", (float)1);
+        dragonMap.put("water", (float)1);
+        dragonMap.put("electric", (float)1);
+        dragonMap.put("normal", (float)1);
+        dragonMap.put("dragon", (float)2);
+        dragonMap.put("psychic", (float)1);
+
+        // the outer hash map for self is type psychic
+        HashMap<String, Float> psychicMap = new HashMap<String, Float>();
+        typeMap.put("psychic", psychicMap);
+        // the inner hash map for psychic key
+        psychicMap.put("fire", (float)1);
+        psychicMap.put("water", (float)1);
+        psychicMap.put("electric", (float)1);
+        psychicMap.put("normal", (float)1);
+        psychicMap.put("psychic", (float)0.5);
+        psychicMap.put("dragon", (float)1);
+
     }
 
     public void determineTurn() {
@@ -106,17 +138,20 @@ public class FightManager {
         return (int) Math.floor(modifier * damage);
     }
 
-    public Object[] checkType(Skill skill, Pokemon rival){
+    public Object[] checkType(Skill skill, Pokemon rival) {
         float typeIndex = 1;
-        if(typeMap.containsKey(skill.getType()) && typeMap.get(skill.getType()).containsKey(rival.getType())){
+        if (typeMap.containsKey(skill.getType()) && typeMap.get(skill.getType()).containsKey(rival.getType())) {
             typeIndex = typeMap.get(skill.getType()).get(rival.getType());
         }
         String note = "";
-        if(typeIndex < 1 ){
+        if(typeIndex == 0){
+            note = "It seems has no effect...";
+        } else if(typeIndex < 1 ){
             note = "It is not very effective on " + rival.getPokemonName();
-        } else if(typeIndex == 1){
+        } else if(typeIndex == 1) {
             note = "";
-        } else {
+        }
+          else {
             note = "It is super effective on " + rival.getPokemonName();
         }
         Object[] result = new Object[2];
