@@ -2,7 +2,7 @@ package csc207.phase1.UTFantasy.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,66 +16,134 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
+
+import csc207.phase1.UTFantasy.Character.Player;
+import csc207.phase1.UTFantasy.Pet.Pikachu;
+import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.R;
+import csc207.phase1.UTFantasy.UserManager;
 
 public class MenuActivity extends AppCompatActivity {
 
-    String items[] = new String[]{"poison1","poison2","poison3","poison4","poison5","poison6"};
-    String pokemons[] = new String[]{"Pikachu", "pokemon2","pokemon3","pokemon4","pokemon5"};
-    String pokemonsinfo[] = new String[]{"This is a Pikachu.","2","3","4","5"};
-    int[] images = new int[]{R.drawable.pikachu,R.drawable.pikachu,R.drawable.pikachu,
-            R.drawable.pikachu,R.drawable.pikachu};
+    /**
+     * the intent of MainActivity
+     */
+    Intent intent;
 
+    /**
+     * the player
+     */
+    Player p;
+    /**
+     * The unique UserManager.
+     */
+    UserManager userManager = UserManager.getUserManager();
+    /**
+     * The name of the current User.
+     */
+    String username;
+    /**
+     * The items in the Player's bag.
+     */
+    String items[];// = new String[]{"poison1","poison2","poison3","poison4","poison5","poison6"};
+    /**
+     * All the pokemon information, including the pokemon names, images, and info.
+     */
+    ArrayList<String> pokemons;// = new String[]{"Pikachu", "pokemon2","pokemon3","pokemon4","pokemon5"};
+    ArrayList<String> pokemonsinfo;// = new String[]{"This is a Pikachu.","2","3","4","5"};
+    ArrayList<Integer> images;// = new int[]{R.drawable.pikachu1,R.drawable.psyduck,R.drawable.squirtle,
+            //R.drawable.charmander,R.drawable.jigglypuff};
+
+    /**
+     * The ListView for pokemon and items.
+     */
+    ListView itemslist;
+    ListView pokemonlist;
+    /**
+     * The Toogle button for switching between pokemon and items.
+     */
+    ToggleButton toggleButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bag_item);
 
+        // get the Player
+        try{
+        intent = getIntent();
+        username = intent.getStringExtra("username");
+        p = userManager.getUser(username).getPlayer();}
+        catch (NullPointerException e){
+            System.out.println("nonono");
+        }
 
-        final ListView listView1 = findViewById(R.id.list_view);
-        final ListView listView2 = findViewById(R.id.list_view2);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
-//        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pokemons);
-        CustomApater adapter2 = new CustomApater();
-        listView1.setAdapter(adapter1);
-        listView2.setAdapter(adapter2);
-//        listView.setBackgroundColor(Color.LTGRAY);
-        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        //get all the information from the Player's bag
+        //First, the pokemon
+        ArrayList<Pokemon> pokemontemp;
+        pokemontemp = p.getPokemonList();
+        for(Pokemon pokemon: pokemontemp){
+            pokemons.add(pokemon.getPokemonName());
+            pokemonsinfo.add(pokemon.toString());
+            images.add(pokemon.getProfileID());
+        }
+
+
+
+
+        //draw the list items and pokemon list
+        itemslist = (ListView) findViewById(R.id.list_view);
+        pokemonlist = (ListView) findViewById(R.id.list_view2);
+
+        //Create new adapters for the listviews and adpate them.
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        CustomAdpater adapter2 = new CustomAdpater();
+        itemslist.setAdapter(adapter1);
+        pokemonlist.setAdapter(adapter2);
+
+        //itemslist onClisk method
+        itemslist.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MenuActivity.this, items[position], Toast.LENGTH_SHORT).show();
             }
         });
-//        listView1.setVisibility(View.INVISIBLE);
-        listView2.setVisibility(View.INVISIBLE);
 
-        ToggleButton toggleButton = findViewById(R.id.toggleButton1);
+        //The Switch is on Items(OFF) at the first,
+        //Set the pokemonlist to be invisible in the beginning.
+        pokemonlist.setVisibility(View.INVISIBLE);
+
+        //set up the toggle Button
+        toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!isChecked){
-                    listView1.setVisibility(View.VISIBLE);
-                    listView2.setVisibility(View.INVISIBLE);
-//                    Toast.makeText(MenuActivity.this, "kkk", Toast.LENGTH_SHORT).show();
+                    itemslist.setVisibility(View.VISIBLE);
+                    pokemonlist.setVisibility(View.INVISIBLE);
+
                 }else{
-                    listView1.setVisibility(View.INVISIBLE);
-                    listView2.setVisibility(View.VISIBLE);
-//                    Toast.makeText(MenuActivity.this, "www", Toast.LENGTH_SHORT).show();
+                    itemslist.setVisibility(View.INVISIBLE);
+                    pokemonlist.setVisibility(View.VISIBLE);
+
                 }
             }
         });
 
-        TextView textView = findViewById(R.id.textView);
+        // The textview of the String: MY BAG
+        TextView textView = (TextView)findViewById(R.id.textView);
 
     }
 
-
-    class CustomApater extends BaseAdapter{
+    /**
+     * The CustomAdater for the pokemon listview.
+     */
+    class CustomAdpater extends BaseAdapter{
         @Override
         public int getCount() {
-            return images.length;
+            return images.size();
         }
 
         @Override
@@ -91,15 +159,15 @@ public class MenuActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            @SuppressLint("ViewHolder") View view = getLayoutInflater().inflate(R.layout.pokemon_layout, null);
+            View view = getLayoutInflater().inflate(R.layout.pokemon_layout, null);
 
-            ImageView imageView = view.findViewById(R.id.pokemonimage);
-            TextView pokename = view.findViewById(R.id.pokemonname);
-            TextView pokeinfo = view.findViewById(R.id.pokemoninfo);
+            ImageView imageView = (ImageView) view.findViewById(R.id.pokemonimage);
+            TextView pokename = (TextView) view.findViewById(R.id.pokemonname);
+            TextView pokeinfo = (TextView) view.findViewById(R.id.pokemoninfo);
 
-            imageView.setImageResource(images[position]);
-            pokename.setText(pokemons[position]);
-            pokeinfo.setText(pokemonsinfo[position]);
+            imageView.setImageResource(images.get(position));
+            pokename.setText(pokemons.get(position));
+            pokeinfo.setText(pokemonsinfo.get(position));
 
             return view;
         }

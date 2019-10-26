@@ -20,11 +20,11 @@
         <activity
             android:name=".Activities.StartUpActivity"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
 
         <activity
@@ -36,11 +36,32 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
+        <activity android:name=".Activities.MenuActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
         <activity
             android:name=".Activities.FightActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <activity android:name=".Activities.PlayerInfoActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:parentActivityName=".Activities.MainActivity">
+                        <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
+
+                            <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>
         </activity>
+
 
     </application>
 
