@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
+import csc207.phase1.UTFantasy.UserManager;
 
 public class CustomizeActivity extends Activity {
 
@@ -28,11 +29,14 @@ public class CustomizeActivity extends Activity {
 
     // the gender of the player
     private String gender;
+    UserManager userManager = UserManager.getUserManager();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Intent login_intent = getIntent();
-        final User user = (User) login_intent.getSerializableExtra("user");
+        final String username = login_intent.getStringExtra("username");
+        assert username != null;
+
         super.onCreate(savedInstanceState);
         // set the content view of this activity to activity_customize
         setContentView(R.layout.activity_customize);
@@ -83,8 +87,10 @@ public class CustomizeActivity extends Activity {
 
                     // pass in name and gender to MainActivity
                     Player player = new Player(name, gender);
+                    User user = userManager.getUser(username);
                     user.setPlayer(player);
-                    intent.putExtra("player", player);
+                    userManager.saveUserManager(CustomizeActivity.this);
+                    intent.putExtra("username", username);
 
                     // now go to main activity
                     startActivity(intent);

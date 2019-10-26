@@ -21,15 +21,14 @@ public class StartUpActivity extends Activity {
         setContentView(R.layout.activity_start_up);
 
         //create a thread for this activity
-        Thread thread = new Thread()
-        {
+        Thread thread = new Thread() {
             //override run method
 
             @Override
             public void run() {
-                try{
+                try {
                     // show the start up picture for 5 seconds
-                    sleep(1000);
+                    sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {

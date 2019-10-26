@@ -5,5 +5,8 @@ public class FighterNPC extends NPC {
         super(name, gender);
     }
 
-    void function(){}
+    /**
+     * FighterNPC's ability is Fight.
+     */
+    void ability(){}
 }

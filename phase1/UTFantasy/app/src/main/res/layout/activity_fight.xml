@@ -1,39 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Activities.FightActivity">
 
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
         android:layout_height="260dp"
+        android:layout_marginStart="0dp"
         android:background="@drawable/fight_background">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="157dp"
+            android:layout_height="147dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="95dp"
+            app:srcCompat="@drawable/pikachu" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="168dp"
+            android:layout_height="145dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="479dp"
+            android:layout_marginBottom="1dp"
+            app:srcCompat="@drawable/pikachu" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="118dp"
+            android:layout_height="29dp"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-85dp"
+            android:layout_marginBottom="109dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="118dp"
+            android:layout_height="29dp"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-460dp"
+            android:layout_marginBottom="202dp" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="731dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="264dp"
-        android:background="@drawable/text_box">
+        android:background="@drawable/text_box"
+        android:orientation="horizontal"
+        android:visibility="visible">
 
         <FrameLayout
             android:id="@+id/battleSection"
             android:layout_width="366dp"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="0dp"
             android:visibility="visible">
 
             <TextView
@@ -49,102 +83,18 @@
         </FrameLayout>
 
         <FrameLayout
-            android:id="@+id/skillInformationSection"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="488dp"
-            android:background="@drawable/text_box"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/skill_info"
-                android:layout_width="wrap_content"
-                android:layout_height="113dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="skill information..."
-                android:textColor="#FFFF"
-                android:textSize="25sp" />
-        </FrameLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/skillSection"
-            android:layout_width="488dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_toStartOf="@+id/menuSection"
-            android:layout_toEndOf="@+id/skillInformationSection"
-            android:background="@drawable/text_box"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/skill_4"
-                android:layout_width="219dp"
-                android:layout_height="55dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginBottom="20dp"
-                android:background="@android:color/transparent"
-                android:text="skill4"
-                android:textColor="#FFFF"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <Button
-                android:id="@+id/skill_2"
-                android:layout_width="219dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginEnd="24dp"
-                android:background="@android:color/transparent"
-                android:text="skill 2"
-                android:textColor="#FFFF"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/skill_1"
-                android:layout_width="219dp"
-                android:layout_height="53dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="22dp"
-                android:background="@android:color/transparent"
-                android:text="skill1"
-                android:textColor="#FFFF"
-                android:textSize="25sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/skill_3"
-                android:layout_width="219dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginBottom="20dp"
-                android:background="@android:color/transparent"
-                android:text="skill3"
-                android:textColor="#FFFF"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <FrameLayout
             android:id="@+id/menuSection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="366dp"
             android:background="@drawable/text_box"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <Button
                 android:id="@+id/fight"
                 android:layout_width="163dp"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:background="@android:color/transparent"
                 android:text="FIGHT"
                 android:textColor="#FFFF"
@@ -153,9 +103,9 @@
             <Button
                 android:id="@+id/bag"
                 android:layout_width="163dp"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="183dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:background="@android:color/transparent"
                 android:text="BAG"
                 android:textColor="#FFFF"
@@ -164,9 +114,9 @@
             <Button
                 android:id="@+id/pokemon"
                 android:layout_width="163dp"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="50dp"
                 android:background="@android:color/transparent"
                 android:text="POKEMON"
                 android:textColor="#FFFF"
@@ -175,17 +125,86 @@
             <Button
                 android:id="@+id/run"
                 android:layout_width="163dp"
-                android:layout_height="50dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="183dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="50dp"
                 android:background="@android:color/transparent"
                 android:text="RUN"
                 android:textColor="#FFFF"
                 android:textSize="25sp" />
         </FrameLayout>
 
+        <LinearLayout
+            android:id="@+id/fightBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/skillSection"
+                android:layout_width="488dp"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/skillInformationSection"
+                android:background="@drawable/text_box">
 
+                <Button
+                    android:id="@+id/skill_1"
+                    android:layout_width="219dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
 
-</RelativeLayout>
+                <Button
+                    android:id="@+id/skill_2"
+                    android:layout_width="219dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="244dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/skill_3"
+                    android:layout_width="219dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/skill_4"
+                    android:layout_width="219dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="244dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/skillInformationSection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/text_box">
+
+                <TextView
+                    android:id="@+id/skill_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="113dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="skill information..."
+                    android:textColor="#FFFF"
+                    android:textSize="25sp" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
