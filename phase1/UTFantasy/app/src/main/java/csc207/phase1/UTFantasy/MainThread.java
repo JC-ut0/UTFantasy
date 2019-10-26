@@ -13,7 +13,7 @@ public class MainThread extends Thread {
 
     private Canvas canvas;
 
-    public MainThread(SurfaceHolder holder, MapView mapView){
+    public MainThread(SurfaceHolder holder, MapView mapView) {
         this.surfaceHolder = holder;
         this.mapView = mapView;
     }
@@ -21,13 +21,12 @@ public class MainThread extends Thread {
     @Override
     public void run() {
 
-        while (isRunning ) {
+        while (isRunning) {
             canvas = null;
             try {
                 canvas = surfaceHolder.lockCanvas();
                 mapView.update();
                 mapView.draw(canvas);
-                sleep(25);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -38,7 +37,7 @@ public class MainThread extends Thread {
         }
     }
 
-    public void setRunning(boolean isRunning){
+    public void setRunning(boolean isRunning) {
         this.isRunning = isRunning;
     }
 }

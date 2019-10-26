@@ -1,17 +1,57 @@
 package csc207.phase1.UTFantasy.AllSkills;
 
-public interface Skill {
+public abstract class Skill {
+    /**
+     * The damage of the skill.
+     */
+    protected int damage;
 
-    public void setStatus(String status);
+    /**
+     * The special status of this skill.
+     */
+    protected String status;
 
-    public int getDamage();
+    /**
+     * power points of this skill
+     */
+    protected int pp;
 
-    public int getPp();
+    /**
+     * The type of the skill.
+     */
+    protected String type;
 
-    public void setPp(int pp);
+    /**
+     * The name of the skill.
+     */
+    protected String name;
 
-    public String getStatus();
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-    public void setDamage(int damage);
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getPp() {
+        return pp;
+    }
+
+    public void setPp(int pp) {
+        this.pp = pp;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public String getName() {
+        return name;
+    }
 
 }

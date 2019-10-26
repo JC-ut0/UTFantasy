@@ -2,6 +2,8 @@ package csc207.phase1.UTFantasy.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
@@ -39,16 +40,17 @@ public class PlayerInfoActivity extends AppCompatActivity {
     TextView character_gender;
     TextView money;
     TextView character_description;
+    ImageButton backtomain;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_info);
 
-        intent = getIntent();
-        username = intent.getStringExtra("username");
-        User user = userManager.getUser(username);
-        p = user.getPlayer();
+//        intent = getIntent();
+//        username = intent.getStringExtra("username");
+//        User user = userManager.getUser(username);
+//        p = user.getPlayer();
 
 //        if (user == null){
 //            UserManager userManager = UserManager.getUserManager();
@@ -89,5 +91,15 @@ public class PlayerInfoActivity extends AppCompatActivity {
         money.setText("Money: $1000");
 //        money.setText("Money: $" + moneynum);
         character_description.setText("This is the character.");
+
+
+
+        ImageButton back = (ImageButton)findViewById(R.id.back_to_main);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

@@ -82,7 +82,7 @@ public class MenuActivity extends AppCompatActivity {
         //get all the information from the Player's bag
         //First, the pokemon
         ArrayList<Pokemon> pokemontemp;
-        pokemontemp = p.getPokemon();
+        pokemontemp = p.getPokemonList();
         for(Pokemon pokemon: pokemontemp){
             pokemons.add(pokemon.getPokemonName());
             pokemonsinfo.add(pokemon.toString());

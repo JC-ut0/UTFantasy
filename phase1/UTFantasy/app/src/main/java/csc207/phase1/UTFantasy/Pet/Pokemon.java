@@ -20,34 +20,38 @@ public abstract class Pokemon {
      */
     protected int y;
     /**
-     * skills this pokemon have
+     * skills this pokemonList have
      * there are four different skills
      */
     protected Skill[] skills = new Skill[4];
     /**
-     * level of this pokemon
+     * level of this pokemonList
      */
     protected int level;
     /**
-     * status of this pokemon
+     * status of this pokemonList
      */
     protected String status;
     /**
-     * health point of this pokemon
+     * health point of this pokemonList
      */
     protected int hp;
     /**
-     * experience this pokemon has
+     * experience this pokemonList has
      */
     protected int exp;
     /**
-     * person that this pokemon belongs to
+     * person that this pokemonList belongs to
      */
-    protected Person master;
+    protected csc207.phase1.UTFantasy.Character.Person master;
     /**
      * The unique profile id for each Pokemon. ID can be used to draw this Pokemon.
      */
-    protected int profileID ;
+    protected int profileID;
+    /**
+     * Speed determines
+     */
+    protected int speed;
 
     Pokemon() {
         this.level = 1;
@@ -111,13 +115,10 @@ public abstract class Pokemon {
     public void updateSkills(Skill addSkill, Skill removeSkill) {
     }
 
-    public Person getMaster() {
+    public csc207.phase1.UTFantasy.Character.Person getMaster() {
         return master;
     }
 
-    public void setMaster(Person master) {
-        this.master = master;
-    }
 
     public int getExp() {
         return exp;
@@ -143,5 +144,9 @@ public abstract class Pokemon {
     @Override
     public String toString() {
         return pokemonName + "    LV" + level;
+    }
+
+    public void setMaster(csc207.phase1.UTFantasy.Character.Person master) {
+        this.master = master;
     }
 }

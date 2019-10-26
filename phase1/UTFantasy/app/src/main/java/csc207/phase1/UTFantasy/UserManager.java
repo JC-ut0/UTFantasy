@@ -21,6 +21,7 @@ import csc207.phase1.UTFantasy.Activities.LoginActivity;
  * A Singleton class to manage all the Users. Will be initialized in the login activity.
  */
 public class UserManager implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     /**
      * A  HashMap that keys are UserName, values are User instance.
@@ -147,7 +148,6 @@ public class UserManager implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
@@ -168,6 +168,7 @@ public class UserManager implements Serializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             userHashMap = new HashMap<>();
+            userManager.message("File Reading Problem. The UserHashMap is reset", context);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -202,4 +203,5 @@ public class UserManager implements Serializable {
         builder.setPositiveButton("OK", null);
         builder.show();
     }
+
 }

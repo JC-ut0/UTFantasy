@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 
-class Person implements Serializable {
+public class Person implements Serializable {
     /**
      * name of this person
      */
@@ -29,7 +29,12 @@ class Person implements Serializable {
     /**
      * pokemons that this person has
      */
+    // todo: change name to pokemonList
     protected ArrayList<Pokemon> pokemon;
+    /**
+     * pokemons that this person has
+     */
+    protected int maxSizeOfPokmonList = 6;
 
     Person() {
     }
@@ -38,7 +43,7 @@ class Person implements Serializable {
         this.name = name;
         this.gender = gender;
         this.bag = new ArrayList<>();
-        this.pokemon = new ArrayList<Pokemon>();
+        this.pokemon = new ArrayList<>();
     }
 
     String getName() {
@@ -49,16 +54,8 @@ class Person implements Serializable {
         return x;
     }
 
-    void set(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
 
@@ -67,7 +64,7 @@ class Person implements Serializable {
     }
 
 
-    public ArrayList<String> getBag() {
+    ArrayList<String> getBag() {
         return bag;
     }
 
@@ -76,14 +73,18 @@ class Person implements Serializable {
     }
 
 
-    public ArrayList<Pokemon> getPokemon() {
+    public ArrayList<Pokemon> getPokemonList() {
         return pokemon;
     }
 
+    // TODO; set to boolean?
     public void addPokemon(Pokemon pokemon) {
+        if (this.pokemon.size() >= maxSizeOfPokmonList) {
+            return;
+        }
         this.pokemon.add(pokemon);
+        pokemon.setMaster(this);
     }
-
 
     public void setLocation(int x, int y) {
         this.x = x;
