@@ -5,6 +5,7 @@ import android.app.Person;
 import androidx.annotation.NonNull;
 
 import csc207.phase1.UTFantasy.AllSkills.Skill;
+import csc207.phase1.UTFantasy.R;
 
 public abstract class Pokemon {
 
@@ -34,19 +35,23 @@ public abstract class Pokemon {
     /**
      * health point of this pokemon
      */
-    protected int HP;
+    protected int hp;
     /**
      * experience this pokemon has
      */
-    protected int EXP;
+    protected int exp;
     /**
      * person that this pokemon belongs to
      */
     protected Person master;
+    /**
+     * The unique profile id for each Pokemon. ID can be used to draw this Pokemon.
+     */
+    protected int profileID ;
 
     Pokemon() {
         this.level = 1;
-        this.EXP = 0;
+        this.exp = 0;
     }
 
 
@@ -87,12 +92,12 @@ public abstract class Pokemon {
         return status;
     }
 
-    void setHP(int hp) {
-        HP = hp;
+    void setHp(int hp) {
+        this.hp = hp;
     }
 
-    int getHP() {
-        return HP;
+    int getHp() {
+        return hp;
     }
 
     public Skill[] getSkills() {
@@ -114,14 +119,25 @@ public abstract class Pokemon {
         this.master = master;
     }
 
-    public int getEXP() {
-        return EXP;
+    public int getExp() {
+        return exp;
     }
 
-    public void setEXP(int EXP) {
-        this.EXP = EXP;
+    public void setExp(int exp) {
+        this.exp = exp;
     }
 
+    public String getPokemonName() {
+        return pokemonName;
+    }
+
+    public void setPokemonName(String pokemonName) {
+        this.pokemonName = pokemonName;
+    }
+
+    public int getProfileID() {
+        return profileID;
+    }
 
     @NonNull
     @Override
