@@ -3,10 +3,10 @@ package csc207.phase1.UTFantasy.AllSkills;
 public class QuickAttack extends Skill {
 
     public QuickAttack() {
-        damage = 20;
-        pp = 3;
-        status = "available";
+        power = 40;
+        pp = 30;
+        effect = "";
         type = "normal";
-        name = "QuickAttact";
+        name = "Quick Attack";
     }
 }

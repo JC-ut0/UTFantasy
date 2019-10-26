@@ -2,9 +2,10 @@ package csc207.phase1.UTFantasy.AllSkills;
 
 public class Thunder extends Skill {
     public Thunder() {
-        damage = 80;
-        PP = 1;
-        status = "available";
+        power = 120;
+        effect = "paralyzed";
+        pp = 10;
         type = "electronic";
+        name = "Thunder";
     }
 }

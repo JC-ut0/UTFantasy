@@ -9,7 +9,7 @@ public abstract class Skill {
     /**
      * The special status of this skill.
      */
-    protected String status;
+    protected String effect;
 
     /**
      * power points of this skill
@@ -26,8 +26,8 @@ public abstract class Skill {
      */
     protected String name;
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setEffect(String effect) {
+        this.effect = effect;
     }
 
     public int getpower() {
@@ -42,8 +42,8 @@ public abstract class Skill {
         this.pp = pp;
     }
 
-    public String getStatus() {
-        return status;
+    public String getEffect() {
+        return effect;
     }
 
     public void setpower(int power) {
