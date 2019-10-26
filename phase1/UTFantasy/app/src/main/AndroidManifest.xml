@@ -40,8 +40,6 @@
             android:name=".Activities.FightActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
-
         </activity>
 
     </application>

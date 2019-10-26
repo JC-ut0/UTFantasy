@@ -101,7 +101,6 @@ public class UserManager implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void loadUserManager(Context context) throws Exception {

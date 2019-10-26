@@ -48,3 +48,8 @@ Call UserManager's save(Context) method if you want to save the data locally!
 #######
 # Step 10
 Changed Skill class to interface.
+
+########
+# Step 11
+Draw the player in the middle of the screen, player appearance will change corresponding to the his or her moving direction
+Make the player not able to cross the trees. change the map to a proper size. Add some trees to the map
