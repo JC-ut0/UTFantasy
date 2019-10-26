@@ -1,9 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/windows"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.ShopActivity">
+    android:background="@drawable/menubackground" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/image_pink"
+        android:layout_width="210dp"
+        android:layout_height="200dp"
+        android:layout_alignTop="@+id/image_red"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="41dp"
+        android:layout_toStartOf="@+id/image_red"
+        android:contentDescription="pink potion"
+        android:src="@drawable/pink" />
+
+    <TextView
+        android:id="@+id/price_pink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/image_pink"
+        android:layout_alignTop="@+id/image_pink"
+        android:layout_alignEnd="@+id/image_pink"
+        android:layout_alignRight="@+id/image_pink"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="173dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
+        android:gravity="bottom"
+        android:text="$300"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/image_red"
+        android:layout_width="210dp"
+        android:layout_height="200dp"
+        android:layout_alignTop="@+id/image_purple"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="49dp"
+        android:layout_toStartOf="@+id/image_purple"
+        android:contentDescription="red potion"
+        android:src="@drawable/red" />
+
+    <TextView
+        android:id="@+id/price_red"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/image_red"
+        android:layout_alignTop="@+id/image_red"
+        android:layout_alignEnd="@+id/image_red"
+        android:layout_alignRight="@+id/image_red"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="177dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginRight="152dp"
+        android:gravity="bottom"
+        android:text="$200"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/image_purple"
+        android:layout_width="210dp"
+        android:layout_height="200dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="143dp"
+        android:contentDescription="purple potion"
+        android:src="@drawable/purple"
+        />
+
+    <TextView
+        android:id="@+id/price_purple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/image_purple"
+        android:layout_alignTop="@+id/image_purple"
+        android:layout_alignRight="@+id/image_purple"
+        android:layout_alignBottom="@+id/image_purple"
+        android:layout_margin="1dp"
+        android:gravity="bottom"
+        android:text="$100"
+        android:textColor="#000000" />
+
+    <ImageButton
+        android:id="@+id/back_to_main"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/return_button" />
+
+
+    <Button
+        android:id="@+id/choose_pink"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/choose_red"
+        android:layout_alignEnd="@+id/image_pink"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-5dp"
+        android:text="pink potion">
+
+    </Button>
+
+    <Button
+        android:id="@+id/choose_red"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/choose_purple"
+        android:layout_alignEnd="@+id/image_red"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:text="red potion" />
+
+    <Button
+        android:id="@+id/choose_purple"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/image_purple"
+        android:layout_alignEnd="@+id/image_purple"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="6dp"
+        android:text="purple potion" />
+
+    <TextView
+        android:id="@+id/money_left"
+        android:layout_width="102dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="618dp"
+        android:layout_marginBottom="19dp"
+        android:text="Money Left:"
+        android:textColor="#FF6347"
+        android:textSize="15sp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/money_left"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="594dp"
+        android:layout_marginBottom="22dp"
+        android:text="0"
+        android:textColor="#FAEBD7"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

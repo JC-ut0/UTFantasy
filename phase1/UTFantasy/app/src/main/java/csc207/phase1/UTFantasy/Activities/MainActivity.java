@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         username = intent.getStringExtra("username");
         p = userManager.getUser(username).getPlayer();
 
-//        MapView mapView = new MapView(this, p);
+//        MapView mapView = new MapView(this, player);
 //        FrameLayout frame = new FrameLayout(this);
 //        RelativeLayout buttonHolders = new RelativeLayout(this);
 //

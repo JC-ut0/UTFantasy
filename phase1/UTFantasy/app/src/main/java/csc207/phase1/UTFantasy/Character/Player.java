@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy.Character;
 
 import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
+import csc207.phase1.UTFantasy.Products.Product;
 
 public class Player extends Person {
     /**
@@ -95,6 +96,10 @@ public class Player extends Person {
         }
         this.pokemon.add(pokemon);
         pokemon.setMaster(this);
+    }
+
+    public void buyProduct(Product product, int num){
+
     }
 
 }

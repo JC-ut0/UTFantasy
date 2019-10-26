@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy.AllSkills;
 
 public class ThunderWave extends Skill {
 
+
     public ThunderWave() {
         power = 15;
         effect = "paralyzed";
@@ -9,4 +10,5 @@ public class ThunderWave extends Skill {
         type = "electric";
         name = "Thunder Wave";
     }
+
 }
