@@ -3,7 +3,6 @@ package csc207.phase1.UTFantasy.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -35,9 +33,9 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_bag_item);
 
 
-        final ListView listView1 = (ListView) findViewById(R.id.list_view);
-        final ListView listView2 = (ListView) findViewById(R.id.list_view2);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        final ListView listView1 = findViewById(R.id.list_view);
+        final ListView listView2 = findViewById(R.id.list_view2);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
 //        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pokemons);
         CustomApater adapter2 = new CustomApater();
         listView1.setAdapter(adapter1);
@@ -53,7 +51,7 @@ public class MenuActivity extends AppCompatActivity {
 //        listView1.setVisibility(View.INVISIBLE);
         listView2.setVisibility(View.INVISIBLE);
 
-        ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
+        ToggleButton toggleButton = findViewById(R.id.toggleButton1);
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -69,7 +67,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        TextView textView = (TextView)findViewById(R.id.textView);
+        TextView textView = findViewById(R.id.textView);
 
     }
 
@@ -93,11 +91,11 @@ public class MenuActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View view = getLayoutInflater().inflate(R.layout.pokemon_layout, null);
+            @SuppressLint("ViewHolder") View view = getLayoutInflater().inflate(R.layout.pokemon_layout, null);
 
-            ImageView imageView = (ImageView) view.findViewById(R.id.pokemonimage);
-            TextView pokename = (TextView) view.findViewById(R.id.pokemonname);
-            TextView pokeinfo = (TextView) view.findViewById(R.id.pokemoninfo);
+            ImageView imageView = view.findViewById(R.id.pokemonimage);
+            TextView pokename = view.findViewById(R.id.pokemonname);
+            TextView pokeinfo = view.findViewById(R.id.pokemoninfo);
 
             imageView.setImageResource(images[position]);
             pokename.setText(pokemons[position]);
