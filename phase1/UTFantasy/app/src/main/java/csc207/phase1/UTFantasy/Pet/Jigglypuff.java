@@ -7,7 +7,7 @@ public class Jigglypuff extends Pokemon {
 
     public Jigglypuff(){
         setHp(10);
-        skills.set(0, new Pound());
+        skills[0] = new Pound();
         profileID = R.drawable.jigglypuff;
         pokemonName = "Jigglypuff";
     }
