@@ -48,10 +48,10 @@ public class PlayerInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_info);
 
-//        intent = getIntent();
-//        username = intent.getStringExtra("username");
-//        User user = userManager.getUser(username);
-//        player = user.getPlayer();
+        intent = getIntent();
+        username = intent.getStringExtra("username");
+        User user = userManager.getUser(username);
+        p = user.getPlayer();
 
 
 //        assert user != null;
@@ -63,13 +63,14 @@ public class PlayerInfoActivity extends AppCompatActivity {
 //        currentPokemon = pokemonList.get(0);
 //        assert currentPokemon != null;
 
-        if (true) {
-            UserManager userManager = UserManager.getUserManager();
-            userManager.message("Create a new User", PlayerInfoActivity.this);
-            User user = new User("2", "123456");
-            user.setPlayer(new Player("ET", "ET"));
-            user.getPlayer().addPokemon(new Pikachu());
-        }
+//        if (true) {
+//            UserManager userManager = UserManager.getUserManager();
+//            userManager.message("Create a new User", PlayerInfoActivity.this);
+//            User user = new User("2", "123456");
+//            user.setPlayer(new Player("ET", "girl"));
+//            p = user.getPlayer();
+//            p.setMoney(10000);
+//        }
 
 
         profile = (ImageView) findViewById(R.id.profileimage);
@@ -79,22 +80,19 @@ public class PlayerInfoActivity extends AppCompatActivity {
         character_description = (TextView) findViewById(R.id.description);
 
 
-//        if (player.getGender().equals("male")){
-//            profile.setImageResource(R.drawable.charater_male);
-//            character_gender.setText("Gender: Male");
-//        }else{
-//            profile.setImageResource(R.drawable.character_female);
-//            character_gender.setText("Gender: Female");
-//        }
+        if (p.getGender().equals("boy")){
+            profile.setImageResource(R.drawable.charater_male);
+            character_gender.setText("Gender: Male");
+        }else{
+            profile.setImageResource(R.drawable.character_female);
+            character_gender.setText("Gender: Female");
+        }
 
-//        int moneynum = player.getMoney();
 
-        profile.setImageResource(R.drawable.character_female);
-        character_name.setText("Xiaoming");
-        character_gender.setText("Gender: Male");
+        character_name.setText(p.getName());
 
-        money.setText("Money: $1000");
-//        money.setText("Money: $" + moneynum);
+
+        money.setText("Money: $" + p.getMoney());
         character_description.setText("This is the character.");
 
 

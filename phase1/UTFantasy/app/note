@@ -64,3 +64,9 @@ Add button A and B to the MainActivity
 # Step 13
 Finish ShopActivity.
 You can buy potions now!
+
+########
+# Step 14
+Create the Menu System. Now we have a Bag menu(pokemons and potions),
+Player information(gender, money and characters'name) and the System Menu(save and logout).
+You can see your little pokenmons and your information Now!

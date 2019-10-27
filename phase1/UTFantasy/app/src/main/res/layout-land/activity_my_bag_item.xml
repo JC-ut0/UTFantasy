@@ -14,6 +14,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="0dp"
         android:text="@string/mybag"
+        android:textStyle="bold"
         android:textSize="40sp" />
 
     <ListView
