@@ -1,5 +1,7 @@
 package csc207.phase1.UTFantasy.AllSkills;
 
+import androidx.annotation.NonNull;
+
 public abstract class Skill {
     /**
      * The power of the skill.
@@ -60,5 +62,10 @@ public abstract class Skill {
 
     public void setType(String type) {
         this.type = type;
+    }
+    @NonNull
+    @Override
+    public String toString() {
+        return name + " is a powerful move.";
     }
 }

@@ -3,6 +3,7 @@ package csc207.phase1.UTFantasy.Pet;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import csc207.phase1.UTFantasy.AllSkills.Skill;
 import csc207.phase1.UTFantasy.Character.Person;
@@ -69,18 +70,77 @@ public abstract class Pokemon {
      */
     protected int speed;
 
+    /**
+     * Individual value of hp
+     */
+    protected int iv_hp;
+
+    /**
+     * Individual value of attack
+     */
+    protected int iv_attack;
+
+    /**
+     * Individual value of defense
+     */
+    protected int iv_defense;
+
+    /**
+     * Individual value of speed
+     */
+    protected int iv_speed;
+
+    /**
+     * Base stat of hp
+     */
+    protected static int base_hp;
+
+    /**
+     * Base stat of attack
+     */
+    protected static int base_attack;
+
+    /**
+     * Base stat of defense
+     */
+    protected static int base_defense;
+
+    /**
+     * Base stat of speed
+     */
+    protected static int base_speed;
+
+    /**
+     * Level growing type
+     */
+    protected String grow_type;
+
     Pokemon() {
         this.level = 1;
         this.exp = 0;
         skills = new ArrayList<>();
+        Random r = new Random();
+        iv_hp = r.nextInt(32);
+        iv_attack = r.nextInt(32);
+        iv_defense = r.nextInt(32);
+        iv_speed = r.nextInt(32);
     }
 
-    public int getSpeed(){
-        return speed;
-    }
+    public void calculateStatistic(String statType){
+        if (statType.equals("attack")){
+            float base = ((base_attack + iv_attack) * 2 * level) / 100;
+            this.attack = (int) Math.floor(base) + 5;
+        } else if(statType.equals("defense")){
+            float base = ((base_defense + iv_defense) * 2 * level) / 100;
+            this.defense = (int) Math.floor(base) + 5;
+        } else if(statType.equals("speed")){
+            float base = ((base_speed + iv_speed) * 2 * level) / 100;
+            this.speed = (int) Math.floor(base) + 5;
+        } else if(statType.equals("hp")){
+            float base = ((base_hp + iv_hp) * 2 * level) / 100;
+            this.hp = (int) Math.floor(base) + level + 10;
+        }
 
-    public void setSpeed(int speed){
-        this.speed= speed;
     }
 
     public int getX() {
@@ -118,10 +178,6 @@ public abstract class Pokemon {
 
     String getStatus() {
         return status;
-    }
-
-    void setHp(int hp) {
-        this.hp = hp;
     }
 
     int getHp() {
@@ -168,16 +224,9 @@ public abstract class Pokemon {
         return attack;
     }
 
-    public void setAttack(int attack){
-        this.attack = attack;
-    }
 
     public int getDefense() {
         return defense;
-    }
-
-    public void setDefense(int defense){
-        this.defense = defense;
     }
 
     public String getType(){

@@ -1,5 +1,7 @@
 package csc207.phase1.UTFantasy.AllSkills;
 
+import androidx.annotation.NonNull;
+
 public class ThunderShock extends Skill {
 
     public ThunderShock() {
@@ -8,5 +10,10 @@ public class ThunderShock extends Skill {
         pp = 30;
         type = "electric";
         name = "Thunder Shock";
+    }
+    @NonNull
+    @Override
+    public String toString() {
+        return name + ": An electrical attack that may paralyze the foe.";
     }
 }

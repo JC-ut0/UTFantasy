@@ -1,5 +1,7 @@
 package csc207.phase1.UTFantasy.AllSkills;
 
+import androidx.annotation.NonNull;
+
 public class Ember extends Skill {
 
     public Ember() {
@@ -9,5 +11,11 @@ public class Ember extends Skill {
         type = "fire";
         name = "Ember";
 
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return name + ": A weak fire attack that may inflict a burn.";
     }
 }

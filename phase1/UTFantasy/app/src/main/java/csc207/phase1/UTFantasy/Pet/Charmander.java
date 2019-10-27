@@ -6,10 +6,17 @@ import csc207.phase1.UTFantasy.R;
 public class Charmander extends Pokemon {
 
     public Charmander() {
-        setHp(10);
         skills[0] = new Scratch();
         profileID = R.drawable.charmander;
         pokemonName = "Charmander";
+        base_hp = 39;
+        base_attack = 56;
+        base_defense = 45;
+        base_speed = 65;
+        calculateStatistic("hp");
+        calculateStatistic("attack");
+        calculateStatistic("defense");
+        calculateStatistic("speed");
 
     }
 }
