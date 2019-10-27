@@ -1,10 +1,11 @@
 package csc207.phase1.UTFantasy.Character;
 
+import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.Product;
 
-public class Player extends Person {
+public class Player extends Person implements Fighter {
     /**
      * the map manager this player belongs to
      */
@@ -15,14 +16,27 @@ public class Player extends Person {
     private int money;
 
     /**
+     * gender of this person
+     */
+    protected String gender;
+
+    /**
      * the direction that the player is facing to
      */
     public String direction = "down";
 
     public Player(String name, String gender) {
-        super(name, gender);
+        super(name);
+        this.gender = gender;
         this.money = 0;
     }
+
+
+    public String getGender() {
+        return gender;
+    }
+
+
 
     public void move(String direction) {
         switch (direction) {

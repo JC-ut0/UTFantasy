@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +13,16 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import java.util.ArrayList;
 
 import csc207.phase1.UTFantasy.AllSkills.Skill;
+import csc207.phase1.UTFantasy.Character.FighterNPC;
+import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.Player;
+import csc207.phase1.UTFantasy.FightManager;
+import csc207.phase1.UTFantasy.NPCManager;
 import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.R;
@@ -27,10 +31,13 @@ import csc207.phase1.UTFantasy.UserManager;
 
 public class FightActivity extends AppCompatActivity {
     private Player player;
+    private FighterNPC opponent;
     private boolean clickable = true;
     private ArrayList<Pokemon> pokemonList;
     private Pokemon currentPokemon;
-    private int progress = 0;
+    private Pokemon currentRivalPokemon;
+    private int progress = -1;
+    private FightManager fightManager;
 
     // the bottom layout
     LinearLayout informationSection;
@@ -62,6 +69,7 @@ public class FightActivity extends AppCompatActivity {
     // healthBar Text
     TextView myHealthInfo;
     TextView rivalHealthInfo;
+    ArrayList<String> turnInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +99,18 @@ public class FightActivity extends AppCompatActivity {
         currentPokemon = pokemonList.get(0);
         assert currentPokemon != null;
 
-        updateSkillButton();
 
+        String NPCname = main_intent.getStringExtra("NPCname");
+        NPC npc = NPCManager.getNPCManager().getNPC(NPCname);
+        if (npc == null) {
+            npc = new FighterNPC("poor student");
+        }
+        assert npc != null;
+        opponent = (FighterNPC) npc;
+
+        fightManager = new FightManager(player, opponent, this);
+
+        updateSkillButton();
         informationSection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,21 +138,22 @@ public class FightActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.skill_1:
-                        Toast.makeText(FightActivity.this, "Skill one.", Toast.LENGTH_SHORT).show();
+                        fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[0]);
                         break;
                     case R.id.skill_2:
-                        Toast.makeText(FightActivity.this, "Skill two.", Toast.LENGTH_SHORT).show();
+                        fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[1]);
                         break;
                     case R.id.skill_3:
-                        Toast.makeText(FightActivity.this, "Skill three.", Toast.LENGTH_SHORT).show();
+                        fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[2]);
                         break;
                     case R.id.skill_4:
-                        Toast.makeText(FightActivity.this, "Skill four.", Toast.LENGTH_SHORT).show();
+                        fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[3]);
                         break;
                 }
                 fightBox.setVisibility(View.GONE);
                 battleSection.setVisibility(View.VISIBLE);
                 clickable = true;
+                fightManager.setRivalSkill();
                 progress++;
             }
         };
@@ -157,12 +176,11 @@ public class FightActivity extends AppCompatActivity {
         );
         // implement run buttons onClickListener
         run.setOnClickListener(new View.OnClickListener() {
-                                          @Override
-                                          public void onClick(View view) {
-                                              onBackPressed();
-                                              userManager.message("!!!!!!", FightActivity.this);
-                                          }
-                                      }
+                                   @Override
+                                   public void onClick(View view) {
+                                       endFight();
+                                   }
+                               }
         );
         // todo: implement run buttons onClickListener
         bag.setOnClickListener(new View.OnClickListener() {
@@ -217,56 +235,36 @@ public class FightActivity extends AppCompatActivity {
     }
 
     private void startRound() {
-        switch (progress) {
-            case 0:
+        if(fightManager.getProgress() == -1){
+            if(fightManager.getContinuable()) {
                 menuSection.setVisibility(View.VISIBLE);
-                updateSkillButton();
                 clickable = false;
-                break;
-            case 1:
-                battleInfo.setText("progress1:" + progress);
-                progress++;
-                break;
-            case 2:
-                battleInfo.setText("progress2:" + progress);
-                progress++;
-                break;
-            case 3:
-                battleInfo.setText("progress3:" + progress);
-                progress++;
-                break;
-            case 4:
-                battleInfo.setText("progress4:" + progress);
-                progress++;
-                break;
-            case 5:
-                battleInfo.setText("progress5:" + progress);
-                progress++;
-                break;
-            case 6:
-                battleInfo.setText("What you want to do");
-                progress = 0;
-                break;
+            } else {
+                endFight();
+            }
+        } else{
+            battleInfo.setText(fightManager.updateInfo());
+            // TODO: update image of pokemon and their hp bar
         }
-        if (!currentPokemon.isAlive()) {
+    }
 
-        }
-
+    public void endFight(){
+        Intent intent = new Intent(FightActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void updateSkillButton() {
         // set all skill to display the currentPokemon's skills
-        ArrayList<Skill> currentPokemonSkills = currentPokemon.getSkills();
+        Skill[] currentPokemonSkills = currentPokemon.getSkills();
 
         try {
-            skill_1.setText(currentPokemonSkills.get(0).getName());
-            skill_2.setText(currentPokemonSkills.get(1).getName());
-            skill_3.setText(currentPokemonSkills.get(2).getName());
-            skill_4.setText(currentPokemonSkills.get(3).getName());
+            skill_1.setText(currentPokemon.getSkills()[0].getName());
+            skill_2.setText(currentPokemon.getSkills()[1].getName());
+            skill_3.setText(currentPokemon.getSkills()[2].getName());
+            skill_4.setText(currentPokemon.getSkills()[3].getName());
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
     }
 
 

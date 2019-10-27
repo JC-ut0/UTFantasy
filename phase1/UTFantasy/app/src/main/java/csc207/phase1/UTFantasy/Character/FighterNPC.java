@@ -1,8 +1,10 @@
 package csc207.phase1.UTFantasy.Character;
 
-public class FighterNPC extends NPC {
-    public FighterNPC(String name, String gender) {
-        super(name, gender);
+import csc207.phase1.UTFantasy.Interface.Fighter;
+
+public class FighterNPC extends NPC implements Fighter {
+    public FighterNPC(String name) {
+        super(name);
     }
 
     /**

@@ -1,8 +1,8 @@
 package csc207.phase1.UTFantasy.Character;
 
 public class HealerNPC extends NPC {
-    public HealerNPC(String name, String gender) {
-        super(name, gender);
+    public HealerNPC(String name) {
+        super(name);
     }
 
     /**

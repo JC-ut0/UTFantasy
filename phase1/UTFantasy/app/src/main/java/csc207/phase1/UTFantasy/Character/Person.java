@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
-import csc207.phase1.UTFantasy.Products.Product;
 
 public class Person implements Serializable {
     /**
@@ -19,14 +18,11 @@ public class Person implements Serializable {
      * second coordinate
      */
     protected int y;
-    /**
-     * gender of this person
-     */
-    protected String gender;
+
     /**
      * objects in this person's bag
      */
-    protected ArrayList<Product> bag;
+    protected ArrayList<String> bag;
     /**
      * pokemons that this person has
      */
@@ -40,9 +36,8 @@ public class Person implements Serializable {
     Person() {
     }
 
-    Person(String name, String gender) {
+    Person(String name) {
         this.name = name;
-        this.gender = gender;
         this.bag = new ArrayList<>();
         this.pokemon = new ArrayList<>();
     }
@@ -59,17 +54,11 @@ public class Person implements Serializable {
         return y;
     }
 
-
-    public String getGender() {
-        return gender;
-    }
-
-
-    public ArrayList<Product> getBag() {
+    ArrayList<String> getBag() {
         return bag;
     }
 
-    public void setBag(Product item) {
+    public void setBag(String item) {
         bag.add(item);
     }
 

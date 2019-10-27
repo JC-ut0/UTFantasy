@@ -9,12 +9,14 @@ import csc207.phase1.UTFantasy.AllSkills.Skill;
 import csc207.phase1.UTFantasy.Character.FighterNPC;
 import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.Player;
+import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.function.ToDoubleBiFunction;
 
 public class FightManager {
 
@@ -22,84 +24,80 @@ public class FightManager {
     private Pokemon playerPokemon = player.getPokemonList().get(0);
     private FighterNPC opponent;
     private Pokemon opponentPokemon = opponent.getPokemonList().get(0);
+    private boolean fainted;
+    private String faintedSide;
+    private boolean continuable = true;
     private String priority;
+    private int progress = 0;
+    private Skill skill;
+    private Skill rivalSkill;
+    //    private boolean continueFight = true;
+//    private String lostSide;
     static HashMap<String, HashMap<String, Float>> typeMap = new HashMap<>();
 
-    public FightManager(Player player, NPC npc) {
+    public FightManager(Player player, FighterNPC npc, FightActivity fightActivity) {
         this.player = player;
-        this.opponent = opponent;
+        this.opponent = npc;
         determineTurn();
         setTypeMap();
     }
 
-    private void setTypeMap(){
+    //
+//    public boolean toBeContinued(){
+//        return continueFight;
+//    }
+//
+//    public String getLoser(){
+//        return lostSide;
+//    }
+//
+//    public void setOpponentPokemon(Pokemon opponentPokemon) {
+//        this.opponentPokemon = opponentPokemon;
+//    }
+//
+//    public void setPlayerPokemon(Pokemon playerPokemon){
+//        this.playerPokemon = playerPokemon;
+//    }
+    public void setSkill(Skill skill) {
+        this.skill = skill;
+    }
+
+    private void setTypeMap() {
         // the outer hash map for self is type water
         HashMap<String, Float> waterMap = new HashMap<String, Float>();
         typeMap.put("water", waterMap);
         // the inner hash maps for water key
         waterMap.put("fire", (float) 2);
-        waterMap.put("normal", (float)1);
+        waterMap.put("normal", (float) 1);
         waterMap.put("water", (float) 0.5);
-        waterMap.put("electric", (float)1);
-        waterMap.put("dragon", (float)0.5);
-        waterMap.put("psychic", (float)1);
+        waterMap.put("electric", (float) 1);
 
         // the outer hash map for self is type fire
         HashMap<String, Float> fireMap = new HashMap<String, Float>();
         typeMap.put("fire", fireMap);
         // the inner hash maps for fire key
-        fireMap.put("fire", (float) 0.5);
-        fireMap.put("normal", (float)1);
-        fireMap.put("water", (float) 0.5);
-        fireMap.put("electric", (float)1);
-        fireMap.put("dragon", (float)0.5);
-        fireMap.put("psychic", (float)1);
+        waterMap.put("fire", (float) 0.5);
+        waterMap.put("normal", (float) 1);
+        waterMap.put("water", (float) 0.5);
+        waterMap.put("electric", (float) 1);
 
-        // the outer hash map for self is type normal
+        // the outer hash map for self is type water
         HashMap<String, Float> normalMap = new HashMap<String, Float>();
         typeMap.put("normal", normalMap);
         // the inner hash maps for water key
-        normalMap.put("fire", (float) 1);
-        normalMap.put("normal", (float)1);
-        normalMap.put("water", (float) 1);
-        normalMap.put("electric", (float)1);
-        normalMap.put("psychic", (float)1);
-        normalMap.put("dragon", (float)1);
+        waterMap.put("fire", (float) 1);
+        waterMap.put("normal", (float) 1);
+        waterMap.put("water", (float) 1);
+        waterMap.put("electric", (float) 1);
 
-        // the outer hash map for self is type electric
+        // the outer hash map for self is type water
         HashMap<String, Float> electricMap = new HashMap<String, Float>();
         typeMap.put("electric", electricMap);
         // the inner hash maps for water key
-        electricMap.put("fire", (float) 1);
-        electricMap.put("normal", (float)1);
-        electricMap.put("water", (float) 2);
-        electricMap.put("electric", (float)0.5);
-        electricMap.put("dragon", (float)0.5);
-        electricMap.put("psychic", (float)1);
-
-
-        // the outer hash map for self is type dragon
-        HashMap<String, Float> dragonMap = new HashMap<String, Float>();
-        typeMap.put("dragon", dragonMap);
-        // the inner hash map for dragon key
-        dragonMap.put("fire", (float)1);
-        dragonMap.put("water", (float)1);
-        dragonMap.put("electric", (float)1);
-        dragonMap.put("normal", (float)1);
-        dragonMap.put("dragon", (float)2);
-        dragonMap.put("psychic", (float)1);
-
-        // the outer hash map for self is type psychic
-        HashMap<String, Float> psychicMap = new HashMap<String, Float>();
-        typeMap.put("psychic", psychicMap);
-        // the inner hash map for psychic key
-        psychicMap.put("fire", (float)1);
-        psychicMap.put("water", (float)1);
-        psychicMap.put("electric", (float)1);
-        psychicMap.put("normal", (float)1);
-        psychicMap.put("psychic", (float)0.5);
-        psychicMap.put("dragon", (float)1);
-
+        waterMap.put("fire", (float) 1);
+        waterMap.put("normal", (float) 1);
+        waterMap.put("water", (float) 2);
+        waterMap.put("electric", (float) 0.5);
     }
 
     public void determineTurn() {
@@ -115,66 +113,330 @@ public class FightManager {
         }
     }
 
-    public int calculateDMG(Pokemon pokemon, Pokemon rival, Skill skill){
+    public Pokemon getPlayerPokemon(){
+        return playerPokemon;
+    }
+
+    public int calculateDMG(Pokemon pokemon, Pokemon rival, Skill skill) {
         // calculate damage without modifier
-        int damage = (2 * rival.getLevel() + 10)/250;
+        int damage = (2 * rival.getLevel() + 10) / 250;
         damage = damage * pokemon.getAttack() / rival.getDefense();
         damage = damage * skill.getpower() + 2;
 
         // calculate the modifier
-        double random = Math.random() * (1-0.85)+0.85;
+        double random = Math.random() * (1 - 0.85) + 0.85;
         double r = Math.random();
         double rate = 1;
-        if (r < 0.03125){
+        if (r < 0.03125) {
             rate = 1.5;
         }
-        float type = (float)checkType(skill, rival)[0];
+        float type = checkType(skill, rival);
         float stab = 1;
-        if(skill.getType().equals(pokemon.getType())){
-            stab = (float)1.5;
+        if (skill.getType().equals(pokemon.getType())) {
+            stab = (float) 1.5;
         }
         double modifier = random * rate * type * stab;
 
         return (int) Math.floor(modifier * damage);
     }
 
-    public Object[] checkType(Skill skill, Pokemon rival) {
+    public boolean getFainted(){
+        return fainted;
+    }
+
+    public boolean getContinuable(){
+        return continuable;
+    }
+
+    public int getProgress(){
+        return progress;
+    }
+
+    public float checkType(Skill skill, Pokemon rival) {
         float typeIndex = 1;
         if (typeMap.containsKey(skill.getType()) && typeMap.get(skill.getType()).containsKey(rival.getType())) {
             typeIndex = typeMap.get(skill.getType()).get(rival.getType());
         }
-        String note = "";
-        if(typeIndex == 0){
-            note = "It seems has no effect...";
-        } else if(typeIndex < 1 ){
-            note = "It is not very effective on " + rival.getPokemonName();
-        } else if(typeIndex == 1) {
-            note = "";
-        }
-          else {
-            note = "It is super effective on " + rival.getPokemonName();
-        }
-        Object[] result = new Object[2];
-        result[0] = typeIndex;
-        result[1] = note;
-        return result;
+        return typeIndex;
     }
-    public String[] updateResult(Skill skill){
-        String[] result = new String[4];
-        double r = Math.random();
-        Random rand = new Random();
-        Skill skillRival = opponentPokemon.getSkills().get(rand.nextInt(opponentPokemon.getSkillNum()));
-        if (priority.equals("player")){
-            result[0] = playerPokemon.getPokemonName() + " used " + skill.getName();
-            result[1] = (String)checkType(skill,opponentPokemon)[1];
-            result[2] = opponentPokemon.getPokemonName() + " used " + skillRival.getName();
-            result[3] = (String)checkType(skillRival,playerPokemon)[1];
-        } else{
-            result[2] = playerPokemon.getPokemonName() + " used " + skill.getName();
-            result[3] = (String)checkType(skill,opponentPokemon)[1];
-            result[0] = opponentPokemon.getPokemonName() + " used " + skillRival.getName();
-            result[1] = (String)checkType(skillRival,playerPokemon)[1];
+
+    public void setRivalSkill() {
+        Skill result = null;
+        while (result == null) {
+            result = opponentPokemon.getSkills()[(new Random().nextInt(opponentPokemon.getSkillNum()))];
         }
-        return result;
+        this.rivalSkill = result;
     }
+
+    public boolean determineContinue(Fighter p) {
+        for (Pokemon pokemon : p.getPokemonList()) {
+            if (pokemon.isAlive()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String updateInfo() {
+        String text;
+        switch (progress) {
+            case 0:
+                text = opponent.getName() + " send out " + opponentPokemon.getPokemonName();
+                progress += 1;
+                return text;
+
+            case 1:
+                // informing the skill of first attack
+                determineTurn();
+                if (priority.equals("player")) {
+                    text = playerPokemon.getPokemonName() + " uses " + skill.getName();
+                } else {
+                    text = opponentPokemon.getPokemonName() + " uses " + rivalSkill.getName();
+                }
+                progress += 1;
+                return text;
+
+            case 2:
+                // showing the effect of first attack
+                if (priority.equals("player")) {
+                    text = useSkill(playerPokemon, opponentPokemon, skill);
+                    if (fainted) {
+                        continuable = determineContinue(opponent);
+                        faintedSide = "opponent";
+                    }
+                } else {
+                    text = useSkill(opponentPokemon, playerPokemon, rivalSkill);
+                    if (fainted) {
+                        continuable = determineContinue(player);
+                        faintedSide = "player";
+                    }
+                }
+                return text;
+
+            case 3:
+                // informing the skill of second attack or informing fainted pokemon if there is such one
+                if (!fainted) {
+                    // not fainted
+                    if (priority.equals("opponent")) {
+                        text = playerPokemon.getPokemonName() + " used " + skill.getName();
+                    } else {
+                        text = opponentPokemon.getPokemonName() + " used " + rivalSkill.getName();
+                    }
+                    progress += 1;
+                } else {
+                    // fainted
+                    if (faintedSide.equals("opponent")) {
+                        text = opponentPokemon.getPokemonName() + " fainted.";
+                    } else{
+                        text = playerPokemon.getPokemonName() + " fainted.";
+                    }
+                    progress += 1;
+                }
+                return text;
+
+            case 4:
+                // effect of second attack or informing if opponent chose next pokemon or if the battle is end
+                if (!fainted) {
+                    // not fainted
+                    if (priority.equals("opponent")) {
+                        text = useSkill(playerPokemon, opponentPokemon, skill);
+                        if (fainted) {
+                            continuable = determineContinue(opponent);
+                            faintedSide = "opponent";
+                        }
+                    } else {
+                        text = useSkill(opponentPokemon, playerPokemon, rivalSkill);
+                        if (fainted) {
+                            continuable = determineContinue(player);
+                            faintedSide = "player";
+                        }
+                    }
+                    // check if the pokemon fainted after second attack
+                    if(fainted){
+                        progress += 1;
+                    } else {
+                        // TODO: go to menu and start a new round
+                        progress = -1;}
+                } else {
+                    // one pokemon fainted during first attack
+                    if (continuable) {
+                        if (faintedSide.equals("opponent")) {
+                            // opponent fainted && continuable
+                            for (Pokemon pokemon : opponent.getPokemonList()) {
+                                if (pokemon.isAlive()) {
+                                    opponentPokemon = pokemon;
+                                }
+                            }
+                            assert opponentPokemon != null;
+                            text = opponent.getName() + " sent out " + opponentPokemon.getPokemonName();
+                        } else {
+                            // player fainted && continuable
+                            progress = -1;
+                            // ToDo: go to menu and update player pokemon or end fight
+                            text = "Do you wanna continue or end fight?";
+                        }
+                        progress += 1;
+                    } else {
+                        // non continuable
+                        // TODO: end fight activity
+                        if (faintedSide.equals("opponent")) {
+                            text = "You win the battle!!";
+                        } else {
+                            text = "You lost...";
+                        }
+                        progress = -1;
+                    }
+                }
+                return text;
+
+            case 5:
+                // there is progress == 5 iff the pokemon didn't faint during first attack
+                // and the pokemon after second attack is fainted
+                // used to inform the pokemon that faint
+                if (faintedSide.equals("opponent")){
+                    text = opponentPokemon.getPokemonName() + " fainted.";
+                } else{
+                    text = playerPokemon.getPokemonName() + " fainted.";
+                }
+                progress +=1;
+                return text;
+
+            case 6:
+                // there is progress == 6 iff the pokemon didn't faint during first attack
+                // and the pokemon after second attack is fainted
+                // used to exchange the pokemon or end the fight
+                if (continuable) {
+                    if (faintedSide.equals("opponent")) {
+                        // opponent fainted && continuable
+                        for (Pokemon pokemon : opponent.getPokemonList()) {
+                            if (pokemon.isAlive()) {
+                                opponentPokemon = pokemon;
+                            }
+                        }
+                        assert opponentPokemon != null;
+                        text = opponent.getName() + " sent out " + opponentPokemon.getPokemonName();
+                        progress = -1;
+                        // TODO: go to menu and start a new round
+                    } else {
+                        // player fainted && continuable
+                        progress = -1;
+                        // ToDo: go to menu and update player pokemon or end fight
+                        text = "Do you wanna continue or end fight?";
+                    }
+                    progress += 1;
+                } else {
+                    // non continuable
+                    if (faintedSide.equals("opponent")) {
+                        text = "You win the battle!!";
+                    } else {
+                        text = "You lost...";
+                    }
+                    progress = -1;
+                    // TODO: end fight activity
+                }
+        }
+        return "A bug occurred...";
+
+    }
+
+
+    /**
+     * update p1 used skill on p2
+     *
+     * @param p1    pokemon who used the skill
+     * @param p2    pokemon who are attacked
+     * @param skill the skill got used
+     */
+    private String useSkill(Pokemon p1, Pokemon p2, Skill skill) {
+
+        // update the damage
+        int dmg = calculateDMG(p1, p2, skill);
+        p2.setHp(p2.getHp() - dmg);
+        if (p2.getHp() <= 0) {
+            p2.setHp(0);
+            fainted = true;
+        }
+
+        float typeIndex = checkType(skill, p2);
+        if (typeIndex > 1) {
+            return ("It is super effective.");
+        } else if (typeIndex == 1) {
+            return ("...");
+        } else {
+            return ("It is not very effective");
+        }
+    }
+//
+//    public ArrayList<String> updateResult(Skill skill) {
+//        ArrayList<String> result = new ArrayList<>();
+//        double r = Math.random();
+//        Random rand = new Random();
+//        Skill skillRival = opponentPokemon.getSkills()[(rand.nextInt(opponentPokemon.getSkillNum()))];
+//        if (priority.equals("player")) {
+//            ArrayList<String> text = useSkill(playerPokemon, opponentPokemon, skill);
+//            result.addAll(text);
+//            if (text.size() == 3){
+//                // if the opponentPokemon fainted
+//                for (Pokemon pokemon : opponent.getPokemonList()) {
+//                    if (pokemon.isAlive()) {
+//                        opponentPokemon = pokemon;
+//                        break;
+//                    }
+//                }
+//                // check if the opponent still has available pokemon
+//                if (opponentPokemon.isAlive()) {
+//                    result.add(opponent.getName() + " sent out " + opponentPokemon.getPokemonName());
+//                } else {
+//                    result.add("You win the battle!!");
+//                    continueFight = false;
+//                }
+//            }
+//            text = useSkill(opponentPokemon, playerPokemon, skillRival);
+//            result.addAll(text);
+//            if (text.size() == 3){
+//                // check if the player still has available pokemon
+//                continueFight = false;
+//                for (Pokemon pokemon : player.getPokemonList()) {
+//                    if (pokemon.isAlive()) {
+//                        continueFight = true;
+//                        break;
+//                    }
+//                }
+//            }
+//        // if the priority is opponent
+//        } else {
+//            ArrayList<String> text = useSkill(opponentPokemon, playerPokemon, skillRival);
+//            result.addAll(text);
+//            if (text.size() == 3){
+//                // check if the player still has available pokemon
+//                continueFight = false;
+//                for (Pokemon pokemon : player.getPokemonList()) {
+//                    if (pokemon.isAlive()) {
+//                        continueFight = true;
+//                        break;
+//                    }
+//                }
+//            }
+//            text = useSkill(playerPokemon, opponentPokemon, skill);
+//            result.addAll(text);
+//            if (text.size() == 3){
+//                // if the opponentPokemon fainted
+//                for (Pokemon pokemon : opponent.getPokemonList()) {
+//                    if (pokemon.isAlive()) {
+//                        opponentPokemon = pokemon;
+//                        break;
+//                    }
+//                }
+//                // check if the opponent still has available pokemon
+//                if (opponentPokemon.isAlive()) {
+//                    result.add(opponent.getName() + " sent out " + opponentPokemon.getPokemonName());
+//                } else {
+//                    result.add("You win the battle!!");
+//                    continueFight = false;
+//                }
+//            }
+//
+//        }
+//        return result;
+//    }
 }

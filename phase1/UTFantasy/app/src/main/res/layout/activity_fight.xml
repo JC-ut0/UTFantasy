@@ -58,9 +58,13 @@
             android:layout_alignTop="@+id/myHealthBar"
             android:layout_alignEnd="@+id/myHealthBar"
             android:layout_alignBottom="@+id/myHealthBar"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="-2dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center"
             android:text="0/0"
-            android:textColor="@android:color/background_dark"
-            android:gravity="center" />
+            android:textColor="@android:color/background_dark" />
 
         <ProgressBar
             android:id="@+id/rivalHealthBar"
