@@ -25,7 +25,7 @@ public abstract class Pokemon {
      * skills this pokemonList have
      * there are four different skills
      */
-    protected ArrayList<Skill> skills;
+    protected Skill[] skills;
     /**
      * level of this pokemonList
      */
@@ -118,7 +118,7 @@ public abstract class Pokemon {
     Pokemon() {
         this.level = 1;
         this.exp = 0;
-        skills = new ArrayList<>();
+        skills = new Skill[4];
         Random r = new Random();
         iv_hp = r.nextInt(32);
         iv_attack = r.nextInt(32);
@@ -164,6 +164,13 @@ public abstract class Pokemon {
         this.y = y;
     }
 
+    public int getIv_hp(){
+        return hp;
+    }
+
+    public void setIv_hp(int hp){
+        this.hp = hp;
+    }
     public int getLevel() {
         return level;
     }
@@ -184,15 +191,16 @@ public abstract class Pokemon {
         return hp;
     }
 
-    public ArrayList<Skill> getSkills() {
+    public Skill[] getSkills() {
         return skills;
     }
 
-    public void addSkills(Skill skills) {
-        this.skills.add(skills);
-    }
-
     public void updateSkills(Skill addSkill, Skill removeSkill) {
+        for(int i = 0; i < 4; i ++){
+            if(skills[i] == removeSkill){
+                skills[i] = addSkill;
+            }
+        }
     }
 
     public Person getMaster() {
@@ -238,7 +246,13 @@ public abstract class Pokemon {
     }
 
     public int getSkillNum(){
-        return skills.size();
+       int result = 0;
+       for(Skill skill : skills){
+           if (skill != null){
+               result +=1 ;
+           }
+       }
+       return result;
     }
     @NonNull
     @Override
@@ -252,5 +266,9 @@ public abstract class Pokemon {
 
     public boolean isAlive() {
         return hp == 0;
+    }
+
+    public int getSpeed(){
+        return speed;
     }
 }

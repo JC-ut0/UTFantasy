@@ -351,9 +351,9 @@ public class FightManager {
 
         // update the damage
         int dmg = calculateDMG(p1, p2, skill);
-        p2.setHp(p2.getHp() - dmg);
-        if (p2.getHp() <= 0) {
-            p2.setHp(0);
+        p2.setIv_hp(p2.getIv_hp() - dmg);
+        if (p2.getIv_hp() <= 0) {
+            p2.setIv_hp(0);
             fainted = true;
         }
 
