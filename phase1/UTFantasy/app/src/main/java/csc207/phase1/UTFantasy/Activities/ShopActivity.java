@@ -117,7 +117,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
             Toast.makeText(ShopActivity.this, "You don't have enough money.",
                     Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(ShopActivity.this, "You have purchased " + amount +" "+ product +"(s)",
+            Toast.makeText(ShopActivity.this, "You have purchased " + amount +" "+ product.getName()+"(s)",
                     Toast.LENGTH_SHORT).show();
         }
         moneyLeft = player.getMoney();

@@ -24,10 +24,11 @@ public class Product {
 
 
     public String toString() {
-        return name;
+        return "This is a product.";
     }
 
     public int getProfile_id(){
         return profileID;
     }
+
 }
