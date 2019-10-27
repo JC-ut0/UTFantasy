@@ -7,7 +7,7 @@ public class Squirtle extends Pokemon {
     public Squirtle(){
         pokemonName = "Squirtle";
         setHp(10);
-        skills.set(0, new Tackle());
+        skills[0] = new Tackle();
         profileID = R.drawable.squirtle;
     }
 }

@@ -106,7 +106,7 @@
         android:layout_alignEnd="@+id/image_pink"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="-5dp"
-        android:text="pink potion">
+        android:text="Hyper potion">
 
     </Button>
 
@@ -118,7 +118,7 @@
         android:layout_alignEnd="@+id/image_red"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="8dp"
-        android:text="red potion" />
+        android:text="Super potion" />
 
     <Button
         android:id="@+id/choose_purple"
@@ -128,7 +128,7 @@
         android:layout_alignEnd="@+id/image_purple"
         android:layout_marginTop="212dp"
         android:layout_marginEnd="6dp"
-        android:text="purple potion" />
+        android:text="Potion" />
 
     <TextView
         android:id="@+id/money_left"

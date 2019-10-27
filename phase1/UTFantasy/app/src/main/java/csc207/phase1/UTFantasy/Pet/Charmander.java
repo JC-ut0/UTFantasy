@@ -7,7 +7,7 @@ public class Charmander extends Pokemon {
 
     public Charmander() {
         setHp(10);
-        skills.set(0, new Scratch());
+        skills[0] = new Scratch();
         profileID = R.drawable.charmander;
         pokemonName = "Charmander";
 
