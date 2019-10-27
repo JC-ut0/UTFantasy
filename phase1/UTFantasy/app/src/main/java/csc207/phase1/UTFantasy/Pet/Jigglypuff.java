@@ -18,4 +18,9 @@ public class Jigglypuff extends Pokemon {
         calculateStatistic("defense");
         calculateStatistic("speed");
     }
+
+    @Override
+    public int getProfileID() {
+        return R.drawable.jigglypuff;
+    }
 }

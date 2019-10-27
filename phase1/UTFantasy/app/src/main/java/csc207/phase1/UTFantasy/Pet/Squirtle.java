@@ -17,4 +17,9 @@ public class Squirtle extends Pokemon {
         calculateStatistic("defense");
         calculateStatistic("speed");
     }
+
+    @Override
+    public int getProfileID() {
+        return R.drawable.squirtle;
+    }
 }

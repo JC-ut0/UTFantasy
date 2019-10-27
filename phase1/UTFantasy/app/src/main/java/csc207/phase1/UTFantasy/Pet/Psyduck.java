@@ -17,4 +17,9 @@ public class Psyduck extends Pokemon {
         calculateStatistic("defense");
         calculateStatistic("speed");
     }
+
+    @Override
+    public int getProfileID() {
+        return R.drawable.psyduck
+    }
 }

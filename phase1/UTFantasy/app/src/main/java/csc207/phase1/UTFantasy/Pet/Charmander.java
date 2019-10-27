@@ -19,4 +19,9 @@ public class Charmander extends Pokemon {
         calculateStatistic("speed");
 
     }
+
+    @Override
+    public int getProfileID() {
+        return R.drawable.charmander;
+    }
 }
