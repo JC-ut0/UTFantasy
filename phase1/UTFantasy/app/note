@@ -70,3 +70,7 @@ You can buy potions now!
 Create the Menu System. Now we have a Bag menu(pokemons and potions),
 Player information(gender, money and characters'name) and the System Menu(save and logout).
 You can see your little pokenmons and your information Now!
+
+########
+# Step 15
+Change bag to HashMap.

@@ -1,5 +1,7 @@
 package csc207.phase1.UTFantasy.Character;
 
+import java.util.HashMap;
+
 import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
@@ -24,19 +26,40 @@ public class Player extends Person implements Fighter {
      * the direction that the player is facing to
      */
     public String direction = "down";
+    /**
+     * objects in this person's bag
+     */
+    protected HashMap<Product, Integer> bag;
+
+    public HashMap<Product, Integer> getBag() {
+        return bag;
+    }
+
+    public void setBag(Product item, int num) {
+        if (bag.containsKey(item)){
+            bag.put(item, bag.get(item) + num);
+        }else{
+            bag.put(item, num);
+        }
+
+    }
+
+    public void use(Product product, int num){
+        bag.put(product, bag.get(product) - num);
+        //make sure you have enough products
+    }
+
 
     public Player(String name, String gender) {
         super(name);
         this.gender = gender;
         this.money = 0;
+        this.bag = new HashMap<>();
     }
-
 
     public String getGender() {
         return gender;
     }
-
-
 
     public void move(String direction) {
         switch (direction) {
@@ -110,10 +133,6 @@ public class Player extends Person implements Fighter {
         }
         this.pokemon.add(pokemon);
         pokemon.setMaster(this);
-    }
-
-    public void buyProduct(Product product, int num){
-
     }
 
 }
