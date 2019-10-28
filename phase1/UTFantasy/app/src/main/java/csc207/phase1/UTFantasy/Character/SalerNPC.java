@@ -9,7 +9,7 @@ public class SalerNPC extends NPC {
     private static SalerNPC alice;
 
     private SalerNPC() {
-        super("Alice", "Female");
+        super("Alice");
     }
 
     public static SalerNPC getAlice() {
@@ -28,6 +28,7 @@ public class SalerNPC extends NPC {
             money -= total;
             player.setMoney(money);
             affordable = true;
+            player.setBag(product, num);
         } else {
             affordable = false;
         }
