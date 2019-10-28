@@ -20,6 +20,6 @@ public class Psyduck extends Pokemon {
 
     @Override
     public int getProfileID() {
-        return R.drawable.psyduck
+        return R.drawable.psyduck;
     }
 }

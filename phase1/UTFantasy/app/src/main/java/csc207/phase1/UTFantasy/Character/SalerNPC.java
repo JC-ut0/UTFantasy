@@ -9,7 +9,7 @@ public class SalerNPC extends NPC {
     private static SalerNPC alice;
 
     private SalerNPC() {
-        super("Alice", "Female");
+        super("Alice");
     }
 
     public static SalerNPC getAlice() {

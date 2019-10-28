@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
+import csc207.phase1.UTFantasy.Products.Product;
 
 public class Person implements Serializable {
     /**
@@ -22,7 +23,7 @@ public class Person implements Serializable {
     /**
      * objects in this person's bag
      */
-    protected ArrayList<String> bag;
+    protected ArrayList<Product> bag;
     /**
      * pokemons that this person has
      */
@@ -54,11 +55,11 @@ public class Person implements Serializable {
         return y;
     }
 
-    ArrayList<String> getBag() {
+    public ArrayList<Product> getBag() {
         return bag;
     }
 
-    public void setBag(String item) {
+    public void setBag(Product item) {
         bag.add(item);
     }
 
