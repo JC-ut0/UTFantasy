@@ -3,7 +3,9 @@ package csc207.phase1.UTFantasy.AllSkills;
 import androidx.annotation.NonNull;
 
 public class Scratch extends Skill {
-
+    /**
+     * Constructor of a Scratch Skill.
+     */
     public Scratch() {
         power = 40;
         pp = 35;
@@ -12,6 +14,10 @@ public class Scratch extends Skill {
         name = "Scratch";
     }
 
+    /**
+     * A description of the Skill.
+     * @return a String which is a short description of the Skill
+     */
     @NonNull
     @Override
     public String toString() {

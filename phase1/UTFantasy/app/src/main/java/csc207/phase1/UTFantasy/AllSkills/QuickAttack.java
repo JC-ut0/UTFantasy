@@ -3,7 +3,9 @@ package csc207.phase1.UTFantasy.AllSkills;
 import androidx.annotation.NonNull;
 
 public class QuickAttack extends Skill {
-
+    /**
+     * Constructor of a QuickAttack Skill.
+     */
     public QuickAttack() {
         power = 40;
         pp = 30;
@@ -11,6 +13,11 @@ public class QuickAttack extends Skill {
         type = "normal";
         name = "Quick Attack";
     }
+
+    /**
+     * A description of the Skill.
+     * @return a String which is a short description of the Skill
+     */
     @NonNull
     @Override
     public String toString() {

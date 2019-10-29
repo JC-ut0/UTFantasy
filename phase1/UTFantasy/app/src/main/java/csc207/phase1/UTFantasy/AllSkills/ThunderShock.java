@@ -3,7 +3,9 @@ package csc207.phase1.UTFantasy.AllSkills;
 import androidx.annotation.NonNull;
 
 public class ThunderShock extends Skill {
-
+    /**
+     * Constructor of a ThunderShock Skill.
+     */
     public ThunderShock() {
         power = 40;
         effect = "paralyzed";
@@ -11,6 +13,11 @@ public class ThunderShock extends Skill {
         type = "electric";
         name = "Thunder Shock";
     }
+
+    /**
+     * A description of the Skill.
+     * @return a String which is a short description of the Skill
+     */
     @NonNull
     @Override
     public String toString() {

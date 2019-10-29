@@ -3,7 +3,9 @@ package csc207.phase1.UTFantasy.AllSkills;
 import androidx.annotation.NonNull;
 
 public class DragonRage extends Skill {
-
+    /**
+     * Constructor of a DragonRage Skill.
+     */
     public DragonRage() {
         power = 40;
         pp = 10;
@@ -12,6 +14,10 @@ public class DragonRage extends Skill {
         name = "Dragon Rage";
     }
 
+    /**
+     * A description of the Skill.
+     * @return a String which is a short description of the Skill
+     */
     @NonNull
     @Override
     public String toString() {

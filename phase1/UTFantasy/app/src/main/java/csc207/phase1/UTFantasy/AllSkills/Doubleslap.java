@@ -3,6 +3,9 @@ package csc207.phase1.UTFantasy.AllSkills;
 import androidx.annotation.NonNull;
 
 public class Doubleslap extends Skill {
+    /**
+     * Constructor of a DoubleSlap Skill.
+     */
     public Doubleslap(){
         name = "Doubleslap";
         power = 35;
@@ -11,6 +14,10 @@ public class Doubleslap extends Skill {
         effect = "";
     }
 
+    /**
+     * A description of the Skill.
+     * @return a String which is a short description of the Skill
+     */
     @NonNull
     @Override
     public String toString() {
