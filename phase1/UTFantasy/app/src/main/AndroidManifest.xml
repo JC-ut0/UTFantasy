@@ -16,11 +16,7 @@
         <activity
             android:name=".Activities.LoginActivity"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 
@@ -42,6 +38,7 @@
             android:name=".Activities.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
         </activity>
 
 
@@ -55,6 +52,11 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:parentActivityName=".Activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".Activities.MenuActivity"
