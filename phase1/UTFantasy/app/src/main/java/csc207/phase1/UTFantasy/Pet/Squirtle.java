@@ -12,10 +12,10 @@ public class Squirtle extends Pokemon {
         base_attack = 48;
         base_defense = 65;
         base_speed = 43;
-        calculateStatistic("hp");
-        calculateStatistic("attack");
-        calculateStatistic("defense");
-        calculateStatistic("speed");
+        setHp(calculateStatistic("hp"));
+        setAttack(calculateStatistic("attack"));
+        setDefense(calculateStatistic("defense"));
+        setSpeed(calculateStatistic("speed"));
     }
 
     @Override

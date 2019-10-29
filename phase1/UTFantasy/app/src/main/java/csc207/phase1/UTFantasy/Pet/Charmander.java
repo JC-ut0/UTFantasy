@@ -13,10 +13,10 @@ public class Charmander extends Pokemon {
         base_attack = 56;
         base_defense = 45;
         base_speed = 65;
-        calculateStatistic("hp");
-        calculateStatistic("attack");
-        calculateStatistic("defense");
-        calculateStatistic("speed");
+        setHp(calculateStatistic("hp"));
+        setAttack(calculateStatistic("attack"));
+        setDefense(calculateStatistic("defense"));
+        setSpeed(calculateStatistic("speed"));
 
     }
 

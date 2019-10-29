@@ -13,10 +13,10 @@ public class Jigglypuff extends Pokemon {
         base_attack = 45;
         base_defense = 25;
         base_speed = 20;
-        calculateStatistic("hp");
-        calculateStatistic("attack");
-        calculateStatistic("defense");
-        calculateStatistic("speed");
+        setHp(calculateStatistic("hp"));
+        setAttack(calculateStatistic("attack"));
+        setDefense(calculateStatistic("defense"));
+        setSpeed(calculateStatistic("speed"));
     }
 
     @Override

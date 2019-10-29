@@ -4,5 +4,5 @@ public abstract class NPC extends Person {
     NPC(String name){
         super(name);
     }
-    void ability(){}
+    void ability(Player player){}
 }

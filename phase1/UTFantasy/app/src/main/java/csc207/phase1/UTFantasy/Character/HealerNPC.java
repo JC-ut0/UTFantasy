@@ -1,5 +1,10 @@
 package csc207.phase1.UTFantasy.Character;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import csc207.phase1.UTFantasy.Pet.Pokemon;
+
 public class HealerNPC extends NPC {
     public HealerNPC(String name) {
         super(name);
@@ -8,5 +13,9 @@ public class HealerNPC extends NPC {
     /**
      * HealerNPC's ability is heal.
      */
-    void ability(){}
+    public void ability(Player player){
+        for(Pokemon pkm: player.getPokemonList()){
+            pkm.setHp(pkm.max_hp);
+        }
+    }
 }

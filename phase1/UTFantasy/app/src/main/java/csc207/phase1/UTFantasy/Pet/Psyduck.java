@@ -12,10 +12,10 @@ public class Psyduck extends Pokemon {
         base_attack = 58;
         base_defense = 48;
         base_speed = 55;
-        calculateStatistic("hp");
-        calculateStatistic("attack");
-        calculateStatistic("defense");
-        calculateStatistic("speed");
+        setHp(calculateStatistic("hp"));
+        setAttack(calculateStatistic("attack"));
+        setDefense(calculateStatistic("defense"));
+        setSpeed(calculateStatistic("speed"));
     }
 
     @Override

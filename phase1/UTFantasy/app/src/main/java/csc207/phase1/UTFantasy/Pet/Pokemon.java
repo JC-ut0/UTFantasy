@@ -93,27 +93,32 @@ public abstract class Pokemon {
     /**
      * Base stat of hp
      */
-    protected static int base_hp;
+    protected int base_hp;
 
     /**
      * Base stat of attack
      */
-    protected static int base_attack;
+    protected int base_attack;
 
     /**
      * Base stat of defense
      */
-    protected static int base_defense;
+    protected int base_defense;
 
     /**
      * Base stat of speed
      */
-    protected static int base_speed;
+    protected int base_speed;
 
     /**
      * Level growing type
      */
     protected String grow_type;
+
+    /**
+     * Maximum health point
+     */
+    public int max_hp;
 
     Pokemon() {
         this.level = 1;
@@ -126,22 +131,41 @@ public abstract class Pokemon {
         iv_speed = r.nextInt(32);
     }
 
-    public void calculateStatistic(String statType){
-        if (statType.equals("attack")){
-            float base = ((base_attack + iv_attack) * 2 * level) / 100;
-            this.attack = (int) Math.floor(base) + 5;
-        } else if(statType.equals("defense")){
-            float base = ((base_defense + iv_defense) * 2 * level) / 100;
-            this.defense = (int) Math.floor(base) + 5;
-        } else if(statType.equals("speed")){
-            float base = ((base_speed + iv_speed) * 2 * level) / 100;
-            this.speed = (int) Math.floor(base) + 5;
-        } else if(statType.equals("hp")){
-            float base = ((base_hp + iv_hp) * 2 * level) / 100;
-            this.hp = (int) Math.floor(base) + level + 10;
-        }
+    public int calculateStatistic(String statType) {
+        switch (statType) {
+            case "attack": {
+                float base = ((base_attack + iv_attack) * 2 * level) / 100;
+                hp = (int) Math.floor(base) + 5;
+                this.max_hp = hp;
+                return hp;
+            }
+            case "defense": {
+                float base = ((base_defense + iv_defense) * 2 * level) / 100;
+                return (int) Math.floor(base) + 5;
+            }
+            case "speed": {
+                float base = ((base_speed + iv_speed) * 2 * level) / 100;
+                return (int) Math.floor(base) + 5;
+            }
+            case "hp": {
+                float base = ((base_hp + iv_hp) * 2 * level) / 100;
+                return (int) Math.floor(base) + level + 10;
+            }
+            default:
+                return 0;
 
+        }
     }
+
+    public void setHp(int hp){
+        this.hp = hp;
+    }
+
+    public void setAttack(int attack){this.attack = attack;}
+
+    public void setDefense(int defense){this.defense = defense;}
+
+    public void setSpeed(int speed){this.speed = speed;}
 
     public int getX() {
         return x;
