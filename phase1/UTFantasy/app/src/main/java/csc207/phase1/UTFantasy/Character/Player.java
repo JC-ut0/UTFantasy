@@ -134,5 +134,4 @@ public class Player extends Person implements Fighter {
         this.pokemon.add(pokemon);
         pokemon.setMaster(this);
     }
-
 }
