@@ -233,11 +233,11 @@ public abstract class Pokemon {
     }
 
     public int getMaximumHp() {
-        return maximumHp;
+        return max_hp;
     }
 
     public void setMaximumHp(int maximumHp) {
-        this.maximumHp = maximumHp;
+        this.max_hp = maximumHp;
     }
 
     public int getExp() {

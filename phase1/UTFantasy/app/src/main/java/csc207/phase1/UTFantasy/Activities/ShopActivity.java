@@ -48,11 +48,11 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         player = userManager.getUser(username).getPlayer();
 
 
-        final Button redPotionbtn = findViewById(R.id.choose_red);
-        final Button pinkPotionbtn = findViewById(R.id.choose_pink);
-        final Button purplePotionbtn = findViewById(R.id.choose_purple);
-        final ImageButton backbtn = findViewById(R.id.back_to_main);
-        final Button bagbtn = findViewById(R.id.my_bag);
+        final Button redPotionBtn = findViewById(R.id.choose_red);
+        final Button pinkPotionBtn = findViewById(R.id.choose_pink);
+        final Button purplePotionBtn = findViewById(R.id.choose_purple);
+        final ImageButton backBtn = findViewById(R.id.back_to_main);
+        final Button bagBtn = findViewById(R.id.my_bag);
 
 //        if (true) {
 //            UserManager userManager = UserManager.getUserManager();
@@ -68,7 +68,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         money = findViewById(R.id.money);
         money.setText(String.valueOf(moneyLeft));
 
-        redPotionbtn.setOnClickListener(new View.OnClickListener() {
+        redPotionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -77,7 +77,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        pinkPotionbtn.setOnClickListener(new View.OnClickListener() {
+        pinkPotionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -86,7 +86,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        purplePotionbtn.setOnClickListener(new View.OnClickListener() {
+        purplePotionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -95,14 +95,14 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        backbtn.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
 
-        bagbtn.setOnClickListener(new View.OnClickListener() {
+        bagBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
