@@ -43,9 +43,9 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
-//        intent = getIntent();
-//        username = intent.getStringExtra("username");
-//        player = userManager.getUser(username).getPlayer();
+        intent = getIntent();
+        username = intent.getStringExtra("username");
+        player = userManager.getUser(username).getPlayer();
 
 
         final Button redPotionbtn = findViewById(R.id.choose_red);
@@ -54,15 +54,15 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         final ImageButton backbtn = findViewById(R.id.back_to_main);
         final Button bagbtn = findViewById(R.id.my_bag);
 
-        if (true) {
-            UserManager userManager = UserManager.getUserManager();
-            userManager.message("Create a new User", ShopActivity.this);
-            User user = new User("2", "123456");
-            user.setPlayer(new Player("ET", "ET"));
-//            user.getPlayer().addPokemon(new Pikachu());
-            player = user.getPlayer();
-            player.setMoney(1000);
-        }
+//        if (true) {
+//            UserManager userManager = UserManager.getUserManager();
+//            userManager.message("Create a new User", ShopActivity.this);
+//            User user = new User("2", "123456");
+//            user.setPlayer(new Player("ET", "ET"));
+////            user.getPlayer().addPokemon(new Pikachu());
+//            player = user.getPlayer();
+//            player.setMoney(1000);
+//        }
         moneyLeft = player.getMoney();
 
         money = findViewById(R.id.money);
