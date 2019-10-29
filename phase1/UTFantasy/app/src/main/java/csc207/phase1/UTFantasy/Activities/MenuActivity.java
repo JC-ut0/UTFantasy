@@ -79,14 +79,15 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bag_item);
-        PinkPotion PinkP = PinkPotion.getPink();
-        RedPotion RP = RedPotion.getRed();
-        PurplePotion PurpleP = PurplePotion.getPurple();
+//        PinkPotion PinkP = PinkPotion.getPink();
+//        RedPotion RP = RedPotion.getRed();
+//        PurplePotion PurpleP = PurplePotion.getPurple();
 
         intent = getIntent();
         username = intent.getStringExtra("username");
         p = userManager.getUser(username).getPlayer();
 
+//        intent.getSerializableExtra();
 //        if (true) {
 //            UserManager userManager = UserManager.getUserManager();
 //            userManager.message("Create a new User", MenuActivity.this);
@@ -97,7 +98,7 @@ public class MenuActivity extends AppCompatActivity {
 //            p.addPokemon(new Pikachu());
 //            p.setMoney(1000);
 //
-//            p.setBag(PinkP,1);
+//            p.setBag(PinkP,2);
 //            p.setBag(RP,1);
 //            p.setBag(PurpleP,1);
 //        }
@@ -116,7 +117,7 @@ public class MenuActivity extends AppCompatActivity {
         itemtemp = p.getBag();
         for(Product item: itemtemp.keySet()){
             items.add(item.getName());
-            potioninfo.add(item.toString());
+            potioninfo.add(item.toString() + "\n" + " Num: " + itemtemp.get(item));
             potionimages.add(item.getProfile_id());
         }
 
@@ -167,11 +168,13 @@ public class MenuActivity extends AppCompatActivity {
         // The textview of the String: MY BAG
         TextView textView = findViewById(R.id.textView);
 
-        backtomain = (ImageButton)findViewById(R.id.back_to_main);
+        backtomain = findViewById(R.id.back_to_main);
         backtomain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+//                Intent intent = new Intent(MenuActivity.this, PlayerInfoActivity.class);
+//                startActivity(intent);
             }
         });
 

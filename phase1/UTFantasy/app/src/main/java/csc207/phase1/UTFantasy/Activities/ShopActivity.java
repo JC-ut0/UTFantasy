@@ -43,31 +43,32 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
-//        intent = getIntent();
-//        username = intent.getStringExtra("username");
-//        player = userManager.getUser(username).getPlayer();
+        intent = getIntent();
+        username = intent.getStringExtra("username");
+        player = userManager.getUser(username).getPlayer();
 
 
-        final Button button1 = findViewById(R.id.choose_red);
-        final Button button2 = findViewById(R.id.choose_pink);
-        final Button button3 = findViewById(R.id.choose_purple);
-        final ImageButton button4 = findViewById(R.id.back_to_main);
+        final Button redPotionBtn = findViewById(R.id.choose_red);
+        final Button pinkPotionBtn = findViewById(R.id.choose_pink);
+        final Button purplePotionBtn = findViewById(R.id.choose_purple);
+        final ImageButton backBtn = findViewById(R.id.back_to_main);
+        final Button bagBtn = findViewById(R.id.my_bag);
 
-        if (true) {
-            UserManager userManager = UserManager.getUserManager();
-            userManager.message("Create a new User", ShopActivity.this);
-            User user = new User("2", "123456");
-            user.setPlayer(new Player("ET", "ET"));
-//            user.getPlayer().addPokemon(new Pikachu());
-            player = user.getPlayer();
-            player.setMoney(1000);
-        }
+//        if (true) {
+//            UserManager userManager = UserManager.getUserManager();
+//            userManager.message("Create a new User", ShopActivity.this);
+//            User user = new User("2", "123456");
+//            user.setPlayer(new Player("ET", "ET"));
+////            user.getPlayer().addPokemon(new Pikachu());
+//            player = user.getPlayer();
+//            player.setMoney(1000);
+//        }
         moneyLeft = player.getMoney();
 
         money = findViewById(R.id.money);
         money.setText(String.valueOf(moneyLeft));
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        redPotionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -76,7 +77,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        pinkPotionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -85,7 +86,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        button3.setOnClickListener(new View.OnClickListener() {
+        purplePotionBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -94,10 +95,19 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        button4.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        bagBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
             }
         });
 
@@ -117,7 +127,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
             Toast.makeText(ShopActivity.this, "You don't have enough money.",
                     Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(ShopActivity.this, "You have purchased " + amount +" "+ product.getName()+"(s)",
+            Toast.makeText(ShopActivity.this, "You have purchased " + amount + " " + product.getName() + "(s)",
                     Toast.LENGTH_SHORT).show();
         }
         moneyLeft = player.getMoney();

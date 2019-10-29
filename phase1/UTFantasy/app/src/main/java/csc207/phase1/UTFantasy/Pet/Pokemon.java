@@ -322,7 +322,7 @@ public abstract class Pokemon {
      * @return the value of the maximum health point.
      */
     public int getMaximumHp() {
-        return maximumHp;
+        return max_hp;
     }
 
     /**
@@ -330,7 +330,7 @@ public abstract class Pokemon {
      * @param maximumHp the value of maximum health point to set.
      */
     public void setMaximumHp(int maximumHp) {
-        this.maximumHp = maximumHp;
+        this.max_hp = maximumHp;
     }
 
     /**
