@@ -64,6 +64,10 @@ public abstract class Pokemon {
      */
     protected String type;
 
+    /**
+     * maximum hp
+     */
+    protected int maximumHp;
 
     /**
      * Speed determines
@@ -126,19 +130,19 @@ public abstract class Pokemon {
         iv_speed = r.nextInt(32);
     }
 
-    public void calculateStatistic(String statType){
-        if (statType.equals("attack")){
+    public void calculateStatistic(String statType) {
+        if (statType.equals("attack")) {
             float base = ((base_attack + iv_attack) * 2 * level) / 100;
             this.attack = (int) Math.floor(base) + 5;
-        } else if(statType.equals("defense")){
+        } else if (statType.equals("defense")) {
             float base = ((base_defense + iv_defense) * 2 * level) / 100;
             this.defense = (int) Math.floor(base) + 5;
-        } else if(statType.equals("speed")){
+        } else if (statType.equals("speed")) {
             float base = ((base_speed + iv_speed) * 2 * level) / 100;
             this.speed = (int) Math.floor(base) + 5;
-        } else if(statType.equals("hp")){
+        } else if (statType.equals("hp")) {
             float base = ((base_hp + iv_hp) * 2 * level) / 100;
-            this.hp = (int) Math.floor(base) + level + 10;
+            this.maximumHp = (int) Math.floor(base) + level + 10;
         }
 
     }
@@ -164,13 +168,14 @@ public abstract class Pokemon {
         this.y = y;
     }
 
-    public int getIv_hp(){
+    public int getIv_hp() {
         return hp;
     }
 
-    public void setIv_hp(int hp){
+    public void setIv_hp(int hp) {
         this.hp = hp;
     }
+
     public int getLevel() {
         return level;
     }
@@ -187,7 +192,7 @@ public abstract class Pokemon {
         return status;
     }
 
-    int getHp() {
+    public int getHp() {
         return hp;
     }
 
@@ -196,8 +201,8 @@ public abstract class Pokemon {
     }
 
     public void updateSkills(Skill addSkill, Skill removeSkill) {
-        for(int i = 0; i < 4; i ++){
-            if(skills[i] == removeSkill){
+        for (int i = 0; i < 4; i++) {
+            if (skills[i] == removeSkill) {
                 skills[i] = addSkill;
             }
         }
@@ -207,6 +212,13 @@ public abstract class Pokemon {
         return master;
     }
 
+    public int getMaximumHp() {
+        return maximumHp;
+    }
+
+    public void setMaximumHp(int maximumHp) {
+        this.maximumHp = maximumHp;
+    }
 
     public int getExp() {
         return exp;
@@ -228,7 +240,7 @@ public abstract class Pokemon {
         return profileID;
     }
 
-    public int getAttack(){
+    public int getAttack() {
         return attack;
     }
 
@@ -237,23 +249,24 @@ public abstract class Pokemon {
         return defense;
     }
 
-    public String getType(){
+    public String getType() {
         return this.type;
     }
 
-    public void setType(String type){
+    public void setType(String type) {
         this.type = type;
     }
 
-    public int getSkillNum(){
-       int result = 0;
-       for(Skill skill : skills){
-           if (skill != null){
-               result +=1 ;
-           }
-       }
-       return result;
+    public int getSkillNum() {
+        int result = 0;
+        for (Skill skill : skills) {
+            if (skill != null) {
+                result += 1;
+            }
+        }
+        return result;
     }
+
     @NonNull
     @Override
     public String toString() {
@@ -268,7 +281,11 @@ public abstract class Pokemon {
         return hp == 0;
     }
 
-    public int getSpeed(){
+    public int getSpeed() {
         return speed;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 }

@@ -16,6 +16,7 @@ public class Squirtle extends Pokemon {
         calculateStatistic("attack");
         calculateStatistic("defense");
         calculateStatistic("speed");
+        hp = maximumHp;
     }
 
     @Override

@@ -7,6 +7,7 @@ public class Pikachu extends Pokemon {
 
     public Pikachu() {
         // set its first skill to be QuickAttack
+        super();
         skills[0] = new QuickAttack();
         profileID = R.drawable.pikachu;
         pokemonName = "Pikachu";
@@ -18,6 +19,7 @@ public class Pikachu extends Pokemon {
         calculateStatistic("defense");
         calculateStatistic("speed");
         calculateStatistic("hp");
+        hp = maximumHp;
     }
 
     public static int getProfile_id() {

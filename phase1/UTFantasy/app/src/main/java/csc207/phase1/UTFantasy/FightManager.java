@@ -149,7 +149,7 @@ public class FightManager {
         }
         double modifier = random * rate * type * stab;
 
-        return (int) Math.floor(modifier * damage);
+        return 4 * (int) Math.floor(modifier * damage);
     }
 
     public boolean getFainted() {
@@ -319,36 +319,6 @@ public class FightManager {
                 // there is progress == 6 iff the pokemon didn't faint during first attack
                 // and the pokemon after second attack is fainted
                 // used to exchange the pokemon or end the fight
-//                if (continuable) {
-//                    if (faintedSide.equals("opponent")) {
-//                        // opponent fainted && continuable
-//                        for (Pokemon pokemon : opponent.getPokemonList()) {
-//                            if (pokemon.isAlive()) {
-//                                opponentPokemon = pokemon;
-//                            }
-//                        }
-//                        assert opponentPokemon != null;
-//                        text = opponent.getName() + " sent out " + opponentPokemon.getPokemonName();
-//                        progress = 0;
-//                        // TODO: go to menu and start a new round
-//                    } else {
-//                        // player fainted && continuable
-//                        progress = 0;
-//                        // ToDo: go to menu and update player pokemon or end fight
-//                        text = "Do you wanna continue or end fight?";
-//                    }
-//                    setProgress(getProgress() + 1);
-//                } else {
-//                    // non continuable
-//                    if (faintedSide.equals("opponent")) {
-//                        text = "You win the battle!!";
-//                    } else {
-//                        text = "You lost...";
-//                    }
-//                    progress = 0;
-//                    // TODO: end fight activity
-//                }
-//                return text;
                 return updateInfo(4);
 
             case 7:
@@ -372,9 +342,9 @@ public class FightManager {
 
         // update the damage
         int dmg = calculateDMG(p1, p2, skill);
-        p2.setIv_hp(p2.getIv_hp() - dmg);
-        if (p2.getIv_hp() <= 0) {
-            p2.setIv_hp(0);
+        p2.setHp(p2.getHp() - dmg);
+        if (p2.getHp() <= 0) {
+            p2.setHp(0);
             fainted = true;
         }
 

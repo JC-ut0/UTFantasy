@@ -17,7 +17,7 @@ public class Charmander extends Pokemon {
         calculateStatistic("attack");
         calculateStatistic("defense");
         calculateStatistic("speed");
-
+        hp = maximumHp;
     }
 
     @Override

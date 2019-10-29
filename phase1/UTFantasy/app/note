@@ -75,3 +75,7 @@ You can see your little pokemons and your information Now!
 # Step 15
 rewrite fight manager and modify fight activity
 Now the fight activity and fight manager can do a complete loop of fighting system
+
+#########
+# Step 16
+improve fight activity and fight manager. Now the image and health bar of pokemons can be updated correctly
