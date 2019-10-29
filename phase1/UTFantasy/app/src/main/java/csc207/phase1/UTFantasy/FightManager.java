@@ -133,7 +133,7 @@ public class FightManager {
         // calculate damage without modifier
         int damage = (2 * rival.getLevel() + 10) / 250;
         damage = damage * pokemon.getAttack() / rival.getDefense();
-        damage = damage * skill.getpower() + 2;
+        damage = damage * skill.getPower() + 2;
 
         // calculate the modifier
         double random = Math.random() * (1 - 0.85) + 0.85;
