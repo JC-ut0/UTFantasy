@@ -25,7 +25,7 @@ public abstract class Pokemon {
      * skills this pokemonList have
      * there are four different skills
      */
-    protected Skill[] skills;
+    public Skill[] skills;
     /**
      * level of this pokemonList
      */
@@ -268,7 +268,7 @@ public abstract class Pokemon {
      * Set the status of Pokemon's status.
      * @param status the description of Pokemon's status.
      */
-    void setStatus(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
