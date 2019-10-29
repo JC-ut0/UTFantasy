@@ -23,7 +23,7 @@ public class SalerNPC extends NPC {
 
     public void ability(Player player, int num, Product product) {
         int total = num * product.getPrice();
-        if (player.getMoney() > total) {
+        if (player.getMoney() >= total) {
             int money = player.getMoney();
             money -= total;
             player.setMoney(money);

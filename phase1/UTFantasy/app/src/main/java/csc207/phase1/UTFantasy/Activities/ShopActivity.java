@@ -48,10 +48,11 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
 //        player = userManager.getUser(username).getPlayer();
 
 
-        final Button button1 = findViewById(R.id.choose_red);
-        final Button button2 = findViewById(R.id.choose_pink);
-        final Button button3 = findViewById(R.id.choose_purple);
-        final ImageButton button4 = findViewById(R.id.back_to_main);
+        final Button redPotionbtn = findViewById(R.id.choose_red);
+        final Button pinkPotionbtn = findViewById(R.id.choose_pink);
+        final Button purplePotionbtn = findViewById(R.id.choose_purple);
+        final ImageButton backbtn = findViewById(R.id.back_to_main);
+        final Button bagbtn = findViewById(R.id.my_bag);
 
         if (true) {
             UserManager userManager = UserManager.getUserManager();
@@ -67,7 +68,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         money = findViewById(R.id.money);
         money.setText(String.valueOf(moneyLeft));
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        redPotionbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -76,7 +77,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        pinkPotionbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -85,7 +86,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        button3.setOnClickListener(new View.OnClickListener() {
+        purplePotionbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 openDialog();
@@ -94,10 +95,19 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         });
 
 
-        button4.setOnClickListener(new View.OnClickListener() {
+        backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        bagbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
             }
         });
 
@@ -117,7 +127,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
             Toast.makeText(ShopActivity.this, "You don't have enough money.",
                     Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(ShopActivity.this, "You have purchased " + amount +" "+ product.getName()+"(s)",
+            Toast.makeText(ShopActivity.this, "You have purchased " + amount + " " + product.getName() + "(s)",
                     Toast.LENGTH_SHORT).show();
         }
         moneyLeft = player.getMoney();
