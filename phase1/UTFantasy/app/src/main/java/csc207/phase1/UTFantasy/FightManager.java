@@ -21,23 +21,25 @@ import java.util.function.ToDoubleBiFunction;
 public class FightManager {
 
     private Player player;
-    private Pokemon playerPokemon = player.getPokemonList().get(0);
+    private Pokemon playerPokemon;
     private FighterNPC opponent;
-    private Pokemon opponentPokemon = opponent.getPokemonList().get(0);
+    private Pokemon opponentPokemon;
     private boolean fainted;
     private String faintedSide;
     private boolean continuable = true;
     private String priority;
-    private int progress = 0;
+    private int progress = -1;
     private Skill skill;
     private Skill rivalSkill;
     //    private boolean continueFight = true;
 //    private String lostSide;
     static HashMap<String, HashMap<String, Float>> typeMap = new HashMap<>();
 
-    public FightManager(Player player, FighterNPC npc, FightActivity fightActivity) {
+    public FightManager(Player player, FighterNPC npc) {
         this.player = player;
+        playerPokemon = player.getPokemonList().get(0);
         this.opponent = npc;
+        opponentPokemon = opponent.getPokemonList().get(0);
         determineTurn();
         setTypeMap();
     }
@@ -58,6 +60,10 @@ public class FightManager {
 //    public void setPlayerPokemon(Pokemon playerPokemon){
 //        this.playerPokemon = playerPokemon;
 //    }
+    public Skill getSkill(){
+        return skill;
+    }
+
     public void setSkill(Skill skill) {
         this.skill = skill;
     }
@@ -103,18 +109,24 @@ public class FightManager {
     public void determineTurn() {
         if (playerPokemon.getSpeed() > opponentPokemon.getSpeed()) {
             priority = "player";
-        } else if (playerPokemon.getSpeed() == opponentPokemon.getSpeed()) {
+        } else if (opponentPokemon.getSpeed() > playerPokemon.getSpeed()) {
+            priority = "opponent";
+        } else {
             double r = Math.random();
             if (r >= 0.5) {
                 priority = "player";
+            } else {
+                priority = "opponent";
             }
-        } else {
-            priority = "opponent";
         }
     }
 
-    public Pokemon getPlayerPokemon(){
+    public Pokemon getPlayerPokemon() {
         return playerPokemon;
+    }
+
+    public Pokemon getRivalPokemon() {
+        return opponentPokemon;
     }
 
     public int calculateDMG(Pokemon pokemon, Pokemon rival, Skill skill) {
@@ -137,19 +149,23 @@ public class FightManager {
         }
         double modifier = random * rate * type * stab;
 
-        return (int) Math.floor(modifier * damage);
+        return 4 * (int) Math.floor(modifier * damage);
     }
 
-    public boolean getFainted(){
+    public boolean getFainted() {
         return fainted;
     }
 
-    public boolean getContinuable(){
+    public boolean getContinuable() {
         return continuable;
     }
 
-    public int getProgress(){
+    public int getProgress() {
         return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
     }
 
     public float checkType(Skill skill, Pokemon rival) {
@@ -177,12 +193,12 @@ public class FightManager {
         return false;
     }
 
-    public String updateInfo() {
+    public String updateInfo(int progress) {
         String text;
         switch (progress) {
             case 0:
-                text = opponent.getName() + " send out " + opponentPokemon.getPokemonName();
-                progress += 1;
+                text = "What do you wanna do right now?";
+                setProgress(1);
                 return text;
 
             case 1:
@@ -193,7 +209,7 @@ public class FightManager {
                 } else {
                     text = opponentPokemon.getPokemonName() + " uses " + rivalSkill.getName();
                 }
-                progress += 1;
+                setProgress(2);
                 return text;
 
             case 2:
@@ -211,6 +227,7 @@ public class FightManager {
                         faintedSide = "player";
                     }
                 }
+                setProgress(3);
                 return text;
 
             case 3:
@@ -222,16 +239,15 @@ public class FightManager {
                     } else {
                         text = opponentPokemon.getPokemonName() + " used " + rivalSkill.getName();
                     }
-                    progress += 1;
                 } else {
                     // fainted
                     if (faintedSide.equals("opponent")) {
                         text = opponentPokemon.getPokemonName() + " fainted.";
-                    } else{
+                    } else {
                         text = playerPokemon.getPokemonName() + " fainted.";
                     }
-                    progress += 1;
                 }
+                setProgress(4);
                 return text;
 
             case 4:
@@ -252,11 +268,11 @@ public class FightManager {
                         }
                     }
                     // check if the pokemon fainted after second attack
-                    if(fainted){
-                        progress += 1;
+                    if (fainted) {
+                        setProgress(5);
                     } else {
-                        // TODO: go to menu and start a new round
-                        progress = -1;}
+                        setProgress(0);
+                    }
                 } else {
                     // one pokemon fainted during first attack
                     if (continuable) {
@@ -268,23 +284,21 @@ public class FightManager {
                                 }
                             }
                             assert opponentPokemon != null;
-                            text = opponent.getName() + " sent out " + opponentPokemon.getPokemonName();
+                            setProgress(7);
+                            text = updateInfo(7);
                         } else {
                             // player fainted && continuable
-                            progress = -1;
-                            // ToDo: go to menu and update player pokemon or end fight
-                            text = "Do you wanna continue or end fight?";
+                            setProgress(0);
+                            text = updateInfo(0);
                         }
-                        progress += 1;
                     } else {
                         // non continuable
-                        // TODO: end fight activity
                         if (faintedSide.equals("opponent")) {
                             text = "You win the battle!!";
                         } else {
                             text = "You lost...";
                         }
-                        progress = -1;
+                        setProgress(-1);
                     }
                 }
                 return text;
@@ -293,47 +307,24 @@ public class FightManager {
                 // there is progress == 5 iff the pokemon didn't faint during first attack
                 // and the pokemon after second attack is fainted
                 // used to inform the pokemon that faint
-                if (faintedSide.equals("opponent")){
+                if (faintedSide.equals("opponent")) {
                     text = opponentPokemon.getPokemonName() + " fainted.";
-                } else{
+                } else {
                     text = playerPokemon.getPokemonName() + " fainted.";
                 }
-                progress +=1;
+                setProgress(6);
                 return text;
 
             case 6:
                 // there is progress == 6 iff the pokemon didn't faint during first attack
                 // and the pokemon after second attack is fainted
                 // used to exchange the pokemon or end the fight
-                if (continuable) {
-                    if (faintedSide.equals("opponent")) {
-                        // opponent fainted && continuable
-                        for (Pokemon pokemon : opponent.getPokemonList()) {
-                            if (pokemon.isAlive()) {
-                                opponentPokemon = pokemon;
-                            }
-                        }
-                        assert opponentPokemon != null;
-                        text = opponent.getName() + " sent out " + opponentPokemon.getPokemonName();
-                        progress = -1;
-                        // TODO: go to menu and start a new round
-                    } else {
-                        // player fainted && continuable
-                        progress = -1;
-                        // ToDo: go to menu and update player pokemon or end fight
-                        text = "Do you wanna continue or end fight?";
-                    }
-                    progress += 1;
-                } else {
-                    // non continuable
-                    if (faintedSide.equals("opponent")) {
-                        text = "You win the battle!!";
-                    } else {
-                        text = "You lost...";
-                    }
-                    progress = -1;
-                    // TODO: end fight activity
-                }
+                return updateInfo(4);
+
+            case 7:
+                text = opponent.getName() + " send out " + opponentPokemon.getPokemonName();
+                setProgress(0);
+                return text;
         }
         return "A bug occurred...";
 
@@ -351,19 +342,19 @@ public class FightManager {
 
         // update the damage
         int dmg = calculateDMG(p1, p2, skill);
-        p2.setIv_hp(p2.getIv_hp() - dmg);
-        if (p2.getIv_hp() <= 0) {
-            p2.setIv_hp(0);
+        p2.setHp(p2.getHp() - dmg);
+        if (p2.getHp() <= 0) {
+            p2.setHp(0);
             fainted = true;
         }
 
         float typeIndex = checkType(skill, p2);
         if (typeIndex > 1) {
-            return ("It is super effective.");
+            return ("It is super effective!");
         } else if (typeIndex == 1) {
-            return ("...");
+            return ("Nice shot.");
         } else {
-            return ("It is not very effective");
+            return ("It is not very effective...");
         }
     }
 //

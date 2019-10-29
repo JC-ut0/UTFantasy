@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +24,10 @@ import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.FightManager;
 import csc207.phase1.UTFantasy.NPCManager;
+import csc207.phase1.UTFantasy.Pet.Charmander;
 import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
+import csc207.phase1.UTFantasy.Pet.Squirtle;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
@@ -32,11 +35,9 @@ import csc207.phase1.UTFantasy.UserManager;
 public class FightActivity extends AppCompatActivity {
     private Player player;
     private FighterNPC opponent;
-    private boolean clickable = true;
     private ArrayList<Pokemon> pokemonList;
     private Pokemon currentPokemon;
     private Pokemon currentRivalPokemon;
-    private int progress = -1;
     private FightManager fightManager;
 
     // the bottom layout
@@ -70,11 +71,13 @@ public class FightActivity extends AppCompatActivity {
     TextView myHealthInfo;
     TextView rivalHealthInfo;
     ArrayList<String> turnInfo;
+    NPCManager npcManager;
+    boolean clickable = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initializeLayOuts();
+
         // progress for fight, 5 progress in one round
         //================================================================
         Intent main_intent = getIntent();
@@ -88,7 +91,10 @@ public class FightActivity extends AppCompatActivity {
             userManager.message("Create a new User", FightActivity.this);
             user = new User("2", "123456");
             user.setPlayer(new Player("ET", "ET"));
-            user.getPlayer().addPokemon(new Pikachu());
+            user.getPlayer().addPokemon(new Squirtle());
+            npcManager = NPCManager.getNPCManager();
+            opponent = new FighterNPC("2");
+            opponent.getPokemonList().add(new Charmander());
         }
         assert user != null;
         player = user.getPlayer();
@@ -99,6 +105,8 @@ public class FightActivity extends AppCompatActivity {
         currentPokemon = pokemonList.get(0);
         assert currentPokemon != null;
 
+        fightManager = new FightManager(player, opponent);
+        initializeLayOuts();
 
         String NPCname = main_intent.getStringExtra("NPCname");
         NPC npc = NPCManager.getNPCManager().getNPC(NPCname);
@@ -106,17 +114,13 @@ public class FightActivity extends AppCompatActivity {
             npc = new FighterNPC("poor student");
         }
         assert npc != null;
-        opponent = (FighterNPC) npc;
 
-        fightManager = new FightManager(player, opponent, this);
-
-        updateSkillButton();
+        updateForPokemonExchange();
+        updateHpBar();
         informationSection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (clickable) {
-                    startRound();
-                }
+                startRound();
             }
         });
 
@@ -127,7 +131,6 @@ public class FightActivity extends AppCompatActivity {
                                          menuSection.setVisibility(View.GONE);
                                          battleSection.setVisibility(View.GONE);
                                          fightBox.setVisibility(View.VISIBLE);
-                                         clickable = false;
                                      }
                                  }
         );
@@ -150,11 +153,14 @@ public class FightActivity extends AppCompatActivity {
                         fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[3]);
                         break;
                 }
-                fightBox.setVisibility(View.GONE);
-                battleSection.setVisibility(View.VISIBLE);
-                clickable = true;
-                fightManager.setRivalSkill();
-                progress++;
+                if (fightManager.getSkill() != null) {
+                    fightBox.setVisibility(View.GONE);
+                    battleSection.setVisibility(View.VISIBLE);
+                    fightManager.setRivalSkill();
+                    fightManager.determineTurn();
+                    battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
+                    clickable = true;
+                }
             }
         };
         skill_1.setOnClickListener(skillClick);
@@ -170,7 +176,6 @@ public class FightActivity extends AppCompatActivity {
                                               menuSection.setVisibility(View.GONE);
                                               battleSection.setVisibility(View.GONE);
                                               fightBox.setVisibility(View.GONE);
-                                              clickable = false;
                                           }
                                       }
         );
@@ -190,7 +195,6 @@ public class FightActivity extends AppCompatActivity {
                                        menuSection.setVisibility(View.GONE);
                                        battleSection.setVisibility(View.GONE);
                                        fightBox.setVisibility(View.GONE);
-                                       clickable = false;
                                    }
                                }
         );
@@ -222,35 +226,60 @@ public class FightActivity extends AppCompatActivity {
         battleSection = findViewById(R.id.battleSection);
         skillInfoSection = findViewById(R.id.skillInformationSection);
         battleInfo = findViewById(R.id.battle_info);
+        battleInfo.setText(fightManager.updateInfo(7));
         skillInfo = findViewById(R.id.skill_info);
         // Pokemon View
         myPokemon = findViewById(R.id.myPokemon);
         rivalPokemon = findViewById(R.id.rivalPokemon);
         // healthBar
         myHealth = findViewById(R.id.myHealthBar);
-        ProgressBar rivalHealth = findViewById(R.id.rivalHealthBar);
+        rivalHealth = findViewById(R.id.rivalHealthBar);
         // healthBar Text
         myHealthInfo = findViewById(R.id.myHealthInfo);
         rivalHealthInfo = findViewById(R.id.rivalHealthInfo);
     }
 
     private void startRound() {
-        if(fightManager.getProgress() == -1){
-            if(fightManager.getContinuable()) {
+        if (clickable) {
+            if (fightManager.getProgress() == -1) {
+                endFight();
+            } else if (fightManager.getProgress() == 0) {
+                updateHpBar();
                 menuSection.setVisibility(View.VISIBLE);
                 clickable = false;
             } else {
-                endFight();
+                updateHpBar();
+                updateForPokemonExchange();
             }
-        } else{
-            battleInfo.setText(fightManager.updateInfo());
-            // TODO: update image of pokemon and their hp bar
+
+            battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
         }
+
     }
 
-    public void endFight(){
-        Intent intent = new Intent(FightActivity.this, MainActivity.class);
-        startActivity(intent);
+    private void updateForPokemonExchange() {
+        currentPokemon = fightManager.getPlayerPokemon();
+        currentRivalPokemon = fightManager.getRivalPokemon();
+        Drawable myPokemonDrawable = getResources().getDrawable(currentPokemon.getProfileID());
+        Drawable rivalPokemonDrawable = getResources().getDrawable(currentRivalPokemon.getProfileID());
+        myPokemon.setImageDrawable(myPokemonDrawable);
+        rivalPokemon.setImageDrawable(rivalPokemonDrawable);
+        updateSkillButton();
+        myHealth.setMax(currentPokemon.getMaximumHp());
+        rivalHealth.setMax(currentRivalPokemon.getMaximumHp());
+    }
+
+    private void updateHpBar() {
+        myHealth.setProgress(currentPokemon.getHp());
+        myHealthInfo.setText(currentPokemon.getHp() + "/" + currentPokemon.getMaximumHp());
+        rivalHealth.setProgress(currentRivalPokemon.getHp());
+        rivalHealthInfo.setText(currentRivalPokemon.getHp() + "/" + currentRivalPokemon.getMaximumHp());
+    }
+
+
+    public void endFight() {
+        //TODO : back parent
+        onBackPressed();
     }
 
     private void updateSkillButton() {
@@ -266,6 +295,5 @@ public class FightActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 
 }
