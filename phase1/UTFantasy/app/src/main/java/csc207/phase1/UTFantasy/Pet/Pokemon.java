@@ -145,7 +145,7 @@ public abstract class Pokemon {
             case "attack": {
                 float base = ((base_attack + iv_attack) * 2 * level) / 100;
                 hp = (int) Math.floor(base) + 5;
-                this.maximumHp = hp;
+                setMaximumHp(hp);
                 return hp;
             }
             case "defense": {
@@ -322,7 +322,7 @@ public abstract class Pokemon {
      * @return the value of the maximum health point.
      */
     public int getMaximumHp() {
-        return max_hp;
+        return maximumHp;
     }
 
     /**
@@ -330,7 +330,7 @@ public abstract class Pokemon {
      * @param maximumHp the value of maximum health point to set.
      */
     public void setMaximumHp(int maximumHp) {
-        this.max_hp = maximumHp;
+        this.maximumHp = maximumHp;
     }
 
     /**
