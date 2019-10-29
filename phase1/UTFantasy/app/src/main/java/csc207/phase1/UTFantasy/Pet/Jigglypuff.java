@@ -4,8 +4,11 @@ import csc207.phase1.UTFantasy.AllSkills.Pound;
 import csc207.phase1.UTFantasy.R;
 
 public class Jigglypuff extends Pokemon {
-
+    /**
+     * Constructor of a Jigglypuff.
+     */
     public Jigglypuff(){
+        super();
         skills[0] = new Pound();
         profileID = R.drawable.jigglypuff;
         pokemonName = "Jigglypuff";
@@ -18,7 +21,10 @@ public class Jigglypuff extends Pokemon {
         setDefense(calculateStatistic("defense"));
         setSpeed(calculateStatistic("speed"));
     }
-
+    /**
+     * Get the profile ID of Jigglypuff.
+     * @return an integer which the profile ID of Jigglypuff.
+     */
     @Override
     public int getProfileID() {
         return R.drawable.jigglypuff;

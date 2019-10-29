@@ -118,11 +118,14 @@ public abstract class Pokemon {
     /**
      * Maximum health point
      */
-    public int max_hp;
+    public int maximumHp;
 
+    /**
+     * Constructor of Pokemon.
+     */
     Pokemon() {
-        this.level = 1;
-        this.exp = 0;
+        level = 1;
+        exp = 0;
         skills = new Skill[4];
         Random r = new Random();
         iv_hp = r.nextInt(32);
@@ -131,12 +134,18 @@ public abstract class Pokemon {
         iv_speed = r.nextInt(32);
     }
 
+    /**
+     * calculate the value of a statType of a pokemon.
+     *
+     * @param statType the type of statistic of pokemon will calculate.
+     * @return the value of responding statistic.
+     */
     public int calculateStatistic(String statType) {
         switch (statType) {
             case "attack": {
                 float base = ((base_attack + iv_attack) * 2 * level) / 100;
                 hp = (int) Math.floor(base) + 5;
-                this.max_hp = hp;
+                this.maximumHp = hp;
                 return hp;
             }
             case "defense": {
@@ -157,69 +166,141 @@ public abstract class Pokemon {
         }
     }
 
-    public void setHp(int hp){
-        this.hp = hp;
-    }
+    /**
+     * Set the hp of the Pokemon.
+     * @param hp the value of health point to set.
+     */
+    public void setHp(int hp){this.hp = hp;}
 
+    /**
+     * Set the attack statistic of the Pokemon.
+     * @param attack the value of attack to set.
+     */
     public void setAttack(int attack){this.attack = attack;}
 
+    /**
+     * Set the defense statistic of the Pokemon.
+     * @param defense the value of defense to set.
+     */
     public void setDefense(int defense){this.defense = defense;}
 
+    /**
+     * Set the speed statistic of the Pokemon.
+     * @param speed the value of speed to set.
+     */
     public void setSpeed(int speed){this.speed = speed;}
 
+    /**
+     * Get the x-coordinate of the Pokemon.
+     * @return the value of Pokemon's x-coordinate.
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Set the x-coordinate of the Pokemon.
+     * @param x the value of x-coordinate to set.
+     */
     public void setX(int x) {
         this.x = x;
     }
 
+    /**
+     * Get the y-coordinate of the Pokemon.
+     * @return the value of Pokemon's y-coordinate.
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * Set the y-coordinate of the Pokemon.
+     * @param y the value of y-coordinate to set.
+     */
     void setY(int y) {
         this.y = y;
     }
 
+    /**
+     * Set the x, y coordinate of the Pokemon.
+     * @param x the value of x-coordinate to set.
+     * @param y the value of y-coordinate to set.
+     */
     void setLocation(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Get the Individual value of health point of the Pokemon.
+     * @return the value of Individual value of health point of the Pokemon.
+     */
     public int getIv_hp() {
         return hp;
     }
 
+    /**
+     * Set the Individual value of health point of the Pokemon.
+     * @param hp the value of Individual value of health point to set.
+     */
     public void setIv_hp(int hp) {
         this.hp = hp;
     }
 
+    /**
+     * Get the value of Pokemon's current level.
+     * @return the value of level of the Pokemon.
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Set Pokemon's current value.
+     * @param level the value of level to set.
+     */
     public void setLevel(int level) {
         this.level = level;
     }
 
+    /**
+     * Set the status of Pokemon's status.
+     * @param status the description of Pokemon's status.
+     */
     void setStatus(String status) {
         this.status = status;
     }
 
+    /**
+     * Get the description of Pokemon's status.
+     * @return a String which is the description of Pokemon's status.
+     */
     String getStatus() {
         return status;
     }
 
+    /**
+     * Get the current health point of the Pokemon.
+     * @return a integer which is the value of current health point.
+     */
     public int getHp() {
         return hp;
     }
 
+    /**
+     * Get the skills which the Pokemon currently has.
+     * @return an arrayList of current skills.
+     */
     public Skill[] getSkills() {
         return skills;
     }
 
+    /**
+     * Replace the removeSkill with addSkill in the Pokemon's skill list.
+     * @param addSkill the Skill to be added in Pokemon's skill list.
+     * @param removeSkill the Skill to be replaced in Pokemon's skill list.
+     */
     public void updateSkills(Skill addSkill, Skill removeSkill) {
         for (int i = 0; i < 4; i++) {
             if (skills[i] == removeSkill) {
@@ -228,55 +309,106 @@ public abstract class Pokemon {
         }
     }
 
+    /**
+     * Get the master of the Pokemon.
+     * @return a Person which is the master of the Pokemon.
+     */
     public Person getMaster() {
         return master;
     }
 
+    /**
+     * Get the maximum health point of the Pokemon.
+     * @return the value of the maximum health point.
+     */
     public int getMaximumHp() {
         return maximumHp;
     }
 
+    /**
+     * Set the value of Pokemon's maximum health point.
+     * @param maximumHp the value of maximum health point to set.
+     */
     public void setMaximumHp(int maximumHp) {
         this.maximumHp = maximumHp;
     }
 
+    /**
+     * Get the value of Pokemon's current experience point.
+     * @return an integer which is the value of Pokemon's experience point.
+     */
     public int getExp() {
         return exp;
     }
 
+    /**
+     * Set the experience point of the Pokemon.
+     * @param exp the value of exoerience point to set.
+     */
     public void setExp(int exp) {
         this.exp = exp;
     }
 
+    /**
+     * Get the name of the Pokemon.
+     * @return a String which is the Pokemon's name.
+     */
     public String getPokemonName() {
         return pokemonName;
     }
 
+    /**
+     * Set Pokemon's name.
+     * @param pokemonName the name of Pokemon to set.
+     */
     public void setPokemonName(String pokemonName) {
         this.pokemonName = pokemonName;
     }
 
+    /**
+     * Get the profile ID of the Pokemon.
+     * @return a integer which is the profile ID of the Pokemon.
+     */
     public int getProfileID() {
         return profileID;
     }
 
+    /**
+     * Get the value of Pokemon's attack statistic.
+     * @return an integer which is the value of Pokemon's attack statistic.
+     */
     public int getAttack() {
         return attack;
     }
 
-
+    /**
+     * Get the value of Pokemon's defense statistic.
+     * @return an integer which is the value of Pokemon's defense statistic.
+     */
     public int getDefense() {
         return defense;
     }
 
+    /**
+     * Get the type of the Pokemon.
+     * @return a String which is the type of the Pokemon.
+     */
     public String getType() {
         return this.type;
     }
 
+    /**
+     * Set the type of the Pokemon.
+     * @param type a String which is the type of Pokemon to set.
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     * Get the number of Skills the Pokemon has.
+     * @return an integer which is the number of Skills Pokemon currently has.
+     */
     public int getSkillNum() {
         int result = 0;
         for (Skill skill : skills) {
@@ -287,20 +419,36 @@ public abstract class Pokemon {
         return result;
     }
 
+    /**
+     * Return a String which contains Pokemon's name and current level.
+     * @return a String of description of the Pokemon.
+     */
     @NonNull
     @Override
     public String toString() {
         return pokemonName + "    LV" + level;
     }
 
+    /**
+     * Set the Pokemon's master.
+     * @param master a master to be set.
+     */
     public void setMaster(Person master) {
         this.master = master;
     }
 
+    /**
+     * Check if the Pokemon is fainted or alive.
+     * @return a boolean. If true then the Pokemon is still alive. If false then the Pokemon is fainted.
+     */
     public boolean isAlive() {
         return hp == 0;
     }
 
+    /**
+     * Get the value of speed statistic of the Pokemon.
+     * @return an integer which is the value of speed statistic of the Pokemon.
+     */
     public int getSpeed() {
         return speed;
     }

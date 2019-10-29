@@ -4,7 +4,9 @@ import csc207.phase1.UTFantasy.AllSkills.QuickAttack;
 import csc207.phase1.UTFantasy.R;
 
 public class Pikachu extends Pokemon {
-
+    /**
+     * Constructor of a Pikachu.
+     */
     public Pikachu() {
         // set its first skill to be QuickAttack
         super();
@@ -21,7 +23,12 @@ public class Pikachu extends Pokemon {
         setHp(calculateStatistic("hp"));
     }
 
-    public static int getProfile_id() {
+    /**
+     * Get the profile ID of Pikachu.
+     * @return an integer which the profile ID of Pikachu.
+     */
+    @Override
+    public int getProfileID() {
         //The unique profile id for each Pokemon. ID can be used to draw this Pokemon.
         return R.drawable.pikachu;
     }

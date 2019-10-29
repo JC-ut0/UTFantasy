@@ -4,7 +4,11 @@ import csc207.phase1.UTFantasy.AllSkills.Tackle;
 import csc207.phase1.UTFantasy.R;
 
 public class Squirtle extends Pokemon {
+    /**
+     * Constructor of a Squirtle.
+     */
     public Squirtle(){
+        super();
         pokemonName = "Squirtle";
         skills[0] = new Tackle();
         profileID = R.drawable.squirtle;
@@ -17,7 +21,10 @@ public class Squirtle extends Pokemon {
         setDefense(calculateStatistic("defense"));
         setSpeed(calculateStatistic("speed"));
     }
-
+    /**
+     * Get the profile ID of Squirtle.
+     * @return an integer which the profile ID of Squirtle.
+     */
     @Override
     public int getProfileID() {
         return R.drawable.squirtle;

@@ -4,8 +4,11 @@ import csc207.phase1.UTFantasy.AllSkills.Scratch;
 import csc207.phase1.UTFantasy.R;
 
 public class Charmander extends Pokemon {
-
+    /**
+     * Constructor of a Charmander.
+     */
     public Charmander() {
+        super();
         skills[0] = new Scratch();
         profileID = R.drawable.charmander;
         pokemonName = "Charmander";
@@ -19,7 +22,10 @@ public class Charmander extends Pokemon {
         setSpeed(calculateStatistic("speed"));
 
     }
-
+    /**
+     * Get the profile ID of Charmander.
+     * @return an integer which the profile ID of Charmander.
+     */
     @Override
     public int getProfileID() {
         return R.drawable.charmander;
