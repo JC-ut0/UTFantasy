@@ -18,6 +18,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.Pet.Pikachu;
@@ -90,14 +91,15 @@ public class MenuActivity extends AppCompatActivity {
 //            UserManager userManager = UserManager.getUserManager();
 //            userManager.message("Create a new User", MenuActivity.this);
 //            User user = new User("2", "123456");
-//            user.setPlayer(new Player("ET", "ET"));
+//            Player player = new Player("ET", "ET");
+//            user.setPlayer(player);
 //            p = user.getPlayer();
 //            p.addPokemon(new Pikachu());
 //            p.setMoney(1000);
 //
-//            p.setBag(PinkP);
-//            p.setBag(RP);
-//            p.setBag(PurpleP);
+//            p.setBag(PinkP,1);
+//            p.setBag(RP,1);
+//            p.setBag(PurpleP,1);
 //        }
 
         //get all the information from the Player's bag
@@ -110,9 +112,9 @@ public class MenuActivity extends AppCompatActivity {
             images.add(pokemon.getProfileID());
         }
 
-        ArrayList<Product> itemtemp;
+        HashMap<Product, Integer> itemtemp;
         itemtemp = p.getBag();
-        for(Product item: itemtemp){
+        for(Product item: itemtemp.keySet()){
             items.add(item.getName());
             potioninfo.add(item.toString());
             potionimages.add(item.getProfile_id());

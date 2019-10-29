@@ -28,6 +28,7 @@ public class SalerNPC extends NPC {
             money -= total;
             player.setMoney(money);
             affordable = true;
+            player.setBag(product, num);
         } else {
             affordable = false;
         }

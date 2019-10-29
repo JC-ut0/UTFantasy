@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy.Character;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.Product;
@@ -21,10 +22,6 @@ public class Person implements Serializable {
     protected int y;
 
     /**
-     * objects in this person's bag
-     */
-    protected ArrayList<Product> bag;
-    /**
      * pokemons that this person has
      */
     // todo: change name to pokemonList
@@ -34,12 +31,9 @@ public class Person implements Serializable {
      */
     protected int maxSizeOfPokmonList = 6;
 
-    Person() {
-    }
 
     Person(String name) {
         this.name = name;
-        this.bag = new ArrayList<>();
         this.pokemon = new ArrayList<>();
     }
 
@@ -55,13 +49,6 @@ public class Person implements Serializable {
         return y;
     }
 
-    public ArrayList<Product> getBag() {
-        return bag;
-    }
-
-    public void setBag(Product item) {
-        bag.add(item);
-    }
 
 
     public ArrayList<Pokemon> getPokemonList() {

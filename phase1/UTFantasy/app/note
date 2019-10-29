@@ -69,13 +69,18 @@ You can buy potions now!
 # Step 14
 Create the Menu System. Now we have a Bag menu(pokemons and potions),
 Player information(gender, money and characters'name) and the System Menu(save and logout).
+You can see your little pokenmons and your information Now!
+
+########
+# Step 15
+Change bag to HashMap.
 You can see your little pokemons and your information Now!
 
 #########
-# Step 15
+# Step 16
 rewrite fight manager and modify fight activity
 Now the fight activity and fight manager can do a complete loop of fighting system
 
 #########
-# Step 16
+# Step 17
 improve fight activity and fight manager. Now the image and health bar of pokemons can be updated correctly
