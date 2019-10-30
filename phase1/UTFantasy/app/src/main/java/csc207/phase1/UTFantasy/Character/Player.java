@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.MapManager;
+import csc207.phase1.UTFantasy.NPCManager;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.Product;
 
@@ -12,6 +13,12 @@ public class Player extends Person implements Fighter {
      * the map manager this player belongs to
      */
     public MapManager mapManager;
+
+    /**
+     * the npc manager this player belongs to
+     */
+    public NPCManager npcManager;
+
     /**
      * the amount this player has
      */
@@ -36,19 +43,25 @@ public class Player extends Person implements Fighter {
     }
 
     public void setBag(Product item, int num) {
-        if (bag.containsKey(item)){
+        if (bag.containsKey(item)) {
             bag.put(item, bag.get(item) + num);
-        }else{
+        } else {
             bag.put(item, num);
         }
 
     }
 
-    public void use(Product product, int num){
+    public void use(Product product, int num) {
         bag.put(product, bag.get(product) - num);
         //make sure you have enough products
     }
 
+    /**
+     * @return the map manager corresponding to this player
+     */
+    public MapManager getMapManager() {
+        return mapManager;
+    }
 
     public Player(String name, String gender) {
         super(name);
