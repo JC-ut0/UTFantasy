@@ -37,6 +37,10 @@ public class MainThread extends Thread {
         }
     }
 
+    public boolean getRunning() {
+        return isRunning;
+    }
+
     public void setRunning(boolean isRunning) {
         this.isRunning = isRunning;
     }

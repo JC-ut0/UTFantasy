@@ -43,7 +43,7 @@ public class NPCManager implements Serializable {
     /**
      * Get the User in npcHashMap if the username is in the userHapMap.
      *
-     * @param NPCname the NPcname of the User.
+     * @param NPCname the NPCname of the User.
      * @return a User if the NPCname is in the npcHashMap, null if not.
      */
     public NPC getNPC(String NPCname) {

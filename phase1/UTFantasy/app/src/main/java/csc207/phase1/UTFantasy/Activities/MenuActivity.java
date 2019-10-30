@@ -6,29 +6,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.PinkPotion;
 import csc207.phase1.UTFantasy.Products.Product;
 import csc207.phase1.UTFantasy.Products.PurplePotion;
 import csc207.phase1.UTFantasy.Products.RedPotion;
 import csc207.phase1.UTFantasy.R;
-import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
 public class MenuActivity extends AppCompatActivity {
@@ -60,9 +55,9 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * All the pokemon information, including the pokemon names, images, and info.
      */
-    ArrayList<String> pokemons=new ArrayList<>();
-    ArrayList<String> pokemonsinfo= new ArrayList<>();
-    ArrayList<Integer> images= new ArrayList<>();
+    ArrayList<String> pokemons = new ArrayList<>();
+    ArrayList<String> pokemonsinfo = new ArrayList<>();
+    ArrayList<Integer> images = new ArrayList<>();
 
     /**
      * The ListView for pokemon and items.
@@ -79,15 +74,14 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bag_item);
-//        PinkPotion PinkP = PinkPotion.getPink();
-//        RedPotion RP = RedPotion.getRed();
-//        PurplePotion PurpleP = PurplePotion.getPurple();
+        PinkPotion PinkP = PinkPotion.getPink();
+        RedPotion RP = RedPotion.getRed();
+        PurplePotion PurpleP = PurplePotion.getPurple();
 
         intent = getIntent();
         username = intent.getStringExtra("username");
         p = userManager.getUser(username).getPlayer();
 
-//        intent.getSerializableExtra();
 //        if (true) {
 //            UserManager userManager = UserManager.getUserManager();
 //            userManager.message("Create a new User", MenuActivity.this);
@@ -98,7 +92,7 @@ public class MenuActivity extends AppCompatActivity {
 //            p.addPokemon(new Pikachu());
 //            p.setMoney(1000);
 //
-//            p.setBag(PinkP,2);
+//            p.setBag(PinkP,1);
 //            p.setBag(RP,1);
 //            p.setBag(PurpleP,1);
 //        }
@@ -107,7 +101,7 @@ public class MenuActivity extends AppCompatActivity {
         //First, the pokemon
         ArrayList<Pokemon> pokemontemp;
         pokemontemp = p.getPokemonList();
-        for(Pokemon pokemon: pokemontemp){
+        for (Pokemon pokemon : pokemontemp) {
             pokemons.add(pokemon.getPokemonName());
             pokemonsinfo.add(pokemon.toString());
             images.add(pokemon.getProfileID());
@@ -115,13 +109,11 @@ public class MenuActivity extends AppCompatActivity {
 
         HashMap<Product, Integer> itemtemp;
         itemtemp = p.getBag();
-        for(Product item: itemtemp.keySet()){
+        for (Product item : itemtemp.keySet()) {
             items.add(item.getName());
-            potioninfo.add(item.toString() + "\n" + " Num: " + itemtemp.get(item));
+            potioninfo.add(item.toString());
             potionimages.add(item.getProfile_id());
         }
-
-
 
 
         //draw the list items and pokemon list
@@ -130,8 +122,8 @@ public class MenuActivity extends AppCompatActivity {
 
         //Create new adapters for the listviews and adpate them.
 //        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-        CustomAdpater adapter1 = new CustomAdpater("item");
-        CustomAdpater adapter2 = new CustomAdpater("pokemon");
+        CustomAdapter adapter1 = new CustomAdapter("item");
+        CustomAdapter adapter2 = new CustomAdapter("pokemon");
         itemslist.setAdapter(adapter1);
         pokemonlist.setAdapter(adapter2);
 
@@ -153,11 +145,11 @@ public class MenuActivity extends AppCompatActivity {
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!isChecked){
+                if (!isChecked) {
                     itemslist.setVisibility(View.VISIBLE);
                     pokemonlist.setVisibility(View.INVISIBLE);
 
-                }else{
+                } else {
                     itemslist.setVisibility(View.INVISIBLE);
                     pokemonlist.setVisibility(View.VISIBLE);
 
@@ -168,13 +160,11 @@ public class MenuActivity extends AppCompatActivity {
         // The textview of the String: MY BAG
         TextView textView = findViewById(R.id.textView);
 
-        backtomain = findViewById(R.id.back_to_main);
+        backtomain = (ImageButton) findViewById(R.id.back_to_main);
         backtomain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
-//                Intent intent = new Intent(MenuActivity.this, PlayerInfoActivity.class);
-//                startActivity(intent);
             }
         });
 
@@ -183,21 +173,21 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * The CustomAdater for the pokemon listview.
      */
-    class CustomAdpater extends BaseAdapter{
+    class CustomAdapter extends BaseAdapter {
 
         String type;
 
-        public CustomAdpater(String type) {
+        public CustomAdapter(String type) {
             this.type = type;
         }
 
         @Override
         public int getCount() {
-            if (this.type.equals("pokemon") && images != null){
+            if (this.type.equals("pokemon") && images != null) {
                 return images.size();
-            }else if (this.type.equals("item") && potionimages != null){
+            } else if (this.type.equals("item") && potionimages != null) {
                 return potionimages.size();
-            }else {
+            } else {
                 return 0;
             }
 
@@ -218,13 +208,13 @@ public class MenuActivity extends AppCompatActivity {
 
             View view = getLayoutInflater().inflate(R.layout.pokemon_layout, null);
             ImageView imageView = view.findViewById(R.id.pokemonimage);
-            TextView pokename =  view.findViewById(R.id.pokemonname);
+            TextView pokename = view.findViewById(R.id.pokemonname);
             TextView pokeinfo = view.findViewById(R.id.pokemoninfo);
-            if (this.type.equals("pokemon")){
+            if (this.type.equals("pokemon")) {
                 imageView.setImageResource(images.get(position));
                 pokename.setText(pokemons.get(position));
                 pokeinfo.setText(pokemonsinfo.get(position));
-            }else if (this.type.equals("item")){
+            } else if (this.type.equals("item")) {
                 imageView.setImageResource(potionimages.get(position));
                 pokename.setText(items.get(position));
                 pokeinfo.setText(potioninfo.get(position));
