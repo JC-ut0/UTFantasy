@@ -5,6 +5,8 @@ import android.content.Intent;
 
 import androidx.appcompat.app.AlertDialog;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -139,7 +141,7 @@ public class UserManager implements Serializable {
      *
      * @param context the Activity(Context) that calls this method.
      */
-    public void saveUserManager(Context context) {
+    public void saveUserManager(@NotNull Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(userFile, Context.MODE_PRIVATE);
             ObjectOutputStream outputStream = new ObjectOutputStream(fos);
@@ -155,13 +157,13 @@ public class UserManager implements Serializable {
      *
      * @param context the Activity(Context) that calls this method.
      */
-    public void loadUserManager(Context context) {
+    public void loadUserManager(@NotNull Context context) {
         try {
             FileInputStream fis = context.openFileInput(userFile);
             if (fis != null) {
                 ObjectInputStream inputStream = new ObjectInputStream(fis);
                 UserManager localUserManager = (UserManager) inputStream.readObject();
-                userHashMap = localUserManager.userHashMap;
+                userHashMap = localUserManager.getUserHashMap();
                 if (userHashMap == null) userHashMap = new HashMap<>();
                 inputStream.close();
             }

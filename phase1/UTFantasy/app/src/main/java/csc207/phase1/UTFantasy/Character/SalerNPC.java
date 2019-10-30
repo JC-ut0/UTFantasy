@@ -1,41 +1,41 @@
 package csc207.phase1.UTFantasy.Character;
 
-import java.util.ArrayList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
-import csc207.phase1.UTFantasy.Character.NPC;
+import org.jetbrains.annotations.NotNull;
+
+import csc207.phase1.UTFantasy.MapView;
 import csc207.phase1.UTFantasy.Products.Product;
+import csc207.phase1.UTFantasy.R;
 
 public class SalerNPC extends NPC {
-    private static SalerNPC alice;
+    public static Bitmap BITMAPSALER;
 
-    private SalerNPC() {
-        super("Alice");
+    public SalerNPC(String npcName) {
+        super(npcName);
     }
-
-    public static SalerNPC getAlice() {
-        if (alice == null) {
-            alice = new SalerNPC();
-        }
-        return alice;
-    }
-
-    private boolean affordable;
-
-    public void ability(Player player, int num, Product product) {
-        int total = num * product.getPrice();
-        if (player.getMoney() >= total) {
-            int money = player.getMoney();
-            money -= total;
-            player.setMoney(money);
-            affordable = true;
+    @Override
+    public String trade(@NotNull Player player, int num, Product product) {
+        if (isPlayerAffordable(player,num,product)){
+            int total = num * product.getPrice();
+            player.setMoney(player.getMoney() - total);
             player.setBag(product, num);
-        } else {
-            affordable = false;
+            return "You have purchased " + num +" "+ product.getName()+"(s)";
         }
+        return "You don't have enough money!";
     }
 
-    public boolean isAffordable() {
-        return affordable;
+    private boolean isPlayerAffordable(@NotNull Player player, int num, @NotNull Product product) {
+        int total = num * product.getPrice();
+        int playerMoney = player.getMoney() ;
+        return playerMoney >= total;
+
     }
 
+    @Override
+    public Bitmap bitmapDraw(MapView mapView) {
+        BITMAPSALER = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.professor);
+        return BITMAPSALER;
+    }
 }

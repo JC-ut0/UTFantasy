@@ -1,7 +1,5 @@
 package csc207.phase1.UTFantasy.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,22 +8,20 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
+import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.Character.SalerNPC;
 import csc207.phase1.UTFantasy.ExampleDialog;
-import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Products.PinkPotion;
 import csc207.phase1.UTFantasy.Products.Product;
 import csc207.phase1.UTFantasy.Products.PurplePotion;
 import csc207.phase1.UTFantasy.Products.RedPotion;
 import csc207.phase1.UTFantasy.R;
-import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
 
 public class ShopActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
-    SalerNPC alice = SalerNPC.getAlice();
     PinkPotion PinkP = PinkPotion.getPink();
     RedPotion RP = RedPotion.getRed();
     PurplePotion PurpleP = PurplePotion.getPurple();
@@ -37,6 +33,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
     String username;
     int moneyLeft;
     TextView money;
+    NPC salerNPC;
 
 
     @Override
@@ -64,6 +61,8 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
 //            player.setMoney(1000);
 //        }
         moneyLeft = player.getMoney();
+
+        salerNPC = player.getNpcManager().getNPC("Alice");
 
         money = findViewById(R.id.money);
         money.setText(String.valueOf(moneyLeft));
@@ -122,14 +121,8 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
     @Override
     public void applyTexts(String amount) {
         num = Integer.valueOf(amount);
-        alice.ability(player, num, product);
-        if (!alice.isAffordable()) {
-            Toast.makeText(ShopActivity.this, "You don't have enough money.",
-                    Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(ShopActivity.this, "You have purchased " + amount + " " + product.getName() + "(s)",
-                    Toast.LENGTH_SHORT).show();
-        }
+        String tradeInfo = salerNPC.trade(player, num, product);
+        Toast.makeText(ShopActivity.this, tradeInfo, Toast.LENGTH_SHORT).show();
         moneyLeft = player.getMoney();
         money.setText(String.valueOf(moneyLeft));
     }

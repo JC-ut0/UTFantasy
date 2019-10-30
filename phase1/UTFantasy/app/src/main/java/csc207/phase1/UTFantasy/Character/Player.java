@@ -68,6 +68,7 @@ public class Player extends Person implements Fighter {
         this.gender = gender;
         this.money = 0;
         this.bag = new HashMap<>();
+        this.npcManager = new NPCManager();
     }
 
     public String getGender() {
@@ -138,6 +139,14 @@ public class Player extends Person implements Fighter {
      */
     void fight(Pokemon pokemon) {
 
+    }
+
+    public NPCManager getNpcManager() {
+        return npcManager;
+    }
+
+    public String getDirection() {
+        return direction;
     }
 
     public void addPokemon(Pokemon pokemon) {

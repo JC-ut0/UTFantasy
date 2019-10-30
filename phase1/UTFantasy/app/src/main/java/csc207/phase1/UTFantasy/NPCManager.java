@@ -3,7 +3,10 @@ package csc207.phase1.UTFantasy;
 import java.io.Serializable;
 import java.util.HashMap;
 
+import csc207.phase1.UTFantasy.Character.FighterNPC;
+import csc207.phase1.UTFantasy.Character.HealerNPC;
 import csc207.phase1.UTFantasy.Character.NPC;
+import csc207.phase1.UTFantasy.Character.SalerNPC;
 
 public class NPCManager implements Serializable {
 
@@ -12,33 +15,27 @@ public class NPCManager implements Serializable {
      */
     private HashMap<String, NPC> npcHashMap;
 
-    /**
-     * A unique NPCManager that will be only created once.
-     */
-    private static csc207.phase1.UTFantasy.NPCManager NPCManager;
 
     /**
      * Where all user data are stored.
      */
 
     /**
-     * Singleton Constructor of NPCManager.
+     * Singleton Constructor of npcManager.
      */
-    private NPCManager() {
+    public NPCManager() {
         npcHashMap = new HashMap<>();
+        String saler = "Alice";
+        String fighter = "Professor. P";
+        String healer = "SecondCup";
+        SalerNPC salerNPC = new SalerNPC(saler);
+        FighterNPC fighterNPC = new FighterNPC(fighter);
+        HealerNPC healerNPC = new HealerNPC(healer);
+        addNPC(saler, salerNPC);
+        addNPC(fighter, fighterNPC);
+        addNPC(healer, healerNPC);
     }
 
-    /**
-     * always return a same NPCManager.
-     *
-     * @return a NPCManager
-     */
-    public static csc207.phase1.UTFantasy.NPCManager getNPCManager() {
-        if (NPCManager == null) {
-            NPCManager = new csc207.phase1.UTFantasy.NPCManager();
-        }
-        return NPCManager;
-    }
 
     /**
      * Get the User in npcHashMap if the username is in the userHapMap.

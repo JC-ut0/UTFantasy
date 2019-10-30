@@ -53,17 +53,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         btn_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // when register button is clicked
-                try {
-                    validateUsernameAndPassword();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+                                            @Override
+                                            public void onClick(View view) {
+                                                // when register button is clicked
+                                                try {
+                                                    validateUsernameAndPassword();
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        }
+        );
     }
 
     private void nonEmptyAccountOrPassword() {
