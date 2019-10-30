@@ -68,8 +68,8 @@ public class PlayerInfoActivity extends AppCompatActivity {
 //            userManager.message("Create a new User", PlayerInfoActivity.this);
 //            User user = new User("2", "123456");
 //            user.setPlayer(new Player("ET", "girl"));
-//            p = user.getPlayer();
-//            p.setMoney(10000);
+//            player = user.getPlayer();
+//            player.setMoney(10000);
 //        }
 
 

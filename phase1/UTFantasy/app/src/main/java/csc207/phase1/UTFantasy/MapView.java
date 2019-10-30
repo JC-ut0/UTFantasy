@@ -10,12 +10,10 @@ import android.graphics.Matrix;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import java.io.Serializable;
-
 import csc207.phase1.UTFantasy.Character.Player;
 
 
-public class MapView extends SurfaceView implements SurfaceHolder.Callback, Serializable {
+public class MapView extends SurfaceView implements SurfaceHolder.Callback{
 
     public Player player;
 
@@ -66,24 +64,12 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
         unitWidth = 88;
         unitHeight = 88;
 
-        width = screenWidth / unitWidth;
-        height = screenHeight / unitHeight;
+        width = screenWidth/unitWidth;
+        height = screenHeight/unitHeight;
         player.setLocation(5, 5);
         mapManager = new MapManager(width, height, this);
         player.mapManager = mapManager;
         setFocusable(true);
-    }
-
-    public MapManager getMapManager() {
-        return mapManager;
-    }
-
-    public MainThread getThread() {
-        return thread;
-    }
-
-    public void setThread(MainThread thread) {
-        this.thread = thread;
     }
 
     public void update() {
@@ -95,6 +81,7 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
     public void surfaceCreated(SurfaceHolder holder) {
 
         mapManager.mapInitialization();
+
         thread.setRunning(true);
         thread.start();
     }
@@ -123,5 +110,61 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
     public void draw(Canvas canvas) {
         super.draw(canvas);
         mapManager.draw(canvas);
+    }
+
+    public Bitmap getLawn() {
+        Bitmap lawn = BitmapFactory.decodeResource(getResources(), R.drawable.lawn);
+        int width = lawn.getWidth();
+        int height = lawn.getHeight();
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        matrix.postScale((float) 1.5, (float) 1.5);
+
+        // resize lawn
+        lawn = Bitmap.createBitmap(
+                lawn, 0, 0, width, height, matrix, false);
+        return lawn;
+    }
+
+    public Bitmap getTree() {
+        Bitmap tree = BitmapFactory.decodeResource(getResources(), R.drawable.tree);
+        int width = tree.getWidth();
+        int height = tree.getHeight();
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        matrix.postScale((float) 1.5, (float) 1.5);
+
+        // resize lawn
+        tree = Bitmap.createBitmap(
+                tree, 0, 0, width, height, matrix, false);
+        return tree;
+    }
+
+    public Bitmap getPlayerDownDirection(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.player_down);
+    }
+    public Bitmap getPlayerUpDirection(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.player_up);
+    }
+    public Bitmap getPlayerLeftDirection(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.player_left);
+    }
+    public Bitmap getPlayerRightDirection(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.player_right);
+    }
+    public Bitmap getFighterNPC(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.professor);
+    }
+    public Bitmap getHealerNPC(){
+        return BitmapFactory.decodeResource(getResources(),R.drawable.professor);
+    }
+    public Bitmap getSelerNPC(){
+        Bitmap salerNPC = BitmapFactory.decodeResource(getResources(),R.drawable.professor);
+        int width = salerNPC.getWidth();
+        int height = salerNPC.getHeight();
+        Matrix matrix = new Matrix();
+        matrix.postScale(2,2);
+        salerNPC = Bitmap.createBitmap(salerNPC,0,0, width, height, matrix, false);
+        return salerNPC;
     }
 }

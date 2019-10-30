@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -58,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private String sharedPreFile = "sharePreFile";
 
-    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -175,5 +175,10 @@ public class MainActivity extends AppCompatActivity {
         if (isFinishing()) {
             mapView.getThread().setRunning(false);
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }

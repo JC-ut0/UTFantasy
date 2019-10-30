@@ -2,7 +2,6 @@ package csc207.phase1.UTFantasy.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -92,7 +91,7 @@ public class FightActivity extends AppCompatActivity {
             user = new User("2", "123456");
             user.setPlayer(new Player("ET", "ET"));
             user.getPlayer().addPokemon(new Squirtle());
-            npcManager = NPCManager.getNPCManager();
+            npcManager = NPCManager.getNpcManager();
             opponent = new FighterNPC("2");
             opponent.getPokemonList().add(new Charmander());
         }
@@ -109,7 +108,7 @@ public class FightActivity extends AppCompatActivity {
         initializeLayOuts();
 
         String NPCname = main_intent.getStringExtra("NPCname");
-        NPC npc = NPCManager.getNPCManager().getNPC(NPCname);
+        NPC npc = NPCManager.getNpcManager().getNPC(NPCname);
         if (npc == null) {
             npc = new FighterNPC("poor student");
         }

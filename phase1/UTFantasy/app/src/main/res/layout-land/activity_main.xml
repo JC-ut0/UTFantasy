@@ -10,7 +10,6 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal"
         android:visibility="visible">
-
     </LinearLayout>
 
     <RelativeLayout
@@ -140,30 +139,23 @@
 
     </RelativeLayout>
 
-    <RelativeLayout android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:background="@drawable/start_up_image"
-        android:visibility="gone">
-        <ProgressBar
-            android:id="@+id/loadScreen"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:max="100"
-            android:progress="100"
-            android:progressDrawable="@drawable/loading"
-            android:layout_alignParentBottom="true"
-            />
-        <TextView
-            android:id="@+id/myHealthInfo"
-            android:layout_width="118dp"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/loadScreen"
-            android:layout_alignTop="@+id/loadScreen"
-            android:layout_alignEnd="@+id/loadScreen"
-            android:layout_alignBottom="@+id/loadScreen"
-            android:text="100/100"
-            android:textColor="@android:color/background_dark"
-            android:gravity="center" />
-    </RelativeLayout>
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/loadScreen"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@drawable/start_up_image"-->
+<!--        android:visibility="gone">-->
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/loadBar"-->
+<!--            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"-->
+<!--            android:layout_width="542dp"-->
+<!--            android:layout_height="183dp"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:alpha="@android:dimen/thumbnail_width"-->
+<!--            android:indeterminate="true"-->
+<!--            android:indeterminateTint="#9A2B42B3"-->
+<!--            android:progressTint="#62C000" />-->
+<!--    </RelativeLayout>-->
 </FrameLayout>
