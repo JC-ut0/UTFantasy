@@ -35,20 +35,20 @@
                 android:textColor="@color/cardview_light_background" />
 
             <Button
-                android:id="@+id/menu_pokemon"
+                android:id="@+id/menu_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/cardview_light_background"
-                android:text="pokemon"
+                android:text="profile"
                 android:textSize="25sp"
                 android:textColor="@color/cardview_dark_background" />
 
             <Button
-                android:id="@+id/menu_profile"
+                android:id="@+id/menu_system"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/cardview_dark_background"
-                android:text="profile"
+                android:text="system"
                 android:textSize="25sp"
                 android:textColor="@color/cardview_light_background" />
 

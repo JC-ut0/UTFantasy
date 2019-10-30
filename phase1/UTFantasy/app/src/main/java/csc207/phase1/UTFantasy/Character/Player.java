@@ -60,6 +60,7 @@ public class Player extends Person implements Fighter {
         this.money = 0;
         this.bag = new HashMap<>();
         this.npcManager = new NPCManager();
+        this.setLocation(5,5);
     }
 
     public String getGender() {

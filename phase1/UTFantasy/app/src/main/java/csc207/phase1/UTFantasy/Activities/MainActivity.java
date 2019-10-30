@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         Button B_Button = findViewById(R.id.B_Button);
         Button menuButton = findViewById(R.id.menuButton);
         Button menuBagButton = findViewById(R.id.menu_bag);
-        Button menuPokemonButton = findViewById(R.id.menu_pokemon);
+        Button menu_system = findViewById(R.id.menu_system);
         Button menuProfileButton = findViewById(R.id.menu_profile);
         Button menuBackButton = findViewById(R.id.menu_back);
 
@@ -140,7 +140,14 @@ public class MainActivity extends AppCompatActivity {
                                                  }
                                              }
         );
-        // todo: Add system button
+        menu_system.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SystemActivity.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
+            }
+        });
 
         intent = getIntent();
         username = intent.getStringExtra("username");
