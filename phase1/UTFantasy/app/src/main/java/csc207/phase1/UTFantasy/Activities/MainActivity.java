@@ -135,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
         // non null string
         // if the sharedPreference already exists, then intent.getStringExtra return non null string
         username = sharedPreferences.getString("username", intent.getStringExtra("username"));
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("username", username);
+        editor.apply();
         p = userManager.getUser(username).getPlayer();
         if (p.getMapManager() != null) {
             mapView = p.getMapManager().getMapView();
@@ -151,29 +154,33 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        username = sharedPreferences.getString("username", "bug");
-        p = userManager.getUser(username).getPlayer();
-        mapView = p.getMapManager().getMapView();
-        if (!mapView.getThread().getRunning()) {
-            mapView.setThread(new MainThread(mapView.getHolder(), mapView));
-            mapView.getThread().setRunning(true);
+        username = sharedPreferences.getString("username", null);
+        try {
+            p = userManager.getUser(username).getPlayer();
+        } catch (Exception e){
+            System.out.println("A bug occured, non-valid username");
         }
-    }
+            mapView = p.getMapManager().getMapView();
+            if (!mapView.getThread().getRunning()) {
+                mapView.setThread(new MainThread(mapView.getHolder(), mapView));
+                mapView.getThread().setRunning(true);
+            }
+        }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mapView.getThread().setRunning(false);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("username", username);
-        editor.apply();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (isFinishing()) {
+        @Override
+        protected void onPause () {
+            super.onPause();
             mapView.getThread().setRunning(false);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("username", username);
+            editor.apply();
+        }
+
+        @Override
+        protected void onDestroy () {
+            super.onDestroy();
+            if (isFinishing()) {
+                mapView.getThread().setRunning(false);
+            }
         }
     }
-}
