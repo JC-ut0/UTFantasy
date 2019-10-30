@@ -19,10 +19,6 @@ public abstract class NPC extends Person {
     public void ability(Player player) {
     }
 
-    public void fight(){
-
-    }
-
     public String trade(Player player, int num, Product product){
         return "You don't deserve to trade with me.";
     }

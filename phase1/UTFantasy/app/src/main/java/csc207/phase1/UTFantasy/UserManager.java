@@ -163,7 +163,7 @@ public class UserManager implements Serializable {
             if (fis != null) {
                 ObjectInputStream inputStream = new ObjectInputStream(fis);
                 UserManager localUserManager = (UserManager) inputStream.readObject();
-                userHashMap = localUserManager.userHashMap;
+                userHashMap = localUserManager.getUserHashMap();
                 if (userHashMap == null) userHashMap = new HashMap<>();
                 inputStream.close();
             }

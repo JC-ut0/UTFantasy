@@ -6,29 +6,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.PinkPotion;
 import csc207.phase1.UTFantasy.Products.Product;
 import csc207.phase1.UTFantasy.Products.PurplePotion;
 import csc207.phase1.UTFantasy.Products.RedPotion;
 import csc207.phase1.UTFantasy.R;
-import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
 public class MenuActivity extends AppCompatActivity {

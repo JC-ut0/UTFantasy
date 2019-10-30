@@ -90,3 +90,13 @@ improve fight activity and fight manager. Now the image and health bar of pokemo
 Rewrite the UnitDraw, MapManager and MapView so that use a single one bitmap to draw the same image
 Greatly improve the app speed
 Add onResume, onPause, onDestroy to make mainActivity a more complete lifecycle
+
+
+########
+# Step 19
+- Changes to all NPC: all NPC now have two method trade and ability.
+The ability is set to be nothing by default. only fighterNPC and healerNPC have ability right now.
+all npc can "trade", but only salerNPC have the real trade method.
+- Change to NPCManager: NPCManager do not have static method anymore.
+    every player has his own NPCManager to track the npc status.
+    get a npc by finding the player first and then get the npc.
