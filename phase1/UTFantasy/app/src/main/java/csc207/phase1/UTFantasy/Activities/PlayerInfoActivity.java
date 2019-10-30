@@ -53,22 +53,11 @@ public class PlayerInfoActivity extends AppCompatActivity {
         User user = userManager.getUser(username);
         p = user.getPlayer();
 
-
-//        if (true) {
-//            UserManager userManager = UserManager.getUserManager();
-//            userManager.message("Create a new User", PlayerInfoActivity.this);
-//            User user = new User("2", "123456");
-//            user.setPlayer(new Player("ET", "girl"));
-//            p = user.getPlayer();
-//            p.setMoney(10000);
-//        }
-
-
-        profile = (ImageView) findViewById(R.id.profileimage);
-        character_name = (TextView) findViewById(R.id.profilename);
-        character_gender = (TextView) findViewById(R.id.gender);
-        money = (TextView) findViewById(R.id.money);
-        character_description = (TextView) findViewById(R.id.description);
+        profile = findViewById(R.id.profileimage);
+        character_name = findViewById(R.id.profilename);
+        character_gender = findViewById(R.id.gender);
+        money = findViewById(R.id.money);
+        character_description = findViewById(R.id.description);
 
 
         if (p.getGender().equals("boy")){

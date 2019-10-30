@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 
 import org.jetbrains.annotations.NotNull;
 
-import csc207.phase1.UTFantasy.MapView;
+import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.Products.Product;
 import csc207.phase1.UTFantasy.R;
 

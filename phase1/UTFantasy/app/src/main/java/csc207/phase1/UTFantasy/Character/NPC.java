@@ -1,11 +1,9 @@
 package csc207.phase1.UTFantasy.Character;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
-import csc207.phase1.UTFantasy.MapView;
+import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.Products.Product;
-import csc207.phase1.UTFantasy.R;
 
 public abstract class NPC extends Person {
     NPC(String name){

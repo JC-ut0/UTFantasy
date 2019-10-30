@@ -9,10 +9,7 @@ import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.Product;
 
 public class Player extends Person implements Fighter {
-    /**
-     * the map manager this player belongs to
-     */
-    public MapManager mapManager;
+
 
     /**
      * the npc manager this player belongs to
@@ -56,12 +53,6 @@ public class Player extends Person implements Fighter {
         //make sure you have enough products
     }
 
-    /**
-     * @return the map manager corresponding to this player
-     */
-    public MapManager getMapManager() {
-        return mapManager;
-    }
 
     public Player(String name, String gender) {
         super(name);
@@ -75,7 +66,7 @@ public class Player extends Person implements Fighter {
         return gender;
     }
 
-    public void move(String direction) {
+    public void move(String direction, MapManager mapManager) {
         switch (direction) {
             case ("left"):
                 for (double[] block : mapManager.blockMap) {

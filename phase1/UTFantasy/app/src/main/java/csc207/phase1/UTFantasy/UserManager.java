@@ -148,6 +148,7 @@ public class UserManager implements Serializable {
             outputStream.writeObject(userManager);
             outputStream.close();
         } catch (IOException e) {
+            message("E:"+ e, context);
             e.printStackTrace();
         }
     }
@@ -168,10 +169,11 @@ public class UserManager implements Serializable {
                 inputStream.close();
             }
         } catch (FileNotFoundException e) {
+            message("File Not Found. The UserHashMap is reset", context);
             e.printStackTrace();
             userHashMap = new HashMap<>();
-            userManager.message("File Reading Problem. The UserHashMap is reset", context);
         } catch (IOException | ClassNotFoundException e) {
+            message("File Problem:" + e, context);
             e.printStackTrace();
         }
     }

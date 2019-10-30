@@ -3,6 +3,8 @@ package csc207.phase1.UTFantasy;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
+import csc207.phase1.UTFantasy.Map.MapView;
+
 public class MainThread extends Thread {
 
     private SurfaceHolder surfaceHolder;

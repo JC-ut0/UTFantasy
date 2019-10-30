@@ -7,8 +7,8 @@ import android.graphics.Matrix;
 
 import java.util.ArrayList;
 
-import csc207.phase1.UTFantasy.MapView;
-import csc207.phase1.UTFantasy.UnitDraw;
+import csc207.phase1.UTFantasy.Map.MapView;
+import csc207.phase1.UTFantasy.Map.UnitDraw;
 
 public class MapManager {
     /**

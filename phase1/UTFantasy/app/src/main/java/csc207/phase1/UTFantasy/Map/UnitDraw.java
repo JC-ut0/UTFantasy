@@ -1,4 +1,4 @@
-package csc207.phase1.UTFantasy;
+package csc207.phase1.UTFantasy.Map;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -6,7 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 
-public class UnitDraw {
+import java.io.Serializable;
+
+public class UnitDraw implements Serializable {
 
     /**
      * the element this unitDraw represents
@@ -100,4 +102,6 @@ public class UnitDraw {
     public String getDraw() {
         return draw;
     }
+
+
 }

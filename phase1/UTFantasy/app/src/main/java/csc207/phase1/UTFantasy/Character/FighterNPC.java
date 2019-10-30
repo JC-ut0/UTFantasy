@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import csc207.phase1.UTFantasy.Interface.Fighter;
-import csc207.phase1.UTFantasy.MapView;
+import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.R;
 
 public class FighterNPC extends NPC implements Fighter {

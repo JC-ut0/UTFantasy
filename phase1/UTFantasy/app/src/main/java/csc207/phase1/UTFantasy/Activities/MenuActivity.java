@@ -90,13 +90,13 @@ public class MenuActivity extends AppCompatActivity {
 //            User user = new User("2", "123456");
 //            Player player = new Player("ET", "ET");
 //            user.setPlayer(player);
-//            p = user.getPlayer();
-//            p.addPokemon(new Pikachu());
-//            p.setMoney(1000);
+//            player = user.getPlayer();
+//            player.addPokemon(new Pikachu());
+//            player.setMoney(1000);
 //
-//            p.setBag(PinkP,1);
-//            p.setBag(RP,1);
-//            p.setBag(PurpleP,1);
+//            player.setBag(PinkP,1);
+//            player.setBag(RP,1);
+//            player.setBag(PurpleP,1);
 //        }
 
         //get all the information from the Player's bag

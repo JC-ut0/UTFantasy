@@ -100,3 +100,11 @@ all npc can "trade", but only salerNPC have the real trade method.
 - Change to NPCManager: NPCManager do not have static method anymore.
     every player has his own NPCManager to track the npc status.
     get a npc by finding the player first and then get the npc.
+
+
+########
+# Step 20
+    - Changes location for maps.
+    - Update player class( do not contain MapView anymore).
+    - The game now can be saved automatically.(Everything)
+    // TODO: MainActivity t

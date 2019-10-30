@@ -3,12 +3,9 @@ package csc207.phase1.UTFantasy.Character;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import csc207.phase1.UTFantasy.AllSkills.Skill;
 
-import csc207.phase1.UTFantasy.MapView;
+import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.R;
 

@@ -13,7 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.MainThread;
-import csc207.phase1.UTFantasy.MapView;
+import csc207.phase1.UTFantasy.Map.MapView;
+import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.UserManager;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * the player
      */
-    Player p;
+    Player player;
 
     /**
      * The unique UserManager.
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
      * the Map View of this main activity
      */
     MapView mapView;
+
+    MapManager mapManager;
 
     /**
      * the reference to the shared preference file
@@ -79,29 +82,33 @@ public class MainActivity extends AppCompatActivity {
 
         // set onClickListener for the buttons
         leftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                p.move("left");
-            }
-        });
+                                          @Override
+                                          public void onClick(View view) {
+                                              player.move("left", mapManager);
+                                          }
+                                      }
+        );
         rightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                p.move("right");
-            }
-        });
+                                           @Override
+                                           public void onClick(View view) {
+                                               player.move("right", mapManager);
+                                           }
+                                       }
+        );
         upButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                p.move("up");
-            }
-        });
+                                        @Override
+                                        public void onClick(View view) {
+                                            player.move("up", mapManager);
+                                        }
+                                    }
+        );
         downButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                p.move("down");
-            }
-        });
+                                          @Override
+                                          public void onClick(View view) {
+                                              player.move("down", mapManager);
+                                          }
+                                      }
+        );
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,19 +116,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         menuBagButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                intent.putExtra("username", username);
-                startActivity(intent);
-            }
-        });
+                                             @Override
+                                             public void onClick(View view) {
+                                                 Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                                                 intent.putExtra("username", username);
+                                                 startActivity(intent);
+                                             }
+                                         }
+        );
         menuBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mainButtonHolder.setVisibility(View.GONE);
-            }
-        });
+                                              @Override
+                                              public void onClick(View view) {
+                                                  mainButtonHolder.setVisibility(View.GONE);
+                                              }
+                                          }
+        );
+        menuProfileButton.setOnClickListener(new View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View view) {
+                                                     Intent profileIntent = new Intent(MainActivity.this, PlayerInfoActivity.class);
+                                                     profileIntent.putExtra("username", username);
+                                                     startActivity(profileIntent);
+                                                 }
+                                             }
+        );
+        // todo: Add system button
 
         intent = getIntent();
         username = intent.getStringExtra("username");
@@ -132,13 +151,11 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", username);
         editor.apply();
-        p = userManager.getUser(username).getPlayer();
-        if (p.getMapManager() != null) {
-            mapView = p.getMapManager().getMapView();
-        } else {
-            mapView = new MapView(this, p);
-        }
+        player = userManager.getUser(username).getPlayer();
+        mapView = new MapView(this, player);
+        intent.putExtra("mapView", mapView);
         mapViewHolder.addView(mapView);
+        mapManager = mapView.getMapManager();
     }
 
     /**
@@ -150,11 +167,11 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         username = sharedPreferences.getString("username", null);
         try {
-            p = userManager.getUser(username).getPlayer();
+            player = userManager.getUser(username).getPlayer();
         } catch (Exception e) {
             System.out.println("A bug occured, non-valid username");
         }
-        mapView = p.getMapManager().getMapView();
+
         if (!mapView.getThread().getRunning()) {
             mapView.setThread(new MainThread(mapView.getHolder(), mapView));
             mapView.getThread().setRunning(true);
@@ -168,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", username);
         editor.apply();
-
     }
 
     @Override

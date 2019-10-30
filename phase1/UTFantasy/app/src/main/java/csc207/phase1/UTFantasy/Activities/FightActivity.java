@@ -276,7 +276,6 @@ public class FightActivity extends AppCompatActivity {
 
 
     public void endFight() {
-        //TODO : back parent
         onBackPressed();
     }
 

@@ -45,6 +45,11 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
+        <activity
+            android:name=".Activities.PlayerInfoActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
 
         <activity android:name=".Activities.ShopActivity"
             android:screenOrientation="landscape"
