@@ -174,7 +174,6 @@ public class UserManager implements Serializable {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     /**

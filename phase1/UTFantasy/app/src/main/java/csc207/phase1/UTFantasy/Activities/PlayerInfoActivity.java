@@ -54,22 +54,13 @@ public class PlayerInfoActivity extends AppCompatActivity {
         p = user.getPlayer();
 
 
-//        assert user != null;
-//        player = user.getPlayer();
-//        assert player != null;
-//        player.addPokemon(new Pikachu());
-//        pokemonList = player.getPokemonList();
-//        assert pokemonList != null;
-//        currentPokemon = pokemonList.get(0);
-//        assert currentPokemon != null;
-
 //        if (true) {
 //            UserManager userManager = UserManager.getUserManager();
 //            userManager.message("Create a new User", PlayerInfoActivity.this);
 //            User user = new User("2", "123456");
 //            user.setPlayer(new Player("ET", "girl"));
-//            player = user.getPlayer();
-//            player.setMoney(10000);
+//            p = user.getPlayer();
+//            p.setMoney(10000);
 //        }
 
 
@@ -97,11 +88,13 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
 
 
-        backtomain = (ImageButton)findViewById(R.id.back_to_main);
+        backtomain = findViewById(R.id.back_to_main);
         backtomain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                Intent intent = new Intent(PlayerInfoActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
             }
         });
     }

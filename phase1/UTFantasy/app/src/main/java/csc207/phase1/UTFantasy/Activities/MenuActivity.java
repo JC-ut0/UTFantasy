@@ -18,12 +18,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import csc207.phase1.UTFantasy.Character.Player;
+import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.PinkPotion;
 import csc207.phase1.UTFantasy.Products.Product;
 import csc207.phase1.UTFantasy.Products.PurplePotion;
 import csc207.phase1.UTFantasy.Products.RedPotion;
 import csc207.phase1.UTFantasy.R;
+import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
 public class MenuActivity extends AppCompatActivity {
@@ -36,7 +38,7 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * the player
      */
-    Player player;
+    Player p;
     /**
      * The unique UserManager.
      */
@@ -80,7 +82,7 @@ public class MenuActivity extends AppCompatActivity {
 
         intent = getIntent();
         username = intent.getStringExtra("username");
-        player = userManager.getUser(username).getPlayer();
+        p = userManager.getUser(username).getPlayer();
 
 //        if (true) {
 //            UserManager userManager = UserManager.getUserManager();
@@ -88,19 +90,19 @@ public class MenuActivity extends AppCompatActivity {
 //            User user = new User("2", "123456");
 //            Player player = new Player("ET", "ET");
 //            user.setPlayer(player);
-//            player = user.getPlayer();
-//            player.addPokemon(new Pikachu());
-//            player.setMoney(1000);
+//            p = user.getPlayer();
+//            p.addPokemon(new Pikachu());
+//            p.setMoney(1000);
 //
-//            player.setBag(PinkP,2);
-//            player.setBag(RP,1);
-//            player.setBag(PurpleP,1);
+//            p.setBag(PinkP,1);
+//            p.setBag(RP,1);
+//            p.setBag(PurpleP,1);
 //        }
 
         //get all the information from the Player's bag
         //First, the pokemon
         ArrayList<Pokemon> pokemontemp;
-        pokemontemp = player.getPokemonList();
+        pokemontemp = p.getPokemonList();
         for (Pokemon pokemon : pokemontemp) {
             pokemons.add(pokemon.getPokemonName());
             pokemonsinfo.add(pokemon.toString());
@@ -108,10 +110,10 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         HashMap<Product, Integer> itemtemp;
-        itemtemp = player.getBag();
+        itemtemp = p.getBag();
         for (Product item : itemtemp.keySet()) {
             items.add(item.getName());
-            potioninfo.add(item.toString() + "\n" + " Num: " + itemtemp.get(item));
+            potioninfo.add(item.toString() +"\n" + "Num: "+ itemtemp.get(item));
             potionimages.add(item.getProfile_id());
         }
 
@@ -122,8 +124,8 @@ public class MenuActivity extends AppCompatActivity {
 
         //Create new adapters for the listviews and adpate them.
 //        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-        CustomAdpater adapter1 = new CustomAdpater("item");
-        CustomAdpater adapter2 = new CustomAdpater("pokemon");
+        CustomAdapter adapter1 = new CustomAdapter("item");
+        CustomAdapter adapter2 = new CustomAdapter("pokemon");
         itemslist.setAdapter(adapter1);
         pokemonlist.setAdapter(adapter2);
 
@@ -158,15 +160,13 @@ public class MenuActivity extends AppCompatActivity {
         });
 
         // The textview of the String: MY BAG
-        TextView textView = findViewById(R.id.textView);
+//        TextView textView = findViewById(R.id.textView);
 
-        backtomain = findViewById(R.id.back_to_main);
+        backtomain = (ImageButton) findViewById(R.id.back_to_main);
         backtomain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
-//                Intent intent = new Intent(MenuActivity.this, PlayerInfoActivity.class);
-//                startActivity(intent);
             }
         });
 
@@ -175,11 +175,11 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * The CustomAdater for the pokemon listview.
      */
-    class CustomAdpater extends BaseAdapter {
+    class CustomAdapter extends BaseAdapter {
 
         String type;
 
-        public CustomAdpater(String type) {
+        public CustomAdapter(String type) {
             this.type = type;
         }
 

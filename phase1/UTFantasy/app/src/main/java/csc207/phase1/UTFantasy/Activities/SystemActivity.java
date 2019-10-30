@@ -13,6 +13,7 @@ import csc207.phase1.UTFantasy.UserManager;
 
 public class SystemActivity extends AppCompatActivity {
 
+
     /**
      * The unique UserManager.
      */
