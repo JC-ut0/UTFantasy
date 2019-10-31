@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import csc207.phase1.UTFantasy.CustomizeException.ImproperUserSettingException;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
@@ -40,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     nonEmptyAccountOrPassword();
                 } catch (Exception e) {
-                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
                 // login if
                 User user = userManager.login(accountStr, passwordStr);
@@ -60,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     validateUsernameAndPassword();
                                                 } catch (Exception e) {
                                                     e.printStackTrace();
-                                                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                                                 }
                                             }
                                         }
@@ -101,16 +102,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
-    class ImproperUserSettingException extends Exception {
-        ImproperUserSettingException() {
-            super();
-        }
-
-        ImproperUserSettingException(String str) {
-            super(str);
-        }
-    }
 
     private void newPlayerAction() {
         // this is a new user, saveFile the info of this user, go to set up activity

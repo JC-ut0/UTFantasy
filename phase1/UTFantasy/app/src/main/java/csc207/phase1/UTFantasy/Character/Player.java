@@ -5,8 +5,10 @@ import java.util.HashMap;
 import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.NPCManager;
+import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.Product;
+import csc207.phase1.UTFantasy.Products.RedPotion;
 
 public class Player extends Person implements Fighter {
 
@@ -35,11 +37,24 @@ public class Player extends Person implements Fighter {
      */
     protected HashMap<Product, Integer> bag;
 
+    public Player(String name, String gender) {
+        super(name);
+        this.gender = gender;
+        this.money = 1000;
+        this.bag = new HashMap<>();
+        this.npcManager = new NPCManager();
+        this.setLocation(5, 5);
+        Pokemon pokemon = new Pikachu();
+        pokemon.setLevel(1);
+        addPokemon(pokemon);
+        addItem(new RedPotion(), 1);
+    }
+
     public HashMap<Product, Integer> getBag() {
         return bag;
     }
 
-    public void setBag(Product item, int num) {
+    public void addItem(Product item, int num) {
         if (bag.containsKey(item)) {
             bag.put(item, bag.get(item) + num);
         } else {
@@ -53,15 +68,6 @@ public class Player extends Person implements Fighter {
         //make sure you have enough products
     }
 
-
-    public Player(String name, String gender) {
-        super(name);
-        this.gender = gender;
-        this.money = 0;
-        this.bag = new HashMap<>();
-        this.npcManager = new NPCManager();
-        this.setLocation(5,5);
-    }
 
     public String getGender() {
         return gender;

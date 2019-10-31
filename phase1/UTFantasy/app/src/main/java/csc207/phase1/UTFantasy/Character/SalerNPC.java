@@ -15,20 +15,21 @@ public class SalerNPC extends NPC {
     public SalerNPC(String npcName) {
         super(npcName);
     }
+
     @Override
     public String trade(@NotNull Player player, int num, Product product) {
-        if (isPlayerAffordable(player,num,product)){
+        if (isPlayerAffordable(player, num, product)) {
             int total = num * product.getPrice();
             player.setMoney(player.getMoney() - total);
-            player.setBag(product, num);
-            return "You have purchased " + num +" "+ product.getName()+"(s)";
+            player.addItem(product, num);
+            return "You have purchased " + num + " " + product.getName() + "(s)";
         }
         return "You don't have enough money!";
     }
 
     private boolean isPlayerAffordable(@NotNull Player player, int num, @NotNull Product product) {
         int total = num * product.getPrice();
-        int playerMoney = player.getMoney() ;
+        int playerMoney = player.getMoney();
         return playerMoney >= total;
 
     }

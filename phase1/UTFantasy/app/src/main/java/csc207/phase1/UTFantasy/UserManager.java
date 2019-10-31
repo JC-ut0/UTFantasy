@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -173,7 +174,7 @@ public class UserManager implements Serializable {
             e.printStackTrace();
             userHashMap = new HashMap<>();
         } catch (IOException | ClassNotFoundException e) {
-            message("File Problem:" + e, context);
+            message("File Problem:" + e.getMessage(), context);
             e.printStackTrace();
         }
     }

@@ -3,9 +3,6 @@ package csc207.phase1.UTFantasy.Products;
 import csc207.phase1.UTFantasy.R;
 
 public class PurplePotion extends Product {
-    private static String name = "Potion";
-    private static int price = 100;
-    private static int profileID = R.drawable.purple;
 
     private static PurplePotion purple;
 
@@ -20,7 +17,7 @@ public class PurplePotion extends Product {
         return purple;
     }
 
-    public String toString(){
+    public String toString() {
         return "This is a potion, it can restore 30 hp.";
     }
 

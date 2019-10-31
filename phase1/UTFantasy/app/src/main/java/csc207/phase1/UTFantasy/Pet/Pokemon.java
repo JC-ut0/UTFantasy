@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy.Pet;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -9,7 +10,7 @@ import csc207.phase1.UTFantasy.AllSkills.Skill;
 import csc207.phase1.UTFantasy.Character.Person;
 import csc207.phase1.UTFantasy.R;
 
-public abstract class Pokemon {
+public abstract class Pokemon implements Serializable {
 
     protected String pokemonName;
 
@@ -168,30 +169,43 @@ public abstract class Pokemon {
 
     /**
      * Set the hp of the Pokemon.
+     *
      * @param hp the value of health point to set.
      */
-    public void setHp(int hp){this.hp = hp;}
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 
     /**
      * Set the attack statistic of the Pokemon.
+     *
      * @param attack the value of attack to set.
      */
-    public void setAttack(int attack){this.attack = attack;}
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
 
     /**
      * Set the defense statistic of the Pokemon.
+     *
      * @param defense the value of defense to set.
      */
-    public void setDefense(int defense){this.defense = defense;}
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
 
     /**
      * Set the speed statistic of the Pokemon.
+     *
      * @param speed the value of speed to set.
      */
-    public void setSpeed(int speed){this.speed = speed;}
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
 
     /**
      * Get the x-coordinate of the Pokemon.
+     *
      * @return the value of Pokemon's x-coordinate.
      */
     public int getX() {
@@ -200,6 +214,7 @@ public abstract class Pokemon {
 
     /**
      * Set the x-coordinate of the Pokemon.
+     *
      * @param x the value of x-coordinate to set.
      */
     public void setX(int x) {
@@ -208,6 +223,7 @@ public abstract class Pokemon {
 
     /**
      * Get the y-coordinate of the Pokemon.
+     *
      * @return the value of Pokemon's y-coordinate.
      */
     public int getY() {
@@ -216,6 +232,7 @@ public abstract class Pokemon {
 
     /**
      * Set the y-coordinate of the Pokemon.
+     *
      * @param y the value of y-coordinate to set.
      */
     void setY(int y) {
@@ -224,6 +241,7 @@ public abstract class Pokemon {
 
     /**
      * Set the x, y coordinate of the Pokemon.
+     *
      * @param x the value of x-coordinate to set.
      * @param y the value of y-coordinate to set.
      */
@@ -234,6 +252,7 @@ public abstract class Pokemon {
 
     /**
      * Get the Individual value of health point of the Pokemon.
+     *
      * @return the value of Individual value of health point of the Pokemon.
      */
     public int getIv_hp() {
@@ -242,6 +261,7 @@ public abstract class Pokemon {
 
     /**
      * Set the Individual value of health point of the Pokemon.
+     *
      * @param hp the value of Individual value of health point to set.
      */
     public void setIv_hp(int hp) {
@@ -250,6 +270,7 @@ public abstract class Pokemon {
 
     /**
      * Get the value of Pokemon's current level.
+     *
      * @return the value of level of the Pokemon.
      */
     public int getLevel() {
@@ -258,6 +279,7 @@ public abstract class Pokemon {
 
     /**
      * Set Pokemon's current value.
+     *
      * @param level the value of level to set.
      */
     public void setLevel(int level) {
@@ -266,6 +288,7 @@ public abstract class Pokemon {
 
     /**
      * Set the status of Pokemon's status.
+     *
      * @param status the description of Pokemon's status.
      */
     public void setStatus(String status) {
@@ -274,6 +297,7 @@ public abstract class Pokemon {
 
     /**
      * Get the description of Pokemon's status.
+     *
      * @return a String which is the description of Pokemon's status.
      */
     String getStatus() {
@@ -282,6 +306,7 @@ public abstract class Pokemon {
 
     /**
      * Get the current health point of the Pokemon.
+     *
      * @return a integer which is the value of current health point.
      */
     public int getHp() {
@@ -290,6 +315,7 @@ public abstract class Pokemon {
 
     /**
      * Get the skills which the Pokemon currently has.
+     *
      * @return an arrayList of current skills.
      */
     public Skill[] getSkills() {
@@ -298,7 +324,8 @@ public abstract class Pokemon {
 
     /**
      * Replace the removeSkill with addSkill in the Pokemon's skill list.
-     * @param addSkill the Skill to be added in Pokemon's skill list.
+     *
+     * @param addSkill    the Skill to be added in Pokemon's skill list.
      * @param removeSkill the Skill to be replaced in Pokemon's skill list.
      */
     public void updateSkills(Skill addSkill, Skill removeSkill) {
@@ -311,6 +338,7 @@ public abstract class Pokemon {
 
     /**
      * Get the master of the Pokemon.
+     *
      * @return a Person which is the master of the Pokemon.
      */
     public Person getMaster() {
@@ -319,6 +347,7 @@ public abstract class Pokemon {
 
     /**
      * Get the maximum health point of the Pokemon.
+     *
      * @return the value of the maximum health point.
      */
     public int getMaximumHp() {
@@ -327,6 +356,7 @@ public abstract class Pokemon {
 
     /**
      * Set the value of Pokemon's maximum health point.
+     *
      * @param maximumHp the value of maximum health point to set.
      */
     public void setMaximumHp(int maximumHp) {
@@ -335,6 +365,7 @@ public abstract class Pokemon {
 
     /**
      * Get the value of Pokemon's current experience point.
+     *
      * @return an integer which is the value of Pokemon's experience point.
      */
     public int getExp() {
@@ -343,6 +374,7 @@ public abstract class Pokemon {
 
     /**
      * Set the experience point of the Pokemon.
+     *
      * @param exp the value of exoerience point to set.
      */
     public void setExp(int exp) {
@@ -351,6 +383,7 @@ public abstract class Pokemon {
 
     /**
      * Get the name of the Pokemon.
+     *
      * @return a String which is the Pokemon's name.
      */
     public String getPokemonName() {
@@ -359,6 +392,7 @@ public abstract class Pokemon {
 
     /**
      * Set Pokemon's name.
+     *
      * @param pokemonName the name of Pokemon to set.
      */
     public void setPokemonName(String pokemonName) {
@@ -367,6 +401,7 @@ public abstract class Pokemon {
 
     /**
      * Get the profile ID of the Pokemon.
+     *
      * @return a integer which is the profile ID of the Pokemon.
      */
     public int getProfileID() {
@@ -375,6 +410,7 @@ public abstract class Pokemon {
 
     /**
      * Get the value of Pokemon's attack statistic.
+     *
      * @return an integer which is the value of Pokemon's attack statistic.
      */
     public int getAttack() {
@@ -383,6 +419,7 @@ public abstract class Pokemon {
 
     /**
      * Get the value of Pokemon's defense statistic.
+     *
      * @return an integer which is the value of Pokemon's defense statistic.
      */
     public int getDefense() {
@@ -391,6 +428,7 @@ public abstract class Pokemon {
 
     /**
      * Get the type of the Pokemon.
+     *
      * @return a String which is the type of the Pokemon.
      */
     public String getType() {
@@ -399,6 +437,7 @@ public abstract class Pokemon {
 
     /**
      * Set the type of the Pokemon.
+     *
      * @param type a String which is the type of Pokemon to set.
      */
     public void setType(String type) {
@@ -407,6 +446,7 @@ public abstract class Pokemon {
 
     /**
      * Get the number of Skills the Pokemon has.
+     *
      * @return an integer which is the number of Skills Pokemon currently has.
      */
     public int getSkillNum() {
@@ -421,6 +461,7 @@ public abstract class Pokemon {
 
     /**
      * Return a String which contains Pokemon's name and current level.
+     *
      * @return a String of description of the Pokemon.
      */
     @NonNull
@@ -431,6 +472,7 @@ public abstract class Pokemon {
 
     /**
      * Set the Pokemon's master.
+     *
      * @param master a master to be set.
      */
     public void setMaster(Person master) {
@@ -439,6 +481,7 @@ public abstract class Pokemon {
 
     /**
      * Check if the Pokemon is fainted or alive.
+     *
      * @return a boolean. If true then the Pokemon is still alive. If false then the Pokemon is fainted.
      */
     public boolean isAlive() {
@@ -447,6 +490,7 @@ public abstract class Pokemon {
 
     /**
      * Get the value of speed statistic of the Pokemon.
+     *
      * @return an integer which is the value of speed statistic of the Pokemon.
      */
     public int getSpeed() {
