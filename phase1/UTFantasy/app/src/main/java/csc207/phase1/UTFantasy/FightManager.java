@@ -122,7 +122,7 @@ public class FightManager {
 
     public int calculateDMG(Pokemon pokemon, Pokemon rival, Skill skill) {
         // calculate damage without modifier
-        int damage = (2 * rival.getLevel() + 10) / 250;
+        int damage = (2 * pokemon.getLevel() + 10) / 250;
         damage = damage * pokemon.getAttack() / rival.getDefense();
         damage = damage * skill.getPower() + 2;
 
