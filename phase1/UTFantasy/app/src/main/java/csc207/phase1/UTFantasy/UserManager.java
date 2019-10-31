@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
 

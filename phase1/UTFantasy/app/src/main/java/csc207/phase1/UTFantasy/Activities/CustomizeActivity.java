@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import csc207.phase1.UTFantasy.Character.Player;
+import csc207.phase1.UTFantasy.CustomizeException.ImproperPlayerNameException;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
@@ -118,14 +119,8 @@ public class CustomizeActivity extends Activity {
 
         // now go to main activity
         startActivity(intent);
-
     }
 
-    class ImproperPlayerNameException extends Exception {
-        ImproperPlayerNameException(String str) {
-            super(str);
-        }
-    }
 
     private void validatePlayerName() throws ImproperPlayerNameException {
         if (name.equals("")) {
