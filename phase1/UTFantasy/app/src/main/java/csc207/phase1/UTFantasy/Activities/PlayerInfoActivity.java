@@ -52,15 +52,13 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
         intent = getIntent();
         username = intent.getStringExtra("username");
-        User user = userManager.getUser(username);
-        p = user.getPlayer();
+        p = userManager.getUser(username).getPlayer();
 
         setBacktomain();
         setCharacter_description();
-        setCharacter_gender();
+        setCharacter_gender_and_profile();
         setCharacter_name();
         setMoney();
-        setProfile();
     }
 
     /**
@@ -72,10 +70,11 @@ public class PlayerInfoActivity extends AppCompatActivity {
     }
 
     /**
-     * Set the character's gender.
+     * Set the character's gender and it's profile.
      */
-    private void setCharacter_gender() {
+    private void setCharacter_gender_and_profile() {
         character_gender = findViewById(R.id.gender);
+        profile = findViewById(R.id.profileimage);
         if (p.getGender().equals("boy")) {
             profile.setImageResource(R.drawable.charater_male);
             character_gender.setText("Gender: Male");
@@ -93,12 +92,6 @@ public class PlayerInfoActivity extends AppCompatActivity {
         money.setText("Money: $" + p.getMoney());
     }
 
-    /**
-     * Set the Profile pic.
-     */
-    private void setProfile() {
-        profile = findViewById(R.id.profileimage);
-    }
 
     /**
      * Set the character's description.
