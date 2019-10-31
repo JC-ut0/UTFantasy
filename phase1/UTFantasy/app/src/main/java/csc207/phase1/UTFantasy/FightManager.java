@@ -1,22 +1,13 @@
 package csc207.phase1.UTFantasy;
 
-import android.app.Person;
-import android.content.Intent;
+import java.util.HashMap;
+import java.util.Random;
 
-import csc207.phase1.UTFantasy.Activities.FightActivity;
-import csc207.phase1.UTFantasy.Activities.MainActivity;
 import csc207.phase1.UTFantasy.AllSkills.Skill;
 import csc207.phase1.UTFantasy.Character.FighterNPC;
-import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.function.ToDoubleBiFunction;
 
 public class FightManager {
 
@@ -60,7 +51,7 @@ public class FightManager {
 //    public void setPlayerPokemon(Pokemon playerPokemon){
 //        this.playerPokemon = playerPokemon;
 //    }
-    public Skill getSkill(){
+    public Skill getSkill() {
         return skill;
     }
 
@@ -430,4 +421,8 @@ public class FightManager {
 //        }
 //        return result;
 //    }
+
+    public void setPlayerPokemon(Pokemon playerPokemon) {
+        this.playerPokemon = playerPokemon;
+    }
 }

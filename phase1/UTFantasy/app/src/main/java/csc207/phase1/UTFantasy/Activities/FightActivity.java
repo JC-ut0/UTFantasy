@@ -1,8 +1,13 @@
 package csc207.phase1.UTFantasy.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.LightingColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -13,6 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
@@ -70,7 +77,32 @@ public class FightActivity extends AppCompatActivity {
     TextView rivalHealthInfo;
     ArrayList<String> turnInfo;
     NPCManager npcManager;
+    LinearLayout choosePokemon;
     boolean clickable = true;
+    // first
+    private ImageView firstPokemonInBag;
+    private TextView firstPokemonHealthInfo;
+    private ProgressBar firstPokemonHealthBar;
+    // second
+    private ImageView secondPokemonInBag;
+    private TextView secondPokemonHealthInfo;
+    private ProgressBar secondPokemonHealthBar;
+    // third
+    private ImageView thirdPokemonInBag;
+    private TextView thirdPokemonHealthInfo;
+    private ProgressBar thirdPokemonHealthBar;
+    // fourth
+    private ImageView fourthPokemonInBag;
+    private TextView fourthPokemonHealthInfo;
+    private ProgressBar fourthPokemonHealthBar;
+    // fifth
+    private ImageView fifthPokemonInBag;
+    private TextView fifthPokemonHealthInfo;
+    private ProgressBar fifthPokemonHealthBar;
+    // sixth
+    private ImageView sixthPokemonInBag;
+    private TextView sixthPokemonHealthInfo;
+    private ProgressBar sixthPokemonHealthBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +122,7 @@ public class FightActivity extends AppCompatActivity {
             user = new User("2", "123456");
             user.setPlayer(new Player("ET", "ET"));
             user.getPlayer().addPokemon(new Squirtle());
-            npcManager = player.getNpcManager();
+            npcManager = new NPCManager();
             opponent = new FighterNPC("2");
             opponent.getPokemonList().add(new Charmander());
         }
@@ -171,9 +203,11 @@ public class FightActivity extends AppCompatActivity {
                                           @Override
                                           public void onClick(View view) {
                                               chooseNewPokemon();
-                                              menuSection.setVisibility(View.GONE);
-                                              battleSection.setVisibility(View.GONE);
-                                              fightBox.setVisibility(View.GONE);
+//                                              menuSection.setVisibility(View.GONE);
+//                                              battleSection.setVisibility(View.GONE);
+//                                              fightBox.setVisibility(View.GONE);
+//                                              informationSection.setVisibility(View.GONE);
+//                                              choosePokemon.setVisibility(View.VISIBLE);
                                           }
                                       }
         );
@@ -185,7 +219,7 @@ public class FightActivity extends AppCompatActivity {
                                    }
                                }
         );
-        // todo: implement run buttons onClickListener
+        // todo: implement bag buttons onClickListener
         bag.setOnClickListener(new View.OnClickListener() {
                                    @Override
                                    public void onClick(View view) {
@@ -196,10 +230,197 @@ public class FightActivity extends AppCompatActivity {
                                    }
                                }
         );
+        firstPokemonInBag.setOnClickListener(new View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View view) {
+                                                     Pokemon pokemon = getPokemonFromPlayerPokemonList(0);
+                                                     changeCurrentPokemon(pokemon);
+                                                 }
+                                             }
+        );
+        secondPokemonInBag.setOnClickListener(new View.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(View view) {
+                                                      Pokemon pokemon = getPokemonFromPlayerPokemonList(1);
+                                                      changeCurrentPokemon(pokemon);
+                                                  }
+                                              }
+        );
+        thirdPokemonInBag.setOnClickListener(new View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View view) {
+                                                     Pokemon pokemon = getPokemonFromPlayerPokemonList(2);
+                                                     changeCurrentPokemon(pokemon);
+                                                 }
+                                             }
+        );
+        fourthPokemonInBag.setOnClickListener(new View.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(View view) {
+                                                      Pokemon pokemon = getPokemonFromPlayerPokemonList(3);
+                                                      changeCurrentPokemon(pokemon);
+                                                  }
+                                              }
+        );
+        fifthPokemonInBag.setOnClickListener(new View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View view) {
+                                                     Pokemon pokemon = getPokemonFromPlayerPokemonList(4);
+                                                     changeCurrentPokemon(pokemon);
+                                                 }
+                                             }
+        );
+        sixthPokemonInBag.setOnClickListener(new View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View view) {
+                                                     Pokemon pokemon = getPokemonFromPlayerPokemonList(5);
+                                                     changeCurrentPokemon(pokemon);
+                                                 }
+                                             }
+        );
+
     }
 
-    private void chooseNewPokemon() {
+    @Nullable
+    private Pokemon getPokemonFromPlayerPokemonList(int i) {
+        Pokemon pokemon;
+        try {
+            pokemon = player.getPokemonList().get(i);
+        } catch (IndexOutOfBoundsException e) {
+            pokemon = null;
+            e.printStackTrace();
+        }
+        return pokemon;
+    }
 
+    private void changeCurrentPokemon(Pokemon pokemon) {
+        if (pokemon != null && currentPokemon != pokemon && pokemon.getHp() != 0) {
+            currentPokemon = pokemon;
+            updateForPokemonExchange();
+            informationSection.setVisibility(View.VISIBLE);
+            choosePokemon.setVisibility(View.GONE);
+            menuSection.setVisibility(View.VISIBLE);
+            battleSection.setVisibility(View.VISIBLE);
+            fightBox.setVisibility(View.GONE);
+        }
+    }
+
+
+    private void chooseNewPokemon() {
+        updateForChoosePokemon();
+    }
+
+    private void startRound() {
+        if (clickable) {
+            if (fightManager.getProgress() == -1) {
+                endFight();
+            } else if (fightManager.getProgress() == 0) {
+                updateHpBar();
+                menuSection.setVisibility(View.VISIBLE);
+                clickable = false;
+            } else {
+                updateHpBar();
+                updateForPokemonExchange();
+            }
+
+            battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
+        }
+
+    }
+
+    private void updateForPokemonExchange() {
+        // update pokemon views
+        fightManager.setPlayerPokemon(currentPokemon);
+        currentRivalPokemon = fightManager.getRivalPokemon();
+        Drawable myPokemonDrawable = getResources().getDrawable(currentPokemon.getProfileID());
+        Drawable rivalPokemonDrawable = getResources().getDrawable(currentRivalPokemon.getProfileID());
+        myPokemon.setImageDrawable(myPokemonDrawable);
+        rivalPokemon.setImageDrawable(rivalPokemonDrawable);
+        updateSkillButton();
+        updateHpBar();
+    }
+
+    private void updateHpBar() {
+        myHealth.setMax(currentPokemon.getMaximumHp());
+        rivalHealth.setMax(currentRivalPokemon.getMaximumHp());
+        myHealth.setProgress(currentPokemon.getHp());
+        myHealthInfo.setText(currentPokemon.getHp() + "/" + currentPokemon.getMaximumHp());
+        rivalHealth.setProgress(currentRivalPokemon.getHp());
+        rivalHealthInfo.setText(currentRivalPokemon.getHp() + "/" + currentRivalPokemon.getMaximumHp());
+    }
+
+
+    public void endFight() {
+        onBackPressed();
+    }
+
+    private void updateSkillButton() {
+        // set all skill to display the currentPokemon's skills
+        Skill[] currentPokemonSkills = currentPokemon.getSkills();
+
+        try {
+            skill_1.setText(currentPokemon.getSkills()[0].getName());
+            skill_2.setText(currentPokemon.getSkills()[1].getName());
+            skill_3.setText(currentPokemon.getSkills()[2].getName());
+            skill_4.setText(currentPokemon.getSkills()[3].getName());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateForChoosePokemon() {
+        choosePokemon.setVisibility(View.VISIBLE);
+        informationSection.setVisibility(View.GONE);
+        ArrayList<Pokemon> list = player.getPokemonList();
+        for (int i = 0; i < 6; i++) {
+            Pokemon pokemon;
+            try {
+                pokemon = list.get(i);
+            } catch (Exception e) {
+                pokemon = null;
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            switch (i) {
+                case 0:
+                    updateSinglePokemon(pokemon, firstPokemonInBag, firstPokemonHealthBar, firstPokemonHealthInfo);
+                    break;
+                case 1:
+                    updateSinglePokemon(pokemon, secondPokemonInBag, secondPokemonHealthBar, secondPokemonHealthInfo);
+                    break;
+                case 2:
+                    updateSinglePokemon(pokemon, thirdPokemonInBag, thirdPokemonHealthBar, thirdPokemonHealthInfo);
+                    break;
+                case 3:
+                    updateSinglePokemon(pokemon, fourthPokemonInBag, fourthPokemonHealthBar, fourthPokemonHealthInfo);
+                    break;
+                case 4:
+                    updateSinglePokemon(pokemon, fifthPokemonInBag, fifthPokemonHealthBar, fifthPokemonHealthInfo);
+                    break;
+                case 5:
+                    updateSinglePokemon(pokemon, sixthPokemonInBag, sixthPokemonHealthBar, sixthPokemonHealthInfo);
+                    break;
+            }
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void updateSinglePokemon(Pokemon pokemon, ImageView pokemonInBag, ProgressBar pokemonHealthBar, TextView pokemonHealthInfo) {
+        if (pokemon == null) {
+            pokemonInBag.setImageDrawable(null);
+            pokemonHealthBar.setMax(0);
+            pokemonHealthBar.setProgress(0);
+            pokemonHealthInfo.setText("");
+        } else {
+            pokemonInBag.setBackgroundColor(0x00000000);
+            pokemonInBag.setImageDrawable(getResources().getDrawable(pokemon.getProfileID()));
+            pokemonHealthBar.setMax(pokemon.getMaximumHp());
+            pokemonHealthBar.setProgress(pokemon.getHp());
+            pokemonHealthInfo.setText(pokemon.getHp() + "/" + pokemon.getMaximumHp());
+        }
+        if (pokemon == currentPokemon) {
+            pokemonInBag.setBackgroundColor(Color.parseColor("#2504E204"));
+        }
     }
 
     private void initializeLayOuts() {
@@ -235,62 +456,33 @@ public class FightActivity extends AppCompatActivity {
         // healthBar Text
         myHealthInfo = findViewById(R.id.myHealthInfo);
         rivalHealthInfo = findViewById(R.id.rivalHealthInfo);
+        // choosePokemon section
+        choosePokemon = findViewById(R.id.choosePokemon);
+        // first
+        firstPokemonInBag = findViewById(R.id.firstPokemonInBag);
+        firstPokemonHealthInfo = findViewById(R.id.firstPokemonHealthInfo);
+        firstPokemonHealthBar = findViewById(R.id.firstPokemonHealthBar);
+        // second
+        secondPokemonInBag = findViewById(R.id.secondPokemonInBag);
+        secondPokemonHealthInfo = findViewById(R.id.secondPokemonHealthInfo);
+        secondPokemonHealthBar = findViewById(R.id.secondPokemonHealthBar);
+        // third
+        thirdPokemonInBag = findViewById(R.id.thirdPokemonInBag);
+        thirdPokemonHealthInfo = findViewById(R.id.thirdPokemonHealthInfo);
+        thirdPokemonHealthBar = findViewById(R.id.thirdPokemonHealthBar);
+        // fourth
+        fourthPokemonInBag = findViewById(R.id.fourthPokemonInBag);
+        fourthPokemonHealthInfo = findViewById(R.id.fourthPokemonHealthInfo);
+        fourthPokemonHealthBar = findViewById(R.id.fourthPokemonHealthBar);
+        // fifth
+        fifthPokemonInBag = findViewById(R.id.fifthPokemonInBag);
+        fifthPokemonHealthInfo = findViewById(R.id.fifthPokemonHealthInfo);
+        fifthPokemonHealthBar = findViewById(R.id.fifthPokemonHealthBar);
+        // sixth
+        sixthPokemonInBag = findViewById(R.id.sixthPokemonInBag);
+        sixthPokemonHealthInfo = findViewById(R.id.sixthPokemonHealthInfo);
+        sixthPokemonHealthBar = findViewById(R.id.sixthPokemonHealthBar);
+
+
     }
-
-    private void startRound() {
-        if (clickable) {
-            if (fightManager.getProgress() == -1) {
-                endFight();
-            } else if (fightManager.getProgress() == 0) {
-                updateHpBar();
-                menuSection.setVisibility(View.VISIBLE);
-                clickable = false;
-            } else {
-                updateHpBar();
-                updateForPokemonExchange();
-            }
-
-            battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
-        }
-
-    }
-
-    private void updateForPokemonExchange() {
-        currentPokemon = fightManager.getPlayerPokemon();
-        currentRivalPokemon = fightManager.getRivalPokemon();
-        Drawable myPokemonDrawable = getResources().getDrawable(currentPokemon.getProfileID());
-        Drawable rivalPokemonDrawable = getResources().getDrawable(currentRivalPokemon.getProfileID());
-        myPokemon.setImageDrawable(myPokemonDrawable);
-        rivalPokemon.setImageDrawable(rivalPokemonDrawable);
-        updateSkillButton();
-        myHealth.setMax(currentPokemon.getMaximumHp());
-        rivalHealth.setMax(currentRivalPokemon.getMaximumHp());
-    }
-
-    private void updateHpBar() {
-        myHealth.setProgress(currentPokemon.getHp());
-        myHealthInfo.setText(currentPokemon.getHp() + "/" + currentPokemon.getMaximumHp());
-        rivalHealth.setProgress(currentRivalPokemon.getHp());
-        rivalHealthInfo.setText(currentRivalPokemon.getHp() + "/" + currentRivalPokemon.getMaximumHp());
-    }
-
-
-    public void endFight() {
-        onBackPressed();
-    }
-
-    private void updateSkillButton() {
-        // set all skill to display the currentPokemon's skills
-        Skill[] currentPokemonSkills = currentPokemon.getSkills();
-
-        try {
-            skill_1.setText(currentPokemon.getSkills()[0].getName());
-            skill_2.setText(currentPokemon.getSkills()[1].getName());
-            skill_3.setText(currentPokemon.getSkills()[2].getName());
-            skill_4.setText(currentPokemon.getSkills()[3].getName());
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

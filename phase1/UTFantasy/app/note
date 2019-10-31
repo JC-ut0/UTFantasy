@@ -107,4 +107,7 @@ all npc can "trade", but only salerNPC have the real trade method.
     - Changes location for maps.
     - Update player class( do not contain MapView anymore).
     - The game now can be saved automatically.(Everything)
-    // TODO: MainActivity t
+
+########
+# Step 21
+    - update fight activity, now can exchange pokemon
