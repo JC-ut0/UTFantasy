@@ -19,12 +19,15 @@ import csc207.phase1.UTFantasy.Activities.ShopActivity;
 import csc207.phase1.UTFantasy.Products.Product;
 
 public class ExampleDialog extends AppCompatDialogFragment {
-
+    /**
+     * the EditText called editTextAmount
+     */
     private EditText editTextAmount;
-    private TextView textView;
+    /**
+     * the ExampleDialogListener
+     */
     private ExampleDialogListener listener;
 
-    //    private TextView notice;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -48,7 +51,6 @@ public class ExampleDialog extends AppCompatDialogFragment {
 
 
         editTextAmount = view.findViewById(R.id.amount);
-        textView = view.findViewById(R.id.potion_amount);
         return builder.create();
     }
 
@@ -63,6 +65,9 @@ public class ExampleDialog extends AppCompatDialogFragment {
         }
     }
 
+    /**
+     * the interface of ExampleDialogListener.
+     */
     public interface ExampleDialogListener {
         void applyTexts(String amount);
     }

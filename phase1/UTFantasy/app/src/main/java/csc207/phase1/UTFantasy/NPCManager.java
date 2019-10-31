@@ -6,7 +6,7 @@ import java.util.HashMap;
 import csc207.phase1.UTFantasy.Character.FighterNPC;
 import csc207.phase1.UTFantasy.Character.HealerNPC;
 import csc207.phase1.UTFantasy.Character.NPC;
-import csc207.phase1.UTFantasy.Character.SalerNPC;
+import csc207.phase1.UTFantasy.Character.SellerNPC;
 
 public class NPCManager implements Serializable {
 
@@ -25,13 +25,13 @@ public class NPCManager implements Serializable {
      */
     public NPCManager() {
         npcHashMap = new HashMap<>();
-        String saler = "Alice";
+        String seller = "Alice";
         String fighter = "Professor. P";
         String healer = "SecondCup";
-        SalerNPC salerNPC = new SalerNPC(saler);
+        SellerNPC sellerNPC = new SellerNPC(seller);
         FighterNPC fighterNPC = new FighterNPC(fighter);
         HealerNPC healerNPC = new HealerNPC(healer);
-        addNPC(saler, salerNPC);
+        addNPC(seller, sellerNPC);
         addNPC(fighter, fighterNPC);
         addNPC(healer, healerNPC);
     }

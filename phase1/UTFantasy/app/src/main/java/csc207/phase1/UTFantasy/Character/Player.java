@@ -35,6 +35,12 @@ public class Player extends Person implements Fighter {
     /**
      * objects in this person's bag
      */
+
+    /**
+     * a RedPotion
+     */
+    RedPotion RP = RedPotion.getRed();
+
     protected HashMap<Product, Integer> bag;
 
     public Player(String name, String gender) {
@@ -47,7 +53,7 @@ public class Player extends Person implements Fighter {
         Pokemon pokemon = new Pikachu();
         pokemon.setLevel(1);
         addPokemon(pokemon);
-        addItem(new RedPotion(), 1);
+        addItem(RP, 1);
     }
 
     public HashMap<Product, Integer> getBag() {
