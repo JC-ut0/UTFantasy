@@ -105,6 +105,7 @@ public class MenuActivity extends AppCompatActivity {
 
         /**
          * The adapter of the viewlist with title and subtitle.
+         *
          * @param type the type of pokemon or item
          */
         public CustomAdapter(String type) {
@@ -157,7 +158,7 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * Read all the infomation from the player.
      */
-    private void read_info(){
+    private void read_info() {
         //get all the information from the Player's bag
         //First, the pokemon
         ArrayList<Pokemon> pokemontemp;
@@ -173,7 +174,7 @@ public class MenuActivity extends AppCompatActivity {
         itemtemp = p.getBag();
         for (Product item : itemtemp.keySet()) {
             items.add(item.getName());
-            potioninfo.add(item.toString() +"\n" + "Num: "+ itemtemp.get(item));
+            potioninfo.add(item.toString() + "\n" + "Num: " + itemtemp.get(item));
             potionimages.add(item.getProfile_id());
         }
     }
@@ -181,7 +182,7 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * Set up the Listviews.
      */
-    private void draw_listviews(){
+    private void draw_listviews() {
         //draw the list items and pokemon list
         itemslist = findViewById(R.id.list_view);
         pokemonlist = findViewById(R.id.list_view2);
@@ -196,7 +197,7 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * Set up the Toggle button.
      */
-    private void draw_togglebutton(){
+    private void draw_togglebutton() {
         //set up the toggle Button
         toggleButton = findViewById(R.id.toggleButton1);
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -218,7 +219,7 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * Set up the backbutton.
      */
-    private void draw_backbutton(){
+    private void draw_backbutton() {
         //The return button will always return to its previous page
         backtomain = findViewById(R.id.back_to_main);
         backtomain.setOnClickListener(new View.OnClickListener() {

@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
@@ -75,7 +74,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
     /**
      * Set the character's gender.
      */
-    private void setCharacter_gender(){
+    private void setCharacter_gender() {
         character_gender = findViewById(R.id.gender);
         if (p.getGender().equals("boy")) {
             profile.setImageResource(R.drawable.charater_male);
@@ -89,7 +88,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
     /**
      * Set the character's money.
      */
-    private void setMoney(){
+    private void setMoney() {
         money = findViewById(R.id.money);
         money.setText("Money: $" + p.getMoney());
     }
@@ -97,14 +96,14 @@ public class PlayerInfoActivity extends AppCompatActivity {
     /**
      * Set the Profile pic.
      */
-    private void setProfile(){
+    private void setProfile() {
         profile = findViewById(R.id.profileimage);
     }
 
     /**
      * Set the character's description.
      */
-    private void setCharacter_description(){
+    private void setCharacter_description() {
         character_description = findViewById(R.id.description);
         character_description.setText("This is the character.");
     }
@@ -112,7 +111,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
     /**
      * Set the Back Button, it will return to the main activity.
      */
-    private void setBacktomain(){
+    private void setBacktomain() {
         backtomain = findViewById(R.id.back_to_main);
         backtomain.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -25,7 +25,7 @@ public class SystemActivity extends AppCompatActivity {
     Button save_button;
     Button logout_button;
     Button back_button;
-    
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,7 @@ public class SystemActivity extends AppCompatActivity {
     /**
      * Set the save button.
      */
-    private void setSave_button(){
+    private void setSave_button() {
         save_button = findViewById(R.id.save);
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class SystemActivity extends AppCompatActivity {
     /**
      * Set the logout button.
      */
-    private void setLogout_button(){
+    private void setLogout_button() {
         logout_button = findViewById(R.id.logout);
         logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +68,7 @@ public class SystemActivity extends AppCompatActivity {
     /**
      * Set the back button.
      */
-    private void setBack_button(){
+    private void setBack_button() {
         back_button = findViewById(R.id.back);
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
