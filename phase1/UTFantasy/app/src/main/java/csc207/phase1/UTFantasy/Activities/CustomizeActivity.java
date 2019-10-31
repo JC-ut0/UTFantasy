@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -33,9 +34,6 @@ public class CustomizeActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Intent login_intent = getIntent();
-        final String username = login_intent.getStringExtra("username");
-        assert username != null;
 
         super.onCreate(savedInstanceState);
         // set the content view of this activity to activity_customize
@@ -56,49 +54,64 @@ public class CustomizeActivity extends Activity {
             @Override
             public void onClick(View view) {
                 if (progress == 0) {
-
-                    // assign name by the input of EditText
                     name = editTextName.getText().toString();
+                    // assign name by the input of EditText
+                    if (!name.isEmpty()){
+                        // set the questions of name to be invisible
+                        textViewName.setVisibility(View.GONE);
+                        editTextName.setVisibility(View.GONE);
 
-                    // set the questions of name to be invisible
-                    textViewName.setVisibility(View.GONE);
-                    editTextName.setVisibility(View.GONE);
+                        // set the questions of gender to be visible
+                        textViewGender.setVisibility(View.VISIBLE);
+                        radioGroup.setVisibility(View.VISIBLE);
+                        buttonBoy.setVisibility(View.VISIBLE);
+                        buttonGirl.setVisibility(View.VISIBLE);
 
-                    // set the questions of gender to be visible
-                    textViewGender.setVisibility(View.VISIBLE);
-                    radioGroup.setVisibility(View.VISIBLE);
-                    buttonBoy.setVisibility(View.VISIBLE);
-                    buttonGirl.setVisibility(View.VISIBLE);
+                        // increase the progress
+                        progress += 1;
+                    }else{
+                        Toast.makeText(CustomizeActivity.this,
+                                "Please Create A Name", Toast.LENGTH_LONG).show();
+                        progress = 0;
+                    }
 
-                    // increase the progress
-                    progress += 1;
 
                 } else if (progress == 1) {
 
-                    // assign gender by checking the radio button input
-                    if (buttonBoy.isChecked()) {
+                        if (buttonBoy.isChecked()) {
                         gender = "boy";
-                    } else {
+                        move_to_main();
+                        }else if (buttonGirl.isChecked()){
                         gender = "girl";
-                    }
+                        move_to_main();
+                        }else{
+                            Toast.makeText(CustomizeActivity.this,
+                                    "Please Choose A Gender", Toast.LENGTH_LONG).show();
+                        }
 
-                    // initialize the intent
-                    Intent intent = new Intent(CustomizeActivity.this, MainActivity.class);
-
-                    // pass in name and gender to MainActivity
-                    Player player = new Player(name, gender);
-                    User user = userManager.getUser(username);
-                    user.setPlayer(player);
-                    userManager.saveUserManager(CustomizeActivity.this);
-                    intent.putExtra("username", username);
-
-                    // now go to main activity
-                    startActivity(intent);
                 }
             }
         };
         buttonA.setOnClickListener(click);
 
         buttonB.setOnClickListener(click);
+    }
+
+    private void move_to_main(){
+        Intent login_intent = getIntent();
+        final String username = login_intent.getStringExtra("username");
+        // initialize the intent
+        Intent intent = new Intent(CustomizeActivity.this, MainActivity.class);
+
+        // pass in name and gender to MainActivity
+        Player player = new Player(name, gender);
+        User user = userManager.getUser(username);
+        user.setPlayer(player);
+        userManager.saveUserManager(CustomizeActivity.this);
+        intent.putExtra("username", username);
+
+        // now go to main activity
+        startActivity(intent);
+
     }
 }
