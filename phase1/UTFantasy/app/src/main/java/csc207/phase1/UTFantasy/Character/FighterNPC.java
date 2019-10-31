@@ -12,6 +12,7 @@ public class FighterNPC extends NPC implements Fighter {
     public static Bitmap bitmapFighterNPC;
     public FighterNPC(String name) {
         super(name);
+        fightable = true;
     }
 
     /**

@@ -22,54 +22,18 @@ import csc207.phase1.UTFantasy.UserManager;
 
 
 public class ShopActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
-    /**
-     * The product pinkPotion.
-     **/
     PinkPotion PinkP = PinkPotion.getPink();
-    /**
-     * The product redPotion.
-     **/
     RedPotion RP = RedPotion.getRed();
-    /**
-     * The product purplePotion.
-     **/
     PurplePotion PurpleP = PurplePotion.getPurple();
-    /**
-     * The number of products a player wants to buy.
-     **/
     int num;
-    /**
-     * The product a player wants to buy.
-     **/
     Product product;
-    /**
-     * the intent of MainActivity
-     **/
     Intent intent;
-    /**
-     * the player
-     **/
     Player player;
-    /**
-     * the unique userManager
-     **/
     UserManager userManager = UserManager.getUserManager();
-    /**
-     * the name of current user
-     **/
     String username;
-    /**
-     * the amount of money a player has
-     */
     int moneyLeft;
-    /**
-     * the TextView of money
-     **/
     TextView money;
-    /**
-     * the sellerNPC
-     **/
-    NPC sellerNPC;
+    NPC salerNPC;
 
 
     @Override
@@ -98,7 +62,8 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
 //        }
         moneyLeft = player.getMoney();
 
-        sellerNPC = player.getNpcManager().getNPC("Alice");
+        String npcName = intent.getStringExtra("SellerName");
+        salerNPC = player.getNpcManager().getNPC(npcName);
 
         money = findViewById(R.id.money);
         money.setText(String.valueOf(moneyLeft));
@@ -149,20 +114,15 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     }
 
-    /**
-     * Pop up a window where you can enter amount of products you want to buy.
-     */
     public void openDialog() {
         ExampleDialog exampleDialog = new ExampleDialog();
         exampleDialog.show(getSupportFragmentManager(), "example dialog");
     }
-    /**
-     * Apply the text entered by the user to sellerNPC.
-     * */
+
     @Override
     public void applyTexts(String amount) {
         num = Integer.valueOf(amount);
-        String tradeInfo = sellerNPC.trade(player, num, product);
+        String tradeInfo = salerNPC.trade(player, num, product);
         Toast.makeText(ShopActivity.this, tradeInfo, Toast.LENGTH_SHORT).show();
         moneyLeft = player.getMoney();
         money.setText(String.valueOf(moneyLeft));

@@ -1,19 +1,26 @@
 package csc207.phase1.UTFantasy;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Observable;
 
 import csc207.phase1.UTFantasy.Character.FighterNPC;
 import csc207.phase1.UTFantasy.Character.HealerNPC;
 import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.SellerNPC;
 
-public class NPCManager implements Serializable {
+public class NPCManager implements Serializable{
 
     /**
      * A  HashMap that keys are UserName, values are User instance.
      */
     private HashMap<String, NPC> npcHashMap;
+
+    /**
+     * The array list of all npc
+     */
+    private ArrayList<NPC> npcArrayList = new ArrayList<>();
 
 
     /**
@@ -34,6 +41,12 @@ public class NPCManager implements Serializable {
         addNPC(seller, sellerNPC);
         addNPC(fighter, fighterNPC);
         addNPC(healer, healerNPC);
+        npcArrayList.add(salerNPC);
+        npcArrayList.add(fighterNPC);
+        npcArrayList.add(healerNPC);
+        salerNPC.setLocation(10,15);
+        fighterNPC.setLocation(10,5);
+        healerNPC.setLocation(10,10);
     }
 
 
@@ -58,5 +71,12 @@ public class NPCManager implements Serializable {
      */
     public void addNPC(String NPCname, NPC npc) {
         npcHashMap.put(NPCname, npc);
+    }
+
+    /**
+     * @return the array list of all npc
+     */
+    public ArrayList<NPC> getNpcArrayList(){
+        return npcArrayList;
     }
 }

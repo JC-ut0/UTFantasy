@@ -138,7 +138,7 @@ public class FightActivity extends AppCompatActivity {
         fightManager = new FightManager(player, opponent);
         initializeLayOuts();
 
-        String NPCname = main_intent.getStringExtra("NPCname");
+        String NPCname = main_intent.getStringExtra("FighterName");
         NPC npc = player.getNpcManager().getNPC(NPCname);
         if (npc == null) {
             npc = new FighterNPC("poor student");

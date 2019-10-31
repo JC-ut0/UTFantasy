@@ -10,11 +10,50 @@
         android:layout_height="fill_parent"
         android:orientation="horizontal"
         android:visibility="visible">
+
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:id="@+id/interaction_window"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/interact_fight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Fight" />
+
+            <Button
+                android:id="@+id/interact_purchase"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="PURCHASE" />
+
+            <Button
+                android:id="@+id/interact_heal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="HEAL"/>
+
+            <Button
+                android:id="@+id/interact_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="BACK"/>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/main_menu_holder"

@@ -8,13 +8,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.MainThread;
 import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.MapManager;
+import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.UserManager;
 
@@ -48,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
     MapManager mapManager;
 
     /**
+     * the npc that this player might interact with, default to be null
+     */
+    NPC npc;
+
+    /**
      * the reference to the shared preference file
      */
     private SharedPreferences sharedPreferences;
@@ -64,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         LinearLayout mapViewHolder = findViewById(R.id.mapViewHolder);
+        final LinearLayout interactWindow = findViewById(R.id.interaction_window);
 
         // find all the buttons
         Button leftButton = findViewById(R.id.leftButton);
@@ -77,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         Button menu_system = findViewById(R.id.menu_system);
         Button menuProfileButton = findViewById(R.id.menu_profile);
         Button menuBackButton = findViewById(R.id.menu_back);
+        Button interactFight = findViewById(R.id.interact_fight);
+        Button interactPurchase = findViewById(R.id.interact_purchase);
+        Button interactHeal = findViewById(R.id.interact_heal);
+        Button interactBack = findViewById(R.id.interact_back);
 
         final LinearLayout mainButtonHolder = findViewById(R.id.main_menu_holder);
 
@@ -140,12 +153,73 @@ public class MainActivity extends AppCompatActivity {
                                                  }
                                              }
         );
+
+
         menu_system.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SystemActivity.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
+            }
+        });
+
+        A_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                npc = mapManager.checkAround();
+                if (npc != null) {
+                    interactWindow.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        interactFight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(npc.getFightable()) {
+                    Intent intent = new Intent(MainActivity.this, FightActivity.class);
+                    intent.putExtra("username", username);
+                    intent.putExtra("FighterName", npc.getName());
+                    startActivity(intent);
+                } else{
+                    Toast.makeText(MainActivity.this, "You can't fight this npc", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        interactPurchase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (npc.getTradeable()) {
+                    Intent intent = new Intent(MainActivity.this, ShopActivity.class);
+                    intent.putExtra("username", username);
+                    intent.putExtra("SellerName", npc.getName());
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(MainActivity.this, "You can't trade with this npc", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        interactHeal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (npc.getHealable()) {
+                    for(Pokemon pokemon :player.getPokemonList()){
+                        pokemon.setHp(pokemon.getMaximumHp());
+                    }
+                }else {
+                    Toast.makeText(MainActivity.this, "This npc can't heal you", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        interactBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                interactWindow.setVisibility(View.GONE);
+                npc = null;
             }
         });
 
@@ -175,11 +249,10 @@ public class MainActivity extends AppCompatActivity {
         try {
             player = userManager.getUser(username).getPlayer();
         } catch (Exception e) {
-            System.out.println("A bug occured, non-valid username");
+            System.out.println("A bug occurred, non-valid username");
         }
-
         if (!mapView.getThread().getRunning()) {
-            mapView.setThread(new MainThread(mapView.getHolder(), mapView));
+            mapView.setThread();
             mapView.getThread().setRunning(true);
         }
     }

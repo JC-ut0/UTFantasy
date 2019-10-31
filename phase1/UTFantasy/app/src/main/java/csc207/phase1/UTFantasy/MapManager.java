@@ -1,25 +1,39 @@
 package csc207.phase1.UTFantasy;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import csc207.phase1.UTFantasy.Activities.MainActivity;
+import csc207.phase1.UTFantasy.Character.FighterNPC;
+import csc207.phase1.UTFantasy.Character.HealerNPC;
+import csc207.phase1.UTFantasy.Character.NPC;
+import csc207.phase1.UTFantasy.Character.SalerNPC;
+import csc207.phase1.UTFantasy.Interface.Paintable;
 import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.Map.UnitDraw;
 
-public class MapManager {
+public class MapManager implements Serializable {
+
+    /**
+     * the array list of npc unit draw on the map
+     */
+    private ArrayList<UnitDraw> npcList = new ArrayList<>();
+
     /**
      * the array list that represents the elements of this map that are at a low height
      */
-    static ArrayList<UnitDraw> lowMap = new ArrayList<>();
+    private ArrayList<UnitDraw> lowMap = new ArrayList<>();
 
     /**
      * the array list that represents the elements of this map that are at a high height
      */
-    static ArrayList<UnitDraw> highMap = new ArrayList<>();
+    private ArrayList<UnitDraw> highMap = new ArrayList<>();
 
     public ArrayList<double[]> blockMap = new ArrayList<>();
 
@@ -88,6 +102,21 @@ public class MapManager {
     private Bitmap rightPlayer;
 
     /**
+     * the Bitmap of the fightNpc
+     */
+    private Bitmap fightNpc;
+
+    /**
+     * the Bitmap of the seller
+     */
+    private Bitmap sellerNpc;
+
+    /**
+     * the Bitmap of the healer
+     */
+    private Bitmap healerNpc;
+
+    /**
      * Initialize a new MapManager
      *
      * @param w the width of the map
@@ -103,6 +132,11 @@ public class MapManager {
         downPlayer = getBitmap(R.drawable.player_down, 1, 1);
         leftPlayer = getBitmap(R.drawable.player_left, 1, 1);
         rightPlayer = getBitmap(R.drawable.player_right, 1, 1);
+        fightNpc = getBitmap(R.drawable.professor, 1, 1);
+        sellerNpc = getBitmap(R.drawable.big_mom, 1, 1);
+        healerNpc = getBitmap(R.drawable.joy, 1, 1);
+
+        mapInitialization();
     }
 
     /**
@@ -118,7 +152,7 @@ public class MapManager {
      * @param id          the id of this bitmap drawable
      * @param widthIndex  the times that this bitmap's width should be resized by
      * @param heightIndex the times that this bitmap's height should be resized by
-     * @return
+     * @return a resized bitmap
      */
     private Bitmap getBitmap(int id, float widthIndex, float heightIndex) {
         Bitmap bitmap = BitmapFactory.decodeResource(mapView.getResources(), id);
@@ -150,6 +184,15 @@ public class MapManager {
                 currentHigh.add(unit);
             }
         }
+
+        for (UnitDraw unit : npcList) {
+            if ((x - 2 - width / 2 <= unit.getX()) && (unit.getX() <= x + 2 + width / 2) &&
+                    (y - 2 - height / 2 <= unit.getY()) && (unit.getY() <= y + 2 + height / 2)) {
+                unit.setScreenX(width / 2 + unit.getX() - x);
+                unit.setScreenY(height / 2 + unit.getY() - y);
+                currentHigh.add(unit);
+            }
+        }
     }
 
 
@@ -161,6 +204,15 @@ public class MapManager {
         for (UnitDraw unit : currentHigh) {
             if (unit.getDraw().equals("tree")) {
                 canvas.drawBitmap(tree, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
+            }
+        }
+        for (UnitDraw unit : npcList) {
+            if (unit.getDraw().equals("fighterNpc")) {
+                canvas.drawBitmap(fightNpc, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
+            } else if (unit.getDraw().equals("sellerNpc")) {
+                canvas.drawBitmap(sellerNpc, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
+            } else if (unit.getDraw().equals("healerNpc")) {
+                canvas.drawBitmap(healerNpc, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
             }
         }
         switch (mapView.player.direction) {
@@ -217,5 +269,50 @@ public class MapManager {
         blockMap.add(block);
         block = new double[]{101, 104, 4, 97};
         blockMap.add(block);
+
+        npcList.add(new UnitDraw("fighterNpc", 7, 5));
+        npcList.add(new UnitDraw("healerNpc", 9, 5));
+        npcList.add(new UnitDraw("sellerNpc", 11, 5));
+    }
+
+    /**
+     * @return return the npc in front of the player, return null if there isn't any npc in front of
+     * the player
+     */
+    public NPC checkAround() {
+        NPC result = null;
+        int playerX = mapView.player.getX();
+        int playerY = mapView.player.getY();
+        switch (mapView.player.direction) {
+            case "up":
+                result = getNPCAtPosition(playerX, playerY + 1);
+                break;
+            case "down":
+                result = getNPCAtPosition(playerX, playerY - 1);
+                break;
+            case "left":
+                result = getNPCAtPosition(playerX - 1, playerY);
+                break;
+            case "right":
+                result = getNPCAtPosition(playerX + 1, playerY);
+                break;
+        }
+        return result;
+    }
+
+    /**
+     * @param x the x value of the position
+     * @param y the y value of the position
+     * @return npc that is at the position (x,y). Return null if there is no such npc at that position
+     */
+    private NPC getNPCAtPosition(int x, int y) {
+        NPCManager npcManager = mapView.player.getNpcManager();
+        ArrayList<NPC> npcArrayList = npcManager.getNpcArrayList();
+        for (NPC npc : npcArrayList) {
+            if (y - 1 < npc.getY() && npc.getY() < y + 1 && x - 1 < npc.getX() && npc.getX() < x + 1) {
+                return npc;
+            }
+        }
+        return null;
     }
 }

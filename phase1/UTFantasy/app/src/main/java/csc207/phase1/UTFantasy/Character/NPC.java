@@ -11,6 +11,21 @@ public abstract class NPC extends Person {
     }
 
     /**
+     * if this npc is fight able
+     */
+    protected boolean fightable;
+
+    /**
+     * if this npc can trade
+     */
+    protected boolean tradeable;
+
+    /**
+     * if this npc can heal
+     */
+    protected boolean healable;
+
+    /**
      * Special ability of this NPC, default to be nothing.
      * @param player the player interact with this NPC.
      */
@@ -19,6 +34,27 @@ public abstract class NPC extends Person {
 
     public String trade(Player player, int num, Product product){
         return "You don't deserve to trade with me.";
+    }
+
+    /**
+     * @return if this npc can fight
+     */
+    public boolean getFightable(){
+        return fightable;
+    }
+
+    /**
+     * @return if this npc can trade
+     */
+    public boolean getTradeable(){
+        return tradeable;
+    }
+
+    /**
+     * @return if this npc can heal
+     */
+    public boolean getHealable(){
+        return healable;
     }
 
     public abstract Bitmap bitmapDraw(MapView mapView);

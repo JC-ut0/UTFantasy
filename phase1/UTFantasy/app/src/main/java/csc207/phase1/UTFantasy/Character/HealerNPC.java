@@ -14,6 +14,7 @@ public class HealerNPC extends NPC {
 
     public HealerNPC(String name) {
         super(name);
+        healable = true;
     }
 
     /**

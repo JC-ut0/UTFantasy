@@ -66,7 +66,7 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
         super(context);
         this.player = p;
         getHolder().addCallback(this);
-        thread = new MainThread(getHolder(), this);
+        setThread();
         unitWidth = 88;
         unitHeight = 88;
 
@@ -86,8 +86,8 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
         return thread;
     }
 
-    public void setThread(MainThread thread) {
-        this.thread = thread;
+    public void setThread() {
+        this.thread = new MainThread(getHolder(),this );
     }
 
     public void update() {
@@ -126,46 +126,5 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
     public void draw(Canvas canvas) {
         super.draw(canvas);
         mapManager.draw(canvas);
-    }
-
-    public Bitmap getLawn() {
-        Bitmap lawn = BitmapFactory.decodeResource(getResources(), R.drawable.lawn);
-        int width = lawn.getWidth();
-        int height = lawn.getHeight();
-        // CREATE A MATRIX FOR THE MANIPULATION
-        Matrix matrix = new Matrix();
-        matrix.postScale((float) 1.5, (float) 1.5);
-
-        // resize lawn
-        lawn = Bitmap.createBitmap(
-                lawn, 0, 0, width, height, matrix, false);
-        return lawn;
-    }
-
-    public Bitmap getTree() {
-        Bitmap tree = BitmapFactory.decodeResource(getResources(), R.drawable.tree);
-        int width = tree.getWidth();
-        int height = tree.getHeight();
-        // CREATE A MATRIX FOR THE MANIPULATION
-        Matrix matrix = new Matrix();
-        matrix.postScale((float) 1.5, (float) 1.5);
-
-        // resize lawn
-        tree = Bitmap.createBitmap(
-                tree, 0, 0, width, height, matrix, false);
-        return tree;
-    }
-
-    public Bitmap getPlayerDownDirection(){
-        return BitmapFactory.decodeResource(getResources(),R.drawable.player_down);
-    }
-    public Bitmap getPlayerUpDirection(){
-        return BitmapFactory.decodeResource(getResources(),R.drawable.player_up);
-    }
-    public Bitmap getPlayerLeftDirection(){
-        return BitmapFactory.decodeResource(getResources(),R.drawable.player_left);
-    }
-    public Bitmap getPlayerRightDirection(){
-        return BitmapFactory.decodeResource(getResources(),R.drawable.player_right);
     }
 }
