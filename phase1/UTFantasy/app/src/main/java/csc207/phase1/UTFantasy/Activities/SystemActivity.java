@@ -74,7 +74,6 @@ public class SystemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
-                Toast.makeText(SystemActivity.this, "Resume", Toast.LENGTH_SHORT).show();
             }
         });
 
