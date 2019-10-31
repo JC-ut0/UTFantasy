@@ -73,28 +73,28 @@ public class FightManager {
         HashMap<String, Float> fireMap = new HashMap<String, Float>();
         typeMap.put("fire", fireMap);
         // the inner hash maps for fire key
-        waterMap.put("fire", (float) 0.5);
-        waterMap.put("normal", (float) 1);
-        waterMap.put("water", (float) 0.5);
-        waterMap.put("electric", (float) 1);
+        fireMap.put("fire", (float) 0.5);
+        fireMap.put("normal", (float) 1);
+        fireMap.put("water", (float) 0.5);
+        fireMap.put("electric", (float) 1);
 
-        // the outer hash map for self is type water
+        // the outer hash map for self is type normal
         HashMap<String, Float> normalMap = new HashMap<String, Float>();
         typeMap.put("normal", normalMap);
         // the inner hash maps for water key
-        waterMap.put("fire", (float) 1);
-        waterMap.put("normal", (float) 1);
-        waterMap.put("water", (float) 1);
-        waterMap.put("electric", (float) 1);
+        normalMap.put("fire", (float) 1);
+        normalMap.put("normal", (float) 1);
+        normalMap.put("water", (float) 1);
+        normalMap.put("electric", (float) 1);
 
-        // the outer hash map for self is type water
+        // the outer hash map for self is type electric
         HashMap<String, Float> electricMap = new HashMap<String, Float>();
         typeMap.put("electric", electricMap);
         // the inner hash maps for water key
-        waterMap.put("fire", (float) 1);
-        waterMap.put("normal", (float) 1);
-        waterMap.put("water", (float) 2);
-        waterMap.put("electric", (float) 0.5);
+        electricMap.put("fire", (float) 1);
+        electricMap.put("normal", (float) 1);
+        electricMap.put("water", (float) 2);
+        electricMap.put("electric", (float) 0.5);
     }
 
     public void determineTurn() {
