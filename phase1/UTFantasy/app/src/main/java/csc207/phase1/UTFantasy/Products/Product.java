@@ -2,12 +2,14 @@ package csc207.phase1.UTFantasy.Products;
 
 import androidx.annotation.NonNull;
 
-public class Product {
-    private String name;
-    private int price;
-    private int profileID;
+import java.io.Serializable;
 
-    Product(String name, int price, int photoId){
+public class Product implements Serializable {
+    protected String name;
+    protected int price;
+    protected int profileID;
+
+    Product(String name, int price, int photoId) {
         this.name = name;
         this.price = price;
         this.profileID = photoId;
@@ -27,7 +29,7 @@ public class Product {
         return "This is a product.";
     }
 
-    public int getProfile_id(){
+    public int getProfile_id() {
         return profileID;
     }
 

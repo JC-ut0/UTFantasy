@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     nonEmptyAccountOrPassword();
                 } catch (Exception e) {
-                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
                 // login if
                 User user = userManager.login(accountStr, passwordStr);
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     validateUsernameAndPassword();
                                                 } catch (Exception e) {
                                                     e.printStackTrace();
-                                                    Toast.makeText(LoginActivity.this, "Error:" + e, Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                                                 }
                                             }
                                         }

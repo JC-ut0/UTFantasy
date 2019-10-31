@@ -160,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
         player = userManager.getUser(username).getPlayer();
         mapView = new MapView(this, player);
-        intent.putExtra("mapView", mapView);
         mapViewHolder.addView(mapView);
         mapManager = mapView.getMapManager();
     }

@@ -2,7 +2,9 @@ package csc207.phase1.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
-public abstract class Skill {
+import java.io.Serializable;
+
+public abstract class Skill implements Serializable {
     /**
      * The power of the skill.
      */
@@ -35,6 +37,7 @@ public abstract class Skill {
 
     /**
      * Set the effect of the Skill.
+     *
      * @param effect a String which describes the effect of the Skill.
      */
     public void setEffect(String effect) {
@@ -43,6 +46,7 @@ public abstract class Skill {
 
     /**
      * Get the value of the power of the Skill.
+     *
      * @return an integer which is the value of the power if the Skill.
      */
     public int getPower() {
@@ -51,6 +55,7 @@ public abstract class Skill {
 
     /**
      * Get the value of possible using times of the Skill.
+     *
      * @return an integer which is the amount of times the Skill could be used.
      */
     public int getPp() {
@@ -59,6 +64,7 @@ public abstract class Skill {
 
     /**
      * Set the value of possible using times of the Skills.
+     *
      * @param pp the value of the amount of times the Skill could be used.
      */
     public void setPp(int pp) {
@@ -67,13 +73,16 @@ public abstract class Skill {
 
     /**
      * Get the value of maximumPp of the Skill.
+     *
      * @return an integer which is the value of maximumPp.
      */
     public int getMaximumPp() {
         return maximumPp;
     }
+
     /**
      * Get the effect of the Skill.
+     *
      * @return a String which describes the effect of the Skill.
      */
     public String getEffect() {
@@ -82,6 +91,7 @@ public abstract class Skill {
 
     /**
      * Set the power of the Skill.
+     *
      * @param power a integer which is the value of the power of the Skill.
      */
     public void setPower(int power) {
@@ -90,6 +100,7 @@ public abstract class Skill {
 
     /**
      * Get the name of the Skill.
+     *
      * @return a String of name of the Skill.
      */
     public String getName() {
@@ -98,6 +109,7 @@ public abstract class Skill {
 
     /**
      * Get the type of the Skill.
+     *
      * @return a String which is the type of the Skill.
      */
     public String getType() {
@@ -106,6 +118,7 @@ public abstract class Skill {
 
     /**
      * Set the type of the Skill.
+     *
      * @param type a String which the type of the Skill.
      */
     public void setType(String type) {
@@ -114,6 +127,7 @@ public abstract class Skill {
 
     /**
      * The description the Skill.
+     *
      * @return a String which describes the Skill.
      */
     @NonNull

@@ -94,9 +94,9 @@ public class MenuActivity extends AppCompatActivity {
 //            player.addPokemon(new Pikachu());
 //            player.setMoney(1000);
 //
-//            player.setBag(PinkP,1);
-//            player.setBag(RP,1);
-//            player.setBag(PurpleP,1);
+//            player.addItem(PinkP,1);
+//            player.addItem(RP,1);
+//            player.addItem(PurpleP,1);
 //        }
 
         //get all the information from the Player's bag
@@ -113,7 +113,7 @@ public class MenuActivity extends AppCompatActivity {
         itemtemp = p.getBag();
         for (Product item : itemtemp.keySet()) {
             items.add(item.getName());
-            potioninfo.add(item.toString() +"\n" + "Num: "+ itemtemp.get(item));
+            potioninfo.add(item.toString() + "\n" + "Num: " + itemtemp.get(item));
             potionimages.add(item.getProfile_id());
         }
 
