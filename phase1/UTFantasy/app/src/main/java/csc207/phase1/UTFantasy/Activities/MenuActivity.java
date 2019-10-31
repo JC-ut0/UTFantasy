@@ -18,14 +18,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
-import csc207.phase1.UTFantasy.Products.PinkPotion;
 import csc207.phase1.UTFantasy.Products.Product;
-import csc207.phase1.UTFantasy.Products.PurplePotion;
-import csc207.phase1.UTFantasy.Products.RedPotion;
 import csc207.phase1.UTFantasy.R;
-import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
 public class MenuActivity extends AppCompatActivity {
@@ -64,13 +59,13 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * The ListView for pokemon and items.
      */
-    ListView itemslist;
-    ListView pokemonlist;
+    ListView itemsList;
+    ListView pokemonList;
     /**
      * The Toogle button for switching between pokemon and items.
      */
     ToggleButton toggleButton;
-    ImageButton backtomain;
+    ImageButton backToMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,17 +77,17 @@ public class MenuActivity extends AppCompatActivity {
         username = intent.getStringExtra("username");
         p = userManager.getUser(username).getPlayer();
 
-        //read the infomation of the player
+        //read the information of the player
         read_info();
 
         //draw all the stuffs to the activity
-        draw_listviews();
-        draw_togglebutton();
-        draw_backbutton();
+        draw_listViews();
+        draw_toggleButton();
+        draw_backButton();
 
         //The Switch is on Items(OFF) at the first,
-        //Set the pokemonlist to be invisible in the beginning.
-        pokemonlist.setVisibility(View.INVISIBLE);
+        //Set the pokemonList to be invisible in the beginning.
+        pokemonList.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -104,11 +99,11 @@ public class MenuActivity extends AppCompatActivity {
 
 
         /**
-         * The adapter of the viewlist with title and subtitle.
+         * The adapter of the ViewList with title and subtitle.
          *
          * @param type the type of pokemon or item
          */
-        public CustomAdapter(String type) {
+        private CustomAdapter(String type) {
             this.type = type;
         }
 
@@ -139,16 +134,16 @@ public class MenuActivity extends AppCompatActivity {
 
             View view = getLayoutInflater().inflate(R.layout.pokemon_layout, null);
             ImageView imageView = view.findViewById(R.id.pokemonimage);
-            TextView pokename = view.findViewById(R.id.pokemonname);
-            TextView pokeinfo = view.findViewById(R.id.pokemoninfo);
+            TextView pokeName = view.findViewById(R.id.pokemonname);
+            TextView pokeInfo = view.findViewById(R.id.pokemoninfo);
             if (this.type.equals("pokemon")) {
                 imageView.setImageResource(images.get(position));
-                pokename.setText(pokemons.get(position));
-                pokeinfo.setText(pokemonsinfo.get(position));
+                pokeName.setText(pokemons.get(position));
+                pokeInfo.setText(pokemonsinfo.get(position));
             } else if (this.type.equals("item")) {
                 imageView.setImageResource(potionimages.get(position));
-                pokename.setText(items.get(position));
-                pokeinfo.setText(potioninfo.get(position));
+                pokeName.setText(items.get(position));
+                pokeInfo.setText(potioninfo.get(position));
             }
 
             return view;
@@ -156,7 +151,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     /**
-     * Read all the infomation from the player.
+     * Read all the information from the player.
      */
     private void read_info() {
         //get all the information from the Player's bag
@@ -180,36 +175,36 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     /**
-     * Set up the Listviews.
+     * Set up the ListViews.
      */
-    private void draw_listviews() {
+    private void draw_listViews() {
         //draw the list items and pokemon list
-        itemslist = findViewById(R.id.list_view);
-        pokemonlist = findViewById(R.id.list_view2);
+        itemsList = findViewById(R.id.list_view);
+        pokemonList = findViewById(R.id.list_view2);
 
-        //Create new adapters for the listviews and adpate them.
+        //Create new adapters for the listViews and adapt them.
         CustomAdapter adapter1 = new CustomAdapter("item");
         CustomAdapter adapter2 = new CustomAdapter("pokemon");
-        itemslist.setAdapter(adapter1);
-        pokemonlist.setAdapter(adapter2);
+        itemsList.setAdapter(adapter1);
+        pokemonList.setAdapter(adapter2);
     }
 
     /**
      * Set up the Toggle button.
      */
-    private void draw_togglebutton() {
+    private void draw_toggleButton() {
         //set up the toggle Button
         toggleButton = findViewById(R.id.toggleButton1);
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!isChecked) {
-                    itemslist.setVisibility(View.VISIBLE);
-                    pokemonlist.setVisibility(View.INVISIBLE);
+                    itemsList.setVisibility(View.VISIBLE);
+                    pokemonList.setVisibility(View.INVISIBLE);
 
                 } else {
-                    itemslist.setVisibility(View.INVISIBLE);
-                    pokemonlist.setVisibility(View.VISIBLE);
+                    itemsList.setVisibility(View.INVISIBLE);
+                    pokemonList.setVisibility(View.VISIBLE);
 
                 }
             }
@@ -217,12 +212,12 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     /**
-     * Set up the backbutton.
+     * Set up the backButton.
      */
-    private void draw_backbutton() {
+    private void draw_backButton() {
         //The return button will always return to its previous page
-        backtomain = findViewById(R.id.back_to_main);
-        backtomain.setOnClickListener(new View.OnClickListener() {
+        backToMain = findViewById(R.id.back_to_main);
+        backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
