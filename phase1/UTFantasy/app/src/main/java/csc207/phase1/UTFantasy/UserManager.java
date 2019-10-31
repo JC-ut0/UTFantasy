@@ -174,7 +174,7 @@ public class UserManager implements Serializable {
             e.printStackTrace();
             userHashMap = new HashMap<>();
         } catch (IOException | ClassNotFoundException e) {
-            message("File Problem:" + e, context);
+            message("File Problem:" + e.getMessage(), context);
             e.printStackTrace();
         }
     }
