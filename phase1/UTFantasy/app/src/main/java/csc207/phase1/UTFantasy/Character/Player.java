@@ -5,6 +5,7 @@ import java.util.HashMap;
 import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.NPCManager;
+import csc207.phase1.UTFantasy.Pet.Charmander;
 import csc207.phase1.UTFantasy.Pet.Pikachu;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Products.Product;
@@ -51,7 +52,10 @@ public class Player extends Person implements Fighter {
         this.npcManager = new NPCManager();
         this.setLocation(5, 5);
         Pokemon pokemon = new Pikachu();
-        pokemon.setLevel(1);
+        pokemon.setLevel(5);
+        addPokemon(pokemon);
+        pokemon = new Charmander();
+        pokemon.setLevel(5);
         addPokemon(pokemon);
         addItem(RP, 1);
     }

@@ -117,34 +117,33 @@ public class FightActivity extends AppCompatActivity {
         if (user == null) {
             user = userManager.getUser("12312312");
         }
-        if (true) {
-            userManager.message("Create a new User", FightActivity.this);
-            user = new User("2", "123456");
-            user.setPlayer(new Player("ET", "ET"));
-            user.getPlayer().addPokemon(new Squirtle());
-            npcManager = new NPCManager();
-            opponent = new FighterNPC("2");
-            opponent.getPokemonList().add(new Charmander());
-        }
+//        if (true) {
+//            userManager.message("Create a new User", FightActivity.this);
+//            user = new User("2", "123456");
+//            user.setPlayer(new Player("ET", "ET"));
+//            user.getPlayer().addPokemon(new Squirtle());
+//            npcManager = new NPCManager();
+//            opponent = new FighterNPC("2");
+//            opponent.getPokemonList().add(new Charmander());
+//        }
         assert user != null;
         player = user.getPlayer();
         assert player != null;
-        player.addPokemon(new Pikachu());
         pokemonList = player.getPokemonList();
         assert pokemonList != null;
         currentPokemon = pokemonList.get(0);
         assert currentPokemon != null;
 
-        fightManager = new FightManager(player, opponent);
-        initializeLayOuts();
 
         String NPCname = main_intent.getStringExtra("FighterName");
         NPC npc = player.getNpcManager().getNPC(NPCname);
         if (npc == null) {
             npc = new FighterNPC("poor student");
         }
-        assert npc != null;
+        fightManager = new FightManager(player, (FighterNPC)npc);
+        currentRivalPokemon = npc.getPokemonList().get(0);
 
+        initializeLayOuts();
         updateForPokemonExchange();
         updateHpBar();
         informationSection.setOnClickListener(new View.OnClickListener() {

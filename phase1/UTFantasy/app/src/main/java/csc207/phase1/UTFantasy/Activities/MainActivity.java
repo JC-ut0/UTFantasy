@@ -264,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", username);
         editor.apply();
+        userManager.saveUserManager(MainActivity.this);
     }
 
     @Override
@@ -271,7 +272,6 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         if (isFinishing()) {
             mapView.getThread().setRunning(false);
-            userManager.saveUserManager(MainActivity.this);
         }
     }
 }

@@ -18,6 +18,7 @@ public class SellerNPC extends NPC {
      */
     public SellerNPC(String npcName) {
         super(npcName);
+        tradeable = true;
     }
 
     @Override

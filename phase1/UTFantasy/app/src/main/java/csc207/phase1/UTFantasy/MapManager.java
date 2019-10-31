@@ -1,6 +1,5 @@
 package csc207.phase1.UTFantasy;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -9,12 +8,7 @@ import android.graphics.Matrix;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import csc207.phase1.UTFantasy.Activities.MainActivity;
-import csc207.phase1.UTFantasy.Character.FighterNPC;
-import csc207.phase1.UTFantasy.Character.HealerNPC;
 import csc207.phase1.UTFantasy.Character.NPC;
-import csc207.phase1.UTFantasy.Character.SalerNPC;
-import csc207.phase1.UTFantasy.Interface.Paintable;
 import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.Map.UnitDraw;
 
@@ -132,8 +126,8 @@ public class MapManager implements Serializable {
         downPlayer = getBitmap(R.drawable.player_down, 1, 1);
         leftPlayer = getBitmap(R.drawable.player_left, 1, 1);
         rightPlayer = getBitmap(R.drawable.player_right, 1, 1);
-        fightNpc = getBitmap(R.drawable.professor, 1, 1);
-        sellerNpc = getBitmap(R.drawable.big_mom, 1, 1);
+        fightNpc = getBitmap(R.drawable.professor, 2, 2);
+        sellerNpc = getBitmap(R.drawable.big_mom, (float)2.5,(float)2.5);
         healerNpc = getBitmap(R.drawable.joy, 1, 1);
 
         mapInitialization();
@@ -270,9 +264,9 @@ public class MapManager implements Serializable {
         block = new double[]{101, 104, 4, 97};
         blockMap.add(block);
 
-        npcList.add(new UnitDraw("fighterNpc", 7, 5));
-        npcList.add(new UnitDraw("healerNpc", 9, 5));
-        npcList.add(new UnitDraw("sellerNpc", 11, 5));
+        npcList.add(new UnitDraw("fighterNpc", 10, 5));
+        npcList.add(new UnitDraw("healerNpc", 15, 5));
+        npcList.add(new UnitDraw("sellerNpc", 5, 5));
     }
 
     /**
@@ -309,7 +303,7 @@ public class MapManager implements Serializable {
         NPCManager npcManager = mapView.player.getNpcManager();
         ArrayList<NPC> npcArrayList = npcManager.getNpcArrayList();
         for (NPC npc : npcArrayList) {
-            if (y - 1 < npc.getY() && npc.getY() < y + 1 && x - 1 < npc.getX() && npc.getX() < x + 1) {
+            if (y - 2 < npc.getY() && npc.getY() < y + 2 && x - 2 < npc.getX() && npc.getX() < x + 2) {
                 return npc;
             }
         }

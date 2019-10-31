@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy.Pet;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ import csc207.phase1.UTFantasy.Character.Person;
 import csc207.phase1.UTFantasy.Interface.Paintable;
 import csc207.phase1.UTFantasy.R;
 
-public abstract class Pokemon{
+public abstract class Pokemon implements Serializable {
 
     protected String pokemonName;
 
@@ -145,9 +146,7 @@ public abstract class Pokemon{
         switch (statType) {
             case "attack": {
                 float base = ((base_attack + iv_attack) * 2 * level) / 100;
-                hp = (int) Math.floor(base) + 5;
-                setMaximumHp(hp);
-                return hp;
+                return (int) Math.floor(base) + 5;
             }
             case "defense": {
                 float base = ((base_defense + iv_defense) * 2 * level) / 100;
@@ -159,7 +158,9 @@ public abstract class Pokemon{
             }
             case "hp": {
                 float base = ((base_hp + iv_hp) * 2 * level) / 100;
-                return (int) Math.floor(base) + level + 10;
+                hp = (int) Math.floor(base) + level + 10;
+                setMaximumHp(hp);
+                return hp;
             }
             default:
                 return 0;

@@ -9,6 +9,8 @@ import csc207.phase1.UTFantasy.Character.FighterNPC;
 import csc207.phase1.UTFantasy.Character.HealerNPC;
 import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.SellerNPC;
+import csc207.phase1.UTFantasy.Pet.Pokemon;
+import csc207.phase1.UTFantasy.Pet.Squirtle;
 
 public class NPCManager implements Serializable{
 
@@ -38,15 +40,18 @@ public class NPCManager implements Serializable{
         SellerNPC sellerNPC = new SellerNPC(seller);
         FighterNPC fighterNPC = new FighterNPC(fighter);
         HealerNPC healerNPC = new HealerNPC(healer);
+        Pokemon squirtle = new Squirtle();
+        squirtle.setLevel(5);
+        fighterNPC.addPokemon(squirtle);
         addNPC(seller, sellerNPC);
         addNPC(fighter, fighterNPC);
         addNPC(healer, healerNPC);
-        npcArrayList.add(salerNPC);
+        npcArrayList.add(sellerNPC);
         npcArrayList.add(fighterNPC);
         npcArrayList.add(healerNPC);
-        salerNPC.setLocation(10,15);
+        sellerNPC.setLocation(5,5);
         fighterNPC.setLocation(10,5);
-        healerNPC.setLocation(10,10);
+        healerNPC.setLocation(15,5);
     }
 
 
