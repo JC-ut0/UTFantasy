@@ -148,7 +148,7 @@ public class UserManager implements Serializable {
             outputStream.writeObject(userManager);
             outputStream.close();
         } catch (IOException e) {
-            message("E:"+ e, context);
+            message("E:"+ e.getMessage(), context);
             e.printStackTrace();
         }
     }

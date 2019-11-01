@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import csc207.phase1.UTFantasy.AllSkills.Skill;
 import csc207.phase1.UTFantasy.Character.FighterNPC;
@@ -467,7 +468,7 @@ public class FightActivity extends AppCompatActivity {
                 pokemon = list.get(i);
             } catch (Exception e) {
                 pokemon = null;
-                Log.e("Error", e.getMessage());
+                Log.e("Error", Objects.requireNonNull(e.getMessage()));
                 e.printStackTrace();
             }
             switch (i) {
