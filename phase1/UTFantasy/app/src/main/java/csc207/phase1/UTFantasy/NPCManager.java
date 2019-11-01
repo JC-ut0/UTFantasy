@@ -12,7 +12,7 @@ import csc207.phase1.UTFantasy.Character.SellerNPC;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.Pet.Squirtle;
 
-public class NPCManager implements Serializable{
+public class NPCManager implements Serializable {
 
     /**
      * A  HashMap that keys are UserName, values are User instance.
@@ -26,11 +26,7 @@ public class NPCManager implements Serializable{
 
 
     /**
-     * Where all user data are stored.
-     */
-
-    /**
-     * Singleton Constructor of npcManager.
+     * Constructor of npcManager.
      */
     public NPCManager() {
         npcHashMap = new HashMap<>();
@@ -49,9 +45,9 @@ public class NPCManager implements Serializable{
         npcArrayList.add(sellerNPC);
         npcArrayList.add(fighterNPC);
         npcArrayList.add(healerNPC);
-        sellerNPC.setLocation(5,5);
-        fighterNPC.setLocation(10,5);
-        healerNPC.setLocation(15,5);
+        sellerNPC.setLocation(5, 5);
+        fighterNPC.setLocation(10, 5);
+        healerNPC.setLocation(15, 5);
     }
 
 
@@ -72,16 +68,15 @@ public class NPCManager implements Serializable{
      * Register using username and password. Update the userHapMap after resisting.
      *
      * @param NPCname the username of the User.
-     * @return A new User.
      */
-    public void addNPC(String NPCname, NPC npc) {
+    private void addNPC(String NPCname, NPC npc) {
         npcHashMap.put(NPCname, npc);
     }
 
     /**
      * @return the array list of all npc
      */
-    public ArrayList<NPC> getNpcArrayList(){
+    ArrayList<NPC> getNpcArrayList() {
         return npcArrayList;
     }
 }
