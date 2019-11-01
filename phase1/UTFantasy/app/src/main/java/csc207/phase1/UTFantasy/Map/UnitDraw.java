@@ -1,11 +1,5 @@
 package csc207.phase1.UTFantasy.Map;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.widget.ImageView;
-
 import java.io.Serializable;
 
 public class UnitDraw implements Serializable {
@@ -67,7 +61,7 @@ public class UnitDraw implements Serializable {
     /**
      * set the x value of this unitDraw on the screen
      *
-     * @param screenX x value of unitDraw
+     * @param screenX the x coordinate of this UnitDraw on the screen coordinate system
      */
     public void setScreenX(float screenX) {
         this.screenX = screenX;
@@ -76,7 +70,7 @@ public class UnitDraw implements Serializable {
     /**
      * set the y value of this unitDraw on the screen
      *
-     * @param screenY y value of unitDraw
+     * @param screenY the y coordinate of this UnitDraw on the screen coordinate system
      */
     public void setScreenY(float screenY) {
         this.screenY = screenY;

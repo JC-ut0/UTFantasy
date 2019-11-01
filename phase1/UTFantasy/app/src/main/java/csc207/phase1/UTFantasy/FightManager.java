@@ -11,21 +11,74 @@ import csc207.phase1.UTFantasy.Pet.Pokemon;
 
 public class FightManager {
 
+    /**
+     * The player which involves in fight.
+     */
     private Player player;
+
+    /**
+     * Player's Pokemon used in fight.
+     */
     private Pokemon playerPokemon;
+
+    /**
+     * Player's opponent which is a NPC.
+     */
     private FighterNPC opponent;
+
+    /**
+     * Opponent NPC's Pokemon used in the fight.
+     */
     private Pokemon opponentPokemon;
+
+    /**
+     * Boolean which reflects is the Pokemon fainted.
+     */
     private boolean fainted;
+
+    /**
+     * String which describes either opponent NPC's or player's Pokemon is fainted.
+     */
     private String faintedSide;
+
+    /**
+     * Boolean which reflects that is the battle continuable.
+     */
     private boolean continuable = true;
+
+    /**
+     * String which describes either Player or Opponent can use a move first.
+     */
     private String priority;
+
+    /**
+     * An integer which reflects the progress of a fight. Different integer means the battle is in
+     * different situation. Default value is -1.
+     */
     private int progress = -1;
+
+    /**
+     * The Skill that will be used by Player's Pokemon.
+     */
     private Skill skill;
+
+    /**
+     * The Skill that will be used by opponent NPC.
+     */
     private Skill rivalSkill;
-    //    private boolean continueFight = true;
-    //    private String lostSide;
+
+    /**
+     * A HashMap which is the type matchup chart, reflects the effectiveness that different types has
+     * against each others.
+     */
     private static HashMap<String, HashMap<String, Float>> typeMap = new HashMap<>();
 
+    /**
+     * Constructor of FightManager
+     *
+     * @param player The player involves in this battle.
+     * @param npc    The opponent NPC involves in this battle.
+     */
     public FightManager(Player player, FighterNPC npc) {
         this.player = player;
         playerPokemon = player.getPokemonList().get(0);
@@ -35,14 +88,27 @@ public class FightManager {
         setTypeMap();
     }
 
+    /**
+     * Get the skill of the Pokemon
+     *
+     * @return the Skill that user Pokemon will be used.
+     */
     public Skill getSkill() {
         return skill;
     }
 
+    /**
+     * Set the Skill of user's Pokemon
+     *
+     * @param skill the Skill to be set.
+     */
     public void setSkill(Skill skill) {
         this.skill = skill;
     }
 
+    /**
+     * Set a type matchup chart.
+     */
     private void setTypeMap() {
         // the outer hash map for self is type water
         HashMap<String, Float> waterMap = new HashMap<String, Float>();
@@ -81,6 +147,9 @@ public class FightManager {
         electricMap.put("electric", (float) 0.5);
     }
 
+    /**
+     * Decide either user's or NPC's Pokemon will move first.
+     */
     public void determineTurn() {
         if (playerPokemon.getSpeed() > opponentPokemon.getSpeed()) {
             priority = "player";
@@ -96,15 +165,33 @@ public class FightManager {
         }
     }
 
+    /**
+     * Get user's Pokemon.
+     *
+     * @return the Pokemon user will used in the battle.
+     */
     public Pokemon getPlayerPokemon() {
         return playerPokemon;
     }
 
+    /**
+     * Get NPC's Pokemon.
+     *
+     * @return the Pokemon NPC will used in the battle.
+     */
     public Pokemon getRivalPokemon() {
         return opponentPokemon;
     }
 
-    public int calculateDMG(Pokemon pokemon, Pokemon rival, Skill skill) {
+    /**
+     * Calculate the damage caused by the move used by a Pokemon.
+     *
+     * @param pokemon the Pokemon which is attacking and made the move.
+     * @param rival   the Pokemon which is defending the move.
+     * @param skill   the Skill that the attacking Pokemon used.
+     * @return a float which is the certain amount of damage on the defending Pokemon.
+     */
+    private int calculateDMG(Pokemon pokemon, Pokemon rival, Skill skill) {
         // calculate damage without modifier
         int damage = (2 * pokemon.getLevel() + 10) / 250;
         damage = damage * pokemon.getAttack() / rival.getDefense();
@@ -127,23 +214,49 @@ public class FightManager {
         return 4 * (int) Math.floor(modifier * damage);
     }
 
+    /**
+     * Get the boolean reflects whether there is a Pokemon fainted after a Skill used.
+     *
+     * @return A boolean reflects whether there is a fainted Pokemon.
+     */
     public boolean getFainted() {
         return fainted;
     }
 
+    /**
+     * Get whether the battle is still continuable, which means the user and opponent both has at
+     * least one Pokemon that is not fainted.
+     *
+     * @return A boolean whether the battle is continuable.
+     */
     public boolean getContinuable() {
         return continuable;
     }
 
+    /**
+     * Get the progress integer of this battle.
+     *
+     * @return An integer which reflects the stage of progress of a fight.
+     */
     public int getProgress() {
         return progress;
     }
 
+    /**
+     * Set the progress integer of this battle.
+     *
+     * @param progress the integer to be set.
+     */
     public void setProgress(int progress) {
         this.progress = progress;
     }
 
-    public float checkType(Skill skill, Pokemon rival) {
+    /**
+     * @param skill the Skill used by attacking Pokemon.
+     * @param rival the opponent Pokemon.
+     * @return a float which is a modifier of type matchups.
+     */
+    private float checkType(Skill skill, Pokemon rival) {
         float typeIndex = 1;
         if (typeMap.containsKey(skill.getType())
                 && typeMap.get(skill.getType()).containsKey(rival.getType())) {
@@ -152,6 +265,9 @@ public class FightManager {
         return typeIndex;
     }
 
+    /**
+     * Decide a Skill to be used by opponent NPC.
+     */
     public void setRivalSkill() {
         Skill result = null;
         while (result == null) {
@@ -160,7 +276,13 @@ public class FightManager {
         this.rivalSkill = result;
     }
 
-    public boolean determineContinue(Fighter p) {
+    /**
+     * Determine whether the battle is continuable by checking if a fighter has not fainted Pokemon.
+     *
+     * @param p the fighter(either a user or NPC) to be checked.
+     * @return A boolean reflects whether the fight is continuable.
+     */
+    private boolean determineContinue(Fighter p) {
         for (Pokemon pokemon : p.getPokemonList()) {
             if (pokemon.isAlive()) {
                 return true;
@@ -169,6 +291,12 @@ public class FightManager {
         return false;
     }
 
+    /**
+     * Update battle progress with different cases.
+     *
+     * @param progress the progress integer reflects battle situations.
+     * @return Information in a fight. Such as battle result, Pokemon fainted etc.
+     */
     public String updateInfo(int progress) {
         String text;
         switch (progress) {
@@ -341,6 +469,35 @@ public class FightManager {
             return ("It is not very effective...");
         }
     }
+
+    /**
+     * Change the current pokemon to a new pokemon.
+     *
+     * @param pokemon new pokemon instance.
+     */
+    public void changeCurrentPokemon(Pokemon pokemon) {
+        if (pokemon != null && playerPokemon != pokemon && pokemon.getHp() != 0) {
+            playerPokemon = pokemon;
+            // todo: end your round.
+        }
+    }
+
+    /**
+     * Return whether the fight is end.
+     *
+     * @return whether the fight is end.
+     */
+    public boolean isEnd() {
+        boolean end;
+        for (Pokemon pokemon : player.getPokemonList()) {
+            if (pokemon.isAlive()) return false;
+        }
+        for (Pokemon pokemon : opponent.getPokemonList()) {
+            if (pokemon.isAlive()) return false;
+        }
+        return true;
+    }
+
 
     public void setPlayerPokemon(Pokemon playerPokemon) {
         this.playerPokemon = playerPokemon;

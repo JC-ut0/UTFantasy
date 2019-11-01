@@ -208,7 +208,8 @@ public class MainActivity extends AppCompatActivity {
                     for (Pokemon pokemon : player.getPokemonList()) {
                         pokemon.setHp(pokemon.getMaximumHp());
                     }
-                } else {
+                    Toast.makeText(MainActivity.this, "All Pokemon are healed.", Toast.LENGTH_LONG).show();
+                }else {
                     Toast.makeText(MainActivity.this, "This npc can't heal you", Toast.LENGTH_LONG).show();
                 }
             }

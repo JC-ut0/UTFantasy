@@ -6,7 +6,7 @@ public class BodySlam extends Skill {
     /**
      * Constructor of a BodySlam Skill.
      */
-    public BodySlam(){
+    public BodySlam() {
         name = "Body Slam";
         type = "normal";
         power = 85;
@@ -16,6 +16,7 @@ public class BodySlam extends Skill {
 
     /**
      * A description of the Skill.
+     *
      * @return a String which is a short description of the Skill
      */
     @NonNull
