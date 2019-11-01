@@ -119,3 +119,7 @@ add npc and interaction functionality with npc. Now we can interact with 3 types
 ########
 # Step 23
 make player not able to choose fainted pokemon. End fight when the battle is not continuable
+
+########
+# Step 24
+Fix massive bugs possibly occurred during fight.
