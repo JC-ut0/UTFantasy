@@ -22,7 +22,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import csc207.phase1.UTFantasy.AllSkills.Skill;
 import csc207.phase1.UTFantasy.Character.FighterNPC;
@@ -39,67 +38,126 @@ import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
 public class FightActivity extends AppCompatActivity {
+    /**
+     * the player who participate in the fight
+     */
     private Player player;
+    /**
+     * the opponent this player fight with
+     */
     private FighterNPC opponent;
+    /**
+     * a list of pokemon the player has
+     */
     private ArrayList<Pokemon> pokemonList;
+    /**
+     * the pokemon chosen to participant in fight
+     */
     private Pokemon currentPokemon;
+    /**
+     * the pokemon player's pokemon fight with
+     */
     private Pokemon currentRivalPokemon;
+
     private FightManager fightManager;
-    // the bottom layout
+
+    /**
+     * the bottom layout
+     */
     LinearLayout informationSection;
-    // skill section and menu section
+
+    /**
+     * skill section and menu section
+     */
     LinearLayout fightBox;
     RelativeLayout skillSection;
     FrameLayout menuSection;
-    // text view and corresponding layout
+
+    /**
+     * text view and corresponding layout
+     */
     FrameLayout battleSection;
     FrameLayout skillInfoSection;
     TextView battleInfo;
     TextView skillInfo;
-    // instance of menu buttons
+
+    /**
+     * instance of menu buttons
+     */
     Button fight;
     Button bag;
     Button newPokemon;
     Button run;
-    // instance of skill buttons
+
+    /**
+     * instance of skill buttons
+     */
     private Button skill_1;
     private Button skill_2;
     private Button skill_3;
     private Button skill_4;
-    // Pokemon View
+
+    /**
+     * Pokemon View
+     */
     ImageView myPokemon;
     ImageView rivalPokemon;
-    // healthBar
+
+    /**
+     * healthBar
+     */
     ProgressBar myHealth;
     ProgressBar rivalHealth;
-    // healthBar Text
+
+    /**
+     * healthBar Text
+     */
     TextView myHealthInfo;
     TextView rivalHealthInfo;
+
     ArrayList<String> turnInfo;
     NPCManager npcManager;
     LinearLayout choosePokemon;
     boolean clickable = true;
-    // first
+
+    /**
+     * first pokemon in bag
+     */
     private ImageView firstPokemonInBag;
     private TextView firstPokemonHealthInfo;
     private ProgressBar firstPokemonHealthBar;
-    // second
+
+    /**
+     * second pokemon in bag
+     */
     private ImageView secondPokemonInBag;
     private TextView secondPokemonHealthInfo;
     private ProgressBar secondPokemonHealthBar;
-    // third
+
+    /**
+     * third pokemon in bag
+     */
     private ImageView thirdPokemonInBag;
     private TextView thirdPokemonHealthInfo;
     private ProgressBar thirdPokemonHealthBar;
-    // fourth
+
+    /**
+     * forth pokemon in bag
+     */
     private ImageView fourthPokemonInBag;
     private TextView fourthPokemonHealthInfo;
     private ProgressBar fourthPokemonHealthBar;
-    // fifth
+
+    /**
+     * fifth pokemon in bag
+     */
     private ImageView fifthPokemonInBag;
     private TextView fifthPokemonHealthInfo;
     private ProgressBar fifthPokemonHealthBar;
-    // sixth
+
+    /**
+     * sixth pokemon in bag
+     */
     private ImageView sixthPokemonInBag;
     private TextView sixthPokemonHealthInfo;
     private ProgressBar sixthPokemonHealthBar;
@@ -280,7 +338,12 @@ public class FightActivity extends AppCompatActivity {
                 });
     }
 
-
+    /**
+     * Get a pokemon from pokemon list
+     *
+     * @param i index of the pokemon
+     * @return a pokemon at index i in pokemon list
+     */
     private Pokemon getPokemonFromPlayerPokemonList(int i) {
         Pokemon pokemon;
         try {
@@ -292,13 +355,18 @@ public class FightActivity extends AppCompatActivity {
         return pokemon;
     }
 
+    /**
+     * Put another pokemon in fight.
+     *
+     * @param pokemon the selected pokemon put in fight
+     */
     private void changeCurrentPokemon(Pokemon pokemon) {
         if (pokemon != null) {
             if (!pokemon.isAlive()) {
                 Toast.makeText(
-                        FightActivity.this, "You can't choose a fainted pokemon.", Toast.LENGTH_SHORT).show();
+                        FightActivity.this, "You can't choose a fainted pokemon.", Toast.LENGTH_SHORT)
+                        .show();
             } else {
-                fightManager.changeCurrentPokemon(pokemon);
                 currentPokemon = pokemon;
                 updateForPokemonExchange();
                 informationSection.setVisibility(View.VISIBLE);
@@ -310,10 +378,14 @@ public class FightActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Choose  a new pokemon.
+     */
     private void chooseNewPokemon() {
         updateForChoosePokemon();
         fightManager.reset();
     }
+
 
     private void startRound() {
         if (clickable) {
@@ -332,6 +404,7 @@ public class FightActivity extends AppCompatActivity {
         }
     }
 
+
     private void updateForPokemonExchange() {
         // update pokemon views
         fightManager.setPlayerPokemon(currentPokemon);
@@ -344,6 +417,9 @@ public class FightActivity extends AppCompatActivity {
         updateHpBar();
     }
 
+    /**
+     * Update health point Bar.
+     */
     private void updateHpBar() {
         myHealth.setMax(currentPokemon.getMaximumHp());
         rivalHealth.setMax(currentRivalPokemon.getMaximumHp());
@@ -354,7 +430,7 @@ public class FightActivity extends AppCompatActivity {
     }
 
     /**
-     * heal the npc all pokemon and return to the main activity
+     * Reset all pokemon of NPC and return to the main activity
      */
     public void endFight() {
         for (Pokemon pokemon : opponent.getPokemonList()) {
@@ -363,10 +439,10 @@ public class FightActivity extends AppCompatActivity {
         onBackPressed();
     }
 
+    /**
+     * Update all skill buttons according to the skills current pokemon has.
+     */
     private void updateSkillButton() {
-        // set all skill to display the currentPokemon's skills
-        Skill[] currentPokemonSkills = currentPokemon.getSkills();
-
         try {
             skill_1.setText(currentPokemon.getSkills()[0].getName());
             skill_2.setText(currentPokemon.getSkills()[1].getName());
@@ -377,6 +453,10 @@ public class FightActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * Update all pokemon in pokemon list.
+     */
     private void updateForChoosePokemon() {
         choosePokemon.setVisibility(View.VISIBLE);
         informationSection.setVisibility(View.GONE);
@@ -387,7 +467,7 @@ public class FightActivity extends AppCompatActivity {
                 pokemon = list.get(i);
             } catch (Exception e) {
                 pokemon = null;
-                Log.e("Error", Objects.requireNonNull(e.getMessage()));
+                Log.e("Error", e.getMessage());
                 e.printStackTrace();
             }
             switch (i) {
@@ -419,7 +499,15 @@ public class FightActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Update ImageView, ProgressBar, TextView of a pokemon.
+     *
+     * @param pokemon           the pokemon being updated
+     * @param pokemonInBag      ImageView of pokemon
+     * @param pokemonHealthBar  ProgressBar of pokemon
+     * @param pokemonHealthInfo TextView of pokemon
+     */
+    @SuppressLint("SetTextI18n")
     private void updateSinglePokemon(
             Pokemon pokemon,
             ImageView pokemonInBag,
@@ -430,9 +518,7 @@ public class FightActivity extends AppCompatActivity {
             pokemonHealthBar.setMax(0);
             pokemonHealthBar.setProgress(0);
             pokemonHealthInfo.setText("");
-            pokemonHealthBar.setVisibility(View.INVISIBLE);
         } else {
-            pokemonHealthBar.setVisibility(View.VISIBLE);
             pokemonInBag.setBackgroundColor(0x00000000);
             pokemonInBag.setImageDrawable(getResources().getDrawable(pokemon.getProfileID()));
             pokemonHealthBar.setMax(pokemon.getMaximumHp());
@@ -445,6 +531,9 @@ public class FightActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Initialize layouts.
+     */
     private void initializeLayOuts() {
         setContentView(R.layout.activity_fight);
         // the bottom layout

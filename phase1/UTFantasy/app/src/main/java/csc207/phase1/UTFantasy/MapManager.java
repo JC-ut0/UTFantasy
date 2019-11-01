@@ -270,7 +270,7 @@ public class MapManager implements Serializable {
     }
 
     /**
-     * @return return the npc in front of the player, return null if there isn't any npc in front of
+     * @return the npc in front of the player, return null if there isn't any npc in front of
      * the player
      */
     public NPC checkAround() {

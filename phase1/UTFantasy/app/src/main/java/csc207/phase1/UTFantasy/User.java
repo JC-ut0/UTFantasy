@@ -5,9 +5,17 @@ import java.io.Serializable;
 import csc207.phase1.UTFantasy.Character.Player;
 
 public class User implements Serializable {
-
+    /**
+     * username
+     */
     private String name;
+    /**
+     * password of this user
+     */
     private String password;
+    /**
+     * player of this user
+     */
     private Player player;
 
     public User(String name, String password) {
@@ -28,9 +36,9 @@ public class User implements Serializable {
     }
 
     /**
-     * return whether the User has a player.
+     * Check if the user has a player.
      *
-     * @return whether the User has a player.
+     * @return true if the User has a player, false if not.
      */
     public boolean hasPlayer() {
         return player != null;
