@@ -13,26 +13,26 @@ public class UnitDraw implements Serializable {
     /**
      * the element this unitDraw represents
      */
-    String draw;
+    private String draw;
     /**
      * the x coordinate of this UnitDraw
      */
-    public float x;
+    private float x;
 
     /**
      * the y coordinate of this UnitDraw
      */
-    public float y;
+    private float y;
 
     /**
      * the x coordinate of this UnitDraw on the screen coordinate system
      */
-    float screenX;
+    private float screenX;
 
     /**
      * the Y coordinate of this UnitDraw on the screen coordinate system
      */
-    float screenY;
+    private float screenY;
 
 
     // ======================================================================
@@ -67,7 +67,7 @@ public class UnitDraw implements Serializable {
     /**
      * set the x value of this unitDraw on the screen
      *
-     * @param screenX
+     * @param screenX the x coordinate of this UnitDraw on the screen coordinate system
      */
     public void setScreenX(float screenX) {
         this.screenX = screenX;
@@ -76,7 +76,7 @@ public class UnitDraw implements Serializable {
     /**
      * set the y value of this unitDraw on the screen
      *
-     * @param screenY
+     * @param screenY the y coordinate of this UnitDraw on the screen coordinate system
      */
     public void setScreenY(float screenY) {
         this.screenY = screenY;

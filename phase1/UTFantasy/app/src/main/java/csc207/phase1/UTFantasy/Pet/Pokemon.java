@@ -3,39 +3,30 @@ package csc207.phase1.UTFantasy.Pet;
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Random;
 
 import csc207.phase1.UTFantasy.AllSkills.Skill;
 import csc207.phase1.UTFantasy.Character.Person;
-import csc207.phase1.UTFantasy.Interface.Paintable;
-import csc207.phase1.UTFantasy.R;
 
 public abstract class Pokemon implements Serializable {
 
-    protected String pokemonName;
-
     /**
-     * first coordinate
+     * names of a certain Pokemon
      */
-    protected int x;
-    /**
-     * second coordinate
-     */
-    protected int y;
+    String pokemonName;
     /**
      * skills this pokemonList have
      * there are four different skills
      */
-    public Skill[] skills;
+    Skill[] skills;
     /**
      * level of this pokemonList
      */
-    protected int level;
+    private int level;
     /**
      * status of this pokemonList
      */
-    protected String status;
+    private String status;
     /**
      * the attack of this pokemon
      */
@@ -43,7 +34,7 @@ public abstract class Pokemon implements Serializable {
     /**
      * the defense of this pokemon
      */
-    protected int defense;
+    private int defense;
     /**
      * health point of this pokemonList
      */
@@ -51,15 +42,15 @@ public abstract class Pokemon implements Serializable {
     /**
      * experience this pokemonList has
      */
-    protected int exp;
+    private int exp;
     /**
      * person that this pokemonList belongs to
      */
-    protected Person master;
+    private Person master;
     /**
      * The unique profile id for each Pokemon. ID can be used to draw this Pokemon.
      */
-    protected int profileID;
+    int profileID;
 
     /**
      * The list of types of this pokemon
@@ -70,47 +61,47 @@ public abstract class Pokemon implements Serializable {
     /**
      * Speed determines
      */
-    protected int speed;
+    private int speed;
 
     /**
      * Individual value of hp
      */
-    protected int iv_hp;
+    private int iv_hp;
 
     /**
      * Individual value of attack
      */
-    protected int iv_attack;
+    private int iv_attack;
 
     /**
      * Individual value of defense
      */
-    protected int iv_defense;
+    private int iv_defense;
 
     /**
      * Individual value of speed
      */
-    protected int iv_speed;
+    private int iv_speed;
 
     /**
      * Base stat of hp
      */
-    protected int base_hp;
+    int base_hp;
 
     /**
      * Base stat of attack
      */
-    protected int base_attack;
+    int base_attack;
 
     /**
      * Base stat of defense
      */
-    protected int base_defense;
+    int base_defense;
 
     /**
      * Base stat of speed
      */
-    protected int base_speed;
+    int base_speed;
 
     /**
      * Level growing type
@@ -142,7 +133,7 @@ public abstract class Pokemon implements Serializable {
      * @param statType the type of statistic of pokemon will calculate.
      * @return the value of responding statistic.
      */
-    public int calculateStatistic(String statType) {
+    int calculateStatistic(String statType) {
         switch (statType) {
             case "attack": {
                 float base = ((base_attack + iv_attack) * 2 * level) / 100;
@@ -184,55 +175,13 @@ public abstract class Pokemon implements Serializable {
      * Set the defense statistic of the Pokemon.
      * @param defense the value of defense to set.
      */
-    public void setDefense(int defense){this.defense = defense;}
+    void setDefense(int defense){this.defense = defense;}
 
     /**
      * Set the speed statistic of the Pokemon.
      * @param speed the value of speed to set.
      */
-    public void setSpeed(int speed){this.speed = speed;}
-
-    /**
-     * Get the x-coordinate of the Pokemon.
-     * @return the value of Pokemon's x-coordinate.
-     */
-    public int getX() {
-        return x;
-    }
-
-    /**
-     * Set the x-coordinate of the Pokemon.
-     * @param x the value of x-coordinate to set.
-     */
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    /**
-     * Get the y-coordinate of the Pokemon.
-     * @return the value of Pokemon's y-coordinate.
-     */
-    public int getY() {
-        return y;
-    }
-
-    /**
-     * Set the y-coordinate of the Pokemon.
-     * @param y the value of y-coordinate to set.
-     */
-    void setY(int y) {
-        this.y = y;
-    }
-
-    /**
-     * Set the x, y coordinate of the Pokemon.
-     * @param x the value of x-coordinate to set.
-     * @param y the value of y-coordinate to set.
-     */
-    void setLocation(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+    void setSpeed(int speed){this.speed = speed;}
 
     /**
      * Get the Individual value of health point of the Pokemon.
@@ -331,7 +280,7 @@ public abstract class Pokemon implements Serializable {
      * Set the value of Pokemon's maximum health point.
      * @param maximumHp the value of maximum health point to set.
      */
-    public void setMaximumHp(int maximumHp) {
+    private void setMaximumHp(int maximumHp) {
         this.maximumHp = maximumHp;
     }
 
