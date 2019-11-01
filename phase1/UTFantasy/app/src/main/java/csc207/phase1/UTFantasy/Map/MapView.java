@@ -69,14 +69,12 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
         setThread();
         unitWidth = 88;
         unitHeight = 88;
-
         width = screenWidth / unitWidth;
         height = screenHeight / unitHeight;
         mapManager = new MapManager(width, height, this);
         mapManager.mapInitialization();
         setFocusable(true);
     }
-
 
     public MapManager getMapManager() {
         return mapManager;
@@ -87,13 +85,12 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
     }
 
     public void setThread() {
-        this.thread = new MainThread(getHolder(),this );
+        this.thread = new MainThread(getHolder(), this);
     }
 
     public void update() {
         mapManager.update(player.getX(), player.getY());
     }
-
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
@@ -120,7 +117,6 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
             retry = false;
         }
     }
-
 
     @Override
     public void draw(Canvas canvas) {
