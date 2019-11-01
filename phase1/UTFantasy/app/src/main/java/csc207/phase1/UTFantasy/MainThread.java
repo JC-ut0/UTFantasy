@@ -54,9 +54,14 @@ public class MainThread extends Thread {
         }
     }
 
+    /**
+     * Check if the thread is running.
+     * @return true if the thread is running, false otherwise.
+     */
     public boolean getRunning() {
         return isRunning;
     }
+
 
     public void setRunning(boolean isRunning) {
         this.isRunning = isRunning;

@@ -6,7 +6,7 @@ import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.Products.Product;
 
 public abstract class NPC extends Person {
-    NPC(String name){
+    NPC(String name) {
         super(name);
     }
 
@@ -27,33 +27,34 @@ public abstract class NPC extends Person {
 
     /**
      * Special ability of this NPC, default to be nothing.
+     *
      * @param player the player interact with this NPC.
      */
     public void ability(Player player) {
     }
 
-    public String trade(Player player, int num, Product product){
+    public String trade(Player player, int num, Product product) {
         return "You don't deserve to trade with me.";
     }
 
     /**
-     * @return if this npc can fight
+     * @return true if this npc can fight
      */
-    public boolean getFightable(){
+    public boolean canFight() {
         return fightable;
     }
 
     /**
-     * @return if this npc can trade
+     * @return true if this npc can trade
      */
-    public boolean getTradeable(){
+    public boolean canTrade() {
         return tradeable;
     }
 
     /**
-     * @return if this npc can heal
+     * @return true if this npc can heal
      */
-    public boolean getHealable(){
+    public boolean canHeal() {
         return healable;
     }
 

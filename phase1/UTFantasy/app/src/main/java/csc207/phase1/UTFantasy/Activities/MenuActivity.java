@@ -156,20 +156,20 @@ public class MenuActivity extends AppCompatActivity {
     private void read_info() {
         //get all the information from the Player's bag
         //First, the pokemon
-        ArrayList<Pokemon> pokemontemp;
-        pokemontemp = player.getPokemonList();
-        for (Pokemon pokemon : pokemontemp) {
+        ArrayList<Pokemon> pokemonTemp;
+        pokemonTemp = player.getPokemonList();
+        for (Pokemon pokemon : pokemonTemp) {
             pokemons.add(pokemon.getPokemonName());
             pokemonsinfo.add(pokemon.toString());
             images.add(pokemon.getProfileID());
         }
 
         //Second, the potion
-        HashMap<Product, Integer> itemtemp;
-        itemtemp = player.getBag();
-        for (Product item : itemtemp.keySet()) {
+        HashMap<Product, Integer> itemTemp;
+        itemTemp = player.getBag();
+        for (Product item : itemTemp.keySet()) {
             items.add(item.getName());
-            potioninfo.add(item.toString() + "\n" + "Num: " + itemtemp.get(item));
+            potioninfo.add(item.toString() + "\n" + "Num: " + itemTemp.get(item));
             potionimages.add(item.getProfile_id());
         }
     }
