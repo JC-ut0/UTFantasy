@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -117,15 +118,6 @@ public class FightActivity extends AppCompatActivity {
         if (user == null) {
             user = userManager.getUser("12312312");
         }
-//        if (true) {
-//            userManager.message("Create a new User", FightActivity.this);
-//            user = new User("2", "123456");
-//            user.setPlayer(new Player("ET", "ET"));
-//            user.getPlayer().addPokemon(new Squirtle());
-//            npcManager = new NPCManager();
-//            opponent = new FighterNPC("2");
-//            opponent.getPokemonList().add(new Charmander());
-//        }
         assert user != null;
         player = user.getPlayer();
         assert player != null;
@@ -140,7 +132,8 @@ public class FightActivity extends AppCompatActivity {
         if (npc == null) {
             npc = new FighterNPC("poor student");
         }
-        fightManager = new FightManager(player, (FighterNPC)npc);
+        opponent = (FighterNPC) npc;
+        fightManager = new FightManager(player, (FighterNPC) npc);
         currentRivalPokemon = npc.getPokemonList().get(0);
 
         initializeLayOuts();
@@ -157,9 +150,13 @@ public class FightActivity extends AppCompatActivity {
         fight.setOnClickListener(new View.OnClickListener() {
                                      @Override
                                      public void onClick(View view) {
-                                         menuSection.setVisibility(View.GONE);
-                                         battleSection.setVisibility(View.GONE);
-                                         fightBox.setVisibility(View.VISIBLE);
+                                         if (currentPokemon.isAlive()) {
+                                             menuSection.setVisibility(View.GONE);
+                                             battleSection.setVisibility(View.GONE);
+                                             fightBox.setVisibility(View.VISIBLE);
+                                         } else{
+                                             Toast.makeText(FightActivity.this, "You can't choose a fainted pokemon.", Toast.LENGTH_SHORT).show();
+                                         }
                                      }
                                  }
         );
@@ -307,6 +304,7 @@ public class FightActivity extends AppCompatActivity {
 
     private void chooseNewPokemon() {
         updateForChoosePokemon();
+        fightManager.reset();
     }
 
     private void startRound() {
@@ -349,7 +347,13 @@ public class FightActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * heal the npc all pokemon and return to the main activity
+     */
     public void endFight() {
+        for (Pokemon pokemon : opponent.getPokemonList()) {
+            pokemon.setHp(pokemon.getMaximumHp());
+        }
         onBackPressed();
     }
 
@@ -416,6 +420,7 @@ public class FightActivity extends AppCompatActivity {
             pokemonHealthBar.setMax(pokemon.getMaximumHp());
             pokemonHealthBar.setProgress(pokemon.getHp());
             pokemonHealthInfo.setText(pokemon.getHp() + "/" + pokemon.getMaximumHp());
+            fightManager.setPlayerPokemon(pokemon);
         }
         if (pokemon == currentPokemon) {
             pokemonInBag.setBackgroundColor(Color.parseColor("#2504E204"));
@@ -481,7 +486,5 @@ public class FightActivity extends AppCompatActivity {
         sixthPokemonInBag = findViewById(R.id.sixthPokemonInBag);
         sixthPokemonHealthInfo = findViewById(R.id.sixthPokemonHealthInfo);
         sixthPokemonHealthBar = findViewById(R.id.sixthPokemonHealthBar);
-
-
     }
 }

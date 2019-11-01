@@ -115,3 +115,7 @@ all npc can "trade", but only salerNPC have the real trade method.
 ########
 # Step 22
 add npc and interaction functionality with npc. Now we can interact with 3 types of npc
+
+########
+# Step 23
+make player not able to choose fainted pokemon. End fight when the battle is not continuable

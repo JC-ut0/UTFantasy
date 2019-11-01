@@ -444,7 +444,7 @@ public abstract class Pokemon implements Serializable {
      * @return a boolean. If true then the Pokemon is still alive. If false then the Pokemon is fainted.
      */
     public boolean isAlive() {
-        return hp == 0;
+        return hp != 0;
     }
 
     /**
