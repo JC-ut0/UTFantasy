@@ -120,7 +120,7 @@ public abstract class Pokemon implements Serializable {
     /**
      * Maximum health point
      */
-    public int maximumHp;
+    protected int maximumHp;
 
     /**
      * Constructor of Pokemon.

@@ -36,21 +36,21 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_log"
+        android:id="@+id/btn_register"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/btn_register"
-        android:layout_alignTop="@+id/btn_register"
-        android:layout_alignEnd="@+id/btn_register"
-        android:layout_alignBottom="@+id/btn_register"
+        android:layout_alignStart="@+id/btn_log"
+        android:layout_alignTop="@+id/btn_log"
+        android:layout_alignEnd="@+id/btn_log"
+        android:layout_alignBottom="@+id/btn_log"
         android:layout_marginStart="269dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="-269dp"
         android:layout_marginBottom="0dp"
-        android:text="@string/login" />
+        android:text="@string/register" />
 
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_log"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearlayout"
@@ -58,7 +58,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="2dp"
         android:layout_marginTop="22dp"
-        android:text="@string/register" />
+        android:text="@string/login" />
 
     <ImageView
         android:id="@+id/utlogo"

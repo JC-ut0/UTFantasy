@@ -251,7 +251,7 @@
 
     <LinearLayout
         android:id="@+id/choosePokemon"
-        android:layout_width="731dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/text_box"
         android:orientation="horizontal"
@@ -261,7 +261,6 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
@@ -270,14 +269,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:clickable="true"
-                android:contentDescription="First pokemon"
+                android:contentDescription="TODO"
                 app:srcCompat="@drawable/pikachu1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:visibility="visible">
 
                 <ProgressBar
                     android:id="@+id/firstPokemonHealthBar"
@@ -285,22 +285,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:background="#00FFFFFF"
                     android:max="100"
                     android:progress="100"
                     android:progressBackgroundTint="#FFFFFF"
-                    android:progressTint="#80FD00" />
+                    android:progressTint="#80FD00"
+                    android:visibility="visible" />
 
                 <TextView
                     android:id="@+id/firstPokemonHealthInfo"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:gravity="center"
                     android:text="0/0"
-                    android:textColor="@android:color/background_dark" />
+                    android:textColor="@android:color/background_dark"
+                    android:visibility="visible" />
             </RelativeLayout>
 
         </LinearLayout>
@@ -309,7 +311,7 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
+
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
@@ -332,10 +334,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:background="#00FFFFFF"
                     android:max="100"
-                    android:progress="100"
+                    android:progress="1000"
                     android:progressBackgroundTint="#FFFFFF"
                     android:progressTint="#80FD00" />
 
@@ -344,7 +346,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:gravity="center"
                     android:text="0/0"
                     android:textColor="@android:color/background_dark" />
@@ -356,7 +358,6 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
@@ -379,7 +380,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:background="#00FFFFFF"
                     android:max="100"
                     android:progress="100"
@@ -391,7 +392,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:gravity="center"
                     android:text="0/0"
                     android:textColor="@android:color/background_dark" />
@@ -402,7 +403,6 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
@@ -425,7 +425,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:background="#00FFFFFF"
                     android:max="100"
                     android:progress="100"
@@ -437,7 +437,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:gravity="center"
                     android:text="0/0"
                     android:textColor="@android:color/background_dark" />
@@ -448,7 +448,6 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
@@ -471,7 +470,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:background="#00FFFFFF"
                     android:max="100"
                     android:progress="100"
@@ -483,7 +482,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:gravity="center"
                     android:text="0/0"
                     android:textColor="@android:color/background_dark" />
@@ -494,7 +493,6 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
@@ -517,7 +515,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:background="#00FFFFFF"
                     android:max="100"
                     android:progress="100"
@@ -529,7 +527,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
+
                     android:gravity="center"
                     android:text="0/0"
                     android:textColor="@android:color/background_dark" />

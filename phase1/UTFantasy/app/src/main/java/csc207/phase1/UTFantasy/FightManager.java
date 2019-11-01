@@ -342,13 +342,45 @@ public class FightManager {
     }
   }
 
-  public void setPlayerPokemon(Pokemon playerPokemon) {
-    this.playerPokemon = playerPokemon;
-  }
 
-  /** reset fainted and continuable of this round */
-  public void reset() {
-    fainted = false;
-    continuable = true;
-  }
+    /**
+     * Change the current pokemon to a new pokemon.
+     *
+     * @param pokemon new pokemon instance.
+     */
+    public void changeCurrentPokemon(Pokemon pokemon) {
+        if (pokemon != null && playerPokemon != pokemon && pokemon.getHp() != 0) {
+            playerPokemon = pokemon;
+            // todo: end your round.
+        }
+    }
+
+    /**
+     * Return whether the fight is end.
+     *
+     * @return whether the fight is end.
+     */
+    public boolean isEnd() {
+        boolean end;
+        for (Pokemon pokemon : player.getPokemonList()) {
+            if (pokemon.isAlive()) return false;
+        }
+        for (Pokemon pokemon : opponent.getPokemonList()) {
+            if (pokemon.isAlive()) return false;
+        }
+        return true;
+    }
+
+
+    public void setPlayerPokemon(Pokemon playerPokemon) {
+        this.playerPokemon = playerPokemon;
+    }
+
+    /**
+     * reset fainted and continuable of this round
+     */
+    public void reset() {
+        fainted = false;
+        continuable = true;
+    }
 }
