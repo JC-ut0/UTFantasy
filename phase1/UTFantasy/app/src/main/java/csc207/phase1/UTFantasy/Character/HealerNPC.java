@@ -24,7 +24,7 @@ public class HealerNPC extends NPC {
      */
     public void ability(Player player) {
         for (Pokemon pkm : player.getPokemonList()) {
-            pkm.setHp(pkm.maximumHp);
+            pkm.setHp(pkm.getMaximumHp());
             pkm.setStatus("");
             Skill[] skills = pkm.getSkills();
             for (Skill s : skills) {
