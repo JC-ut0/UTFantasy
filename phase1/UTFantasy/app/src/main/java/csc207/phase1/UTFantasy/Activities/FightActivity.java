@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
@@ -281,7 +280,7 @@ public class FightActivity extends AppCompatActivity {
         });
   }
 
-  @Nullable
+
   private Pokemon getPokemonFromPlayerPokemonList(int i) {
     Pokemon pokemon;
     try {

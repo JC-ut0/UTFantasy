@@ -20,7 +20,9 @@ import csc207.phase1.UTFantasy.Products.RedPotion;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.UserManager;
 
-
+/**
+ * The activity used to purchase products.
+ */
 public class ShopActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
     /**
      * The product pinkPotion.

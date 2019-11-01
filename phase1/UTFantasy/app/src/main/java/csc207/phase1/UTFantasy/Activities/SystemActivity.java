@@ -27,7 +27,7 @@ public class SystemActivity extends AppCompatActivity {
     Button back_button;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_system_menu);
 

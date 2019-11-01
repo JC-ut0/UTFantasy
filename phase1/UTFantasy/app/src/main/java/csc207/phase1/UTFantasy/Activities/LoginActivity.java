@@ -15,9 +15,22 @@ import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
+/**
+ * The activity used to log into the game with username and passwords.
+ */
 public class LoginActivity extends AppCompatActivity {
+    /**
+     * the unique UserManager
+     */
     private UserManager userManager = UserManager.getUserManager();
+    /**
+     * EditText account and password.
+     */
     private EditText account, pwd;
+
+    /**
+     * account and password entered by a user
+     */
     private String accountStr, passwordStr;
 
     @Override
@@ -68,6 +81,9 @@ public class LoginActivity extends AppCompatActivity {
         );
     }
 
+    /**
+     * Make sure that the account and password are not empty.
+     */
     private void nonEmptyAccountOrPassword() {
         accountStr = account.getText().toString().trim();
         passwordStr = pwd.getText().toString().trim();
@@ -78,6 +94,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Make sure that the username and password are valid.
+     * @throws ImproperUserSettingException if username and password are not valid
+     */
     private void validateUsernameAndPassword() throws ImproperUserSettingException {
         accountStr = account.getText().toString().trim();
         passwordStr = pwd.getText().toString().trim();
@@ -102,7 +122,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * If the account is not registered or doesn't have a player, jump to CustomizeActivity to create a new player.
+     */
     private void newPlayerAction() {
         // this is a new user, saveFile the info of this user, go to set up activity
         User user = userManager.register(accountStr, passwordStr);
@@ -114,6 +136,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(register_intent);
     }
 
+    /**
+     *If the parameter user has been customized, jump to the MainActivity,
+     * else, the user is registered but not customized, jump to CustomizeActivity to create a new player.
+     * @param user the login user
+     */
     private void logInAction(User user) {
         // log in succeeded. pop up a window shows success. Get user Id here.
         if (user.hasPlayer()) {

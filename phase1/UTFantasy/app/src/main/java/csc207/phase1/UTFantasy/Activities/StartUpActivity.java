@@ -15,7 +15,7 @@ import csc207.phase1.UTFantasy.R;
 public class StartUpActivity extends Activity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // set the content view of this activity to be activity_start_up
         setContentView(R.layout.activity_start_up);

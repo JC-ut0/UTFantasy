@@ -19,19 +19,32 @@ import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
+/**
+ * The activity used to create a new user.
+ */
 public class CustomizeActivity extends Activity {
 
-    // determine the progress of this activity
-    // 0 indicates player is asked for name
-    // 1 indicates player is asked for gender
+    /** determine the progress of this activity
+     * 0 indicates player is asked for name
+     * 1 indicates player is asked for gender
+     */
     private int progress = 0;
-
-    // the name of the player
+    /**
+     * the name of the player
+     */
     private String name;
-
-    // the gender of the player
+    /**
+     * the gender of the player
+     */
     private String gender;
+    /**
+     * the unique UserManager
+     */
     UserManager userManager = UserManager.getUserManager();
+
+    /**
+     * stuffs shows on this activity
+     */
     private TextView textViewName;
     private TextView textViewGender;
     private EditText editTextName;
@@ -40,7 +53,7 @@ public class CustomizeActivity extends Activity {
     private RadioButton buttonGirl;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         // set the content view of this activity to activity_customize
@@ -90,6 +103,9 @@ public class CustomizeActivity extends Activity {
         buttonB.setOnClickListener(click);
     }
 
+    /**
+     * set up gender
+     */
     private void goChooseGender() {
         // set the questions of name to be invisible
         textViewName.setVisibility(View.GONE);
@@ -104,6 +120,10 @@ public class CustomizeActivity extends Activity {
         progress += 1;
     }
 
+    /**
+     * After registering a new account, information of this account is stored in the UserManager,
+     * and user can get into the game with a character, player.
+     */
     private void move_to_main() {
         Intent login_intent = getIntent();
         final String username = login_intent.getStringExtra("username");
@@ -121,7 +141,10 @@ public class CustomizeActivity extends Activity {
         startActivity(intent);
     }
 
-
+    /**
+     * Validate name of player.
+     * @throws ImproperPlayerNameException If the name is not valid.
+     */
     private void validatePlayerName() throws ImproperPlayerNameException {
         if (name.equals("")) {
             throw new ImproperPlayerNameException("Please Enter your name");

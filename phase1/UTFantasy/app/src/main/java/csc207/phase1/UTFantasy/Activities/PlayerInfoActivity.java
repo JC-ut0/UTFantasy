@@ -42,10 +42,10 @@ public class PlayerInfoActivity extends AppCompatActivity {
     TextView character_gender;
     TextView money;
     TextView character_description;
-    ImageButton backtomain;
+    ImageButton backToMain;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_info);
 
@@ -104,8 +104,8 @@ public class PlayerInfoActivity extends AppCompatActivity {
      * Set the Back Button, it will return to the main activity.
      */
     private void setBacktomain() {
-        backtomain = findViewById(R.id.back_to_main);
-        backtomain.setOnClickListener(new View.OnClickListener() {
+        backToMain = findViewById(R.id.back_to_main);
+        backToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PlayerInfoActivity.this, MainActivity.class);
