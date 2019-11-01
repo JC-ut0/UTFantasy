@@ -16,6 +16,7 @@ public class Flamethrower extends Skill {
 
     /**
      * A description of the Skill.
+     *
      * @return a String which is a short description of the Skill
      */
     @NonNull

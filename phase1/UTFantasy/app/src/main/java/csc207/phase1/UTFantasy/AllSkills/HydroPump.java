@@ -4,9 +4,9 @@ import androidx.annotation.NonNull;
 
 public class HydroPump extends Skill {
     /**
-     *  Constructor of a HydroPump Skill.
+     * Constructor of a HydroPump Skill.
      */
-    public HydroPump(){
+    public HydroPump() {
         name = "Hydro Pump";
         type = "water";
         power = 120;
@@ -16,6 +16,7 @@ public class HydroPump extends Skill {
 
     /**
      * A description of the Skill.
+     *
      * @return a String which is a short description of the Skill
      */
     @NonNull
