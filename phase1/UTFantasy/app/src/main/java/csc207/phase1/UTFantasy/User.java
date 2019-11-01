@@ -18,6 +18,12 @@ public class User implements Serializable {
      */
     private Player player;
 
+    /**
+     * Construct a User
+     *
+     * @param name     username
+     * @param password password of account
+     */
     public User(String name, String password) {
         this.name = name;
         this.password = password;

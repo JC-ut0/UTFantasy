@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.Player;
-import csc207.phase1.UTFantasy.MainThread;
 import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
@@ -177,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
         interactFight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (npc.getFightable()) {
+                if (npc.canFight()) {
                     Intent intent = new Intent(MainActivity.this, FightActivity.class);
                     intent.putExtra("username", username);
                     intent.putExtra("FighterName", npc.getName());
@@ -191,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
         interactPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (npc.getTradeable()) {
+                if (npc.canTrade()) {
                     Intent intent = new Intent(MainActivity.this, ShopActivity.class);
                     intent.putExtra("username", username);
                     intent.putExtra("SellerName", npc.getName());
@@ -205,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
         interactHeal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (npc.getHealable()) {
+                if (npc.canHeal()) {
                     for (Pokemon pokemon : player.getPokemonList()) {
                         pokemon.setHp(pokemon.getMaximumHp());
                     }

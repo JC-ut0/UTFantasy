@@ -34,12 +34,12 @@ public class MapManager implements Serializable {
     /**
      * the array list that represents the low elements shown on the screen currently
      */
-    public ArrayList<UnitDraw> currentLow;
+    private ArrayList<UnitDraw> currentLow;
 
     /**
      * the array list that represents the high elements shown on the screen currently
      */
-    public ArrayList<UnitDraw> currentHigh;
+    private ArrayList<UnitDraw> currentHigh;
 
     /**
      * the width of the whole map
@@ -49,16 +49,16 @@ public class MapManager implements Serializable {
     /**
      * the height of the whole map
      */
-    int mapHeight = 102;
+    private int mapHeight = 102;
 
     /**
      * the width of the screen
      */
-    int width;
+    private int width;
     /**
      * the height of the screen
      */
-    int height;
+    private int height;
 
     /**
      * the map view this map manager manages
@@ -127,7 +127,7 @@ public class MapManager implements Serializable {
         leftPlayer = getBitmap(R.drawable.player_left, 1, 1);
         rightPlayer = getBitmap(R.drawable.player_right, 1, 1);
         fightNpc = getBitmap(R.drawable.professor, 2, 2);
-        sellerNpc = getBitmap(R.drawable.big_mom, (float)2.5,(float)2.5);
+        sellerNpc = getBitmap(R.drawable.big_mom, (float) 2.5, (float) 2.5);
         healerNpc = getBitmap(R.drawable.joy, 1, 1);
 
         mapInitialization();
@@ -138,6 +138,24 @@ public class MapManager implements Serializable {
      */
     public MapView getMapView() {
         return mapView;
+    }
+
+    /**
+     * getter of mapWidth
+     *
+     * @return mapWidth
+     */
+    public int getMapWidth() {
+        return mapWidth;
+    }
+
+    /**
+     * getter of mapHeight
+     *
+     * @return mapHeight
+     */
+    public int getMapHeight() {
+        return mapHeight;
     }
 
     /**

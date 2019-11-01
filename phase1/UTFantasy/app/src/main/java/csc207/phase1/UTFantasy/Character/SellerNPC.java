@@ -8,10 +8,6 @@ import csc207.phase1.UTFantasy.Products.Product;
 import csc207.phase1.UTFantasy.R;
 
 public class SellerNPC extends NPC {
-    /**
-     * the Bitmap of the character sellerNPC
-     */
-    public static Bitmap BITMAPSELLER;
 
     /**
      * Constructor of SellerNPC
@@ -21,13 +17,13 @@ public class SellerNPC extends NPC {
         tradeable = true;
     }
 
-    @Override
-
     /**
-     *@param player the player with who this seller NPC trades.
-     *@param num the number of products purchased.
-     *@param product the product that player chooses to buy.
-     *@return a String*/
+     * @param player  the player with who this seller NPC trades.
+     * @param num     the number of products purchased.
+     * @param product the product that player chooses to buy.
+     * @return a String
+     */
+    @Override
     public String trade(Player player, int num, Product product) {
         if (isPlayerAffordable(player, num, product)) {
             int total = num * product.getPrice();
@@ -53,9 +49,9 @@ public class SellerNPC extends NPC {
 
     }
 
+
     @Override
     public Bitmap bitmapDraw(MapView mapView) {
-        BITMAPSELLER = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.professor);
-        return BITMAPSELLER;
+        return BitmapFactory.decodeResource(mapView.getResources(), R.drawable.professor);
     }
 }
