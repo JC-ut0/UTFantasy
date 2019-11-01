@@ -148,7 +148,7 @@ public class UserManager implements Serializable {
             outputStream.writeObject(userManager);
             outputStream.close();
         } catch (IOException e) {
-            message("E:"+ e, context);
+            message("E:" + e, context);
             e.printStackTrace();
         }
     }
@@ -184,7 +184,7 @@ public class UserManager implements Serializable {
      * @param message The message of the dialog.
      * @param context The Activity that calls this method.
      */
-    public void message(String message, Context context) {
+    private void message(String message, Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("UT Fantasy");
         builder.setMessage(message);

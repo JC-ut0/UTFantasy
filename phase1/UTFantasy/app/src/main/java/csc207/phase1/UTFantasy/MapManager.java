@@ -229,20 +229,16 @@ public class MapManager implements Serializable {
         }
         switch (mapView.player.direction) {
             case ("down"):
-                canvas.drawBitmap(
-                        downPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
+                canvas.drawBitmap(downPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
                 break;
             case ("up"):
-                canvas.drawBitmap(
-                        upPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
+                canvas.drawBitmap(upPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
                 break;
             case ("left"):
-                canvas.drawBitmap(
-                        leftPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
+                canvas.drawBitmap(leftPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
                 break;
             case ("right"):
-                canvas.drawBitmap(
-                        rightPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
+                canvas.drawBitmap(rightPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
                 break;
         }
     }

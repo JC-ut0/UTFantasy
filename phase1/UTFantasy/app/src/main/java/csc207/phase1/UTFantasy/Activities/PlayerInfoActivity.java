@@ -7,7 +7,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.Character.Player;
@@ -53,7 +52,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
         username = intent.getStringExtra("username");
         player = userManager.getUser(username).getPlayer();
 
-        setBacktomain();
+        setBackToMain();
         setCharacter_description();
         setCharacter_gender_and_profile();
         setCharacter_name();
@@ -103,7 +102,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
     /**
      * Set the Back Button, it will return to the main activity.
      */
-    private void setBacktomain() {
+    private void setBackToMain() {
         backToMain = findViewById(R.id.back_to_main);
         backToMain.setOnClickListener(new View.OnClickListener() {
             @Override

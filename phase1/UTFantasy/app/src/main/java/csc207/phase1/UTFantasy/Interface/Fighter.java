@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 
+/**
+ * All objects which are able to fight.
+ */
 public interface Fighter {
-    public String getName();
-    public void addPokemon(Pokemon pokemon);
-    public ArrayList<Pokemon> getPokemonList();
+    String getName();
+    void addPokemon(Pokemon pokemon);
+    ArrayList<Pokemon> getPokemonList();
 }

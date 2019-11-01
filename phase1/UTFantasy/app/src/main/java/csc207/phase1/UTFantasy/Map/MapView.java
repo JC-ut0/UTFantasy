@@ -62,6 +62,10 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
      */
     private MainThread thread;
 
+    public MapView(Context context){
+        super(context);
+    }
+
     public MapView(Context context, Player p) {
         super(context);
         this.player = p;
@@ -69,6 +73,7 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
         setThread();
         unitWidth = 88;
         unitHeight = 88;
+
         width = screenWidth / unitWidth;
         height = screenHeight / unitHeight;
         mapManager = new MapManager(width, height, this);
@@ -76,20 +81,45 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
         setFocusable(true);
     }
 
+    /**
+     * getter of MapManager
+     * @return a MapManager
+     */
     public MapManager getMapManager() {
         return mapManager;
     }
 
+    /**
+     * getter of MainThread
+     * @return a MainThread
+     */
     public MainThread getThread() {
         return thread;
     }
 
     public void setThread() {
-        this.thread = new MainThread(getHolder(), this);
+        this.thread = new MainThread(getHolder(),this );
     }
 
     public void update() {
         mapManager.update(player.getX(), player.getY());
+    }
+
+
+    /**
+     * get coordinate width
+     * @return coordinate width
+     */
+    public static int getCoordinateWidth() {
+        return width;
+    }
+
+    /**
+     * get coordinate height
+     * @return coordinate height
+     */
+    public static int getCoordinateHeight() {
+        return height;
     }
 
     @Override
@@ -117,6 +147,7 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
             retry = false;
         }
     }
+
 
     @Override
     public void draw(Canvas canvas) {
