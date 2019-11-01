@@ -40,7 +40,7 @@ public class Player extends Person implements Fighter {
     /**
      * a RedPotion
      */
-    RedPotion RP = RedPotion.getRed();
+    RedPotion redPotion = RedPotion.getRed();
 
     protected HashMap<Product, Integer> bag;
 
@@ -57,7 +57,7 @@ public class Player extends Person implements Fighter {
         pokemon = new Charmander();
         pokemon.setLevel(5);
         addPokemon(pokemon);
-        addItem(RP, 1);
+        addItem(redPotion, 1);
     }
 
     public HashMap<Product, Integer> getBag() {
@@ -76,6 +76,9 @@ public class Player extends Person implements Fighter {
     public void use(Product product, int num) {
         bag.put(product, bag.get(product) - num);
         //make sure you have enough products
+        if (bag.get(product) == 0){
+            bag.remove(product);
+        }
     }
 
 

@@ -4,20 +4,6 @@ import csc207.phase1.UTFantasy.R;
 
 public class RedPotion extends Product {
     /**
-     * the name of RedPotion
-     */
-    private static String name = "Super Potion";
-    /**
-     * the price of this product
-     */
-    private static int price = 200;
-    /**
-     * the profileID of this product
-     */
-    private static int rofileID = R.drawable.red;
-
-
-    /**
      * static variable single_instance of RedPotion
      */
     private static RedPotion red;
