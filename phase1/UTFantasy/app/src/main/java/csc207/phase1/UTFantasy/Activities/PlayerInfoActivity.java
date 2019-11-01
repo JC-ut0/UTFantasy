@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.R;
-import csc207.phase1.UTFantasy.User;
 import csc207.phase1.UTFantasy.UserManager;
 
 public class PlayerInfoActivity extends AppCompatActivity {
@@ -25,7 +24,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
     /**
      * the player
      */
-    Player p;
+    Player player;
     /**
      * The unique UserManager.
      */
@@ -52,7 +51,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
         intent = getIntent();
         username = intent.getStringExtra("username");
-        p = userManager.getUser(username).getPlayer();
+        player = userManager.getUser(username).getPlayer();
 
         setBacktomain();
         setCharacter_description();
@@ -66,7 +65,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
      */
     private void setCharacter_name() {
         character_name = findViewById(R.id.profilename);
-        character_name.setText(p.getName());
+        character_name.setText(player.getName());
     }
 
     /**
@@ -75,7 +74,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
     private void setCharacter_gender_and_profile() {
         character_gender = findViewById(R.id.gender);
         profile = findViewById(R.id.profileimage);
-        if (p.getGender().equals("boy")) {
+        if (player.getGender().equals("boy")) {
             profile.setImageResource(R.drawable.charater_male);
             character_gender.setText("Gender: Male");
         } else {
@@ -89,7 +88,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
      */
     private void setMoney() {
         money = findViewById(R.id.money);
-        money.setText("Money: $" + p.getMoney());
+        money.setText("Money: $" + player.getMoney());
     }
 
 

@@ -33,7 +33,7 @@ public class MenuActivity extends AppCompatActivity {
     /**
      * the player.
      */
-    Player p;
+    Player player;
     /**
      * The unique UserManager.
      */
@@ -75,7 +75,7 @@ public class MenuActivity extends AppCompatActivity {
         //get the user from main
         intent = getIntent();
         username = intent.getStringExtra("username");
-        p = userManager.getUser(username).getPlayer();
+        player = userManager.getUser(username).getPlayer();
 
         //read the information of the player
         read_info();
@@ -131,7 +131,7 @@ public class MenuActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-
+            // load different information into different type of list
             View view = getLayoutInflater().inflate(R.layout.pokemon_layout, null);
             ImageView imageView = view.findViewById(R.id.pokemonimage);
             TextView pokeName = view.findViewById(R.id.pokemonname);
@@ -157,7 +157,7 @@ public class MenuActivity extends AppCompatActivity {
         //get all the information from the Player's bag
         //First, the pokemon
         ArrayList<Pokemon> pokemontemp;
-        pokemontemp = p.getPokemonList();
+        pokemontemp = player.getPokemonList();
         for (Pokemon pokemon : pokemontemp) {
             pokemons.add(pokemon.getPokemonName());
             pokemonsinfo.add(pokemon.toString());
@@ -166,7 +166,7 @@ public class MenuActivity extends AppCompatActivity {
 
         //Second, the potion
         HashMap<Product, Integer> itemtemp;
-        itemtemp = p.getBag();
+        itemtemp = player.getBag();
         for (Product item : itemtemp.keySet()) {
             items.add(item.getName());
             potioninfo.add(item.toString() + "\n" + "Num: " + itemtemp.get(item));
