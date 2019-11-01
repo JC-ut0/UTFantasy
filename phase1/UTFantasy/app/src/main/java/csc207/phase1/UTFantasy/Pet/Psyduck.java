@@ -7,7 +7,7 @@ public class Psyduck extends Pokemon {
     /**
      * Constructor of a Psyduck.
      */
-    public Psyduck(){
+    public Psyduck() {
         super();
         pokemonName = "Psyduck";
         skills[0] = new Scratch();
@@ -24,6 +24,7 @@ public class Psyduck extends Pokemon {
 
     /**
      * Get the profile ID of Psyduck.
+     *
      * @return an integer which the profile ID of Psyduck.
      */
     @Override

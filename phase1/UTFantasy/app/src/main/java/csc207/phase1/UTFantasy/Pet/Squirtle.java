@@ -7,7 +7,7 @@ public class Squirtle extends Pokemon {
     /**
      * Constructor of a Squirtle.
      */
-    public Squirtle(){
+    public Squirtle() {
         super();
         pokemonName = "Squirtle";
         skills[0] = new Tackle();
@@ -21,8 +21,10 @@ public class Squirtle extends Pokemon {
         setDefense(calculateStatistic("defense"));
         setSpeed(calculateStatistic("speed"));
     }
+
     /**
      * Get the profile ID of Squirtle.
+     *
      * @return an integer which the profile ID of Squirtle.
      */
     @Override
