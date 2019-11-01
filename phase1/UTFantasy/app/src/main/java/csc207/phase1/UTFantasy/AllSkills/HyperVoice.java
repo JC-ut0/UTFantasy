@@ -6,7 +6,7 @@ public class HyperVoice extends Skill {
     /**
      * Constructor of a HyperVoice Skill.
      */
-    public HyperVoice(){
+    public HyperVoice() {
         name = "Hyper Voice";
         power = 90;
         pp = 10;
@@ -16,6 +16,7 @@ public class HyperVoice extends Skill {
 
     /**
      * A description of the Skill.
+     *
      * @return a String which is a short description of the Skill
      */
     @NonNull

@@ -1,11 +1,5 @@
 package csc207.phase1.UTFantasy.Map;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.widget.ImageView;
-
 import java.io.Serializable;
 
 public class UnitDraw implements Serializable {

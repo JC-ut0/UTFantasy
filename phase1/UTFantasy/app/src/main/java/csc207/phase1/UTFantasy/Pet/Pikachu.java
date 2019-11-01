@@ -25,6 +25,7 @@ public class Pikachu extends Pokemon {
 
     /**
      * Get the profile ID of Pikachu.
+     *
      * @return an integer which the profile ID of Pikachu.
      */
     @Override

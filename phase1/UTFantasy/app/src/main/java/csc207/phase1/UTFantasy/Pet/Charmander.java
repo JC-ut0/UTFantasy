@@ -22,8 +22,10 @@ public class Charmander extends Pokemon {
         setSpeed(calculateStatistic("speed"));
 
     }
+
     /**
      * Get the profile ID of Charmander.
+     *
      * @return an integer which the profile ID of Charmander.
      */
     @Override

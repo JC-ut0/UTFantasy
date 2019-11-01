@@ -6,7 +6,7 @@ public class Confusion extends Skill {
     /**
      * Constructor of a Confusion Skill.
      */
-    public Confusion(){
+    public Confusion() {
         name = "Confusion";
         type = "Psychic";
         power = 50;
@@ -16,6 +16,7 @@ public class Confusion extends Skill {
 
     /**
      * A description of the Skill.
+     *
      * @return a String which is a short description of the Skill
      */
     @NonNull

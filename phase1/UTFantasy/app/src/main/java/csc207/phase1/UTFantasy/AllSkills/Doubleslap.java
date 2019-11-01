@@ -6,7 +6,7 @@ public class Doubleslap extends Skill {
     /**
      * Constructor of a DoubleSlap Skill.
      */
-    public Doubleslap(){
+    public Doubleslap() {
         name = "Doubleslap";
         power = 35;
         pp = 10;
@@ -16,6 +16,7 @@ public class Doubleslap extends Skill {
 
     /**
      * A description of the Skill.
+     *
      * @return a String which is a short description of the Skill
      */
     @NonNull

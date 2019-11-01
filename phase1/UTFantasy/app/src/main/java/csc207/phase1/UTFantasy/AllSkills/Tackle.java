@@ -6,7 +6,7 @@ public class Tackle extends Skill {
     /**
      * Constructor of a Tackle Skill.
      */
-    public Tackle(){
+    public Tackle() {
         name = "Tackle";
         power = 35;
         pp = 35;
@@ -16,6 +16,7 @@ public class Tackle extends Skill {
 
     /**
      * A description of the Skill.
+     *
      * @return a String which is a short description of the Skill
      */
     @NonNull
