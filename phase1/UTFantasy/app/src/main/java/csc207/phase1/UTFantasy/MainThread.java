@@ -7,14 +7,29 @@ import csc207.phase1.UTFantasy.Map.MapView;
 
 public class MainThread extends Thread {
 
+    /**
+     * The canvas container.
+     */
     private SurfaceHolder surfaceHolder;
-
+    /**
+     * Whether the thread is running.
+     */
     private boolean isRunning;
-
+    /**
+     * Where the characters are drawn.
+     */
     private MapView mapView;
-
+    /**
+     * The canvas on which to draw all characters.
+     */
     private Canvas canvas;
 
+    /**
+     * Construct the thread.
+     *
+     * @param holder  the canvas container.
+     * @param mapView where the characters are drawn.
+     */
     public MainThread(SurfaceHolder holder, MapView mapView) {
         this.surfaceHolder = holder;
         this.mapView = mapView;
