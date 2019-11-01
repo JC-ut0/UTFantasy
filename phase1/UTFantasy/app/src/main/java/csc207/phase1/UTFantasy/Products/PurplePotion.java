@@ -4,18 +4,6 @@ import csc207.phase1.UTFantasy.R;
 
 public class PurplePotion extends Product {
     /**
-     * the name of PurplePotion
-     */
-    private static String name = "Potion";
-    /**
-     * the price of this product
-     */
-    private static int price = 100;
-    /**
-     * the profileID of this product
-     */
-    private static int profileID = R.drawable.purple;
-    /**
      * static variable single_instance of PurplePotion
      */
     private static PurplePotion purple;

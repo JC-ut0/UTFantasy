@@ -1,10 +1,13 @@
 package csc207.phase1.UTFantasy.Products;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.io.Serializable;
 
 public class Product implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     /**
      * the name of this product
      */
@@ -53,4 +56,13 @@ public class Product implements Serializable {
         return profileID;
     }
 
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return this.hashCode() == obj.hashCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return 200 * name.hashCode();
+    }
 }

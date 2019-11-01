@@ -3,18 +3,6 @@ package csc207.phase1.UTFantasy.Products;
 import csc207.phase1.UTFantasy.R;
 
 public class PinkPotion extends Product {
-    /**
-     * the name of pinkPotion
-     */
-    private static String name = "Hyper Potion";
-    /**
-     * the price of this product
-     */
-    private static int price = 300;
-    /**
-     * the profileID of this product
-     */
-    private static int profileID = R.drawable.pink;
 
     /**
      * static variable single_instance of PinkPotion
