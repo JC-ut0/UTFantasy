@@ -24,7 +24,8 @@ import csc207.phase1.UTFantasy.UserManager;
  */
 public class CustomizeActivity extends Activity {
 
-    /** determine the progress of this activity
+    /**
+     * determine the progress of this activity
      * 0 indicates player is asked for name
      * 1 indicates player is asked for gender
      */
@@ -143,6 +144,7 @@ public class CustomizeActivity extends Activity {
 
     /**
      * Validate name of player.
+     *
      * @throws ImproperPlayerNameException If the name is not valid.
      */
     private void validatePlayerName() throws ImproperPlayerNameException {

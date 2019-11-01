@@ -177,12 +177,12 @@ public class MainActivity extends AppCompatActivity {
         interactFight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(npc.getFightable()) {
+                if (npc.getFightable()) {
                     Intent intent = new Intent(MainActivity.this, FightActivity.class);
                     intent.putExtra("username", username);
                     intent.putExtra("FighterName", npc.getName());
                     startActivity(intent);
-                } else{
+                } else {
                     Toast.makeText(MainActivity.this, "You can't fight this npc", Toast.LENGTH_LONG).show();
                 }
             }
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("username", username);
                     intent.putExtra("SellerName", npc.getName());
                     startActivity(intent);
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "You can't trade with this npc", Toast.LENGTH_LONG).show();
                 }
             }
@@ -206,10 +206,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (npc.getHealable()) {
-                    for(Pokemon pokemon :player.getPokemonList()){
+                    for (Pokemon pokemon : player.getPokemonList()) {
                         pokemon.setHp(pokemon.getMaximumHp());
                     }
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "This npc can't heal you", Toast.LENGTH_LONG).show();
                 }
             }

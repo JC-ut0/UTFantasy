@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Make sure that the username and password are valid.
+     *
      * @throws ImproperUserSettingException if username and password are not valid
      */
     private void validateUsernameAndPassword() throws ImproperUserSettingException {
@@ -137,8 +138,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     *If the parameter user has been customized, jump to the MainActivity,
+     * If the parameter user has been customized, jump to the MainActivity,
      * else, the user is registered but not customized, jump to CustomizeActivity to create a new player.
+     *
      * @param user the login user
      */
     private void logInAction(User user) {
