@@ -1,5 +1,7 @@
 package csc207.phase1.UTFantasy.Products;
 
+import androidx.annotation.NonNull;
+
 import csc207.phase1.UTFantasy.R;
 
 public class RedPotion extends Product {
@@ -27,6 +29,8 @@ public class RedPotion extends Product {
         return red;
     }
 
+    @Override
+    @NonNull
     public String toString() {
         return "This is a super potion, it can restore 50 hp.";
     }
