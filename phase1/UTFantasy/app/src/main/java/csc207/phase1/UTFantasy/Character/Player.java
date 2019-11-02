@@ -2,6 +2,7 @@ package csc207.phase1.UTFantasy.Character;
 
 import java.util.HashMap;
 
+import csc207.phase1.UTFantasy.AllSkills.Flamethrower;
 import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.MapManager;
 import csc207.phase1.UTFantasy.NPCManager;
@@ -49,6 +50,7 @@ public class Player extends Person implements Fighter {
     addPokemon(pokemon);
     pokemon = new Charmander();
     pokemon.setLevel(5);
+    pokemon.updateSkills(new Flamethrower(), pokemon.getSkills()[1]);
     addPokemon(pokemon);
     addItem(redPotion, 1);
   }
