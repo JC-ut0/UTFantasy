@@ -10,7 +10,7 @@ public class Thunder extends Skill {
         power = 120;
         effect = "paralyzed";
         pp = 10;
-        type = "electronic";
+        type = "electric";
         name = "Thunder";
     }
 
