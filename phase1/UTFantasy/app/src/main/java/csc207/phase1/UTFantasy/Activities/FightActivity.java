@@ -164,181 +164,181 @@ public class FightActivity extends AppCompatActivity {
     private TextView sixthPokemonHealthInfo;
     private ProgressBar sixthPokemonHealthBar;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    // progress for fight, 5 progress in one round
-    // ================================================================
-    Intent main_intent = getIntent();
-    String username = main_intent.getStringExtra("username");
-    final UserManager userManager = UserManager.getUserManager();
-    User user = userManager.getUser(username);
-    if (user == null) {
-      user = userManager.getUser("12312312");
+        // progress for fight, 5 progress in one round
+        // ================================================================
+        Intent main_intent = getIntent();
+        String username = main_intent.getStringExtra("username");
+        final UserManager userManager = UserManager.getUserManager();
+        User user = userManager.getUser(username);
+        if (user == null) {
+            user = userManager.getUser("12312312");
+        }
+        assert user != null;
+        player = user.getPlayer();
+        assert player != null;
+        pokemonList = player.getPokemonList();
+        assert pokemonList != null;
+        currentPokemon = pokemonList.get(0);
+        assert currentPokemon != null;
+
+        String NPCname = main_intent.getStringExtra("FighterName");
+        NPC npc = player.getNpcManager().getNPC(NPCname);
+        if (npc == null) {
+            npc = new FighterNPC("poor student");
+        }
+        opponent = (FighterNPC) npc;
+        fightManager = new FightManager(player, (FighterNPC) npc);
+        currentRivalPokemon = npc.getPokemonList().get(0);
+
+        initializeLayOuts();
+        updateForPokemonExchange();
+        updateHpBar();
+        informationSection.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startRound();
+                    }
+                });
+
+        // implement menu buttons onClickListener
+        fight.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (currentPokemon.isAlive()) {
+                            menuSection.setVisibility(View.GONE);
+                            battleSection.setVisibility(View.GONE);
+                            fightBox.setVisibility(View.VISIBLE);
+                        } else {
+                            Toast.makeText(
+                                    FightActivity.this, "You can't choose a fainted pokemon.", Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    }
+                });
+
+        // implement skill buttons onClickListener
+        final View.OnClickListener skillClick =
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        switch (view.getId()) {
+                            case R.id.skill_1:
+                                fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[0]);
+                                break;
+                            case R.id.skill_2:
+                                fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[1]);
+                                break;
+                            case R.id.skill_3:
+                                fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[2]);
+                                break;
+                            case R.id.skill_4:
+                                fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[3]);
+                                break;
+                        }
+                        if (fightManager.getSkill() != null) {
+                            fightBox.setVisibility(View.GONE);
+                            battleSection.setVisibility(View.VISIBLE);
+                            fightManager.setRivalSkill();
+                            fightManager.determineTurn();
+                            battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
+                            clickable = true;
+                        }
+                    }
+                };
+        skill_1.setOnClickListener(skillClick);
+        skill_2.setOnClickListener(skillClick);
+        skill_3.setOnClickListener(skillClick);
+        skill_4.setOnClickListener(skillClick);
+
+        // todo: implement Pokemon buttons onClickListener
+        newPokemon.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chooseNewPokemon();
+                        //                                              menuSection.setVisibility(View.GONE);
+                        //                                              battleSection.setVisibility(View.GONE);
+                        //                                              fightBox.setVisibility(View.GONE);
+                        //
+                        // informationSection.setVisibility(View.GONE);
+                        //
+                        // choosePokemon.setVisibility(View.VISIBLE);
+                    }
+                });
+        // implement run buttons onClickListener
+        run.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        endFight();
+                    }
+                });
+        // todo: implement bag buttons onClickListener
+        bag.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chooseNewPokemon();
+                        menuSection.setVisibility(View.GONE);
+                        battleSection.setVisibility(View.GONE);
+                        fightBox.setVisibility(View.GONE);
+                    }
+                });
+        firstPokemonInBag.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Pokemon pokemon = getPokemonFromPlayerPokemonList(0);
+                        changeCurrentPokemon(pokemon);
+                    }
+                });
+        secondPokemonInBag.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Pokemon pokemon = getPokemonFromPlayerPokemonList(1);
+                        changeCurrentPokemon(pokemon);
+                    }
+                });
+        thirdPokemonInBag.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Pokemon pokemon = getPokemonFromPlayerPokemonList(2);
+                        changeCurrentPokemon(pokemon);
+                    }
+                });
+        fourthPokemonInBag.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Pokemon pokemon = getPokemonFromPlayerPokemonList(3);
+                        changeCurrentPokemon(pokemon);
+                    }
+                });
+        fifthPokemonInBag.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Pokemon pokemon = getPokemonFromPlayerPokemonList(4);
+                        changeCurrentPokemon(pokemon);
+                    }
+                });
+        sixthPokemonInBag.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Pokemon pokemon = getPokemonFromPlayerPokemonList(5);
+                        changeCurrentPokemon(pokemon);
+                    }
+                });
     }
-    assert user != null;
-    player = user.getPlayer();
-    assert player != null;
-    pokemonList = player.getPokemonList();
-    assert pokemonList != null;
-    currentPokemon = pokemonList.get(0);
-    assert currentPokemon != null;
-
-    String NPCname = main_intent.getStringExtra("FighterName");
-    NPC npc = player.getNpcManager().getNPC(NPCname);
-    if (npc == null) {
-      npc = new FighterNPC("poor student");
-    }
-    opponent = (FighterNPC) npc;
-    fightManager = new FightManager(player, (FighterNPC) npc);
-    currentRivalPokemon = npc.getPokemonList().get(0);
-
-    initializeLayOuts();
-    updateForPokemonExchange();
-    updateHpBar();
-    informationSection.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            startRound();
-          }
-        });
-
-    // implement menu buttons onClickListener
-    fight.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            if (currentPokemon.isAlive()) {
-              menuSection.setVisibility(View.GONE);
-              battleSection.setVisibility(View.GONE);
-              fightBox.setVisibility(View.VISIBLE);
-            } else {
-              Toast.makeText(
-                      FightActivity.this, "You can't choose a fainted pokemon.", Toast.LENGTH_SHORT)
-                  .show();
-            }
-          }
-        });
-
-    // implement skill buttons onClickListener
-    final View.OnClickListener skillClick =
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            switch (view.getId()) {
-              case R.id.skill_1:
-                fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[0]);
-                break;
-              case R.id.skill_2:
-                fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[1]);
-                break;
-              case R.id.skill_3:
-                fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[2]);
-                break;
-              case R.id.skill_4:
-                fightManager.setSkill(fightManager.getPlayerPokemon().getSkills()[3]);
-                break;
-            }
-            if (fightManager.getSkill() != null) {
-              fightBox.setVisibility(View.GONE);
-              battleSection.setVisibility(View.VISIBLE);
-              fightManager.setRivalSkill();
-              fightManager.determineTurn();
-              battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
-              clickable = true;
-            }
-          }
-        };
-    skill_1.setOnClickListener(skillClick);
-    skill_2.setOnClickListener(skillClick);
-    skill_3.setOnClickListener(skillClick);
-    skill_4.setOnClickListener(skillClick);
-
-    // todo: implement Pokemon buttons onClickListener
-    newPokemon.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            chooseNewPokemon();
-            //                                              menuSection.setVisibility(View.GONE);
-            //                                              battleSection.setVisibility(View.GONE);
-            //                                              fightBox.setVisibility(View.GONE);
-            //
-            // informationSection.setVisibility(View.GONE);
-            //
-            // choosePokemon.setVisibility(View.VISIBLE);
-          }
-        });
-    // implement run buttons onClickListener
-    run.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            endFight();
-          }
-        });
-    // todo: implement bag buttons onClickListener
-    bag.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            chooseNewPokemon();
-            menuSection.setVisibility(View.GONE);
-            battleSection.setVisibility(View.GONE);
-            fightBox.setVisibility(View.GONE);
-          }
-        });
-    firstPokemonInBag.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            Pokemon pokemon = getPokemonFromPlayerPokemonList(0);
-            changeCurrentPokemon(pokemon);
-          }
-        });
-    secondPokemonInBag.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            Pokemon pokemon = getPokemonFromPlayerPokemonList(1);
-            changeCurrentPokemon(pokemon);
-          }
-        });
-    thirdPokemonInBag.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            Pokemon pokemon = getPokemonFromPlayerPokemonList(2);
-            changeCurrentPokemon(pokemon);
-          }
-        });
-    fourthPokemonInBag.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            Pokemon pokemon = getPokemonFromPlayerPokemonList(3);
-            changeCurrentPokemon(pokemon);
-          }
-        });
-    fifthPokemonInBag.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            Pokemon pokemon = getPokemonFromPlayerPokemonList(4);
-            changeCurrentPokemon(pokemon);
-          }
-        });
-    sixthPokemonInBag.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-            Pokemon pokemon = getPokemonFromPlayerPokemonList(5);
-            changeCurrentPokemon(pokemon);
-          }
-        });
-  }
 
     /**
      * Get a pokemon from pokemon list
@@ -402,9 +402,9 @@ public class FightActivity extends AppCompatActivity {
                 updateForPokemonExchange();
             }
 
-      battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
+            battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
+        }
     }
-  }
 
 
     private void updateForPokemonExchange() {
@@ -520,7 +520,9 @@ public class FightActivity extends AppCompatActivity {
             pokemonHealthBar.setMax(0);
             pokemonHealthBar.setProgress(0);
             pokemonHealthInfo.setText("");
+            pokemonHealthBar.setVisibility(View.INVISIBLE);
         } else {
+            pokemonHealthBar.setVisibility(View.VISIBLE);
             pokemonInBag.setBackgroundColor(0x00000000);
             pokemonInBag.setImageDrawable(getResources().getDrawable(pokemon.getProfileID()));
             pokemonHealthBar.setMax(pokemon.getMaximumHp());
