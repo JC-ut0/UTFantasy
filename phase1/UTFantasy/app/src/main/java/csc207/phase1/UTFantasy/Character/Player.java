@@ -46,7 +46,7 @@ public class Player extends Person implements Fighter {
     this.setLocation(5, 5);
     Pokemon pokemon = new Pikachu();
     pokemon.setLevel(5);
-    addPokemon(pokemon);
+//    addPokemon(pokemon);
     pokemon = new Charmander();
     pokemon.setLevel(5);
     addPokemon(pokemon);
@@ -156,10 +156,20 @@ public class Player extends Person implements Fighter {
   }
 
   public void addPokemon(Pokemon pokemon) {
-    if (this.pokemon.size() >= maxSizeOfPokmonList) {
+    if (this.pokemon.size() >= maxSizeOfPokemonList) {
       return;
     }
     this.pokemon.add(pokemon);
     pokemon.setMaster(this);
+  }
+
+  /**
+   *@return true iff there is at least one non-fainted pokemon.
+   */
+  public boolean isFightAble() {
+    for (Pokemon pokemon : getPokemonList()) {
+      if (pokemon.isAlive()) return true;
+    }
+    return false;
   }
 }

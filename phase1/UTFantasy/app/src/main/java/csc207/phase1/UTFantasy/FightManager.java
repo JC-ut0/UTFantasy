@@ -427,7 +427,7 @@ public class FightManager {
                 // and the pokemon after second attack is fainted
                 // used to exchange the pokemon or end the fight
                 text = updateInfo(4);
-                if (continuable) {
+                if (player.isFightAble() && opponent.isFightAble()) {
                     setProgress(0);
                 } else {
                     setProgress(-1);
@@ -481,23 +481,6 @@ public class FightManager {
             // todo: end your round.
         }
     }
-
-    /**
-     * Return whether the fight is end.
-     *
-     * @return whether the fight is end.
-     */
-    public boolean isEnd() {
-        boolean end;
-        for (Pokemon pokemon : player.getPokemonList()) {
-            if (pokemon.isAlive()) return false;
-        }
-        for (Pokemon pokemon : opponent.getPokemonList()) {
-            if (pokemon.isAlive()) return false;
-        }
-        return true;
-    }
-
 
     public void setPlayerPokemon(Pokemon playerPokemon) {
         this.playerPokemon = playerPokemon;

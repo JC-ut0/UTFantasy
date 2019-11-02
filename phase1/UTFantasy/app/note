@@ -123,3 +123,7 @@ make player not able to choose fainted pokemon. End fight when the battle is not
 ########
 # Step 24
 Fix massive bugs possibly occurred during fight.
+
+########
+# Step 25
+Fix even more massive bugs possibly occurred during fight.

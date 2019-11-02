@@ -176,13 +176,13 @@ public class MainActivity extends AppCompatActivity {
         interactFight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (npc.canFight()) {
+                if (npc.canFight() && player.isFightAble()) {
                     Intent intent = new Intent(MainActivity.this, FightActivity.class);
                     intent.putExtra("username", username);
                     intent.putExtra("FighterName", npc.getName());
                     startActivity(intent);
                 } else {
-                    Toast.makeText(MainActivity.this, "You can't fight this npc", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "You can't fight", Toast.LENGTH_LONG).show();
                 }
             }
         });

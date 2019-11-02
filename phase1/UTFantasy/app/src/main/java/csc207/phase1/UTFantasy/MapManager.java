@@ -169,9 +169,10 @@ public class MapManager implements Serializable {
 
     /**
      * add the unitDraw that need to be shown on the screen
+     *
      * @param list the list of unitDraw that need to be iterated through
-     * @param x the x value of player
-     * @param y the y value of player
+     * @param x    the x value of player
+     * @param y    the y value of player
      */
     private void addCurrentScreen(ArrayList<UnitDraw> list, int x, int y) {
         for (UnitDraw unit : list) {
