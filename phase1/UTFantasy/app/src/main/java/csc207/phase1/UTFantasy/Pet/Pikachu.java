@@ -14,7 +14,7 @@ public class Pikachu extends Pokemon {
         type = "electric";
         skills[0] = new QuickAttack();
         skills[1] = new Thunder();
-        profileID = R.drawable.pikachu;
+        profileID = R.drawable.pikachu1;
         pokemonName = "Pikachu";
         base_hp = 35;
         base_attack = 55;
@@ -34,7 +34,7 @@ public class Pikachu extends Pokemon {
     @Override
     public int getProfileID() {
         //The unique profile id for each Pokemon. ID can be used to draw this Pokemon.
-        return R.drawable.pikachu;
+        return R.drawable.pikachu1;
     }
 
 
