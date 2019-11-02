@@ -44,7 +44,6 @@ public class Product implements Serializable {
     }
 
     @Override
-    @NonNull
     public String toString() {
         return "This is a product.";
     }
@@ -56,8 +55,15 @@ public class Product implements Serializable {
         return profileID;
     }
 
+    /**
+     * @param obj  Product instance
+     * @return true if the product name are the same.
+     */
     @Override
     public boolean equals(@Nullable Object obj) {
+        if (!(obj instanceof Product)){
+            return false;
+        }
         return this.hashCode() == obj.hashCode();
     }
 
