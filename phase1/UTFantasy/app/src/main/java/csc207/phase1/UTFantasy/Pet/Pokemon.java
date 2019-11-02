@@ -221,6 +221,10 @@ public abstract class Pokemon implements Serializable {
      */
     public void setLevel(int level) {
         this.level = level;
+        setAttack(calculateStatistic("attack"));
+        setDefense(calculateStatistic("defense"));
+        setSpeed(calculateStatistic("speed"));
+        setHp(calculateStatistic("hp"));
     }
 
     /**

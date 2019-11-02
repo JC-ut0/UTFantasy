@@ -394,15 +394,11 @@ public class FightActivity extends AppCompatActivity {
             if (fightManager.getProgress() == -1) {
                 endFight();
             } else if (fightManager.getProgress() == 0) {
-                updateHpBar();
                 menuSection.setVisibility(View.VISIBLE);
                 clickable = false;
-            } else {
-                updateHpBar();
-                updateForPokemonExchange();
             }
-
-      battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
+            updateForPokemonExchange();
+            battleInfo.setText(fightManager.updateInfo(fightManager.getProgress()));
     }
   }
 

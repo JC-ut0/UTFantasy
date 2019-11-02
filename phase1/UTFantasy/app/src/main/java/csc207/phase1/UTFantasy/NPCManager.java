@@ -10,6 +10,7 @@ import csc207.phase1.UTFantasy.Character.HealerNPC;
 import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.SellerNPC;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
+import csc207.phase1.UTFantasy.Pet.Psyduck;
 import csc207.phase1.UTFantasy.Pet.Squirtle;
 
 public class NPCManager implements Serializable {
@@ -37,6 +38,9 @@ public class NPCManager implements Serializable {
         FighterNPC fighterNPC = new FighterNPC(fighter);
         HealerNPC healerNPC = new HealerNPC(healer);
         Pokemon squirtle = new Squirtle();
+        Pokemon psyduck = new Psyduck();
+        psyduck.setLevel(5);
+        fighterNPC.addPokemon(psyduck);
         squirtle.setLevel(5);
         fighterNPC.addPokemon(squirtle);
         addNPC(seller, sellerNPC);
