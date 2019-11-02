@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import java.io.Serializable;
 
 public class Product implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     /**
      * the name of this product
