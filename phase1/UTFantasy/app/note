@@ -130,4 +130,8 @@ Fix even more massive bugs possibly occurred during fight.
 
 #######
 # Step 26
-Now image of pokemon during fight can be updated correctly
+Now image of pokemon during fight can be updated correctly.
+
+#######
+# Step 27
+Now fight manager can correctly calculate damage.

@@ -193,9 +193,9 @@ public class FightManager {
      */
     private int calculateDMG(Pokemon pokemon, Pokemon rival, Skill skill) {
         // calculate damage without modifier
-        int damage = (2 * pokemon.getLevel() + 10) / 250;
+        double damage = (2 * pokemon.getLevel())/5 + 2;
         damage = damage * pokemon.getAttack() / rival.getDefense();
-        damage = damage * skill.getPower() + 2;
+        damage = ((damage * skill.getPower()) / 50) + 2;
 
         // calculate the modifier
         double random = Math.random() * (1 - 0.85) + 0.85;
@@ -211,7 +211,7 @@ public class FightManager {
         }
         double modifier = random * rate * type * stab;
 
-        return 4 * (int) Math.floor(modifier * damage);
+        return (int) Math.floor(modifier * damage);
     }
 
     /**

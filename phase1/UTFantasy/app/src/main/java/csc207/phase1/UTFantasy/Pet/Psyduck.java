@@ -1,5 +1,6 @@
 package csc207.phase1.UTFantasy.Pet;
 
+import csc207.phase1.UTFantasy.AllSkills.HydroPump;
 import csc207.phase1.UTFantasy.AllSkills.Scratch;
 import csc207.phase1.UTFantasy.R;
 
@@ -9,8 +10,10 @@ public class Psyduck extends Pokemon {
      */
     public Psyduck() {
         super();
+        type = "water";
         pokemonName = "Psyduck";
         skills[0] = new Scratch();
+        skills[1] = new HydroPump();
         profileID = R.drawable.psyduck;
         base_hp = 50;
         base_attack = 58;
