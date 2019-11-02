@@ -195,7 +195,6 @@ public class FightActivity extends AppCompatActivity {
 
         initializeLayOuts();
         updateForPokemonExchange();
-        updateHpBar();
         informationSection.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -519,7 +518,9 @@ public class FightActivity extends AppCompatActivity {
             pokemonHealthBar.setMax(0);
             pokemonHealthBar.setProgress(0);
             pokemonHealthInfo.setText("");
+            pokemonHealthBar.setVisibility(View.INVISIBLE);
         } else {
+            pokemonHealthBar.setVisibility(View.VISIBLE);
             pokemonInBag.setBackgroundColor(0x00000000);
             pokemonInBag.setImageDrawable(getResources().getDrawable(pokemon.getProfileID()));
             pokemonHealthBar.setMax(pokemon.getMaximumHp());
