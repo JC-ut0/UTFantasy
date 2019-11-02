@@ -2,10 +2,8 @@ package csc207.phase1.UTFantasy.Character;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import csc207.phase1.UTFantasy.Pet.Pokemon;
-import csc207.phase1.UTFantasy.Products.Product;
 
 public class Person implements Serializable {
     /**
@@ -29,7 +27,7 @@ public class Person implements Serializable {
     /**
      * pokemons that this person has
      */
-    protected int maxSizeOfPokmonList = 6;
+    protected int maxSizeOfPokemonList = 6;
 
 
     Person(String name) {
@@ -57,7 +55,7 @@ public class Person implements Serializable {
 
     // TODO; set to boolean?
     public void addPokemon(Pokemon pokemon) {
-        if (this.pokemon.size() >= maxSizeOfPokmonList) {
+        if (this.pokemon.size() >= maxSizeOfPokemonList) {
             return;
         }
         this.pokemon.add(pokemon);

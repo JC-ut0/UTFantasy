@@ -193,9 +193,9 @@ public class FightManager {
      */
     private int calculateDMG(Pokemon pokemon, Pokemon rival, Skill skill) {
         // calculate damage without modifier
-        int damage = (2 * pokemon.getLevel() + 10) / 250;
+        double damage = (2 * pokemon.getLevel())/5 + 2;
         damage = damage * pokemon.getAttack() / rival.getDefense();
-        damage = damage * skill.getPower() + 2;
+        damage = ((damage * skill.getPower()) / 50) + 2;
 
         // calculate the modifier
         double random = Math.random() * (1 - 0.85) + 0.85;
@@ -211,7 +211,7 @@ public class FightManager {
         }
         double modifier = random * rate * type * stab;
 
-        return 4 * (int) Math.floor(modifier * damage);
+        return (int) Math.floor(modifier * damage);
     }
 
     /**
@@ -427,7 +427,7 @@ public class FightManager {
                 // and the pokemon after second attack is fainted
                 // used to exchange the pokemon or end the fight
                 text = updateInfo(4);
-                if (continuable) {
+                if (player.isFightAble() && opponent.isFightAble()) {
                     setProgress(0);
                 } else {
                     setProgress(-1);
@@ -481,23 +481,6 @@ public class FightManager {
             // todo: end your round.
         }
     }
-
-    /**
-     * Return whether the fight is end.
-     *
-     * @return whether the fight is end.
-     */
-    public boolean isEnd() {
-        boolean end;
-        for (Pokemon pokemon : player.getPokemonList()) {
-            if (pokemon.isAlive()) return false;
-        }
-        for (Pokemon pokemon : opponent.getPokemonList()) {
-            if (pokemon.isAlive()) return false;
-        }
-        return true;
-    }
-
 
     public void setPlayerPokemon(Pokemon playerPokemon) {
         this.playerPokemon = playerPokemon;

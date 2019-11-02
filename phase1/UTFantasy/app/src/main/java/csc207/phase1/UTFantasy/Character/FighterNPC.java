@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 
 import csc207.phase1.UTFantasy.Interface.Fighter;
 import csc207.phase1.UTFantasy.Map.MapView;
+import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.R;
 
 public class FighterNPC extends NPC implements Fighter {
@@ -19,6 +20,16 @@ public class FighterNPC extends NPC implements Fighter {
      * FighterNPC's ability is Fight.
      */
     void ability(){}
+
+    /**
+     *@return true iff there is at least one non-fainted pokemon.
+     */
+    public boolean isFightAble() {
+        for (Pokemon pokemon : getPokemonList()) {
+            if (pokemon.isAlive()) return true;
+        }
+        return false;
+    }
 
     @Override
     public Bitmap bitmapDraw(MapView mapView) {

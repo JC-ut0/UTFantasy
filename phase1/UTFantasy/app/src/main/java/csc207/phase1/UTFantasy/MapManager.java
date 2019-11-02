@@ -32,14 +32,9 @@ public class MapManager implements Serializable {
     public ArrayList<double[]> blockMap = new ArrayList<>();
 
     /**
-     * the array list that represents the low elements shown on the screen currently
+     * the array list that represents all the elements that should be shown on the screen currently
      */
-    private ArrayList<UnitDraw> currentLow;
-
-    /**
-     * the array list that represents the high elements shown on the screen currently
-     */
-    private ArrayList<UnitDraw> currentHigh;
+    private ArrayList<UnitDraw> currentScreen;
 
     /**
      * the width of the whole map
@@ -141,25 +136,8 @@ public class MapManager implements Serializable {
     }
 
     /**
-     * getter of mapWidth
-     *
-     * @return mapWidth
-     */
-    public int getMapWidth() {
-        return mapWidth;
-    }
-
-    /**
-     * getter of mapHeight
-     *
-     * @return mapHeight
-     */
-    public int getMapHeight() {
-        return mapHeight;
-    }
-
-    /**
-     * return a resized Bitmap with its returned size be widthIndex * heightIndex times the original size
+     * return a resized Bitmap with its returned size be widthIndex * heightIndex times the original
+     * size
      *
      * @param id          the id of this bitmap drawable
      * @param widthIndex  the times that this bitmap's width should be resized by
@@ -175,56 +153,79 @@ public class MapManager implements Serializable {
         return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, false);
     }
 
+    /**
+     * player position is always at the center of the screen update to get all the unitDraw that need
+     * to be drawled on the screen
+     *
+     * @param x the x value of player
+     * @param y the y value of player
+     */
     public void update(int x, int y) {
-        // lawns and grass
-        currentLow = new ArrayList<>();
-        // trees and houses and npc
-        currentHigh = new ArrayList<>();
-        for (UnitDraw unit : lowMap) {
-            if ((x - 2 - width / 2 <= unit.getX()) && (unit.getX() <= x + 2 + width / 2) &&
-                    (y - 2 - height / 2 <= unit.getY()) && (unit.getY() <= y + 2 + height / 2)) {
-                unit.setScreenX(width / 2 + unit.getX() - x);
-                unit.setScreenY(height / 2 + unit.getY() - y);
-                currentLow.add(unit);
-            }
-        }
-        for (UnitDraw unit : highMap) {
-            if ((x - 2 - width / 2 <= unit.getX()) && (unit.getX() <= x + 2 + width / 2) &&
-                    (y - 2 - height / 2 <= unit.getY()) && (unit.getY() <= y + 2 + height / 2)) {
-                unit.setScreenX(width / 2 + unit.getX() - x);
-                unit.setScreenY(height / 2 + unit.getY() - y);
-                currentHigh.add(unit);
-            }
-        }
+        currentScreen = new ArrayList<>();
+        addCurrentScreen(lowMap, x, y);
+        addCurrentScreen(highMap, x, y);
+        addCurrentScreen(npcList, x, y);
+    }
 
-        for (UnitDraw unit : npcList) {
-            if ((x - 2 - width / 2 <= unit.getX()) && (unit.getX() <= x + 2 + width / 2) &&
-                    (y - 2 - height / 2 <= unit.getY()) && (unit.getY() <= y + 2 + height / 2)) {
+    /**
+     * add the unitDraw that need to be shown on the screen
+     *
+     * @param list the list of unitDraw that need to be iterated through
+     * @param x    the x value of player
+     * @param y    the y value of player
+     */
+    private void addCurrentScreen(ArrayList<UnitDraw> list, int x, int y) {
+        for (UnitDraw unit : list) {
+            if ((x - 2 - width / 2 <= unit.getX())
+                    && (unit.getX() <= x + 2 + width / 2)
+                    && (y - 2 - height / 2 <= unit.getY())
+                    && (unit.getY() <= y + 2 + height / 2)) {
                 unit.setScreenX(width / 2 + unit.getX() - x);
                 unit.setScreenY(height / 2 + unit.getY() - y);
-                currentHigh.add(unit);
+                currentScreen.add(unit);
             }
         }
     }
 
-
     public void draw(Canvas canvas) {
 
-        for (UnitDraw unit : currentLow) {
-            canvas.drawBitmap(lawn, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
-        }
-        for (UnitDraw unit : currentHigh) {
-            if (unit.getDraw().equals("tree")) {
-                canvas.drawBitmap(tree, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
-            }
-        }
-        for (UnitDraw unit : npcList) {
-            if (unit.getDraw().equals("fighterNpc")) {
-                canvas.drawBitmap(fightNpc, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
-            } else if (unit.getDraw().equals("sellerNpc")) {
-                canvas.drawBitmap(sellerNpc, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
-            } else if (unit.getDraw().equals("healerNpc")) {
-                canvas.drawBitmap(healerNpc, unit.getScreenX() * MapView.unitWidth, unit.getScreenY() * MapView.unitHeight, null);
+        for (UnitDraw unit : currentScreen) {
+            switch (unit.getDraw()) {
+                case "lawn":
+                    canvas.drawBitmap(
+                            lawn,
+                            unit.getScreenX() * MapView.unitWidth,
+                            unit.getScreenY() * MapView.unitHeight,
+                            null);
+                    break;
+                case "tree":
+                    canvas.drawBitmap(
+                            tree,
+                            unit.getScreenX() * MapView.unitWidth,
+                            unit.getScreenY() * MapView.unitHeight,
+                            null);
+                    break;
+                case "fighterNpc":
+                    canvas.drawBitmap(
+                            fightNpc,
+                            unit.getScreenX() * MapView.unitWidth,
+                            unit.getScreenY() * MapView.unitHeight,
+                            null);
+                    break;
+                case "sellerNpc":
+                    canvas.drawBitmap(
+                            sellerNpc,
+                            unit.getScreenX() * MapView.unitWidth,
+                            unit.getScreenY() * MapView.unitHeight,
+                            null);
+                    break;
+                case "healerNpc":
+                    canvas.drawBitmap(
+                            healerNpc,
+                            unit.getScreenX() * MapView.unitWidth,
+                            unit.getScreenY() * MapView.unitHeight,
+                            null);
+                    break;
             }
         }
         switch (mapView.player.direction) {

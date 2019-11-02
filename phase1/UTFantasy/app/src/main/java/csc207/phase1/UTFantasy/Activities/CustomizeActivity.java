@@ -137,7 +137,7 @@ public class CustomizeActivity extends Activity {
         user.setPlayer(player);
         userManager.saveUserManager(CustomizeActivity.this);
         intent.putExtra("username", username);
-
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         // now go to main activity
         startActivity(intent);
     }

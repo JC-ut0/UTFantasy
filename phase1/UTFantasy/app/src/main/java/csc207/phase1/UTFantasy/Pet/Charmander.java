@@ -9,6 +9,7 @@ public class Charmander extends Pokemon {
      */
     public Charmander() {
         super();
+        type = "fire";
         skills[0] = new Scratch();
         profileID = R.drawable.charmander;
         pokemonName = "Charmander";
