@@ -46,7 +46,7 @@ public class Player extends Person implements Fighter {
     this.setLocation(5, 5);
     Pokemon pokemon = new Pikachu();
     pokemon.setLevel(5);
-//    addPokemon(pokemon);
+    addPokemon(pokemon);
     pokemon = new Charmander();
     pokemon.setLevel(5);
     addPokemon(pokemon);

@@ -1,6 +1,7 @@
 package csc207.phase1.UTFantasy.Pet;
 
 import csc207.phase1.UTFantasy.AllSkills.QuickAttack;
+import csc207.phase1.UTFantasy.AllSkills.Thunder;
 import csc207.phase1.UTFantasy.R;
 
 public class Pikachu extends Pokemon {
@@ -11,6 +12,7 @@ public class Pikachu extends Pokemon {
         // set its first skill to be QuickAttack
         super();
         skills[0] = new QuickAttack();
+        skills[1] = new Thunder();
         profileID = R.drawable.pikachu;
         pokemonName = "Pikachu";
         base_hp = 35;

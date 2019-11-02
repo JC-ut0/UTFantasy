@@ -442,13 +442,20 @@ public class FightActivity extends AppCompatActivity {
      */
     private void updateSkillButton() {
         try {
-            skill_1.setText(currentPokemon.getSkills()[0].getName());
-            skill_2.setText(currentPokemon.getSkills()[1].getName());
-            skill_3.setText(currentPokemon.getSkills()[2].getName());
-            skill_4.setText(currentPokemon.getSkills()[3].getName());
+            updateSkillButton(skill_1,0);
+            updateSkillButton(skill_2,1);
+            updateSkillButton(skill_3,2);
+            updateSkillButton(skill_4,3);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
+
+    private void updateSkillButton(Button button, int i) {
+        Skill skill =  currentPokemon.getSkills()[i];
+        if (skill == null){
+            button.setText(null);
+        }else button.setText(skill.getName());
     }
 
 
@@ -463,7 +470,7 @@ public class FightActivity extends AppCompatActivity {
             Pokemon pokemon;
             try {
                 pokemon = list.get(i);
-            } catch (Exception e) {
+            } catch (IndexOutOfBoundsException e) {
                 pokemon = null;
                 Log.e("Error", Objects.requireNonNull(e.getMessage()));
                 e.printStackTrace();
