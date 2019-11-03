@@ -27,8 +27,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="-1dp"
         android:textSize="25sp"
-        android:textColor="@color/DarkGreen"
-        />
+        android:textColor="@color/DarkGreen" />
 
     <TextView
         android:id="@+id/gender"
@@ -41,8 +40,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="0dp"
         android:textSize="25sp"
-        android:textColor="@color/DarkGreen"
-        />
+        android:textColor="@color/DarkGreen" />
 
     <TextView
         android:id="@+id/profilename"
@@ -54,8 +52,7 @@
         android:layout_toEndOf="@+id/profileimage"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@color/DarkGreen"
-        />
+        android:textColor="@color/DarkGreen" />
 
     <TextView
         android:id="@+id/description"
@@ -68,8 +65,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="-1dp"
         android:textSize="25sp"
-        android:textColor="@color/DarkGreen"
-        />
+        android:textColor="@color/DarkGreen" />
 
     <ImageButton
         android:id="@+id/back_to_main"

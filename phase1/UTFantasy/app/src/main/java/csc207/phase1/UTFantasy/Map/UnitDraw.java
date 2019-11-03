@@ -11,22 +11,22 @@ public class UnitDraw implements Serializable {
     /**
      * the x coordinate of this UnitDraw
      */
-    private float x;
+    private int x;
 
     /**
      * the y coordinate of this UnitDraw
      */
-    private float y;
+    private int y;
 
     /**
      * the x coordinate of this UnitDraw on the screen coordinate system
      */
-    private float screenX;
+    private int screenX;
 
     /**
      * the Y coordinate of this UnitDraw on the screen coordinate system
      */
-    private float screenY;
+    private int screenY;
 
 
     // ======================================================================
@@ -38,7 +38,7 @@ public class UnitDraw implements Serializable {
      * @param x    the x value of this unitDraw
      * @param y    the y value of this unitDraw
      */
-    public UnitDraw(String draw, float x, float y) {
+    public UnitDraw(String draw, int x, int y) {
         this.draw = draw;
         this.x = x;
         this.y = y;
@@ -47,14 +47,14 @@ public class UnitDraw implements Serializable {
     /**
      * @return return the x value of this unitDraw on the screen
      */
-    public float getScreenX() {
+    public int getScreenX() {
         return screenX;
     }
 
     /**
      * @return return the y value of this unitDraw on the screen
      */
-    public float getScreenY() {
+    public int getScreenY() {
         return screenY;
     }
 
@@ -63,7 +63,7 @@ public class UnitDraw implements Serializable {
      *
      * @param screenX the x coordinate of this UnitDraw on the screen coordinate system
      */
-    public void setScreenX(float screenX) {
+    public void setScreenX(int screenX) {
         this.screenX = screenX;
     }
 
@@ -72,21 +72,21 @@ public class UnitDraw implements Serializable {
      *
      * @param screenY the y coordinate of this UnitDraw on the screen coordinate system
      */
-    public void setScreenY(float screenY) {
+    public void setScreenY (int screenY) {
         this.screenY = screenY;
     }
 
     /**
      * @return the x value of this unitDraw in the map coordinate system
      */
-    public float getX() {
+    public int getX() {
         return x;
     }
 
     /**
      * @return the y value of this unitDraw in the map coordinate system
      */
-    public float getY() {
+    public int getY() {
         return y;
     }
 

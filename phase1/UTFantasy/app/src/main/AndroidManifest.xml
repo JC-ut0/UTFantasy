@@ -25,8 +25,7 @@
 
         <activity
             android:name=".Activities.StartUpActivity"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"></activity>
 
         <activity
             android:name=".Activities.CustomizeActivity"

@@ -3,7 +3,7 @@
     android:id="@+id/windows"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/menubackground" >
+    android:background="@drawable/menubackground">
 
 
     <ImageView
@@ -71,8 +71,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="143dp"
         android:contentDescription="purple potion"
-        android:src="@drawable/purple"
-        />
+        android:src="@drawable/purple" />
 
     <TextView
         android:id="@+id/price_purple"

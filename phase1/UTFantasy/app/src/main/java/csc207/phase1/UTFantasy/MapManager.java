@@ -13,29 +13,6 @@ import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.Map.UnitDraw;
 
 public class MapManager implements Serializable {
-
-    /**
-     * the array list of npc unit draw on the map
-     */
-    private ArrayList<UnitDraw> npcList = new ArrayList<>();
-
-    /**
-     * the array list that represents the elements of this map that are at a low height
-     */
-    private ArrayList<UnitDraw> lowMap = new ArrayList<>();
-
-    /**
-     * the array list that represents the elements of this map that are at a high height
-     */
-    private ArrayList<UnitDraw> highMap = new ArrayList<>();
-
-    public ArrayList<double[]> blockMap = new ArrayList<>();
-
-    /**
-     * the array list that represents all the elements that should be shown on the screen currently
-     */
-    private ArrayList<UnitDraw> currentScreen;
-
     /**
      * the width of the whole map
      */
@@ -49,11 +26,34 @@ public class MapManager implements Serializable {
     /**
      * the width of the screen
      */
-    private int width;
+    private int screenWidth;
+
     /**
      * the height of the screen
      */
-    private int height;
+    private int screenHeight;
+
+    /**
+     * the array list of npc unit draw on the map
+     */
+    private ArrayList<UnitDraw> npcList = new ArrayList<>();
+
+    /**
+     * the array list that represents the elements of this map that are at a low height
+     */
+    private String[][] lowMap = new String[mapWidth][mapHeight];
+
+    /**
+     * the array list that represents the elements of this map that are at a high height
+     */
+    private String[][] highMap = new String[mapWidth][mapHeight];
+
+    /**
+     * the array list that represents all the elements that should be shown on the screen currently
+     */
+    private String[][] currentLow;
+
+    private String[][] currentHigh;
 
     /**
      * the map view this map manager manages
@@ -112,11 +112,11 @@ public class MapManager implements Serializable {
      * @param h the height of the map
      */
     public MapManager(int w, int h, MapView mapView) {
-        this.width = w;
-        this.height = h;
+        this.screenWidth = w;
+        this.screenHeight = h;
         this.mapView = mapView;
-        lawn = getBitmap(R.drawable.lawn, (float) 1.5, (float) 1.5);
-        tree = getBitmap(R.drawable.tree, (float) 1.5, (float) 1.5);
+        lawn = getBitmap(R.drawable.lawn, (float) 2, (float) 2);
+        tree = getBitmap(R.drawable.tree, (float) 1.8, (float) 1.8);
         upPlayer = getBitmap(R.drawable.player_up, 1, 1);
         downPlayer = getBitmap(R.drawable.player_down, 1, 1);
         leftPlayer = getBitmap(R.drawable.player_left, 1, 1);
@@ -157,174 +157,166 @@ public class MapManager implements Serializable {
      * player position is always at the center of the screen update to get all the unitDraw that need
      * to be drawled on the screen
      *
-     * @param x the x value of player
-     * @param y the y value of player
+     * @param playerX the x value of player
+     * @param playerY the y value of player
      */
-    public void update(int x, int y) {
-        currentScreen = new ArrayList<>();
-        addCurrentScreen(lowMap, x, y);
-        addCurrentScreen(highMap, x, y);
-        addCurrentScreen(npcList, x, y);
-    }
-
-    /**
-     * add the unitDraw that need to be shown on the screen
-     *
-     * @param list the list of unitDraw that need to be iterated through
-     * @param x    the x value of player
-     * @param y    the y value of player
-     */
-    private void addCurrentScreen(ArrayList<UnitDraw> list, int x, int y) {
-        for (UnitDraw unit : list) {
-            if ((x - 2 - width / 2 <= unit.getX())
-                    && (unit.getX() <= x + 2 + width / 2)
-                    && (y - 2 - height / 2 <= unit.getY())
-                    && (unit.getY() <= y + 2 + height / 2)) {
-                unit.setScreenX(width / 2 + unit.getX() - x);
-                unit.setScreenY(height / 2 + unit.getY() - y);
-                currentScreen.add(unit);
+    public void update(int playerX, int playerY) {
+        currentLow = new String[screenWidth][screenHeight];
+        currentHigh = new String[screenWidth][screenHeight];
+        for (int x = 0; x < screenWidth; x++) {
+            for (int y = 0; y < screenHeight; y++) {
+                try {
+                    if (lowMap[playerX + x - screenWidth / 2][playerY + y - screenHeight / 2] != null) {
+                        currentLow[x][y] = lowMap[playerX + x - screenWidth / 2][playerY + y - screenHeight / 2];
+                    }
+                    if (highMap[playerX + x - screenWidth / 2][playerY + y - screenHeight / 2] != null) {
+                        currentHigh[x][y] = highMap[playerX + x - screenWidth / 2][playerY + y - screenHeight / 2];
+                    }
+                } catch (Exception e) {
+                }
             }
         }
     }
 
     public void draw(Canvas canvas) {
-
-        for (UnitDraw unit : currentScreen) {
-            switch (unit.getDraw()) {
-                case "lawn":
-                    canvas.drawBitmap(
-                            lawn,
-                            unit.getScreenX() * MapView.unitWidth,
-                            unit.getScreenY() * MapView.unitHeight,
-                            null);
-                    break;
-                case "tree":
-                    canvas.drawBitmap(
-                            tree,
-                            unit.getScreenX() * MapView.unitWidth,
-                            unit.getScreenY() * MapView.unitHeight,
-                            null);
-                    break;
-                case "fighterNpc":
-                    canvas.drawBitmap(
-                            fightNpc,
-                            unit.getScreenX() * MapView.unitWidth,
-                            unit.getScreenY() * MapView.unitHeight,
-                            null);
-                    break;
-                case "sellerNpc":
-                    canvas.drawBitmap(
-                            sellerNpc,
-                            unit.getScreenX() * MapView.unitWidth,
-                            unit.getScreenY() * MapView.unitHeight,
-                            null);
-                    break;
-                case "healerNpc":
-                    canvas.drawBitmap(
-                            healerNpc,
-                            unit.getScreenX() * MapView.unitWidth,
-                            unit.getScreenY() * MapView.unitHeight,
-                            null);
-                    break;
+        for (int x = 0; x < screenWidth; x++) {
+            for (int y = 0; y < screenHeight; y++) {
+                if (currentLow[x][y] != null) {
+                    if (currentLow[x][y].equals("lawn")) {
+                        canvas.drawBitmap(
+                                lawn,
+                                x * MapView.unitWidth,
+                                y * MapView.unitHeight,
+                                null);
+                    }
+                }
+            }
+        }
+        for (int y = 0; y < screenHeight; y++) {
+            for (int x = 0; x < screenWidth; x++) {
+                if (currentHigh[x][y] != null) {
+                    switch (currentHigh[x][y]) {
+                        case "tree":
+                            canvas.drawBitmap(
+                                    tree,
+                                    x * MapView.unitWidth,
+                                    y * MapView.unitHeight,
+                                    null);
+                            break;
+                        case "fighterNpc":
+                            canvas.drawBitmap(
+                                    fightNpc,
+                                    x * MapView.unitWidth,
+                                    y * MapView.unitHeight,
+                                    null);
+                            break;
+                        case "sellerNpc":
+                            canvas.drawBitmap(
+                                    sellerNpc,
+                                    x * MapView.unitWidth,
+                                    y * MapView.unitHeight,
+                                    null);
+                            break;
+                        case "healerNpc":
+                            canvas.drawBitmap(
+                                    healerNpc,
+                                    x * MapView.unitWidth,
+                                    y * MapView.unitHeight,
+                                    null);
+                            break;
+                    }
+                }
             }
         }
         switch (mapView.player.direction) {
             case ("down"):
-                canvas.drawBitmap(downPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
+                canvas.drawBitmap(
+                        downPlayer, screenWidth / 2 * MapView.unitWidth, screenHeight / 2 * MapView.unitHeight, null);
                 break;
             case ("up"):
-                canvas.drawBitmap(upPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
+                canvas.drawBitmap(
+                        upPlayer, screenWidth / 2 * MapView.unitWidth, screenHeight / 2 * MapView.unitHeight, null);
                 break;
             case ("left"):
-                canvas.drawBitmap(leftPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
+                canvas.drawBitmap(
+                        leftPlayer, screenWidth / 2 * MapView.unitWidth, screenHeight / 2 * MapView.unitHeight, null);
                 break;
             case ("right"):
-                canvas.drawBitmap(rightPlayer, width / 2 * MapView.unitWidth, height / 2 * MapView.unitHeight, null);
+                canvas.drawBitmap(
+                        rightPlayer, screenWidth / 2 * MapView.unitWidth, screenHeight / 2 * MapView.unitHeight, null);
                 break;
         }
     }
 
     public void mapInitialization() {
         // add low elements
-        for (float a = 0; a < mapWidth; a += 0.75) {
-            for (float b = 0; b < mapHeight; b += 0.75) {
-                lowMap.add(new UnitDraw("lawn", a, b));
+        for (int x = 0; x < mapWidth; x += 1) {
+            for (int y = 0; y < mapHeight; y += 1) {
+                lowMap[x][y] = "lawn";
             }
         }
         // add high elements
-        double[] block;
-        for (float a = 0; a < mapWidth; a += 1.5) {
-            for (float b = 0; b <= 3; b += 1.5) {
-                highMap.add(new UnitDraw("tree", a, b));
+        for (int x = 0; x < mapWidth; x++) {
+            for (int y = 0; y <= 4; y++) {
+                if (x % 2 == 0 && y % 2 == 0) {
+                    highMap[x][y] = "tree";
+                } else {
+                    highMap[x][y] = "treeImage";
+                }
             }
-            for (float b = 97; b <= 100; b += 1.5) {
-                highMap.add(new UnitDraw("tree", a, b));
-            }
-        }
-        block = new double[]{0, mapWidth, 0, 3};
-        blockMap.add(block);
-        block = new double[]{0, mapWidth, 97, 100};
-        blockMap.add(block);
-        for (float b = (float) 4.5; b < 97; b += 1.5) {
-            for (float a = 0; a <= 3; a += 1.5) {
-                highMap.add(new UnitDraw("tree", a, b));
-            }
-            for (float a = 23; a <= 26; a += 1.5) {
-                highMap.add(new UnitDraw("tree", a, b));
-            }
-            for (float a = 101; a <= 104; a += 1.5) {
-                highMap.add(new UnitDraw("tree", a, b));
+            for (int y = 96; y <= 100; y++) {
+                if (x % 2.0 == 0 && y % 2 == 0) {
+                    highMap[x][y] = "tree";
+                } else {
+                    highMap[x][y] = "treeImage";
+                }
             }
         }
-        block = new double[]{0, 3, 4.5, 97};
-        blockMap.add(block);
-        block = new double[]{23, 26, 4, 97};
-        blockMap.add(block);
-        block = new double[]{101, 104, 4, 97};
-        blockMap.add(block);
+        for (int y = 6; y <= 94; y++) {
+            for (int x = 0; x <= 4; x++) {
+                if (x % 2 == 0 && y % 2 == 0) {
+                    highMap[x][y] = "tree";
+                } else {
+                    highMap[x][y] = "treeImage";
+                }
+            }
+            for (int x = 22; x <= 26; x++) {
+                if (x % 2 == 0 && y % 2 == 0) {
+                    highMap[x][y] = "tree";
+                } else {
+                    highMap[x][y] = "treeImage";
+                }
+            }
+            for (int x = 98; x < 104; x++) {
+                if (x % 2 == 0 && y % 2 == 0) {
+                    highMap[x][y] = "tree";
+                } else {
+                    highMap[x][y] = "treeImage";
+                }
+            }
+        }
 
-        npcList.add(new UnitDraw("fighterNpc", 10, 5));
-        npcList.add(new UnitDraw("healerNpc", 15, 5));
-        npcList.add(new UnitDraw("sellerNpc", 5, 5));
+        highMap[5][5] = "fighterNpc";
+        highMap[10][5] = "sellerNpc";
+        highMap[15][5] = "healerNpc";
     }
 
     /**
-     * @return the npc in front of the player, return null if there isn't any npc in front of
-     * the player
+     * @return the npc in front of the player, return null if there isn't any npc in front of the
+     * player
      */
-    public NPC checkAround() {
-        NPC result = null;
+    public String checkForward() {
         int playerX = mapView.player.getX();
         int playerY = mapView.player.getY();
         switch (mapView.player.direction) {
             case "up":
-                result = getNPCAtPosition(playerX, playerY + 1);
-                break;
+                return highMap[playerX][playerY - 1];
             case "down":
-                result = getNPCAtPosition(playerX, playerY - 1);
-                break;
+                return highMap[playerX][playerY + 1];
             case "left":
-                result = getNPCAtPosition(playerX - 1, playerY);
-                break;
+                return highMap[playerX - 1][playerY];
             case "right":
-                result = getNPCAtPosition(playerX + 1, playerY);
-                break;
-        }
-        return result;
-    }
-
-    /**
-     * @param x the x value of the position
-     * @param y the y value of the position
-     * @return npc that is at the position (x,y). Return null if there is no such npc at that position
-     */
-    private NPC getNPCAtPosition(int x, int y) {
-        NPCManager npcManager = mapView.player.getNpcManager();
-        ArrayList<NPC> npcArrayList = npcManager.getNpcArrayList();
-        for (NPC npc : npcArrayList) {
-            if (y - 2 < npc.getY() && npc.getY() < y + 2 && x - 2 < npc.getX() && npc.getX() < x + 2) {
-                return npc;
-            }
+                return highMap[playerX + 1][playerY];
         }
         return null;
     }

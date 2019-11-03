@@ -16,6 +16,7 @@ import csc207.phase1.UTFantasy.Character.NPC;
 import csc207.phase1.UTFantasy.Character.Player;
 import csc207.phase1.UTFantasy.Map.MapView;
 import csc207.phase1.UTFantasy.MapManager;
+import csc207.phase1.UTFantasy.NPCManager;
 import csc207.phase1.UTFantasy.Pet.Pokemon;
 import csc207.phase1.UTFantasy.R;
 import csc207.phase1.UTFantasy.UserManager;
@@ -166,9 +167,13 @@ public class MainActivity extends AppCompatActivity {
         A_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                npc = mapManager.checkAround();
-                if (npc != null) {
-                    interactWindow.setVisibility(View.VISIBLE);
+                String npcName = mapManager.checkForward();
+                if (npcName != null) {
+                    NPCManager npcManager = player.getNpcManager();
+                    NPC npc = npcManager.getNPC(npcName);
+                    if (npc != null) {
+                        interactWindow.setVisibility(View.VISIBLE);
+                    }
                 }
             }
         });
@@ -209,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                         pokemon.setHp(pokemon.getMaximumHp());
                     }
                     Toast.makeText(MainActivity.this, "All Pokemon are healed.", Toast.LENGTH_LONG).show();
-                }else {
+                } else {
                     Toast.makeText(MainActivity.this, "This npc can't heal you", Toast.LENGTH_LONG).show();
                 }
             }
