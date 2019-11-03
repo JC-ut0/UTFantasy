@@ -268,6 +268,7 @@ public abstract class Pokemon implements Serializable {
         for (int i = 0; i < 4; i++) {
             if (skills[i] == removeSkill) {
                 skills[i] = addSkill;
+                break;
             }
         }
     }
