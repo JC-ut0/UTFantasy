@@ -139,3 +139,7 @@ Now fight manager can correctly calculate damage.
 ########
 # Step 28
 Rewrite map as 2d array of String for the sake of better possible walking fps and easier algorithm in the future.
+
+########
+# Step 29
+Fix the bugs that npc are not block-able and not interact-able

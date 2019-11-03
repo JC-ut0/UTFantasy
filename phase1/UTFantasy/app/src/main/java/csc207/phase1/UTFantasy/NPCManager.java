@@ -49,9 +49,9 @@ public class NPCManager implements Serializable {
         npcArrayList.add(sellerNPC);
         npcArrayList.add(fighterNPC);
         npcArrayList.add(healerNPC);
-        sellerNPC.setLocation(5, 5);
-        fighterNPC.setLocation(10, 5);
-        healerNPC.setLocation(15, 5);
+        sellerNPC.setLocation(7, 7);
+        fighterNPC.setLocation(12, 7);
+        healerNPC.setLocation(17, 7);
     }
 
 

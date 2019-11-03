@@ -54,7 +54,7 @@ public class Player extends Person implements Fighter {
         this.money = 1000;
         this.bag = new HashMap<>();
         this.npcManager = new NPCManager();
-        this.setLocation(5, 5);
+        this.setLocation(10, 10);
         Pokemon pokemon = new Pikachu();
         pokemon.setLevel(5);
         addPokemon(pokemon);
@@ -113,21 +113,28 @@ public class Player extends Person implements Fighter {
     }
 
     public void move(String direction, MapManager mapManager) {
-        if (mapManager.checkForward() == null) {
-            switch (direction) {
-                case ("left"):
+        switch (direction) {
+            case ("left"):
+                if (mapManager.checkForward("left") == null) {
                     x -= 1;
-                    break;
-                case ("right"):
+                }
+                break;
+            case ("right"):
+                if (mapManager.checkForward("right") == null) {
                     x += 1;
-                    break;
-                case ("up"):
+                }
+                break;
+            case ("up"):
+                if (mapManager.checkForward("up") == null) {
                     y -= 1;
-                    break;
-                case ("down"):
+                }
+                break;
+            case ("down"):
+                if (mapManager.checkForward("down") == null) {
                     y += 1;
                     break;
-            }
+                }
+                break;
         }
         this.direction = direction;
     }

@@ -203,21 +203,21 @@ public class MapManager implements Serializable {
                                     y * MapView.unitHeight,
                                     null);
                             break;
-                        case "fighterNpc":
+                        case "Professor. P":
                             canvas.drawBitmap(
                                     fightNpc,
                                     x * MapView.unitWidth,
                                     y * MapView.unitHeight,
                                     null);
                             break;
-                        case "sellerNpc":
+                        case "Alice":
                             canvas.drawBitmap(
                                     sellerNpc,
                                     x * MapView.unitWidth,
                                     y * MapView.unitHeight,
                                     null);
                             break;
-                        case "healerNpc":
+                        case "SecondCup":
                             canvas.drawBitmap(
                                     healerNpc,
                                     x * MapView.unitWidth,
@@ -296,19 +296,20 @@ public class MapManager implements Serializable {
             }
         }
 
-        highMap[5][5] = "fighterNpc";
-        highMap[10][5] = "sellerNpc";
-        highMap[15][5] = "healerNpc";
+        // add npc to the map
+        highMap[7][7] = "Professor. P";
+        highMap[12][7] = "Alice";
+        highMap[17][7] = "SecondCup";
     }
 
     /**
      * @return the npc in front of the player, return null if there isn't any npc in front of the
      * player
      */
-    public String checkForward() {
+    public String checkForward(String direction) {
         int playerX = mapView.player.getX();
         int playerY = mapView.player.getY();
-        switch (mapView.player.direction) {
+        switch (direction) {
             case "up":
                 return highMap[playerX][playerY - 1];
             case "down":

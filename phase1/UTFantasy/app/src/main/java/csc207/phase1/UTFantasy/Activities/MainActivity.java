@@ -167,10 +167,10 @@ public class MainActivity extends AppCompatActivity {
         A_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String npcName = mapManager.checkForward();
+                String npcName = mapManager.checkForward(player.getDirection());
                 if (npcName != null) {
                     NPCManager npcManager = player.getNpcManager();
-                    NPC npc = npcManager.getNPC(npcName);
+                    npc = npcManager.getNPC(npcName);
                     if (npc != null) {
                         interactWindow.setVisibility(View.VISIBLE);
                     }
