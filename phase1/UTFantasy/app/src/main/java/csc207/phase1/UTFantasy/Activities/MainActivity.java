@@ -3,6 +3,7 @@ package csc207.phase1.UTFantasy.Activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        LinearLayout mapViewHolder = findViewById(R.id.mapViewHolder);
+        final LinearLayout mapViewHolder = findViewById(R.id.mapViewHolder);
         final LinearLayout interactWindow = findViewById(R.id.interaction_window);
 
         // find all the buttons
@@ -79,49 +80,83 @@ public class MainActivity extends AppCompatActivity {
         Button rightButton = findViewById(R.id.rightButton);
         Button upButton = findViewById(R.id.upButton);
         Button downButton = findViewById(R.id.downButton);
-        Button A_Button = findViewById(R.id.A_Button);
+        final Button A_Button = findViewById(R.id.A_Button);
         Button B_Button = findViewById(R.id.B_Button);
-        Button menuButton = findViewById(R.id.menuButton);
-        Button menuBagButton = findViewById(R.id.menu_bag);
-        Button menu_system = findViewById(R.id.menu_system);
-        Button menuProfileButton = findViewById(R.id.menu_profile);
-        Button menuBackButton = findViewById(R.id.menu_back);
-        Button interactFight = findViewById(R.id.interact_fight);
-        Button interactPurchase = findViewById(R.id.interact_purchase);
-        Button interactHeal = findViewById(R.id.interact_heal);
-        Button interactBack = findViewById(R.id.interact_back);
+        final Button menuButton = findViewById(R.id.menuButton);
+        final Button menuBagButton = findViewById(R.id.menu_bag);
+        final Button menu_system = findViewById(R.id.menu_system);
+        final Button menuProfileButton = findViewById(R.id.menu_profile);
+        final Button menuBackButton = findViewById(R.id.menu_back);
+        final Button interactFight = findViewById(R.id.interact_fight);
+        final Button interactPurchase = findViewById(R.id.interact_purchase);
+        final Button interactHeal = findViewById(R.id.interact_heal);
+        final Button interactBack = findViewById(R.id.interact_back);
 
         final LinearLayout mainButtonHolder = findViewById(R.id.main_menu_holder);
 
         // set onClickListener for the buttons
-        leftButton.setOnClickListener(new View.OnClickListener() {
-                                          @Override
-                                          public void onClick(View view) {
-                                              player.move("left", mapManager);
-                                          }
-                                      }
-        );
-        rightButton.setOnClickListener(new View.OnClickListener() {
-                                           @Override
-                                           public void onClick(View view) {
-                                               player.move("right", mapManager);
-                                           }
-                                       }
-        );
-        upButton.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            player.move("up", mapManager);
-                                        }
-                                    }
-        );
-        downButton.setOnClickListener(new View.OnClickListener() {
-                                          @Override
-                                          public void onClick(View view) {
-                                              player.move("down", mapManager);
-                                          }
-                                      }
-        );
+        final View.OnClickListener moveClick = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mapManager.movementFinished()) {
+                    mapManager.setProgress(1);
+                    switch (view.getId()) {
+                        case R.id.leftButton:
+                            mapManager.setDirection("left");
+                            break;
+                        case R.id.rightButton:
+                            mapManager.setDirection("right");
+                            break;
+                        case R.id.upButton:
+                            mapManager.setDirection("up");
+                            break;
+                        case R.id.downButton:
+                            mapManager.setDirection("down");
+                            break;
+                    }
+                }
+            }
+        };
+        leftButton.setOnClickListener(moveClick);
+        rightButton.setOnClickListener(moveClick);
+        upButton.setOnClickListener(moveClick);
+        downButton.setOnClickListener(moveClick);
+
+        final View.OnTouchListener moveTouchListener = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        if (mapManager.movementFinished()) {
+                            mapManager.setMoving(true);
+                            switch (view.getId()) {
+                                case R.id.leftButton:
+                                    mapManager.setDirection("left");
+                                    break;
+                                case R.id.rightButton:
+                                    mapManager.setDirection("right");
+                                    break;
+                                case R.id.upButton:
+                                    mapManager.setDirection("up");
+                                    break;
+                                case R.id.downButton:
+                                    mapManager.setDirection("down");
+                                    break;
+                            }
+                            break;
+                        }
+                    case MotionEvent.ACTION_UP:
+                        mapManager.setMoving(false);
+                        break;
+                }
+                return true;
+            }
+        };
+        leftButton.setOnTouchListener(moveTouchListener);
+        rightButton.setOnTouchListener(moveTouchListener);
+        upButton.setOnTouchListener(moveTouchListener);
+        downButton.setOnTouchListener(moveTouchListener);
+
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -228,17 +263,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        intent = getIntent();
+        intent =
+
+                getIntent();
+
         username = intent.getStringExtra("username");
-        sharedPreferences = getSharedPreferences(sharedPreFile, MODE_PRIVATE);
+        sharedPreferences =
+
+                getSharedPreferences(sharedPreFile, MODE_PRIVATE);
+
         // if this sharedPreference does not exist, then user.getString("username") should return
         // non null string
         // if the sharedPreference already exists, then intent.getStringExtra return non null string
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", username);
         editor.apply();
-        player = userManager.getUser(username).getPlayer();
-        mapView = new MapView(this, player);
+        player = userManager.getUser(username).
+
+                getPlayer();
+
+        mapView = new
+
+                MapView(this, player);
         mapViewHolder.addView(mapView);
         mapManager = mapView.getMapManager();
     }
