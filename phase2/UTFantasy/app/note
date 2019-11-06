@@ -1,0 +1,145 @@
+########
+# Step 1
+Added note to the project.
+Construct a basic frame of the project.
+Now we have MainThread.
+Activities: MainActivity, StartupActivity(done), LoginActivity(halfWay), CustomizeActivity(halfWay), FightActivity, ShopActivity, MenuActivity.
+Managers: UserManager (more later, FightManager, MenuManager)
+Completed Files: None
+
+########
+# Step 2
+Add and implement MapView.java, MainThread.java, UnitDraw.java. Implement MainActivity.
+
+########
+# Step 3
+Add lawn.png
+
+########
+# Step 4
+Updated LoginActivity, now some exceptions will be caught.
+Updated FightActivity(halfWay)
+
+########
+# Step 5
+Implement walk functionality.
+Rewrite main_activity content form. Now formed as (FrameLayout(RelativeLayout(palette),mapView))
+
+########
+# Step 6
+add basic interaction of fight activity
+
+########
+# Step 7
+User can log in and register, all data will be stored to local (data.text)
+Issue: if User chooses to log in, he will get a new 'ET' player because the data of player is not stored locally.
+
+########
+# Step 8
+Correct fight action under fight activity, now this action can do basic function correctly
+
+########
+# Step 9
+Now we have a unique UserManager!!!!!!
+All data are stored locally! Pleas get User and Player from the unique UserManager!!!!
+Do not use getSerializableExtra any more, unless there is no other solution.
+Call UserManager's save(Context) method if you want to save the data locally!
+
+#######
+# Step 10
+Changed Skill class to interface.
+
+########
+# Step 11
+Draw the player in the middle of the screen, player appearance will change corresponding to the his or her moving direction
+Make the player not able to cross the trees. change the map to a proper size. Add some trees to the map
+
+########
+# Step 12
+Reformat MainActivity content, now the most basic frame layout is written in XML and MapView is added into a linear layout inside the frame layout
+Add a menu button so that user can click on the menu button to check his or her bag or close the menu
+Add button A and B to the MainActivity
+
+########
+# Step 13
+Finish ShopActivity.
+You can buy potions now!
+
+########
+# Step 14
+Create the Menu System. Now we have a Bag menu(pokemons and potions),
+Player information(gender, money and characters'name) and the System Menu(save and logout).
+You can see your little pokenmons and your information Now!
+
+########
+# Step 15
+Change bag to HashMap.
+You can see your little pokemons and your information Now!
+
+#########
+# Step 16
+rewrite fight manager and modify fight activity
+Now the fight activity and fight manager can do a complete loop of fighting system
+
+#########
+# Step 17
+improve fight activity and fight manager. Now the image and health bar of pokemons can be updated correctly
+
+#########
+# Step 18
+Rewrite the UnitDraw, MapManager and MapView so that use a single one bitmap to draw the same image
+Greatly improve the app speed
+Add onResume, onPause, onDestroy to make mainActivity a more complete lifecycle
+
+
+########
+# Step 19
+- Changes to all NPC: all NPC now have two method trade and ability.
+The ability is set to be nothing by default. only fighterNPC and healerNPC have ability right now.
+all npc can "trade", but only salerNPC have the real trade method.
+- Change to NPCManager: NPCManager do not have static method anymore.
+    every player has his own NPCManager to track the npc status.
+    get a npc by finding the player first and then get the npc.
+
+
+########
+# Step 20
+    - Changes location for maps.
+    - Update player class( do not contain MapView anymore).
+    - The game now can be saved automatically.(Everything)
+
+########
+# Step 21
+    - update fight activity, now can exchange pokemon
+
+########
+# Step 22
+add npc and interaction functionality with npc. Now we can interact with 3 types of npc
+
+########
+# Step 23
+make player not able to choose fainted pokemon. End fight when the battle is not continuable
+
+########
+# Step 24
+Fix massive bugs possibly occurred during fight.
+
+########
+# Step 25
+Fix even more massive bugs possibly occurred during fight.
+
+#######
+# Step 26
+Now image of pokemon during fight can be updated correctly.
+
+#######
+# Step 27
+Now fight manager can correctly calculate damage.
+
+########
+# Step 28
+Rewrite map as 2d array of String for the sake of better possible walking fps and easier algorithm in the future.
+
+########
+# Step 29
+Fix the bugs that npc are not block-able and not interact-able

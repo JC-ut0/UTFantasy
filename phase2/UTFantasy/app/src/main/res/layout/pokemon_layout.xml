@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:id="@+id/pokemonimage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/pokemonname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/pokemonimage"
+        android:layout_marginStart="16dp"
+        android:layout_alignTop="@id/pokemonimage"
+        android:text="Name"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/pokemoninfo"
+        android:layout_width="316dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/pokemonname"
+        android:layout_alignStart="@+id/pokemonname"
+        android:layout_alignBottom="@+id/pokemonimage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-2dp"
+        android:text="Description"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        android:textStyle="normal" />
+
+</RelativeLayout>
