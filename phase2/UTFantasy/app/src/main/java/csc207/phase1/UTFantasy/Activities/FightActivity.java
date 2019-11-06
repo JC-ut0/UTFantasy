@@ -392,7 +392,8 @@ public class FightActivity extends AppCompatActivity {
 
     private void startRound() {
         if (fightManager.getProgress() == -1) {
-            endFight();}
+            endFight();
+        }
         if (clickable) {
             if (fightManager.getProgress() == 0) {
                 menuSection.setVisibility(View.VISIBLE);

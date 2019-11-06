@@ -76,7 +76,7 @@ public class MapView extends SurfaceView implements SurfaceHolder.Callback, Seri
 
         width = screenWidth / unitWidth;
         height = screenHeight / unitHeight;
-        mapManager = new MapManager(width, height + 1, this);
+        mapManager = new MapManager(width + 4, height + 4, this);
         mapManager.mapInitialization();
         setFocusable(true);
     }
