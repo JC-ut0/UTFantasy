@@ -143,3 +143,7 @@ Rewrite map as 2d array of String for the sake of better possible walking fps an
 ########
 # Step 29
 Fix the bugs that npc are not block-able and not interact-able
+
+########
+# Step 30
+Now movement of player has much better details. Now you can hold the movement button to move constantly. Greatly increase fps.

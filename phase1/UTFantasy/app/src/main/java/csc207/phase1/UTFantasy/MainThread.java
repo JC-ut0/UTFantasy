@@ -44,6 +44,7 @@ public class MainThread extends Thread {
                 canvas = surfaceHolder.lockCanvas();
                 mapView.update();
                 mapView.draw(canvas);
+                sleep(30);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -56,6 +57,7 @@ public class MainThread extends Thread {
 
     /**
      * Check if the thread is running.
+     *
      * @return true if the thread is running, false otherwise.
      */
     public boolean getRunning() {

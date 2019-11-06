@@ -42,6 +42,9 @@ public class Player extends Person implements Fighter {
 
     protected HashMap<Product, Integer> bag;
 
+
+    // =======================================================================
+
     /**
      * construct a new player
      *
@@ -112,33 +115,6 @@ public class Player extends Person implements Fighter {
         return gender;
     }
 
-    public void move(String direction, MapManager mapManager) {
-        switch (direction) {
-            case ("left"):
-                if (mapManager.checkForward("left") == null) {
-                    x -= 1;
-                }
-                break;
-            case ("right"):
-                if (mapManager.checkForward("right") == null) {
-                    x += 1;
-                }
-                break;
-            case ("up"):
-                if (mapManager.checkForward("up") == null) {
-                    y -= 1;
-                }
-                break;
-            case ("down"):
-                if (mapManager.checkForward("down") == null) {
-                    y += 1;
-                    break;
-                }
-                break;
-        }
-        this.direction = direction;
-    }
-
     public int getMoney() {
         return money;
     }
@@ -153,6 +129,10 @@ public class Player extends Person implements Fighter {
 
     public String getDirection() {
         return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 
     public void addPokemon(Pokemon pokemon) {
