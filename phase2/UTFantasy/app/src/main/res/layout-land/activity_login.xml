@@ -8,6 +8,15 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp">
 
+    <CheckBox
+        android:id="@+id/remember_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_log"
+        android:layout_alignStart="@+id/btn_log"
+        android:layout_alignEnd="@+id/btn_log"
+        android:text="@string/remember_password" />
+
     <LinearLayout
         android:id="@+id/linearlayout"
         android:layout_width="500dp"
@@ -68,6 +77,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="44dp"
-        android:background="@drawable/utfantasylogo" />
+        android:background="@drawable/utfantasylogo"
+        android:contentDescription="@string/logo_of_utfantasy" />
 
 </RelativeLayout>

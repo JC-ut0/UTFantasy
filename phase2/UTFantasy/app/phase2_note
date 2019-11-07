@@ -2,3 +2,10 @@
 # Step 1
     - Copy all files to phase2 directory, and renamed some file from .phase1. to .phase2.
     - Created phase2_note.txt and phase2_TODO.txt for later notes.
+
+#########
+# Step 2
+Files affected: LoginActivity.java, activity_login.xml
+New feature: Remember password, and full screen activity.
+            - now if the user selects remember password, his password and username will be stored
+            for his next login.
