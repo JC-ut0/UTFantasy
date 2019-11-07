@@ -1,10 +1,15 @@
 package csc207.phase2.UTFantasy.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -33,13 +38,28 @@ public class LoginActivity extends AppCompatActivity {
      */
     private String accountStr, passwordStr;
 
+    /**
+     *  a checkbox shows whether this user want to remember his password.
+     */
+    private CheckBox rememberPssword;
+
+    /**
+     *  SharedPreferences
+     */
+    private SharedPreferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.v("TAG", "Logging");
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         account = findViewById(R.id.account);
         pwd = findViewById(R.id.pwd);
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+        rememberPssword = findViewById(R.id.remember_password);
+        loadPassword();
         final Button btn_log = findViewById(R.id.btn_log);
         final Button btn_register = findViewById(R.id.btn_register);
 
@@ -56,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
+                rememberPassword();
                 // login if
                 User user = userManager.login(accountStr, passwordStr);
                 if (user == null) {
@@ -79,6 +100,33 @@ public class LoginActivity extends AppCompatActivity {
                                             }
                                         }
         );
+    }
+
+    /**
+     *  If the user selects remember password, his password and username will be stored for his
+     *  next login.
+     */
+    private void rememberPassword() {
+        // Save to sharedPreference
+        SharedPreferences.Editor editor = pref.edit();
+        if (rememberPssword.isChecked()){
+            editor.putBoolean("remember_password", true);
+            editor.putString("account", accountStr);
+            editor.putString("pwd", passwordStr);
+        }else editor.clear();
+        editor.apply();
+    }
+
+    /**
+     *  If the user selected remember password last time, his user name and password will be loaded.
+     */
+    private void loadPassword() {
+        boolean isRemeber = pref.getBoolean("remember_password",false);
+        if (isRemeber){
+            account.setText(pref.getString("account",""));
+            pwd.setText(pref.getString("pwd",""));
+            rememberPssword.setChecked(true);
+        }
     }
 
     /**

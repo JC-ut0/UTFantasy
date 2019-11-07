@@ -7,5 +7,7 @@
     <string name="save">Save</string>
     <string name="menu">MENU</string>
     <string name="logout" />
-    <string name="mybag">MY BAG</string>/>
+    <string name="mybag">MY BAG</string>
+    <string name="remember_password">remember password</string>
+    <string name="logo_of_utfantasy">logo of UTFantasy</string>/>
 </resources>
