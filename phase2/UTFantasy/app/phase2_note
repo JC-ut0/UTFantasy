@@ -2,3 +2,8 @@
 # Step 1
     - Copy all files to phase2 directory, and renamed some file from .phase1. to .phase2.
     - Created phase2_note.txt and phase2_TODO.txt for later notes.
+#########
+# Step 2
+    - Code affected: MapManager.mapInitialization()
+    - Flaw: Some of "treeImage" are missing in the highMap.
+    - Fix: Add missing "treeImage" to the highMap.

@@ -455,7 +455,7 @@ public class MapManager implements Serializable {
         }
         // add high elements
         for (int x = 0; x < mapWidth; x++) {
-            for (int y = 0; y <= 4; y++) {
+            for (int y = 0; y <= 5; y++) {
                 if (x % 2 == 0 && y % 2 == 0) {
                     highMap[x][y] = "tree";
                 } else {
@@ -470,7 +470,7 @@ public class MapManager implements Serializable {
                 }
             }
         }
-        for (int y = 6; y <= 94; y++) {
+        for (int y = 6; y <= 95; y++) {
             for (int x = 0; x <= 4; x++) {
                 if (x % 2 == 0 && y % 2 == 0) {
                     highMap[x][y] = "tree";
