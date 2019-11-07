@@ -15,3 +15,7 @@ New feature: Remember password, and full screen activity.
 Code affected: MapManager.mapInitialization()
 Flaw: Some of "treeImage" are missing in the highMap.
 Fix: Add missing "treeImage" to the highMap.
+
+#########
+# Step 4 File affected: Person.java, Player.java
+ Rename pokemon to pokemonList, since this variable refers to an ArrayList.

@@ -135,10 +135,10 @@ public class Player extends Person implements Fighter {
     }
 
     public void addPokemon(Pokemon pokemon) {
-        if (this.pokemon.size() >= maxSizeOfPokemonList) {
+        if (this.pokemonList.size() >= maxSizeOfPokemonList) {
             return;
         }
-        this.pokemon.add(pokemon);
+        this.pokemonList.add(pokemon);
         pokemon.setMaster(this);
     }
 

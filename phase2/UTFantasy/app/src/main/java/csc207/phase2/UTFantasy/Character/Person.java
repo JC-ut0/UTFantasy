@@ -22,8 +22,8 @@ public class Person implements Serializable {
     /**
      * pokemons that this person has
      */
-    // todo: change name to pokemonList
-    protected ArrayList<Pokemon> pokemon;
+
+    protected ArrayList<Pokemon> pokemonList;
     /**
      * pokemons that this person has
      */
@@ -32,7 +32,7 @@ public class Person implements Serializable {
 
     Person(String name) {
         this.name = name;
-        this.pokemon = new ArrayList<>();
+        this.pokemonList = new ArrayList<>();
     }
 
     public String getName() {
@@ -56,15 +56,15 @@ public class Person implements Serializable {
     }
 
     public ArrayList<Pokemon> getPokemonList() {
-        return pokemon;
+        return pokemonList;
     }
 
     // TODO; set to boolean?
     public void addPokemon(Pokemon pokemon) {
-        if (this.pokemon.size() >= maxSizeOfPokemonList) {
+        if (this.pokemonList.size() >= maxSizeOfPokemonList) {
             return;
         }
-        this.pokemon.add(pokemon);
+        this.pokemonList.add(pokemon);
         pokemon.setMaster(this);
     }
 
