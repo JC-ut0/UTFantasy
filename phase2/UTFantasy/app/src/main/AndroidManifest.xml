@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="csc207.phase1.UTFantasy">
+    package="csc207.phase2.UTFantasy">
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".Activities.LoginActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.LoginActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,15 +24,17 @@
         </activity>
 
         <activity
-            android:name=".Activities.StartUpActivity"
-            android:screenOrientation="landscape"></activity>
+            android:name="csc207.phase2.UTFantasy.Activities.StartUpActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
 
         <activity
-            android:name=".Activities.CustomizeActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.CustomizeActivity"
             android:screenOrientation="landscape" />
 
         <activity
-            android:name=".Activities.MainActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
@@ -40,34 +42,34 @@
 
 
         <activity
-            android:name=".Activities.FightActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.FightActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
         <activity
-            android:name=".Activities.PlayerInfoActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
-
-        <activity
-            android:name=".Activities.ShopActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.PlayerInfoActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
 
         <activity
-            android:name=".Activities.MenuActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.ShopActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
 
         <activity
-            android:name=".Activities.SystemActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.MenuActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+
+        <activity
+            android:name="csc207.phase2.UTFantasy.Activities.SystemActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
