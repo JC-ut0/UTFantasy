@@ -17,5 +17,12 @@ Flaw: Some of "treeImage" are missing in the highMap.
 Fix: Add missing "treeImage" to the highMap.
 
 #########
-# Step 4 File affected: Person.java, Player.java
+# Step 4
+File affected: Person.java, Player.java
  Rename pokemon to pokemonList, since this variable refers to an ArrayList.
+
+ #########
+ # Step 5
+ File added: README
+ File affected: all files
+ Created README file, Reformat for all files.

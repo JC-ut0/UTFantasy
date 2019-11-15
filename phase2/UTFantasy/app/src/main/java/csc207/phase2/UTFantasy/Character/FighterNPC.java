@@ -10,30 +10,27 @@ import csc207.phase2.UTFantasy.R;
 
 public class FighterNPC extends NPC implements Fighter {
 
-    public static Bitmap bitmapFighterNPC;
-    public FighterNPC(String name) {
-        super(name);
-        fightable = true;
-    }
+  public static Bitmap bitmapFighterNPC;
 
-    /**
-     * FighterNPC's ability is Fight.
-     */
-    void ability(){}
+  public FighterNPC(String name) {
+    super(name);
+    fightable = true;
+  }
 
-    /**
-     *@return true iff there is at least one non-fainted pokemon.
-     */
-    public boolean isFightAble() {
-        for (Pokemon pokemon : getPokemonList()) {
-            if (pokemon.isAlive()) return true;
-        }
-        return false;
-    }
+  /** FighterNPC's ability is Fight. */
+  void ability() {}
 
-    @Override
-    public Bitmap bitmapDraw(MapView mapView) {
-        bitmapFighterNPC = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.professor);
-        return bitmapFighterNPC;
+  /** @return true iff there is at least one non-fainted pokemon. */
+  public boolean isFightAble() {
+    for (Pokemon pokemon : getPokemonList()) {
+      if (pokemon.isAlive()) return true;
     }
+    return false;
+  }
+
+  @Override
+  public Bitmap bitmapDraw(MapView mapView) {
+    bitmapFighterNPC = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.professor);
+    return bitmapFighterNPC;
+  }
 }
