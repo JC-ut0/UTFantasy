@@ -9,19 +9,22 @@ public class Pikachu extends Pokemon {
   public Pikachu() {
     // set its first skill to be QuickAttack
     super();
-    type = "electric";
+    setType1("electric");
     skills[0] = new QuickAttack();
     skills[1] = new Thunder();
-    profileID = R.drawable.pikachu1;
-    pokemonName = "Pikachu";
-    base_hp = 35;
-    base_attack = 55;
-    base_defense = 30;
-    base_speed = 90;
+    setProfileID(R.drawable.pikachu1);
+    setPokemonName("Pikachu");
+    setBaseHp(35);
+    setBaseAttack(55);
+    setBaseDefense(30);
+    setBaseSpeed(90);
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
     setSpeed(calculateStatistic("speed"));
     setHp(calculateStatistic("hp"));
+    setGrowType("quick");
+    setExpToLevelUp(calculateExpToLevelUp());
+    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
   }
 
   /**

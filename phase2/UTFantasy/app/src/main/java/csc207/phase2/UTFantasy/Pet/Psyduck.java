@@ -8,19 +8,23 @@ public class Psyduck extends Pokemon {
   /** Constructor of a Psyduck. */
   public Psyduck() {
     super();
-    type = "water";
-    pokemonName = "Psyduck";
+    setType1("water");
+    setPokemonName("Psyduck");
     skills[0] = new Scratch();
     skills[1] = new HydroPump();
-    profileID = R.drawable.psyduck;
-    base_hp = 50;
-    base_attack = 58;
-    base_defense = 48;
-    base_speed = 55;
+    setProfileID(R.drawable.psyduck);
+    setBaseHp(50);
+    setBaseAttack(58);
+    setBaseDefense(48);
+    setBaseSpeed(55);
     setHp(calculateStatistic("hp"));
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
     setSpeed(calculateStatistic("speed"));
+    setGrowType("quick");
+    setExpToLevelUp(calculateExpToLevelUp());
+    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
+    setLevelToEvolve(33);
   }
 
   /**

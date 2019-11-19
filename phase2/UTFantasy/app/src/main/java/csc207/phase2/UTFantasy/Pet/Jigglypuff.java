@@ -7,18 +7,21 @@ public class Jigglypuff extends Pokemon {
   /** Constructor of a Jigglypuff. */
   public Jigglypuff() {
     super();
-    type = "normal";
+    setType1("normal");
     skills[0] = new Pound();
-    profileID = R.drawable.jigglypuff;
-    pokemonName = "Jigglypuff";
-    base_hp = 115;
-    base_attack = 45;
-    base_defense = 25;
-    base_speed = 20;
+    setProfileID(R.drawable.jigglypuff);
+    setPokemonName("Jigglypuff");
+    setBaseHp(115);
+    setBaseAttack(45);
+    setBaseDefense(25);
+    setBaseSpeed(20);
     setHp(calculateStatistic("hp"));
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
     setSpeed(calculateStatistic("speed"));
+    setGrowType("quick");
+    setExpToLevelUp(calculateExpToLevelUp());
+    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
   }
 
   /**

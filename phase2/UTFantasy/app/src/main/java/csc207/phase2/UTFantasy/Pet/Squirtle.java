@@ -7,18 +7,22 @@ public class Squirtle extends Pokemon {
   /** Constructor of a Squirtle. */
   public Squirtle() {
     super();
-    type = "water";
-    pokemonName = "Squirtle";
+    setType1("water");
+    setPokemonName("Squirtle");
     skills[0] = new Tackle();
-    profileID = R.drawable.squirtle;
-    base_hp = 44;
-    base_attack = 48;
-    base_defense = 65;
-    base_speed = 43;
+    setProfileID(R.drawable.squirtle);
+    setBaseHp(44);
+    setBaseAttack(48);
+    setBaseDefense(65);
+    setBaseSpeed(43);
     setHp(calculateStatistic("hp"));
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
     setSpeed(calculateStatistic("speed"));
+    setGrowType("quick");
+    setExpToLevelUp(calculateExpToLevelUp());
+    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
+    setLevelToEvolve(16);
   }
 
   /**

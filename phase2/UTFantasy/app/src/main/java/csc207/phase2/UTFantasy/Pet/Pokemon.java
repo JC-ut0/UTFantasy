@@ -9,115 +9,229 @@ import csc207.phase2.UTFantasy.AllSkills.Skill;
 import csc207.phase2.UTFantasy.Character.Person;
 
 public abstract class Pokemon implements Serializable {
-
+  /** the name of the Pokemon */
+  protected String pokemonName;
+  /** The first type of this pokemon */
+  protected String type1;
+  /** The second type of this pokemon */
+  protected String type2;
+  /** Level growing type */
+  protected String growType;
+  /** The unique profile id for each Pokemon. ID can be used to draw this Pokemon. */
+  protected int profileID;
+  /** Base stat of hp */
+  protected int baseHp;
+  /** Base stat of attack */
+  protected int baseAttack;
+  /** Base stat of defense */
+  protected int baseDefense;
+  /** Base stat of speed */
+  protected int baseSpeed;
+  /** level of the Pokemon */
+  protected int level;
+  /** the value of level when the Pokemon will be able to evolve */
+  protected int levelToEvolve;
+  /** total experience points the pokemon has */
+  protected int totalExp;
+  /** the value of experience the Pokemon has at the current level */
+  protected int expAtCurrentLevel;
+  /** the value of experience the Pokemon needs to level up */
+  protected int expToLevelUp;
+  /** person that the Pokemon belongs to */
+  protected Person master;
+  /** the health point of the Pokemon */
+  protected int hp;
   /** the attack of this pokemon */
   protected int attack;
-  /** health point of this pokemonList */
-  protected int hp;
-  /** The list of types of this pokemon */
-  protected String type;
-  /** Level growing type */
-  protected String grow_type;
-  /** names of a certain Pokemon */
-  String pokemonName;
-  /** skills this pokemonList have there are four different skills */
-  Skill[] skills;
-  /** The unique profile id for each Pokemon. ID can be used to draw this Pokemon. */
-  int profileID;
-  /** Base stat of hp */
-  int base_hp;
-  /** Base stat of attack */
-  int base_attack;
-  /** Base stat of defense */
-  int base_defense;
-  /** Base stat of speed */
-  int base_speed;
-  /** level of this pokemonList */
-  private int level;
-  /** status of this pokemonList */
-  private String status;
   /** the defense of this pokemon */
-  private int defense;
-  /** experience this pokemonList has */
-  private int exp;
-  /** person that this pokemonList belongs to */
-  private Person master;
-  /** Speed determines */
-  private int speed;
+  protected int defense;
+  /** the speed of this pokemon */
+  protected int speed;
   /** Individual value of hp */
-  private int iv_hp;
+  protected int ivHp;
   /** Individual value of attack */
-  private int iv_attack;
+  protected int ivAttack;
   /** Individual value of defense */
-  private int iv_defense;
+  protected int ivDefense;
   /** Individual value of speed */
-  private int iv_speed;
+  protected int ivSpeed;
   /** Maximum health point */
-  private int maximumHp;
+  protected int maximumHp;
+  /** skills the Pokemon have there are four different skills */
+  protected Skill[] skills;
 
   /** Constructor of Pokemon. */
   Pokemon() {
     level = 1;
-    exp = 0;
+    totalExp = 0;
     skills = new Skill[4];
     Random r = new Random();
-    iv_hp = r.nextInt(32);
-    iv_attack = r.nextInt(32);
-    iv_defense = r.nextInt(32);
-    iv_speed = r.nextInt(32);
+    ivHp = r.nextInt(32);
+    ivAttack = r.nextInt(32);
+    ivDefense = r.nextInt(32);
+    ivSpeed = r.nextInt(32);
   }
 
   /**
-   * calculate the value of a statType of a pokemon.
+   * Get the name of the Pokemon.
    *
-   * @param statType the type of statistic of pokemon will calculate.
-   * @return the value of responding statistic.
+   * @return a String which is the Pokemon's name.
    */
-  public int calculateStatistic(String statType) {
-    switch (statType) {
-      case "attack":
-        {
-          float base = ((base_attack + iv_attack) * 2 * level) / 100;
-          return (int) Math.floor(base) + 5;
-        }
-      case "defense":
-        {
-          float base = ((base_defense + iv_defense) * 2 * level) / 100;
-          return (int) Math.floor(base) + 5;
-        }
-      case "speed":
-        {
-          float base = ((base_speed + iv_speed) * 2 * level) / 100;
-          return (int) Math.floor(base) + 5;
-        }
-      case "hp":
-        {
-          float base = ((base_hp + iv_hp) * 2 * level) / 100;
-          hp = (int) Math.floor(base) + level + 10;
-          setMaximumHp(hp);
-          return hp;
-        }
-      default:
-        return 0;
-    }
+  public String getPokemonName() {
+    return pokemonName;
   }
 
   /**
-   * Get the Individual value of health point of the Pokemon.
+   * Set Pokemon's name.
    *
-   * @return the value of Individual value of health point of the Pokemon.
+   * @param pokemonName the name of Pokemon to set.
    */
-  public int getIv_hp() {
-    return hp;
+  public void setPokemonName(String pokemonName) {
+    this.pokemonName = pokemonName;
   }
 
   /**
-   * Set the Individual value of health point of the Pokemon.
+   * Get the type1 of the Pokemon.
    *
-   * @param hp the value of Individual value of health point to set.
+   * @return a String which is the type1 of the Pokemon.
    */
-  public void setIv_hp(int hp) {
-    this.hp = hp;
+  public String getType1() {
+    return type1;
+  }
+
+  /**
+   * Set the type1 of the Pokemon.
+   *
+   * @param type1 a String which is the type of Pokemon to set.
+   */
+  public void setType1(String type1) {
+    this.type1 = type1;
+  }
+
+  /**
+   * Get the type2 of the Pokemon.
+   *
+   * @return a String which is the type2 of the Pokemon.
+   */
+  public String getType2() {
+    return type2;
+  }
+
+  /**
+   * Set the type2 of the Pokemon.
+   *
+   * @param type2 a String which is the type of Pokemon to set.
+   */
+  public void setType2(String type2) {
+      this.type2 = type2;
+  }
+
+  /**
+   * Get the grow type of this Pokemon.
+   *
+   * @return a String represents the grow type of this Pokemon.
+   */
+  public String getGrowType() {
+    return growType;
+  }
+
+  /**
+   * Set the grow type of this Pokemon.
+   *
+   * @param growType a String represents the grow type of this Pokemon to be set.
+   */
+  public void setGrowType(String growType) {
+    this.growType = growType;
+  }
+
+  /**
+   * Get the profile ID of the Pokemon.
+   *
+   * @return a integer which is the profile ID of the Pokemon.
+   */
+  public int getProfileID() {
+    return profileID;
+  }
+
+  /**
+   * Set the profile ID for thr pokemon.
+   *
+   * @param profileID the profile ID to be set.
+   */
+  public void setProfileID(int profileID) {
+    this.profileID = profileID;
+  }
+
+  /**
+   * Get the the value of base health point of the Pokemon.
+   *
+   * @return an integer represents the base health point of the Pokemon.
+   */
+  public int getBaseHp() {
+    return baseHp;
+  }
+
+  /**
+   * Set the value of base health point of the Pokemon.
+   *
+   * @param baseHp the value to be set as the base health point of the Pokemon.
+   */
+  public void setBaseHp(int baseHp) {
+    this.baseHp = baseHp;
+  }
+
+  /**
+   * Get the value of base attack of the Pokemon.
+   *
+   * @return an integer represents the base attack of the Pokemon
+   */
+  public int getBaseAttack() {
+    return baseAttack;
+  }
+
+  /**
+   * Set the value of base attack of the Pokemon.
+   *
+   * @param baseAttack the value to be set as the base attack of the Pokemon
+   */
+  public void setBaseAttack(int baseAttack) {
+    this.baseAttack = baseAttack;
+  }
+
+  /**
+   * Get the value of base defense of the Pokemon.
+   *
+   * @return an integer represents the base defense of the Pokemon.
+   */
+  public int getBaseDefense() {
+    return baseDefense;
+  }
+
+  /**
+   * Set the value of base defense of the Pokemon.
+   *
+   * @param baseDefense the value to be set as the base defense of the Pokemon.
+   */
+  public void setBaseDefense(int baseDefense) {
+    this.baseDefense = baseDefense;
+  }
+
+  /**
+   * Get the value of base speed of the Pokemon.
+   *
+   * @return an integer represents the base speed of the Pokemon.
+   */
+  public int getBaseSpeed() {
+    return baseSpeed;
+  }
+
+  /**
+   * Set the value of base speed of the Pokemon.
+   *
+   * @param baseSpeed the value to be set as the base speed of the Pokemon.
+   */
+  public void setBaseSpeed(int baseSpeed) {
+    this.baseSpeed = baseSpeed;
   }
 
   /**
@@ -143,63 +257,86 @@ public abstract class Pokemon implements Serializable {
   }
 
   /**
-   * Get the description of Pokemon's status.
+   * Get the the value of level needed for this Pokemon to evolve.
    *
-   * @return a String which is the description of Pokemon's status.
+   * @return the value of level needed for this Pokemon to evolve.
    */
-  String getStatus() {
-    return status;
+  public int getLevelToEvolve() {
+    return levelToEvolve;
   }
 
   /**
-   * Set the status of Pokemon's status.
+   * Set the value of level to evolve.
    *
-   * @param status the description of Pokemon's status.
+   * @param levelToEvolve the value of level needed for this Pokemon to evolve.
    */
-  public void setStatus(String status) {
-    this.status = status;
+  public void setLevelToEvolve(int levelToEvolve) {
+    this.levelToEvolve = levelToEvolve;
   }
 
   /**
-   * Get the current health point of the Pokemon.
+   * Get the value of Pokemon's current experience point.
    *
-   * @return a integer which is the value of current health point.
+   * @return an integer which is the value of Pokemon's experience point.
    */
-  public int getHp() {
-    return hp;
+  public int getTotalExp() {
+    return totalExp;
   }
 
   /**
-   * Set the hp of the Pokemon.
+   * Set the experience point of the Pokemon.
    *
-   * @param hp the value of health point to set.
+   * @param exp the value of experience point to set.
    */
-  public void setHp(int hp) {
-    this.hp = hp;
+  public void setTotalExp(int exp) {
+    this.totalExp = exp;
   }
 
   /**
-   * Get the skills which the Pokemon currently has.
+   * Add the amount of experience point to this Pokemon.
    *
-   * @return an arrayList of current skills.
+   * @param exp the value of experience to be added.
    */
-  public Skill[] getSkills() {
-    return skills;
-  }
-
-  /**
-   * Replace the removeSkill with addSkill in the Pokemon's skill list.
-   *
-   * @param addSkill the Skill to be added in Pokemon's skill list.
-   * @param removeSkill the Skill to be replaced in Pokemon's skill list.
-   */
-  public void updateSkills(Skill addSkill, Skill removeSkill) {
-    for (int i = 0; i < 4; i++) {
-      if (skills[i] == removeSkill) {
-        skills[i] = addSkill;
-        break;
-      }
+  public void addExp(int exp) {
+    if (this.getLevel() < 100) {
+      this.totalExp += exp;
     }
+  }
+
+  /**
+   * Get the value of experience point this Pokemon currently has at the current level.
+   *
+   * @return the value of experience point Pokemon currently has.
+   */
+  public int getExpAtCurrentLevel() {
+    return expAtCurrentLevel;
+  }
+
+  /**
+   * Set the value of experience point this Pokemon currently has at the current level.
+   *
+   * @param exp the value of experience point to be set.
+   */
+  public void setExpAtCurrentLevel(int exp) {
+    this.expAtCurrentLevel = exp;
+  }
+
+  /**
+   * Get the amount of experience point this Pokemon needs to level up.
+   *
+   * @return the value of exp needs to level up.
+   */
+  public int getExpToLevelUp() {
+    return expToLevelUp;
+  }
+
+  /**
+   * Set the value of experience for this Pokemon to level up.
+   *
+   * @param exp the value of experience to be set.
+   */
+  public void setExpToLevelUp(int exp) {
+    this.expToLevelUp = exp;
   }
 
   /**
@@ -221,66 +358,21 @@ public abstract class Pokemon implements Serializable {
   }
 
   /**
-   * Get the maximum health point of the Pokemon.
+   * Get the current health point of the Pokemon.
    *
-   * @return the value of the maximum health point.
+   * @return a integer which is the value of current health point.
    */
-  public int getMaximumHp() {
-    return maximumHp;
+  public int getHp() {
+    return hp;
   }
 
   /**
-   * Set the value of Pokemon's maximum health point.
+   * Set the hp of the Pokemon.
    *
-   * @param maximumHp the value of maximum health point to set.
+   * @param hp the value of health point to set.
    */
-  public void setMaximumHp(int maximumHp) {
-    this.maximumHp = maximumHp;
-  }
-
-  /**
-   * Get the value of Pokemon's current experience point.
-   *
-   * @return an integer which is the value of Pokemon's experience point.
-   */
-  public int getExp() {
-    return exp;
-  }
-
-  /**
-   * Set the experience point of the Pokemon.
-   *
-   * @param exp the value of exoerience point to set.
-   */
-  public void setExp(int exp) {
-    this.exp = exp;
-  }
-
-  /**
-   * Get the name of the Pokemon.
-   *
-   * @return a String which is the Pokemon's name.
-   */
-  public String getPokemonName() {
-    return pokemonName;
-  }
-
-  /**
-   * Set Pokemon's name.
-   *
-   * @param pokemonName the name of Pokemon to set.
-   */
-  public void setPokemonName(String pokemonName) {
-    this.pokemonName = pokemonName;
-  }
-
-  /**
-   * Get the profile ID of the Pokemon.
-   *
-   * @return a integer which is the profile ID of the Pokemon.
-   */
-  public int getProfileID() {
-    return profileID;
+  public void setHp(int hp) {
+    this.hp = hp;
   }
 
   /**
@@ -320,21 +412,216 @@ public abstract class Pokemon implements Serializable {
   }
 
   /**
-   * Get the type of the Pokemon.
+   * Get the value of speed statistic of the Pokemon.
    *
-   * @return a String which is the type of the Pokemon.
+   * @return an integer which is the value of speed statistic of the Pokemon.
    */
-  public String getType() {
-    return this.type;
+  public int getSpeed() {
+    return speed;
   }
 
   /**
-   * Set the type of the Pokemon.
+   * Set the speed statistic of the Pokemon.
    *
-   * @param type a String which is the type of Pokemon to set.
+   * @param speed the value of speed to set.
    */
-  public void setType(String type) {
-    this.type = type;
+  void setSpeed(int speed) {
+    this.speed = speed;
+  }
+
+  /**
+   * Get the individual value of health point of the Pokemon.
+   *
+   * @return the value of individual value of health point of the Pokemon.
+   */
+  public int getIvHp() {
+    return ivHp;
+  }
+
+  /**
+   * Set the individual value of health point of the Pokemon.
+   *
+   * @param hp the value of individual value of health point to set.
+   */
+  public void setIvHp(int hp) {
+    this.ivHp = hp;
+  }
+
+  /**
+   * Get the individual value of attack of the Pokemon.
+   *
+   * @return the value of individual value of attack of the Pokemon.
+   */
+  public int getIvAttack() {
+    return ivAttack;
+  }
+
+  /**
+   * Set the individual value of attack of the Pokemon.
+   *
+   * @param ivAttack the value to be set as the individual value of attack of the Pokemon.
+   */
+  public void setIvAttack(int ivAttack) {
+    this.ivAttack = ivAttack;
+  }
+
+  /**
+   * Get the individual value of defense of the Pokemon.
+   *
+   * @return the value of individual value of defense of the Pokemon.
+   */
+  public int getIvDefense() {
+    return ivDefense;
+  }
+
+  /**
+   * Set the individual value of attack of the Pokemon.
+   *
+   * @param ivDefense the value to be set as the individual value of attack of the Pokemon.
+   */
+  public void setIvDefense(int ivDefense) {
+    this.ivDefense = ivDefense;
+  }
+
+  /**
+   * Get the individual value of speed of the Pokemon.
+   *
+   * @return the value of individual value of speed of the Pokemon.
+   */
+  public int getIvSpeed() {
+    return ivSpeed;
+  }
+
+  /**
+   * Set the individual value of attack of the Pokemon.
+   *
+   * @param ivSpeed the value to be set as the individual value of attack of the Pokemon.
+   */
+  public void setIvSpeed(int ivSpeed) {
+    this.ivSpeed = ivSpeed;
+  }
+
+  /**
+   * Get the maximum health point of the Pokemon.
+   *
+   * @return the value of the maximum health point.
+   */
+  public int getMaximumHp() {
+    return maximumHp;
+  }
+
+  /**
+   * Set the value of Pokemon's maximum health point.
+   *
+   * @param maximumHp the value of maximum health point to set.
+   */
+  public void setMaximumHp(int maximumHp) {
+    this.maximumHp = maximumHp;
+  }
+
+  /**
+   * Get the skills which the Pokemon currently has.
+   *
+   * @return an arrayList of current skills.
+   */
+  public Skill[] getSkills() {
+    return skills;
+  }
+
+
+
+
+  /**
+   * Get if the Pokemon has a Master or not.
+   *
+   * @return a boolean represent the Pokemon has Master or not.
+   */
+  public boolean hasMaster() {
+    return this.master == null;
+  }
+
+  /**
+   * calculate the value of a statType of a pokemon.
+   *
+   * @param statType the type of statistic of pokemon will calculate.
+   * @return the value of responding statistic.
+   */
+  public int calculateStatistic(String statType) {
+    switch (statType) {
+      case "attack":
+      {
+        float base = ((baseAttack + ivAttack) * 2 * level) / 100;
+        return (int) Math.floor(base) + 5;
+      }
+      case "defense":
+      {
+        float base = ((baseDefense + ivDefense) * 2 * level) / 100;
+        return (int) Math.floor(base) + 5;
+      }
+      case "speed":
+      {
+        float base = ((baseSpeed + ivSpeed) * 2 * level) / 100;
+        return (int) Math.floor(base) + 5;
+      }
+      case "hp":
+      {
+        float base = ((baseHp + ivHp) * 2 * level) / 100;
+        hp = (int) Math.floor(base) + level + 10;
+        setMaximumHp(hp);
+        return hp;
+      }
+      default:
+        return 0;
+    }
+  }
+
+  /**
+   * Calculate the value of experience point this Pokemon currently has at current level.
+   *
+   * @return the value of experience point pokemon currently has.
+   */
+  public int calculateExpAtCurrentLevel() {
+    int exp = this.getTotalExp();
+    int level = this.getLevel();
+    double modifier = 1;
+    if (this.getGrowType().equals("slow")) {
+      modifier = 1.25;
+    }
+    double thisLevelTotalExp = Math.pow(level, 3) * modifier;
+    return (int) Math.floor(exp - thisLevelTotalExp);
+  }
+
+
+  /**
+   * Calculate the value of experience point needed for this pokemon to level up.
+   *
+   * @return the value of experience point needed for this pokemon to level up.
+   */
+  public int calculateExpToLevelUp() {
+    int thisLevel = this.getLevel();
+    double modifier = 1;
+    double thisLevelToTalExp = Math.pow(thisLevel, 3);
+    double nextLevelToTalExp = Math.pow((thisLevel + 1), 3);
+    if (this.getGrowType().equals("slow")) {
+      modifier = 1.25;
+    }
+    double expDistinct = nextLevelToTalExp - thisLevelToTalExp;
+    return (int) Math.floor(modifier * expDistinct);
+  }
+
+  /**
+   * Replace the removeSkill with addSkill in the Pokemon's skill list.
+   *
+   * @param addSkill the Skill to be added in Pokemon's skill list.
+   * @param removeSkill the Skill to be replaced in Pokemon's skill list.
+   */
+  public void updateSkills(Skill addSkill, Skill removeSkill) {
+    for (int i = 0; i < 4; i++) {
+      if (skills[i] == removeSkill) {
+        skills[i] = addSkill;
+        break;
+      }
+    }
   }
 
   /**
@@ -371,23 +658,5 @@ public abstract class Pokemon implements Serializable {
    */
   public boolean isAlive() {
     return hp != 0;
-  }
-
-  /**
-   * Get the value of speed statistic of the Pokemon.
-   *
-   * @return an integer which is the value of speed statistic of the Pokemon.
-   */
-  public int getSpeed() {
-    return speed;
-  }
-
-  /**
-   * Set the speed statistic of the Pokemon.
-   *
-   * @param speed the value of speed to set.
-   */
-  void setSpeed(int speed) {
-    this.speed = speed;
   }
 }

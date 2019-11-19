@@ -7,18 +7,22 @@ public class Charmander extends Pokemon {
   /** Constructor of a Charmander. */
   public Charmander() {
     super();
-    type = "fire";
+    setType1("fire");
     skills[0] = new Scratch();
-    profileID = R.drawable.charmander;
-    pokemonName = "Charmander";
-    base_hp = 39;
-    base_attack = 56;
-    base_defense = 45;
-    base_speed = 65;
+    setProfileID(R.drawable.charmander);
+    setPokemonName("Charmander");
+    setBaseHp(39);
+    setBaseAttack(56);
+    setBaseDefense(45);
+    setBaseSpeed(65);
     setHp(calculateStatistic("hp"));
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
     setSpeed(calculateStatistic("speed"));
+    setGrowType("quick");
+    setExpToLevelUp(calculateExpToLevelUp());
+    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
+    setLevelToEvolve(16);
   }
 
   /**
