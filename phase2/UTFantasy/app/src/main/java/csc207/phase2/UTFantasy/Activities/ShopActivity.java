@@ -12,22 +12,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.ExampleDialog;
-import csc207.phase2.UTFantasy.Products.PinkPotion;
+import csc207.phase2.UTFantasy.Character.SellerNPC;
+import csc207.phase2.UTFantasy.ShopDialog;
+import csc207.phase2.UTFantasy.Products.PotionFactory;
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.Products.PurplePotion;
-import csc207.phase2.UTFantasy.Products.RedPotion;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.UserManager;
 
 /** The activity used to purchase products. */
-public class ShopActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
-  /** The product pinkPotion. */
-  PinkPotion pinkPotion = PinkPotion.getPink();
-  /** The product redPotion. */
-  RedPotion redPotion = RedPotion.getRed();
-  /** The product purplePotion. */
-  PurplePotion purplePotion = PurplePotion.getPurple();
+public class ShopActivity extends AppCompatActivity implements ShopDialog.ExampleDialogListener {
+
+//  /** The product pinkPotion. */
+//  PinkPotion pinkPotion = PinkPotion.getPink();
+//  /** The product redPotion. */
+//  RedPotion redPotion = RedPotion.getRed();
+//  /** The product purplePotion. */
+//  PurplePotion purplePotion = PurplePotion.getPurple();
+  /** A PotionFactory*/
+  PotionFactory potionFactory = new PotionFactory();
   /** The amount of products a player wants to buy. */
   int amount;
   /** which product a player wants to buy */
@@ -41,11 +43,11 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
   /** the name of current user */
   String username;
   /** the amount of money a player has */
-  int moneyLeft;
+  double moneyLeft;
   /** the TextView of money */
   TextView money;
   /** the sellerNPC */
-  NPC sellerNPC;
+  SellerNPC sellerNPC;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +65,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     moneyLeft = player.getMoney();
 
-    sellerNPC = player.getNpcManager().getNPC("Alice");
+    sellerNPC = (SellerNPC) player.getNpcManager().getNPC("Alice");
 
     money = findViewById(R.id.money);
     money.setText(String.valueOf(moneyLeft));
@@ -73,7 +75,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
           public void onClick(View v) {
             // Code here executes on main thread after user presses button
             openDialog();
-            product = redPotion;
+            product = potionFactory.makePotion("red");
           }
         });
 
@@ -82,7 +84,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
           public void onClick(View v) {
             // Code here executes on main thread after user presses button
             openDialog();
-            product = pinkPotion;
+            product = potionFactory.makePotion("pink");
           }
         });
 
@@ -91,7 +93,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
           public void onClick(View v) {
             // Code here executes on main thread after user presses button
             openDialog();
-            product = purplePotion;
+            product = potionFactory.makePotion("purple");
           }
         });
 
@@ -107,9 +109,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-            Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
-            intent.putExtra("username", username);
-            startActivity(intent);
+            navigateToBag();
           }
         });
   }
@@ -119,17 +119,26 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
    * to purchase.
    */
   public void openDialog() {
-    ExampleDialog exampleDialog = new ExampleDialog();
-    exampleDialog.show(getSupportFragmentManager(), "example dialog");
+    ShopDialog shopDialog = new ShopDialog();
+    shopDialog.show(getSupportFragmentManager(), "shop dialog");
   }
 
   /** Apply the text entered by the user to sellerNPC. */
   @Override
   public void applyTexts(String amount) {
     this.amount = Integer.valueOf(amount);
-    String tradeInfo = sellerNPC.trade(player, this.amount, product);
+    sellerNPC.setQuantity(this.amount);
+    sellerNPC.setProduct(product);
+    String tradeInfo = sellerNPC.trade(player);
     Toast.makeText(ShopActivity.this, tradeInfo, Toast.LENGTH_SHORT).show();
     moneyLeft = player.getMoney();
     money.setText(String.valueOf(moneyLeft));
+  }
+
+  /** Navigate to Back. */
+  public void navigateToBag(){
+    Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
+    intent.putExtra("username", username);
+    startActivity(intent);
   }
 }

@@ -8,7 +8,10 @@ import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
 
 public class SellerNPC extends NPC {
-
+  /** quantity of products*/
+  private int quantity;
+  /** Product */
+  private Product product;
   /** Constructor of SellerNPC */
   public SellerNPC(String npcName) {
     super(npcName);
@@ -17,17 +20,14 @@ public class SellerNPC extends NPC {
 
   /**
    * @param player the player with who this seller NPC trades.
-   * @param num the number of products purchased.
-   * @param product the product that player chooses to buy.
    * @return a String
    */
-  @Override
-  public String trade(Player player, int num, Product product) {
-    if (isPlayerAffordable(player, num, product)) {
-      int total = num * product.getPrice();
+  public String trade(Player player) {
+    if (isPlayerAffordable(player, quantity, product)) {
+      int total = quantity * product.getPrice();
       player.setMoney(player.getMoney() - total);
-      player.addItem(product, num);
-      return "You have purchased " + num + " " + product.getName() + "(s)";
+      player.addItem(product, quantity);
+      return "You have purchased " + quantity + " " + product.getName() + "(s)";
     }
     return "You don't have enough money!";
   }
@@ -46,8 +46,12 @@ public class SellerNPC extends NPC {
     return playerMoney >= total;
   }
 
-  @Override
-  public Bitmap bitmapDraw(MapView mapView) {
-    return BitmapFactory.decodeResource(mapView.getResources(), R.drawable.professor);
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
   }
+
+  public void setProduct(Product product) {
+    this.product = product;
+  }
+
 }

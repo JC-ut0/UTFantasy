@@ -10,7 +10,7 @@ import csc207.phase2.UTFantasy.R;
 
 public class FighterNPC extends NPC implements Fighter {
 
-  public static Bitmap bitmapFighterNPC;
+//  public static Bitmap bitmapFighterNPC;
 
   public FighterNPC(String name) {
     super(name);
@@ -26,11 +26,5 @@ public class FighterNPC extends NPC implements Fighter {
       if (pokemon.isAlive()) return true;
     }
     return false;
-  }
-
-  @Override
-  public Bitmap bitmapDraw(MapView mapView) {
-    bitmapFighterNPC = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.professor);
-    return bitmapFighterNPC;
   }
 }

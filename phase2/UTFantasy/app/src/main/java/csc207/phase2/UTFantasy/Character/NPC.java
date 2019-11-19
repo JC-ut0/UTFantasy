@@ -5,13 +5,13 @@ import android.graphics.Bitmap;
 import csc207.phase2.UTFantasy.Map.MapView;
 import csc207.phase2.UTFantasy.Products.Product;
 
-public abstract class NPC extends Person {
+public class NPC extends Person {
   /** if this npc is fight able */
-  protected boolean fightable;
+  boolean fightable;
   /** if this npc can trade */
-  protected boolean tradeable;
+  boolean tradeable;
   /** if this npc can heal */
-  protected boolean healable;
+  boolean healable;
 
   NPC(String name) {
     super(name);
@@ -24,9 +24,9 @@ public abstract class NPC extends Person {
    */
   public void ability(Player player) {}
 
-  public String trade(Player player, int num, Product product) {
-    return "You don't deserve to trade with me.";
-  }
+//  public String trade(Player player, int num, Product product) {
+//    return "You don't deserve to trade with me.";
+//  }
 
   /** @return true if this npc can fight */
   public boolean canFight() {
@@ -43,5 +43,4 @@ public abstract class NPC extends Person {
     return healable;
   }
 
-  public abstract Bitmap bitmapDraw(MapView mapView);
 }

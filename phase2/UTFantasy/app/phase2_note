@@ -26,3 +26,12 @@ File affected: Person.java, Player.java
  File added: README
  File affected: all files
  Created README file, Reformat for all files.
+
+ #########
+ # Step 6
+ File Added: PotionFactory
+ File affected: NPC, SellerNPC, FighterNPC, HealerNPC, ShopActivity, ShopDialog
+ Create a PotionFactory which can be used to create different potions.
+ Delete some unnecessary methods in all NPC classes.
+ Change the method of trade.
+ Rename ShopDialog.

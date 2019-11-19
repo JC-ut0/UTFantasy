@@ -9,7 +9,6 @@ import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.R;
 
 public class HealerNPC extends NPC {
-  public static Bitmap bitmapHealerNPC;
 
   public HealerNPC(String name) {
     super(name);
@@ -30,11 +29,5 @@ public class HealerNPC extends NPC {
         s.setPp(s.getMaximumPp());
       }
     }
-  }
-
-  @Override
-  public Bitmap bitmapDraw(MapView mapView) {
-    bitmapHealerNPC = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.professor);
-    return bitmapHealerNPC;
   }
 }
