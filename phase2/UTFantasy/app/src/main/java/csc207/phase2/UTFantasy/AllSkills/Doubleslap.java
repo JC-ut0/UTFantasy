@@ -9,7 +9,6 @@ public class Doubleslap extends Skill {
     power = 35;
     pp = 10;
     type = "normal";
-    effect = "";
   }
 
   /**

@@ -4,13 +4,11 @@ import androidx.annotation.NonNull;
 
 import java.io.Serializable;
 
-public abstract class Skill implements Serializable {
+public abstract class  Skill implements Serializable {
   /** The maximum amount of times of the Skill could be used. */
   public int maximumPp;
   /** The power of the skill. */
   protected int power;
-  /** The special status of this skill. */
-  protected String effect;
   /** power points of this skill */
   protected int pp;
   /** The type of the skill. */
@@ -64,21 +62,11 @@ public abstract class Skill implements Serializable {
   }
 
   /**
-   * Get the effect of the Skill.
-   *
-   * @return a String which describes the effect of the Skill.
+   * Set the maximumpp of the skill.
+   * @param pp the value to be set.
    */
-  public String getEffect() {
-    return effect;
-  }
-
-  /**
-   * Set the effect of the Skill.
-   *
-   * @param effect a String which describes the effect of the Skill.
-   */
-  public void setEffect(String effect) {
-    this.effect = effect;
+  public void setMaximumPp(int pp) {
+    this.maximumPp = pp;
   }
 
   /**
@@ -88,6 +76,15 @@ public abstract class Skill implements Serializable {
    */
   public String getName() {
     return name;
+  }
+
+  /**
+   * Set the name of the Skill.
+   *
+   * @param name a String to be set as the name of the skill.
+   */
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**

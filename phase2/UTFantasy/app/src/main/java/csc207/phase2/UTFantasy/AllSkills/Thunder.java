@@ -6,7 +6,6 @@ public class Thunder extends Skill {
   /** Constructor of a Thunder Skill. */
   public Thunder() {
     power = 120;
-    effect = "paralyzed";
     pp = 10;
     type = "electric";
     name = "Thunder";

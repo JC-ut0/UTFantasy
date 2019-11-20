@@ -175,7 +175,7 @@ public class FightManager {
     }
     float type = checkType(skill, rival);
     float stab = 1;
-    if (skill.getType().equals(pokemon.getType())) {
+    if (skill.getType().equals(pokemon.getType1()) || skill.getType().equals(pokemon.getType2())) {
       stab = (float) 1.5;
     }
     double modifier = random * rate * type * stab;
@@ -228,8 +228,8 @@ public class FightManager {
   private float checkType(Skill skill, Pokemon rival) {
     float typeIndex = 1;
     if (typeMap.containsKey(skill.getType())
-        && typeMap.get(skill.getType()).containsKey(rival.getType())) {
-      typeIndex = typeMap.get(skill.getType()).get(rival.getType());
+        && typeMap.get(skill.getType()).containsKey(rival.getType1())) {
+      typeIndex = typeMap.get(skill.getType()).get(rival.getType1());
     }
     return typeIndex;
   }
@@ -454,4 +454,20 @@ public class FightManager {
     fainted = false;
     continuable = true;
   }
+
+  /**
+   * Calculate how many Experience the user Pokemon will earned after defeated opponent Pokemon.
+   *
+   * @param opponentPokemon the opponent Pokemon.
+   * @return the value of experience point earned in this battle.
+   */
+  public int calculateExp(Pokemon opponentPokemon){
+    double a = 1;
+    if(opponentPokemon.hasMaster()) {a = 1.5;}
+    double l = opponentPokemon.getLevel();
+    double exp = a * l * 120 / 7;
+    return (int) Math.floor(exp);
+  }
+
+
 }

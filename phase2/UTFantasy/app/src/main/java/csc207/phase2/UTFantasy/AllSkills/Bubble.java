@@ -9,7 +9,6 @@ public class Bubble extends Skill {
     type = "water";
     power = 20;
     pp = 30;
-    effect = "";
   }
 
   /**

@@ -9,7 +9,6 @@ public class WaterGun extends Skill {
     type = "water";
     power = 40;
     pp = 25;
-    effect = "";
   }
 
   /**

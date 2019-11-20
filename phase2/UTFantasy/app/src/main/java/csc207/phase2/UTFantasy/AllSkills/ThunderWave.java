@@ -6,7 +6,6 @@ public class ThunderWave extends Skill {
   /** Constructor of a ThunderWave Skill. */
   public ThunderWave() {
     power = 15;
-    effect = "paralyzed";
     pp = 20;
     type = "electric";
     name = "Thunder Wave";

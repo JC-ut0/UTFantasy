@@ -9,7 +9,6 @@ public class BodySlam extends Skill {
     type = "normal";
     power = 85;
     pp = 15;
-    effect = "paralyzed";
   }
 
   /**
