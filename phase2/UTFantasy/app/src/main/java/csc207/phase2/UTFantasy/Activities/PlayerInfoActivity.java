@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.Map.MainActivity;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.UserManager;
 

@@ -2,27 +2,16 @@ package csc207.phase2.UTFantasy.Character;
 
 import java.util.HashMap;
 
-import csc207.phase2.UTFantasy.AllSkills.Flamethrower;
-import csc207.phase2.UTFantasy.Interface.Fighter;
-import csc207.phase2.UTFantasy.NPCManager;
-import csc207.phase2.UTFantasy.Pet.Charmander;
-import csc207.phase2.UTFantasy.Pet.Pikachu;
-import csc207.phase2.UTFantasy.Pet.Pokemon;
+import csc207.phase2.UTFantasy.Map.Map;
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.Products.RedPotion;
 
-public class Player extends Person implements Fighter {
+public class Player extends Person {
 
-  /** the direction that the player is facing to */
-  public String direction = "down";
-  /** objects in this person's bag */
-  protected HashMap<Product, Integer> bag;
-  /** the npc manager this player belongs to */
-  private NPCManager npcManager;
-  /** the amount this player has */
-  private int money;
-  /** gender of this person */
+  private int x;
+  private int y;
   private String gender;
+  private Map playerMap;
+  private HashMap<Product, Integer> bag;
 
   // =======================================================================
 
@@ -37,59 +26,26 @@ public class Player extends Person implements Fighter {
     this.gender = gender;
     this.money = 1000;
     this.bag = new HashMap<>();
-    this.npcManager = new NPCManager();
-    this.setLocation(10, 10);
-    Pokemon pokemon = new Pikachu();
-    pokemon.setLevel(5);
-    addPokemon(pokemon);
-    pokemon = new Charmander();
-    pokemon.setLevel(5);
-    pokemon.updateSkills(new Flamethrower(), pokemon.getSkills()[1]);
-    addPokemon(pokemon);
-    RedPotion redPotion = RedPotion.getRed();
-    addItem(redPotion, 1);
+    this.setX(10);
+    this.setY(10);
+    this.setDirection("down");
   }
 
-  /** @return the bag of this player */
-  public HashMap<Product, Integer> getBag() {
-    return bag;
+  public int getX() {
+    return x;
   }
 
-  /**
-   * @param item the product that is gonna be added to this player's bag
-   * @param num the number of item that is added to this player's bag
-   */
-  public void addItem(Product item, int num) {
-    if (bag.containsKey(item)) {
-      try {
-        //noinspection ConstantConditions
-        bag.put(item, bag.get(item) + num);
-      } catch (NullPointerException e) {
-        System.out.println("bag does not contain");
-      }
-    } else {
-      bag.put(item, num);
-    }
+  public void setX(int x) {
+    this.x = x;
   }
 
-  //  /**
-  //   * @param product the product that is used
-  //   * @param num the number of product that is used
-  //   */
-  //  public void use(Product product, int num) throws ProductNotEnoughException {
-  //    try {
-  //      bag.put(product, bag.get(product) - num);
-  //    } catch (NullPointerException e) {
-  //      System.out.println("bag does not contain this product");
-  //    }
-  //    // make sure you have enough products
-  //
-  //    if (bag.get(product) < 0) {
-  //      throw new ProductNotEnoughException("number of item is negative");
-  //    } else if (bag.get(product) == 0) {
-  //      bag.remove(product);
-  //    }
-  //  }
+  public int getY() {
+    return y;
+  }
+
+  public void setY(int y) {
+    this.y = y;
+  }
 
   public String getGender() {
     return gender;
@@ -103,31 +59,25 @@ public class Player extends Person implements Fighter {
     this.money = money;
   }
 
-  public NPCManager getNpcManager() {
-    return npcManager;
+  public Map getPlayerMap() {
+    return playerMap;
   }
 
-  public String getDirection() {
-    return direction;
+  public void setPlayerMap(Map map){
+    this.playerMap = map;
   }
 
-  public void setDirection(String direction) {
-    this.direction = direction;
+  public HashMap<Product, Integer> getBag() {
+    return bag;
   }
 
-  public void addPokemon(Pokemon pokemon) {
-    if (this.pokemonList.size() >= maxSizeOfPokemonList) {
-      return;
+  /** add num of item's to the player's bag */
+  public void addItem(Product item, int num) {
+    try {
+      //noinspection ConstantConditions
+      bag.put(item, bag.get(item) + num);
+    } catch (NullPointerException e) {
+      bag.put(item, num);
     }
-    this.pokemonList.add(pokemon);
-    pokemon.setMaster(this);
-  }
-
-  /** @return true iff there is at least one non-fainted pokemon. */
-  public boolean isFightAble() {
-    for (Pokemon pokemon : getPokemonList()) {
-      if (pokemon.isAlive()) return true;
-    }
-    return false;
   }
 }

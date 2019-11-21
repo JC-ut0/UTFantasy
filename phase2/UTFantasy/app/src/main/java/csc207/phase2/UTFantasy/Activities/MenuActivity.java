@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
@@ -82,7 +83,7 @@ public class MenuActivity extends AppCompatActivity {
   private void read_info() {
     // get all the information from the Player's bag
     // First, the pokemon
-    ArrayList<Pokemon> pokemonTemp;
+    List<Pokemon> pokemonTemp;
     pokemonTemp = player.getPokemonList();
     for (Pokemon pokemon : pokemonTemp) {
       pokemons.add(pokemon.getPokemonName());

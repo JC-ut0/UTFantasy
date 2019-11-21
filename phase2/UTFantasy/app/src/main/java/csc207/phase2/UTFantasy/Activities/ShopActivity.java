@@ -63,7 +63,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     moneyLeft = player.getMoney();
 
-    sellerNPC = player.getNpcManager().getNPC("Alice");
+    sellerNPC = player.getPlayerMap().getNpcManager().getNPC("Alice");
 
     money = findViewById(R.id.money);
     money.setText(String.valueOf(moneyLeft));
@@ -127,7 +127,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
   @Override
   public void applyTexts(String amount) {
     this.amount = Integer.valueOf(amount);
-    String tradeInfo = sellerNPC.trade(player, this.amount, product);
+    String tradeInfo = "You bought " + this.amount + " " + product.getName() + "!";
     Toast.makeText(ShopActivity.this, tradeInfo, Toast.LENGTH_SHORT).show();
     moneyLeft = player.getMoney();
     money.setText(String.valueOf(moneyLeft));

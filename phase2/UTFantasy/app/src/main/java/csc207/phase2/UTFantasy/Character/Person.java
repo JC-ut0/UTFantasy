@@ -2,20 +2,15 @@ package csc207.phase2.UTFantasy.Character;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
 public class Person implements Serializable {
-  /** name of this person */
   protected String name;
-  /** first coordinate */
-  protected int x;
-  /** second coordinate */
-  protected int y;
-
-  /** pokemons that this person has */
-  protected ArrayList<Pokemon> pokemonList;
-  /** pokemons that this person has */
+  protected String direction;
+  protected int money;
+  protected List<Pokemon> pokemonList;
   protected int maxSizeOfPokemonList = 6;
 
   Person(String name) {
@@ -27,37 +22,36 @@ public class Person implements Serializable {
     return name;
   }
 
-  public int getX() {
-    return x;
+  public int getMoney() {
+    return money;
   }
 
-  public void setX(int x) {
-    this.x = x;
+  public void setMoney(int money) {
+    this.money = money;
   }
 
-  public int getY() {
-    return y;
+  public String getDirection() {
+    return direction;
   }
 
-  public void setY(int y) {
-    this.y = y;
+  public void setDirection(String direction) {
+    this.direction = direction;
   }
 
-  public ArrayList<Pokemon> getPokemonList() {
+  public void addPokemon(Pokemon pokemon) {
+    if (this.pokemonList.size() < maxSizeOfPokemonList) {
+      this.pokemonList.add(pokemon);
+      pokemon.setMaster(this);
+    }
+  }
+
+  public List<Pokemon> getPokemonList() {
     return pokemonList;
   }
 
-  // TODO; set to boolean?
-  public void addPokemon(Pokemon pokemon) {
-    if (this.pokemonList.size() >= maxSizeOfPokemonList) {
-      return;
+  public void heal(){
+    for (Pokemon pokemon : pokemonList){
+      pokemon.setHp(pokemon.getMaximumHp());
     }
-    this.pokemonList.add(pokemon);
-    pokemon.setMaster(this);
-  }
-
-  public void setLocation(int x, int y) {
-    this.x = x;
-    this.y = y;
   }
 }

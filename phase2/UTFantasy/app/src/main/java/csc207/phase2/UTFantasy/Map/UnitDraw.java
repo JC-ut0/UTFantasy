@@ -6,17 +6,12 @@ public class UnitDraw implements Serializable {
 
   /** the element this unitDraw represents */
   private String draw;
-  /** the x coordinate of this UnitDraw */
-  private int x;
-
-  /** the y coordinate of this UnitDraw */
-  private int y;
 
   /** the x coordinate of this UnitDraw on the screen coordinate system */
-  private int screenX;
+  private float screenX;
 
   /** the Y coordinate of this UnitDraw on the screen coordinate system */
-  private int screenY;
+  private float screenY;
 
   // ======================================================================
 
@@ -24,51 +19,35 @@ public class UnitDraw implements Serializable {
    * construct a new UnitDraw
    *
    * @param draw the element this unitDraw represents
-   * @param x the x value of this unitDraw
-   * @param y the y value of this unitDraw
    */
-  public UnitDraw(String draw, int x, int y) {
+  public UnitDraw(String draw) {
     this.draw = draw;
-    this.x = x;
-    this.y = y;
   }
 
-  /** @return return the x value of this unitDraw on the screen */
-  public int getScreenX() {
+  public float getScreenX() {
     return screenX;
   }
 
-  /**
-   * set the x value of this unitDraw on the screen
-   *
-   * @param screenX the x coordinate of this UnitDraw on the screen coordinate system
-   */
-  public void setScreenX(int screenX) {
+  public void setScreenX(float screenX) {
     this.screenX = screenX;
   }
 
-  /** @return return the y value of this unitDraw on the screen */
-  public int getScreenY() {
+  public float getScreenY() {
     return screenY;
   }
 
-  /**
-   * set the y value of this unitDraw on the screen
-   *
-   * @param screenY the y coordinate of this UnitDraw on the screen coordinate system
-   */
-  public void setScreenY(int screenY) {
+  public void setScreenY(float screenY) {
     this.screenY = screenY;
   }
 
-  /** @return the x value of this unitDraw in the map coordinate system */
-  public int getX() {
-    return x;
+  public static int getUnitWidth() {
+    int unitWidth = 88;
+    return unitWidth;
   }
 
-  /** @return the y value of this unitDraw in the map coordinate system */
-  public int getY() {
-    return y;
+  public static int getUnitHeight() {
+    int unitHeight = 88;
+    return unitHeight;
   }
 
   /** @return the element that this unitDraw represents */
