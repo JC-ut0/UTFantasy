@@ -1,5 +1,8 @@
 package csc207.phase2.UTFantasy.Map;
 
+import android.widget.Toast;
+
+import csc207.phase2.UTFantasy.Activities.LoginActivity;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 
@@ -46,6 +49,7 @@ public class MapController {
           mainActivityModel.trade();
         case "healer":
           mapInteractor.getPlayer().heal();
+          mainActivityModel.popText("You are healed!");
       }
     }
   }

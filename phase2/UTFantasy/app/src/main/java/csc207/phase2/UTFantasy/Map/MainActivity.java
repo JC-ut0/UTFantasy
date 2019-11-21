@@ -8,10 +8,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Activities.FightActivity;
+import csc207.phase2.UTFantasy.Activities.LoginActivity;
 import csc207.phase2.UTFantasy.Activities.MenuActivity;
 import csc207.phase2.UTFantasy.Activities.PlayerInfoActivity;
 import csc207.phase2.UTFantasy.Activities.ShopActivity;
@@ -222,5 +224,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     Intent intent = new Intent(MainActivity.this, ShopActivity.class);
     intent.putExtra("username", username);
     startActivity(intent);
+  }
+
+  @Override
+  public void popText(String text) {
+    Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
   }
 }

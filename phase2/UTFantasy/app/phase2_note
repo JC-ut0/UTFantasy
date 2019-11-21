@@ -1,7 +1,7 @@
 #########
 # Step 1
-    - Copy all files to phase2 directory, and renamed some file from .phase1. to .phase2.
-    - Created phase2_note.txt and phase2_TODO.txt for later notes.
+- Copy all files to phase2 directory, and renamed some file from .phase1. to .phase2.
+- Created phase2_note.txt and phase2_TODO.txt for later notes.
 
 #########
 # Step 2
@@ -19,10 +19,16 @@ Fix: Add missing "treeImage" to the highMap.
 #########
 # Step 4
 File affected: Person.java, Player.java
- Rename pokemon to pokemonList, since this variable refers to an ArrayList.
+Rename pokemon to pokemonList, since this variable refers to an ArrayList.
 
- #########
- # Step 5
- File added: README
- File affected: all files
- Created README file, Reformat for all files.
+#########
+# Step 5
+File added: README
+File affected: all files
+Created README file, Reformat for all files.
+
+#########
+# Step 6
+Package affected: Map
+Flaw: MapManager violates SOLID, refactor the whole map system according to MVP and SOLID. Use
+design patterns as much as possible. Please see the details of whole structure in uml.
