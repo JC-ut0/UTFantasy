@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Map.MainActivity;
+import csc207.phase2.UTFantasy.Products.InfoMediator;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.UserManager;
 
@@ -25,6 +26,8 @@ public class PlayerInfoActivity extends AppCompatActivity {
   UserManager userManager = UserManager.getUserManager();
   /** The name of the current User. */
   String username;
+
+  InfoMediator infoMediator;
 
   /** The stuffs will shown on the activity. */
   ImageView profile;
@@ -43,6 +46,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
     intent = getIntent();
     username = intent.getStringExtra("username");
     player = userManager.getUser(username).getPlayer();
+    infoMediator = new InfoMediator(player);
 
     setBackToMain();
     setCharacter_description();
@@ -61,25 +65,20 @@ public class PlayerInfoActivity extends AppCompatActivity {
   private void setCharacter_gender_and_profile() {
     character_gender = findViewById(R.id.gender);
     profile = findViewById(R.id.profileimage);
-    if (player.getGender().equals("boy")) {
-      profile.setImageResource(R.drawable.charater_male);
-      character_gender.setText("Gender: Male");
-    } else {
-      profile.setImageResource(R.drawable.character_female);
-      character_gender.setText("Gender: Female");
-    }
+    profile.setImageResource(infoMediator.getGenderImage());
+    character_gender.setText(infoMediator.getGender());
   }
 
   /** Set the character's money. */
   private void setMoney() {
     money = findViewById(R.id.money);
-    money.setText("Money: $" + player.getMoney());
+    money.setText(infoMediator.getMoney());
   }
 
   /** Set the character's description. */
   private void setCharacter_description() {
     character_description = findViewById(R.id.description);
-    character_description.setText("This is the character.");
+    character_description.setText(infoMediator.getDescription());
   }
 
   /** Set the Back Button, it will return to the main activity. */

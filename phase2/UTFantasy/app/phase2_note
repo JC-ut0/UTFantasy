@@ -32,3 +32,21 @@ Created README file, Reformat for all files.
 Package affected: Map
 Flaw: MapManager violates SOLID, refactor the whole map system according to MVP and SOLID. Use
 design patterns as much as possible. Please see the details of whole structure in uml.
+
+########
+# Step 7
+Flaw: ArrayList is too specific to construct.
+Fix: Change ArrayList to List.
+
+########
+# Step 8
+File affected: MenuActivity.java, PlayerInfoActivity.java
+Flaw: These activities violate SOLID
+Fix: create a InfoMediator.java, pass the information to the activity. And create ItemAdapter to
+control the action from the activity.
+
+########
+# Step 9
+File affected: PokeSelectActivity.java
+Create a new activity and the following java class. Now we can select pokemons at the beginning of
+a fight.

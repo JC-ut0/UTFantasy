@@ -1,6 +1,7 @@
 package csc207.phase2.UTFantasy.Interface;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
@@ -18,7 +19,7 @@ public interface Fighter {
   void addPokemon(Pokemon pokemon);
 
   /** @return the pokemon list of this fighter */
-  ArrayList<Pokemon> getPokemonList();
+  List<Pokemon> getPokemonList();
 
   /** @return true iff this fighter has at least one non-fainted pokemon */
   boolean isFightAble();

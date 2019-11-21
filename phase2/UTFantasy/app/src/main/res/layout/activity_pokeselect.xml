@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fight_background"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/gobutton"
+        android:layout_width="158dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@+id/pokemon_select_listView"
+        android:layout_alignBottom="@+id/pokemon_select_listView"
+        android:layout_marginStart="461dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/text_box"
+        android:text="GO!"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="153dp"
+        android:layout_height="78dp"
+        android:layout_alignStart="@+id/gobutton"
+        android:layout_alignTop="@+id/gobutton"
+        android:layout_alignEnd="@+id/gobutton"
+        android:layout_alignBottom="@+id/gobutton"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-75dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="76dp"
+        android:background="@drawable/text_box"
+        android:text="CANCEL"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/pokemon_select_listView"
+        android:layout_width="388dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="229dp"
+        android:layout_height="81dp"
+        android:layout_alignTop="@+id/pokemon_select_listView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="476dp"
+        android:layout_marginTop="0dp"
+        android:textColor="#000000"
+        android:textSize="20sp">
+
+    </TextView>
+
+</RelativeLayout>
