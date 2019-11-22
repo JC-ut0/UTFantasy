@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:id="@+id/checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/check">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/pokemonname2"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="9dp"
+        android:textColor="#6b8e23"
+        android:textSize="25sp"
+        android:textStyle="bold">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/pokemonimage2"
+        android:layout_width="83dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="76dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/pokemonimage2"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="-1dp"
+        android:textSize="20sp"
+        android:textStyle="bold">
+
+    </TextView>
+</RelativeLayout>

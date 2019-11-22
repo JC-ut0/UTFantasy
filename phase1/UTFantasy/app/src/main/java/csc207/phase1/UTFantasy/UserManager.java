@@ -185,6 +185,7 @@ public class UserManager implements Serializable {
      * @param context The Activity that calls this method.
      */
     private void message(String message, Context context) {
+       message("UT Fantasy", message, context);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("UT Fantasy");
         builder.setMessage(message);

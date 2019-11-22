@@ -9,7 +9,6 @@ public class Tackle extends Skill {
     power = 35;
     pp = 35;
     type = "normal";
-    effect = "";
   }
 
   /**

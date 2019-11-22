@@ -9,7 +9,6 @@ public class Confusion extends Skill {
     type = "Psychic";
     power = 50;
     pp = 25;
-    effect = "";
   }
 
   /**

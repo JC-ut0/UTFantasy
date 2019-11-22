@@ -6,7 +6,6 @@ public class ThunderShock extends Skill {
   /** Constructor of a ThunderShock Skill. */
   public ThunderShock() {
     power = 40;
-    effect = "paralyzed";
     pp = 30;
     type = "electric";
     name = "Thunder Shock";

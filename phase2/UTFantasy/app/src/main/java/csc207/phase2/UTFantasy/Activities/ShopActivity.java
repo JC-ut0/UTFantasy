@@ -43,7 +43,7 @@ public class ShopActivity extends AppCompatActivity implements ShopDialog.Exampl
   /** the name of current user */
   String username;
   /** the amount of money a player has */
-  double moneyLeft;
+  int moneyLeft;
   /** the TextView of money */
   TextView money;
   /** the sellerNPC */
@@ -93,7 +93,7 @@ public class ShopActivity extends AppCompatActivity implements ShopDialog.Exampl
           public void onClick(View v) {
             // Code here executes on main thread after user presses button
             openDialog();
-            product = potionFactory.makePotion("purple");
+            product =  potionFactory.makePotion("purple");
           }
         });
 
@@ -127,9 +127,7 @@ public class ShopActivity extends AppCompatActivity implements ShopDialog.Exampl
   @Override
   public void applyTexts(String amount) {
     this.amount = Integer.valueOf(amount);
-    sellerNPC.setQuantity(this.amount);
-    sellerNPC.setProduct(product);
-    String tradeInfo = sellerNPC.trade(player);
+    String tradeInfo = "You bought " + this.amount + " " + product.getName() + "!";
     Toast.makeText(ShopActivity.this, tradeInfo, Toast.LENGTH_SHORT).show();
     moneyLeft = player.getMoney();
     money.setText(String.valueOf(moneyLeft));

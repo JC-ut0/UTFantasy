@@ -34,7 +34,7 @@
             android:screenOrientation="landscape" />
 
         <activity
-            android:name="csc207.phase2.UTFantasy.Activities.MainActivity"
+            android:name="csc207.phase2.UTFantasy.Map.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
@@ -72,6 +72,13 @@
             android:name="csc207.phase2.UTFantasy.Activities.SystemActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity
+            android:name=".Activities.PokeSelectActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
 
 
     </application>

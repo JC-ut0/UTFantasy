@@ -9,7 +9,6 @@ public class HyperVoice extends Skill {
     power = 90;
     pp = 10;
     type = "normal";
-    effect = "";
   }
 
   /**

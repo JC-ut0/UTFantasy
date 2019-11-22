@@ -9,7 +9,6 @@ public class Pound extends Skill {
     power = 40;
     pp = 35;
     type = "normal";
-    effect = "";
   }
 
   /**

@@ -9,7 +9,6 @@ public class HydroPump extends Skill {
     type = "water";
     power = 120;
     pp = 5;
-    effect = "";
   }
 
   /**
