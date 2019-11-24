@@ -13,12 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.ExampleDialog;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Products.PinkPotion;
 import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.Products.PurplePotion;
 import csc207.phase2.UTFantasy.Products.RedPotion;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.UserManager;
 
 /** The activity used to purchase products. */
 public class ShopActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
@@ -31,21 +31,21 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
   /** The amount of products a player wants to buy. */
   int amount;
   /** which product a player wants to buy */
-  Product product;
+  private Product product;
   /** the intent of MainActivity */
-  Intent intent;
+  private Intent intent;
   /** the player */
-  Player player;
-  /** the unique userManager */
-  UserManager userManager = UserManager.getUserManager();
+  private Player player;
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
   /** the name of current user */
-  String username;
+  private String username;
   /** the amount of money a player has */
   int moneyLeft;
   /** the TextView of money */
-  TextView money;
+  private TextView money;
   /** the sellerNPC */
-  NPC sellerNPC;
+  private NPC sellerNPC;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
     setContentView(R.layout.activity_shop);
     intent = getIntent();
     username = intent.getStringExtra("username");
-    player = userManager.getUser(username).getPlayer();
+    player = userIO.getUserData().getUser(username).getPlayer();
 
     final Button redPotionBtn = findViewById(R.id.choose_red);
     final Button pinkPotionBtn = findViewById(R.id.choose_pink);

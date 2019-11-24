@@ -16,14 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.Pet.Charmander;
-import csc207.phase2.UTFantasy.Pet.Pikachu;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
-import csc207.phase2.UTFantasy.Pet.Psyduck;
-import csc207.phase2.UTFantasy.Pet.Squirtle;
 import csc207.phase2.UTFantasy.Products.InfoMediator;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.UserManager;
 
 public class PokeSelectActivity extends AppCompatActivity {
   /** the intent of MainActivity */
@@ -31,16 +27,18 @@ public class PokeSelectActivity extends AppCompatActivity {
 
   /** the player */
   Player player;
-  /** The unique UserManager. */
-  UserManager userManager = UserManager.getUserManager();
+
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
+
   /** The name of the current User. */
-  String username;
+  private String username;
 
-  List<Pokemon> selectedPokemon;
+  private List<Pokemon> selectedPokemon;
 
-  List<Pokemon> pokemonList;
+  private List<Pokemon> pokemonList;
 
-  InfoMediator infoMediator;
+  private InfoMediator infoMediator;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +47,7 @@ public class PokeSelectActivity extends AppCompatActivity {
 
     intent = getIntent();
     username = intent.getStringExtra("username");
-    player = userManager.getUser(username).getPlayer();
+    player = userIO.getUserData().getUser(username).getPlayer();
     infoMediator = new InfoMediator(player);
     pokemonList = infoMediator.getPokemonList();
     selectedPokemon = new ArrayList<>();

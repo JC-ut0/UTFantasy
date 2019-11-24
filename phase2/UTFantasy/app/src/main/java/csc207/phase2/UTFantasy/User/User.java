@@ -1,9 +1,10 @@
-package csc207.phase2.UTFantasy;
+package csc207.phase2.UTFantasy.User;
 
 import java.io.Serializable;
 
 import csc207.phase2.UTFantasy.Character.Player;
 
+/** A User which can log in and create a player to play the game (maybe more players later) */
 public class User implements Serializable {
   /** username */
   private String name;
@@ -23,14 +24,29 @@ public class User implements Serializable {
     this.password = password;
   }
 
+  /**
+   * return the name of this user
+   *
+   * @return the name of this user
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * return password of this user.
+   *
+   * @return password of this user.
+   */
   String getPassword() {
     return password;
   }
 
+  /**
+   * set new password for this user
+   *
+   * @param password new password for this user
+   */
   public void setPassword(String password) {
     this.password = password;
   }
@@ -44,10 +60,20 @@ public class User implements Serializable {
     return player != null;
   }
 
+  /**
+   * return a player instance
+   *
+   * @return a player instance
+   */
   public Player getPlayer() {
     return player;
   }
 
+  /**
+   * set a new player for this user
+   *
+   * @param player a new player
+   */
   public void setPlayer(Player player) {
     this.player = player;
   }

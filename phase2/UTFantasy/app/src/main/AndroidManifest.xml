@@ -14,7 +14,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="csc207.phase2.UTFantasy.Activities.LoginActivity"
+            android:name=".Activities.LoginActivityMVP.LoginActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

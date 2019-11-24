@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity;
 import csc207.phase2.UTFantasy.R;
 
 /**

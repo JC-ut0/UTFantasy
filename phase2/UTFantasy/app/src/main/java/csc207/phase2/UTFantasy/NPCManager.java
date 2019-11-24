@@ -1,17 +1,13 @@
 package csc207.phase2.UTFantasy;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import csc207.phase2.UTFantasy.Character.NPC;
-import csc207.phase2.UTFantasy.Pet.Pokemon;
-import csc207.phase2.UTFantasy.Pet.Psyduck;
-import csc207.phase2.UTFantasy.Pet.Squirtle;
 
 public class NPCManager implements Serializable {
 
-  /** A HashMap that keys are UserName, values are User instance. */
+  /** A HashMap that keys are UserName, values are NPC instance. */
   private HashMap<String, NPC> npcHashMap;
 
   /** Constructor of npcManager. */

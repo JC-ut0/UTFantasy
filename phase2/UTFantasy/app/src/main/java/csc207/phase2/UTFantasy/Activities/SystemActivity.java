@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,19 +8,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.UserManager;
 
 public class SystemActivity extends AppCompatActivity {
 
-  /** The unique UserManager. */
-  UserManager userManager = UserManager.getUserManager();
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
 
   /** The buttons. */
-  Button save_button;
+  private Button save_button;
 
-  Button logout_button;
-  Button back_button;
+  private Button logout_button;
+  private Button back_button;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class SystemActivity extends AppCompatActivity {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            userManager.saveUserManager(SystemActivity.this);
+            userIO.saveUserData(SystemActivity.this);
             Toast.makeText(SystemActivity.this, "Save Successfully", Toast.LENGTH_SHORT).show();
           }
         });
@@ -52,10 +54,20 @@ public class SystemActivity extends AppCompatActivity {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            userManager.logout(SystemActivity.this);
+            logout();
             Toast.makeText(SystemActivity.this, "Logout Successfully", Toast.LENGTH_SHORT).show();
           }
         });
+  }
+  /** Save the current User's file, logout and go to LoginActivityFolder. */
+  private void logout() {
+    // save file first
+    userIO.saveUserData(SystemActivity.this);
+    // go back to User Activity from the current Activity
+    Intent intent = new Intent(SystemActivity.this, LoginActivity.class);
+    // prevent User coming back to this activity!
+    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
   }
 
   /** Set the back button. */

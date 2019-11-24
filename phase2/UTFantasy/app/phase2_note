@@ -50,3 +50,14 @@ control the action from the activity.
 File affected: PokeSelectActivity.java
 Create a new activity and the following java class. Now we can select pokemons at the beginning of
 a fight.
+
+########
+# Step 10
+Refactor for User, UserData, and LoginActivity
+Since lots of activities interact with UserData, most files are affected.
+File affected: Most activities
+- Created UserIO for data access
+- Refactored for LoginActivity by MVP
+- Refactored UserManager by Single responsibility principle
+- Created UML folder for a series of UML diagrams.
+- More on LoginActivity UML, please have a look at the LoginActivity_UML.pdf

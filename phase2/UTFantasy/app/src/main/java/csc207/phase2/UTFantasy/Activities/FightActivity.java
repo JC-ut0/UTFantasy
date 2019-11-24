@@ -1,36 +1,6 @@
 package csc207.phase2.UTFantasy.Activities;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.Objects;
-
-import csc207.phase2.UTFantasy.AllSkills.Skill;
-import csc207.phase2.UTFantasy.Character.NPC;
-import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.FightManager;
-import csc207.phase2.UTFantasy.NPCManager;
-import csc207.phase2.UTFantasy.Pet.Pokemon;
-import csc207.phase2.UTFantasy.Pet.Squirtle;
-import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.User;
-import csc207.phase2.UTFantasy.UserManager;
 
 public class FightActivity extends AppCompatActivity {
 //  /** the bottom layout */

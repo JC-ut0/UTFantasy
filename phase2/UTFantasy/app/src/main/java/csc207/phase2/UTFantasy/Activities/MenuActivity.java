@@ -11,9 +11,9 @@ import android.widget.ToggleButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Products.InfoMediator;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.UserManager;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -22,20 +22,23 @@ public class MenuActivity extends AppCompatActivity {
 
   /** the player. */
   Player player;
-  /** The unique UserManager. */
-  UserManager userManager = UserManager.getUserManager();
+
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
+
   /** The name of the current User. */
-  String username;
+  private String username;
+
   /** The ListView for pokemon and items. */
-  ListView potionList;
+  private ListView potionList;
 
-  ListView pokemonList;
+  private ListView pokemonList;
   /** The Toogle button for switching between pokemon and items. */
-  ToggleButton toggleButton;
+  private ToggleButton toggleButton;
 
-  ImageButton backToMain;
+  private ImageButton backToMain;
 
-  InfoMediator infoMediator;
+  private InfoMediator infoMediator;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,7 @@ public class MenuActivity extends AppCompatActivity {
     // get the user from main
     intent = getIntent();
     username = intent.getStringExtra("username");
-    player = userManager.getUser(username).getPlayer();
+    player = userIO.getUserData().getUser(username).getPlayer();
 
     //    player = new Player("hello","boy");
     infoMediator = new InfoMediator(player);

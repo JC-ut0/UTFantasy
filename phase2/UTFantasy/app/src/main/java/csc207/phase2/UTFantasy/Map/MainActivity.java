@@ -13,14 +13,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Activities.FightActivity;
-import csc207.phase2.UTFantasy.Activities.LoginActivity;
 import csc207.phase2.UTFantasy.Activities.MenuActivity;
 import csc207.phase2.UTFantasy.Activities.PlayerInfoActivity;
 import csc207.phase2.UTFantasy.Activities.ShopActivity;
 import csc207.phase2.UTFantasy.Activities.SystemActivity;
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.UserManager;
 
 public class MainActivity extends AppCompatActivity implements MainActivityModel {
   private MapView mapView;
@@ -29,16 +28,16 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   private MapDrawer mapDrawer;
   private MainThread mainThread;
   /** the intent of MainActivity */
-  Intent intent;
+  private Intent intent;
 
   /** the player */
-  Player player;
+  private Player player;
 
-  /** The unique UserManager. */
-  UserManager userManager = UserManager.getUserManager();
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
 
   /** The name of the current User. */
-  String username;
+  private String username;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -180,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
 
     intent = getIntent();
     username = intent.getStringExtra("username");
-    player = userManager.getUser(username).getPlayer();
+    player = userIO.getUserData().getUser(username).getPlayer();
     mapController = new MapController(player, this);
     mapView = new MapView(this);
     mapInteractor = mapController.getMapInteractor();
@@ -195,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   protected void onResume() {
     super.onResume();
     try {
-      player = userManager.getUser(username).getPlayer();
+      player = userIO.getUserData().getUser(username).getPlayer();
     } catch (Exception e) {
       System.out.println("A bug occurred, non-valid username");
     }
@@ -209,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   protected void onPause() {
     super.onPause();
     mapView.getThread().setRunning(false);
-    userManager.saveUserManager(MainActivity.this);
+    userIO.saveUserData(MainActivity.this);
   }
 
   @Override
