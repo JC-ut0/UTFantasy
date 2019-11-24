@@ -5,7 +5,7 @@
     android:background="@color/colorPrimary">
 
     <Button
-        android:id="@+id/back"
+        android:id="@+id/backToStartUp"
         android:layout_width="200dp"
         android:layout_height="80dp"
         android:layout_below="@+id/logout"
@@ -15,10 +15,10 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="0dp"
         android:background="@drawable/text_box"
-        android:text="BACK"
+        android:text="@string/back"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/logout"
@@ -31,10 +31,10 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="0dp"
         android:background="@drawable/text_box"
-        android:text="Logout"
+        android:text="@string/logout"
         android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/save"
@@ -45,7 +45,7 @@
         android:layout_marginStart="274dp"
         android:layout_marginTop="34dp"
         android:background="@drawable/text_box"
-        android:text="Save"
+        android:text="@string/save"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />

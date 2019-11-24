@@ -6,8 +6,16 @@
     <string name="register">register</string>
     <string name="save">Save</string>
     <string name="menu">MENU</string>
-    <string name="logout" />
     <string name="mybag">MY BAG</string>
     <string name="remember_password">remember password</string>
-    <string name="logo_of_utfantasy">logo of UTFantasy</string>/>
+    <string name="logo_of_utfantasy">logo of UTFantasy</string>
+    <string name="game_start">Game Start</string>
+    <string name="score_board">Score Board</string>
+    <string name="leave">Leave</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="back">Back</string>
+    <string name="logout">Logout</string>
 </resources>

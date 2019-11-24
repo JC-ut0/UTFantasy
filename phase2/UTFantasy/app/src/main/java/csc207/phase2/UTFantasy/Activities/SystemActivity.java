@@ -72,7 +72,7 @@ public class SystemActivity extends AppCompatActivity {
 
   /** Set the back button. */
   private void setBack_button() {
-    back_button = findViewById(R.id.back);
+    back_button = findViewById(R.id.backToStartUp);
     back_button.setOnClickListener(
         new View.OnClickListener() {
           @Override
