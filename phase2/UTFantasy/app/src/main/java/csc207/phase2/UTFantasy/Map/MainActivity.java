@@ -175,7 +175,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
           }
         });
 
-    // ============================================================================================
 
     intent = getIntent();
     username = intent.getStringExtra("username");

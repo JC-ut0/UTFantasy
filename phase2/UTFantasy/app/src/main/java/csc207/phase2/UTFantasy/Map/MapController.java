@@ -40,13 +40,16 @@ public class MapController {
     NPC npc = mapInteractor.getFacingNpc();
     if (npc != null) {
       switch (npc.getDuty()) {
-        case "fighter":
+        case Fight:
           mainActivityModel.fight();
-        case "seller":
+          break;
+        case Seller:
           mainActivityModel.trade();
-        case "healer":
+          break;
+        case Healer:
           mapInteractor.getPlayer().heal();
           mainActivityModel.popText("You are healed!");
+          break;
       }
     }
   }

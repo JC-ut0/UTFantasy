@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity
+            android:name=".Activities.ScoreBoardActivity"
+            android:screenOrientation="landscape">
+        </activity>
         <activity
             android:name=".Activities.LoginActivityMVP.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="landscape">
         </activity>
         <activity
@@ -22,6 +26,7 @@
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,26 +37,31 @@
             android:name=".Map.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
         </activity>
         <activity
             android:name=".Activities.FightActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
         </activity>
         <activity
             android:name=".Activities.PlayerInfoActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
         </activity>
         <activity
             android:name=".Activities.ShopActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
         </activity>
         <activity
             android:name=".Activities.MenuActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
         </activity>
         <activity
             android:name=".Activities.SystemActivity"
@@ -61,6 +71,7 @@
             android:name=".Activities.PokeSelectActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
         </activity>
     </application>
 

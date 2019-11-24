@@ -82,9 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="44dp"
         android:background="@drawable/utfantasylogo"
-        android:contentDescription="@string/logo_of_utfantasy" />
+        android:contentDescription="@string/logo" />
 
 </RelativeLayout>

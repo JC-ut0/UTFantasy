@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Map;
 
+import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.NPCManager;
 
@@ -73,12 +74,12 @@ public class MapBuilder {
   public void buildWater() {}
 
   public void buildNpc() {
-    buildSingleNpc("Professor.P", "fighter", 7, 7);
-    buildSingleNpc("Alice", "seller", 12, 7);
-    buildSingleNpc("SecondCup", "healer", 17, 7);
+    buildSingleNpc("Professor.P", Duty.Fight, 7, 7);
+    buildSingleNpc("Alice", Duty.Seller, 12, 7);
+    buildSingleNpc("SecondCup", Duty.Healer, 17, 7);
   }
 
-  private void buildSingleNpc(String name, String duty, int x, int y) {
+  private void buildSingleNpc(String name, Duty duty, int x, int y) {
     highMap[x][y] = new UnitDraw(name);
     npcManager.addNPC(name, new NPC(name, duty));
   }

@@ -67,3 +67,11 @@ File affected: Most activities
 File affected: StartUpActivity, LoginActivity
 - Rewrite StartUpActivity allowing user to choose start game or go to the scoreboard.
 - LoginActivity can go back to StartUpActivity
+
+########
+# Step 12
+File affected: NPC, Player
+- Refactored NPC duty with Duty enum
+- Added comparators of player to do rank sort later in the scoreboard Activity.
+- Added unit test for player comparators.
+- Created a ScoreBoard Activity (need list view)
