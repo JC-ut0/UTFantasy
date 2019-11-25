@@ -22,7 +22,7 @@ public class ProductSelectAdapter extends BaseAdapter {
   private HashMap<Product, Integer> productHashMap;
   private LayoutInflater inflater;
 
-  public ProductSelectAdapter(Activity activity, HashMap<Product, Integer> productHashMap) {
+  ProductSelectAdapter(Activity activity, HashMap<Product, Integer> productHashMap) {
     this.activity = activity;
     this.productHashMap = productHashMap;
     productList.addAll(productHashMap.keySet());
@@ -61,16 +61,15 @@ public class ProductSelectAdapter extends BaseAdapter {
     Product product = productList.get(position);
 
     holder.potionname.setText(product.getName());
-    holder.level.setText("NUM: "+ productHashMap.get(product));
+    holder.level.setText("NUM: " + productHashMap.get(product));
     holder.potionImage.setImageResource(product.getProfile_id());
 
-    if (selectedList.contains(product))
-      holder.checkimage.setBackgroundResource(R.drawable.checked);
+    if (selectedList.contains(product)) holder.checkimage.setBackgroundResource(R.drawable.checked);
     else holder.checkimage.setBackgroundResource(R.drawable.check);
     return view;
   }
 
-  public void updateRecords(List<Product> productList, List<Product> selectedList) {
+  void updateRecords(List<Product> productList, List<Product> selectedList) {
     this.productList = productList;
     this.selectedList = selectedList;
     notifyDataSetChanged();
@@ -83,4 +82,3 @@ public class ProductSelectAdapter extends BaseAdapter {
     ImageView potionImage;
   }
 }
-

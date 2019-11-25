@@ -1,13 +1,11 @@
 package csc207.phase2.UTFantasy;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.R;
 
 public class InfoMediator {
   /** the player. */
@@ -66,4 +64,3 @@ public class InfoMediator {
     return "Money: $" + player.getMoney();
   }
 }
-

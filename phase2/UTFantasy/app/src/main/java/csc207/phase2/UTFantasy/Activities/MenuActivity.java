@@ -17,26 +17,16 @@ import csc207.phase2.UTFantasy.R;
 
 public class MenuActivity extends AppCompatActivity {
 
-  /** the intent of MainActivity. */
-  Intent intent;
-
   /** the player. */
   Player player;
 
   /** the unique UserIO */
   private UserIO userIO = UserIO.getUserIO();
 
-  /** The name of the current User. */
-  private String username;
-
   /** The ListView for pokemon and items. */
   private ListView potionList;
 
   private ListView pokemonList;
-  /** The Toogle button for switching between pokemon and items. */
-  private ToggleButton toggleButton;
-
-  private ImageButton backToMain;
 
   private InfoMediator infoMediator;
 
@@ -46,8 +36,8 @@ public class MenuActivity extends AppCompatActivity {
     setContentView(R.layout.activity_my_bag_item);
 
     // get the user from main
-    intent = getIntent();
-    username = intent.getStringExtra("username");
+    Intent intent = getIntent();
+    String username = intent.getStringExtra("username");
     player = userIO.getUserData().getUser(username).getPlayer();
 
     //    player = new Player("hello","boy");
@@ -79,7 +69,7 @@ public class MenuActivity extends AppCompatActivity {
   /** Set up the Toggle button. */
   private void draw_toggleButton() {
     // set up the toggle Button
-    toggleButton = findViewById(R.id.toggleButton1);
+    ToggleButton toggleButton = findViewById(R.id.toggleButton1);
     toggleButton.setOnCheckedChangeListener(
         new CompoundButton.OnCheckedChangeListener() {
           @Override
@@ -99,7 +89,7 @@ public class MenuActivity extends AppCompatActivity {
   /** Set up the backButton. */
   private void draw_backButton() {
     // The return button will always return to its previous page
-    backToMain = findViewById(R.id.back_to_main);
+    ImageButton backToMain = findViewById(R.id.back_to_main);
     backToMain.setOnClickListener(
         new View.OnClickListener() {
           @Override
