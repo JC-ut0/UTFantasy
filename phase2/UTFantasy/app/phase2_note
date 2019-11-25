@@ -59,3 +59,10 @@ control the action from the activity.
 File affected: PokeSelectActivity.java
 Create a new activity and the following java class. Now we can select pokemons at the beginning of
 a fight.
+
+########
+# Step 11
+File added: ProductAdapter
+Create a new ShopActivity. Use ListView to present Products in the shop. We can easily add products
+in the shop without modifying too much code, which follows Open/Closed Principle.
+

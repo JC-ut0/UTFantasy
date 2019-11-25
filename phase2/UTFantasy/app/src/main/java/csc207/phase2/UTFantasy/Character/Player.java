@@ -80,4 +80,15 @@ public class Player extends Person {
       bag.put(item, num);
     }
   }
+
+  public void useProduct(Product product){
+    Integer num = bag.get(product);
+    if (num != null){
+      bag.put(product, num - 1);
+      if (num == 0){
+        bag.remove(product);
+      }
+    }
+  }
 }
+
