@@ -24,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
   Player player;
 
   /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
+  private UserIO userIO = UserIO.getSingletonUserIo();
 
   /** The name of the current User. */
   private String username;

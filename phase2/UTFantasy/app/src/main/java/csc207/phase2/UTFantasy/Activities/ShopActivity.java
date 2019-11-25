@@ -37,7 +37,7 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
   /** the player */
   private Player player;
   /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
+  private UserIO userIO = UserIO.getSingletonUserIo();
   /** the name of current user */
   private String username;
   /** the amount of money a player has */

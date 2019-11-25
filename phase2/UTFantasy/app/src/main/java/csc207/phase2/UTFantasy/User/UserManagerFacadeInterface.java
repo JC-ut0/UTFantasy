@@ -1,6 +1,6 @@
 package csc207.phase2.UTFantasy.User;
 
-interface UserManagerFacadeInterface {
+public interface UserManagerFacadeInterface {
 
   User login(String username, String password);
 
@@ -11,4 +11,6 @@ interface UserManagerFacadeInterface {
   void saveUserData();
 
   void loadUserData();
+
+  boolean isUserExisted(String username);
 }

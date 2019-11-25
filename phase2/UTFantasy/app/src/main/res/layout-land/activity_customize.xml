@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/player_background">
@@ -14,7 +15,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="148dp"
-        android:text="What is your name?"
+        android:clickable="false"
+        android:text="@string/newPlayerName"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="50sp"
         android:textStyle="bold" />
@@ -29,7 +31,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="97dp"
-        android:text="Are you a boy or a girl?"
+        android:clickable="false"
+        android:text="@string/newPlayerGender"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -46,7 +49,9 @@
         android:layout_marginStart="256dp"
         android:layout_marginTop="162dp"
         android:layout_marginEnd="256dp"
-        android:inputType="text">
+        android:autofillHints="name"
+        android:inputType="text"
+        tools:ignore="LabelFor">
 
     </EditText>
 
@@ -61,7 +66,7 @@
         android:layout_marginStart="288dp"
         android:layout_marginTop="343dp"
         android:layout_marginEnd="291dp"
-        android:text="click A or B to continue" />
+        android:text="@string/newPlayerInstruction" />
 
     <Button
         android:id="@+id/button_a"
@@ -72,7 +77,7 @@
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/circle_button"
-        android:text="A"
+        android:text="@string/a"
         android:textSize="30sp" />
 
     <Button
@@ -84,7 +89,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="100dp"
         android:background="@drawable/circle_button"
-        android:text="B"
+        android:text="@string/b"
         android:textSize="30sp" />
 
     <!--        android:visibility="gone"-->
@@ -110,7 +115,7 @@
             android:id="@+id/radio_button_boy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="boy"
+            android:text="@string/boy"
             android:textSize="20sp"
             android:visibility="gone" />
 
@@ -118,7 +123,7 @@
             android:id="@+id/radio_button_girl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="girl"
+            android:text="@string/girl"
             android:textSize="20sp"
             android:visibility="gone" />
 

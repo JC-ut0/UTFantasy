@@ -1,19 +1,17 @@
 package csc207.phase2.UTFantasy.Activities.LoginActivityMVP;
 
 import csc207.phase2.UTFantasy.CustomizeException.ImproperUserSettingException;
-import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.User.User;
 import csc207.phase2.UTFantasy.User.UserManagerFacade;
+import csc207.phase2.UTFantasy.User.UserManagerFacadeInterface;
 
 class LoginPresenter {
 
   private LoginView loginView;
-  private UserIO userIO;
-  private UserManagerFacade userManagerFacade;
+  private UserManagerFacadeInterface userManagerFacade;
 
-  LoginPresenter(UserIO userIO, LoginView loginView, UserManagerFacade userManagerFacade) {
+  LoginPresenter(LoginView loginView, UserManagerFacade userManagerFacade) {
     this.userManagerFacade = userManagerFacade;
-    this.userIO = userIO;
     this.loginView = loginView;
   }
   /**
@@ -33,7 +31,7 @@ class LoginPresenter {
       throw new ImproperUserSettingException("Invalid punctuation is used.");
     } else if (username.contains(";")) {
       throw new ImproperUserSettingException("Invalid punctuation is used.");
-    } else if (userIO.getUserData().getUserHashMap().containsKey(username)) {
+    } else if (userManagerFacade.isUserExisted(username)) {
       throw new ImproperUserSettingException("The Username is Used");
     } else if (username.contains("\n")) {
       throw new ImproperUserSettingException("Invalid punctuation is used.");
