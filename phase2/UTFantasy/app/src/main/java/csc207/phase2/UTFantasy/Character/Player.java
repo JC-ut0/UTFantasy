@@ -15,6 +15,7 @@ public class Player extends Person {
   private String gender;
   private Map playerMap;
   private HashMap<Product, Integer> bag;
+  private boolean showingScore = true;
 
   /**
    * construct a new player
@@ -102,5 +103,13 @@ public class Player extends Person {
       totalLV += pokemon.getLevel();
     }
     return totalLV;
+  }
+
+  public boolean isShowingScore() {
+    return showingScore;
+  }
+
+  public void setShowingScore(boolean showingScore) {
+    this.showingScore = showingScore;
   }
 }

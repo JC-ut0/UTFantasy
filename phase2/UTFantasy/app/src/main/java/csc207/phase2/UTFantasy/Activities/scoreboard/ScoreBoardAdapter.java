@@ -1,5 +1,6 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.scoreboard;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +13,12 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.R;
 
-public class ScoreBoardAdapter extends BaseAdapter {
+class ScoreBoardAdapter extends BaseAdapter {
   Activity activity;
   private List<Player> playerList;
   private LayoutInflater inflater;
 
-  public ScoreBoardAdapter(Activity activity, List<Player> playerList) {
+  ScoreBoardAdapter(Activity activity, List<Player> playerList) {
     this.activity = activity;
     this.playerList = playerList;
     inflater = activity.getLayoutInflater();
@@ -38,12 +39,13 @@ public class ScoreBoardAdapter extends BaseAdapter {
     return position;
   }
 
+  @SuppressLint("SetTextI18n")
   @Override
   public View getView(int position, View view, ViewGroup viewGroup) {
-    ScoreBoardAdapter.ViewHolder holder = null;
+    ViewHolder holder = null;
     if (view == null) {
       view = inflater.inflate(R.layout.productselect_layout, viewGroup, false);
-      holder = new ScoreBoardAdapter.ViewHolder();
+      holder = new ViewHolder();
 
       holder.rank = view.findViewById(R.id.rank);
       holder.playerName = view.findViewById(R.id.playerName);
@@ -51,10 +53,10 @@ public class ScoreBoardAdapter extends BaseAdapter {
       holder.pokemonLV = view.findViewById(R.id.pokemonLV);
 
       view.setTag(holder);
-    } else holder = (ScoreBoardAdapter.ViewHolder) view.getTag();
-    Player player = playerList.get(position);
+    } else holder = (ViewHolder) view.getTag();
 
-    holder.rank.setText(position);
+    Player player = playerList.get(position);
+    holder.rank.setText(position + ": ");
     holder.playerName.setText(player.getName() + " " + player.getGender());
     holder.pokemonNum.setText(player.getPokemonList().size());
     holder.pokemonLV.setText(player.getPlayerPokemonLV());

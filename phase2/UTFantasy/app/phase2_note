@@ -47,7 +47,7 @@ control the action from the activity.
 
 ########
 # Step 9
-File affected: PokeSelectActivity.java
+File affected: ProductSelectActivity.java
 Create a new activity and the following java class. Now we can select pokemons at the beginning of
 a fight.
 
@@ -75,3 +75,8 @@ File affected: NPC, Player
 - Added comparators of player to do rank sort later in the scoreboard Activity.
 - Added unit test for player comparators.
 - Created a ScoreBoard Activity (need list view)
+
+########
+# Step 13
+File affected: ScoreboardActivity
+- implemented ScoreboardActivity methods
