@@ -66,3 +66,9 @@ File added: ProductAdapter
 Create a new ShopActivity. Use ListView to present Products in the shop. We can easily add products
 in the shop without modifying too much code, which follows Open/Closed Principle.
 
+########
+# Step 12：
+File affected: RedPotion, PinkPotion, PurplePotion,PotionFactory
+Flaw: there exists static methods and variables.
+Fix: get rid of static methods and variables.
+

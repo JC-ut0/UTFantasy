@@ -1,14 +1,15 @@
 package csc207.phase2.UTFantasy.Products;
 
 public class PotionFactory {
+
     public Product makePotion(String color){
         switch (color){
             case "red":
-                return RedPotion.getRed();
+                return new RedPotion();
             case "pink":
-                return PinkPotion.getPink();
+                return new PinkPotion();
             case "purple":
-                return PurplePotion.getPurple();
+                return new PurplePotion();
         }
         return null;
     }
