@@ -14,27 +14,26 @@
     </ImageView>
 
     <TextView
-        android:id="@+id/pokemonname2"
+        android:id="@+id/productName2"
         android:layout_width="200dp"
         android:layout_height="52dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="9dp"
-        android:textColor="#6b8e23"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="15dp"
         android:textSize="25sp"
         android:textStyle="bold">
 
     </TextView>
 
     <ImageView
-        android:id="@+id/pokemonimage2"
+        android:id="@+id/productImage2"
         android:layout_width="83dp"
         android:layout_height="62dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="19dp">
 
     </ImageView>
 
@@ -42,10 +41,10 @@
         android:id="@+id/level"
         android:layout_width="76dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/pokemonimage2"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="-1dp"
+        android:layout_alignStart="@+id/productName2"
+        android:layout_alignTop="@+id/productName2"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="36dp"
         android:textSize="20sp"
         android:textStyle="bold">
 

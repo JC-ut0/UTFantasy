@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.Products.InfoMediator;
+import csc207.phase2.UTFantasy.InfoMediator;
 import csc207.phase2.UTFantasy.R;
 
 public class MenuActivity extends AppCompatActivity {
@@ -72,8 +72,8 @@ public class MenuActivity extends AppCompatActivity {
     // Create new adapters for the listViews and adapt them.
     ItemAdapter adapter1 = new ItemAdapter(this, infoMediator.getPokemonList());
     ItemAdapter adapter2 = new ItemAdapter(this, infoMediator.getProductHashMap());
-    potionList.setAdapter(adapter1);
-    pokemonList.setAdapter(adapter2);
+    pokemonList.setAdapter(adapter1);
+    potionList.setAdapter(adapter2);
   }
 
   /** Set up the Toggle button. */

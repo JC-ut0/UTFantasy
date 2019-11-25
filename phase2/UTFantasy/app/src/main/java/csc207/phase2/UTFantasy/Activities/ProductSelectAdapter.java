@@ -9,26 +9,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-import csc207.phase2.UTFantasy.Pet.Pokemon;
+import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
 
-public class PokeSelectAdapter extends BaseAdapter {
+public class ProductSelectAdapter extends BaseAdapter {
   Activity activity;
-  List<Pokemon> pokemonList;
-  List<Pokemon> selectedPokemon = new ArrayList<>();
-  LayoutInflater inflater;
+  private List<Product> productList = new ArrayList<>();
+  private List<Product> selectedList = new ArrayList<>();
+  private HashMap<Product, Integer> productHashMap;
+  private LayoutInflater inflater;
 
-  public PokeSelectAdapter(Activity activity, List<Pokemon> pokemonList) {
+  public ProductSelectAdapter(Activity activity, HashMap<Product, Integer> productHashMap) {
     this.activity = activity;
-    this.pokemonList = pokemonList;
+    this.productHashMap = productHashMap;
+    productList.addAll(productHashMap.keySet());
     inflater = activity.getLayoutInflater();
   }
 
   @Override
   public int getCount() {
-    return pokemonList.size();
+    return productList.size();
   }
 
   @Override
@@ -45,39 +48,39 @@ public class PokeSelectAdapter extends BaseAdapter {
   public View getView(int position, View view, ViewGroup viewGroup) {
     ViewHolder holder = null;
     if (view == null) {
-      view = inflater.inflate(R.layout.pokeselect_layout, viewGroup, false);
+      view = inflater.inflate(R.layout.productselect_layout, viewGroup, false);
       holder = new ViewHolder();
 
-      holder.pokemonname = view.findViewById(R.id.pokemonname2);
+      holder.potionname = view.findViewById(R.id.productName2);
       holder.checkimage = view.findViewById(R.id.checkbox);
-      holder.pokemonImage = view.findViewById(R.id.pokemonimage2);
+      holder.potionImage = view.findViewById(R.id.productImage2);
       holder.level = view.findViewById(R.id.level);
 
       view.setTag(holder);
     } else holder = (ViewHolder) view.getTag();
-    Pokemon pokemon = pokemonList.get(position);
+    Product product = productList.get(position);
 
-    holder.pokemonname.setText(pokemon.getPokemonName());
-    holder.level.setText(String.valueOf(pokemon.getLevel()) + "LV");
-    holder.pokemonImage.setImageResource(pokemon.getProfileID());
+    holder.potionname.setText(product.getName());
+    holder.level.setText("NUM: "+ productHashMap.get(product));
+    holder.potionImage.setImageResource(product.getProfile_id());
 
-    if (selectedPokemon.contains(pokemon))
+    if (selectedList.contains(product))
       holder.checkimage.setBackgroundResource(R.drawable.checked);
     else holder.checkimage.setBackgroundResource(R.drawable.check);
     return view;
   }
 
-  public void updateRecords(List<Pokemon> pokemonList, List<Pokemon> selectedPokemon) {
-    this.pokemonList = pokemonList;
-    this.selectedPokemon = selectedPokemon;
+  public void updateRecords(List<Product> productList, List<Product> selectedList) {
+    this.productList = productList;
+    this.selectedList = selectedList;
     notifyDataSetChanged();
   }
 
   class ViewHolder {
     TextView level;
-    TextView pokemonname;
-    TextView hp;
+    TextView potionname;
     ImageView checkimage;
-    ImageView pokemonImage;
+    ImageView potionImage;
   }
 }
+
