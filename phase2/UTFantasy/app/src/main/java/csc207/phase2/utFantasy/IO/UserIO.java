@@ -19,13 +19,13 @@ import csc207.phase2.utFantasy.user.UserIOInterface;
 public class UserIO implements UserIOInterface {
 
   /** The file to store UserData */
-  private final String userFile = "user.txt";
+  private String userFile = "user.txt";
   //  private String userFile =
   // Environment.getExternalStorageDirectory().getAbsolutePath()+"/user.txt";
   private UserData userData;
 
   /** A unique UserIO that will be only created once. */
-  private static final UserIO SINGLETON_USER_IO = new UserIO();
+  private static UserIO SINGLETON_USER_IO = new UserIO();
 
   /** Singleton Constructor of UserIO. */
   private UserIO() {}
@@ -83,13 +83,12 @@ public class UserIO implements UserIOInterface {
         if (userData == null) userData = new UserData();
       }
     } catch (FileNotFoundException e) {
-      Toast.makeText(context, "Created a new UserData\n" + e.getMessage(), Toast.LENGTH_LONG)
-          .show();
+        Toast.makeText(context, "Created a new UserData" + e.getMessage(), Toast.LENGTH_LONG).show();
       e.printStackTrace();
       userData = new UserData();
     } catch (IOException | ClassNotFoundException e) {
       AlertDialog.Builder builder = new AlertDialog.Builder(context);
-      builder.setTitle(e.getClass().toString());
+        builder.setTitle(e.getLocalizedMessage());
       builder.setMessage(e.getMessage());
       builder.setPositiveButton("OK", null);
       builder.show();

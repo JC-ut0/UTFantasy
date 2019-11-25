@@ -29,7 +29,7 @@ public class PokeSelectActivity extends AppCompatActivity {
   Player player;
 
   /** the unique UserIO */
-  private final UserIO userIO = UserIO.getSingletonUserIo();
+  private UserIO userIO = UserIO.getSingletonUserIo();
 
   /** The name of the current User. */
   private String username;

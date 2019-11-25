@@ -23,7 +23,7 @@ import csc207.phase2.utFantasy.user.UserManagerFacade;
 public class CustomizeActivity extends Activity {
 
   /** the unique UserIO */
-  private final UserIO userIO = UserIO.getSingletonUserIo();
+  private UserIO userIO = UserIO.getSingletonUserIo();
   /**
    * determine the progress of this activity 0 indicates player is asked for name 1 indicates player
    * is asked for gender
