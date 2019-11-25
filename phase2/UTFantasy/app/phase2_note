@@ -72,3 +72,8 @@ File affected: RedPotion, PinkPotion, PurplePotion,PotionFactory
 Flaw: there exists static methods and variables.
 Fix: get rid of static methods and variables.
 
+########
+#step 13:
+File added: ProductCreator, ProductBuilder, PotionBuilder
+Use Builder Design Pattern to create products in shop.
+
