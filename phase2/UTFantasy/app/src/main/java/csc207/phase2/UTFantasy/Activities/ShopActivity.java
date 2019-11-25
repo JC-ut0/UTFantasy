@@ -122,12 +122,12 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            if (enterAmount.getText() != null) {
-              int n = Integer.valueOf(enterAmount.getText().toString());
-              presenter.updateSelected(n);
-              enterAmount.setText("0");
+            if (enterAmount.getText().toString().equals("")) {
+                showMessage("Please enter a number!");
             } else {
-              showMessage("Please enter a number!");
+                int n = Integer.valueOf(enterAmount.getText().toString());
+                presenter.updateSelected(n);
+                enterAmount.setText("0");
             }
           }
         });
