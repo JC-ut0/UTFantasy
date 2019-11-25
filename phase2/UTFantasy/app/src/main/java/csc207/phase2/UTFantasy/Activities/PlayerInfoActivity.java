@@ -10,33 +10,35 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Map.MainActivity;
 import csc207.phase2.UTFantasy.Products.InfoMediator;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.UserManager;
 
 public class PlayerInfoActivity extends AppCompatActivity {
 
   /** the intent of MainActivity */
-  Intent intent;
+  private Intent intent;
 
   /** the player */
-  Player player;
-  /** The unique UserManager. */
-  UserManager userManager = UserManager.getUserManager();
-  /** The name of the current User. */
-  String username;
+  private Player player;
 
-  InfoMediator infoMediator;
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
+
+  /** The name of the current User. */
+  private String username;
+
+  private InfoMediator infoMediator;
 
   /** The stuffs will shown on the activity. */
-  ImageView profile;
+  private ImageView profile;
 
-  TextView character_name;
-  TextView character_gender;
-  TextView money;
-  TextView character_description;
-  ImageButton backToMain;
+  private TextView character_name;
+  private TextView character_gender;
+  private TextView money;
+  private TextView character_description;
+  private ImageButton backToMain;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
     intent = getIntent();
     username = intent.getStringExtra("username");
-    player = userManager.getUser(username).getPlayer();
+    player = userIO.getUserData().getUser(username).getPlayer();
     infoMediator = new InfoMediator(player);
 
     setBackToMain();

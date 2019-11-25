@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
@@ -56,20 +55,5 @@
         android:layout_marginEnd="-221dp"
         android:layout_marginBottom="0dp"
         android:text="@string/login" />
-
-    <TextView
-        android:id="@+id/pop_up_message"
-        android:layout_width="246dp"
-        android:layout_height="209dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="199dp"
-        android:layout_marginTop="402dp"
-        android:layout_marginBottom="135dp"
-        android:background="#DFD9D9"
-        android:text="@string/account"
-        android:visibility="gone"
-        tools:visibility="visible" />
 
 </RelativeLayout>

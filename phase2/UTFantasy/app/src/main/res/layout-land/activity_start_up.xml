@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/start_up_image"></RelativeLayout>
+    android:background="@drawable/startup">
+
+    <RelativeLayout
+        android:id="@+id/startUpScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@color/white_half">
+
+
+        <ImageView
+            android:id="@+id/UTLogoStartUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/utfantasylogo"
+            android:contentDescription="@string/logo" />
+
+        <RelativeLayout
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:background="@color/white_half"
+            android:layout_below="@+id/UTLogoStartUp">
+
+            <Button
+                android:id="@+id/startButton"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@color/blue_half"
+                android:text="@string/game_start"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/scoreBoard"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_below="@id/startButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@color/blue_half"
+                android:text="@string/score_board"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/leaveButton"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_below="@id/scoreBoard"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@color/blue_half"
+                android:text="@string/leave"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

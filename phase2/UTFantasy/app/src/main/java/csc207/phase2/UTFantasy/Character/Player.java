@@ -1,19 +1,20 @@
 package csc207.phase2.UTFantasy.Character;
 
+import androidx.annotation.NonNull;
+
 import java.util.HashMap;
 
 import csc207.phase2.UTFantasy.Map.Map;
+import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.Product;
 
-public class Player extends Person {
+public class Player extends Person{
 
   private int x;
   private int y;
   private String gender;
   private Map playerMap;
   private HashMap<Product, Integer> bag;
-
-  // =======================================================================
 
   /**
    * construct a new player
@@ -63,7 +64,7 @@ public class Player extends Person {
     return playerMap;
   }
 
-  public void setPlayerMap(Map map){
+  public void setPlayerMap(Map map) {
     this.playerMap = map;
   }
 
@@ -81,6 +82,21 @@ public class Player extends Person {
     }
   }
 
+  @NonNull
+  @Override
+  public String toString() {
+    return "Player: " + name + ", " + gender + ", PokemonNum: " + pokemonList.size()
+            + ", TotalLV: ." + getPlayerPokemonLV() + ".";
+  }
+
+  public int getPlayerPokemonLV() {
+    int totalLV = 0;
+    for (Pokemon pokemon : pokemonList) {
+      totalLV += pokemon.getLevel();
+    }
+    return totalLV;
+  }
+
   public void useProduct(Product product){
     Integer num = bag.get(product);
     if (num != null){
@@ -91,4 +107,3 @@ public class Player extends Person {
     }
   }
 }
-

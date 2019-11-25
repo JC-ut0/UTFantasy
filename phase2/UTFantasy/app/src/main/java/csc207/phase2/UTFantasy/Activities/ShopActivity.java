@@ -19,10 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.IO.UserIO;
+import csc207.phase2.UTFantasy.Products.PinkPotion;
 import csc207.phase2.UTFantasy.Products.PotionFactory;
 import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.UserManager;
 
 /** The activity used to purchase products. */
 public class ShopActivity extends AppCompatActivity implements ShopView {
@@ -36,9 +37,9 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   //  /** the intent of MainActivity */
   Intent intent;
   /** the player */
-  Player player;
-  /** the unique userManager */
-  UserManager userManager = UserManager.getUserManager();
+  private Player player;
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
   /** the name of current user */
   String username;
   //  /** the amount of money a player has */
@@ -64,6 +65,11 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     setContentView(R.layout.activity_shop);
     intent = getIntent();
     username = intent.getStringExtra("username");
+    player = userIO.getUserData().getUser(username).getPlayer();
+
+    final Button redPotionBtn = findViewById(R.id.choose_red);
+    final Button pinkPotionBtn = findViewById(R.id.choose_pink);
+    final Button purplePotionBtn = findViewById(R.id.choose_purple);
     player = userManager.getUser(username).getPlayer();
     presenter = new ShopPresenter(new ShopInteractor(player), this);
     ListView listView = findViewById(R.id.productListView);

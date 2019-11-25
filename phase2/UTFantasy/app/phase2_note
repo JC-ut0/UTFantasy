@@ -1,7 +1,7 @@
 #########
 # Step 1
-    - Copy all files to phase2 directory, and renamed some file from .phase1. to .phase2.
-    - Created phase2_note.txt and phase2_TODO.txt for later notes.
+- Copy all files to phase2 directory, and renamed some file from .phase1. to .phase2.
+- Created phase2_note.txt and phase2_TODO.txt for later notes.
 
 #########
 # Step 2
@@ -19,7 +19,7 @@ Fix: Add missing "treeImage" to the highMap.
 #########
 # Step 4
 File affected: Person.java, Player.java
- Rename pokemon to pokemonList, since this variable refers to an ArrayList.
+Rename pokemon to pokemonList, since this variable refers to an ArrayList.
 
 #########
 # Step 5
@@ -29,6 +29,55 @@ Created README file, Reformat for all files.
 
 #########
 # Step 6
+Package affected: Map
+Flaw: MapManager violates SOLID, refactor the whole map system according to MVP and SOLID. Use
+design patterns as much as possible. Please see the details of whole structure in uml.
+
+########
+# Step 7
+Flaw: ArrayList is too specific to construct.
+Fix: Change ArrayList to List.
+
+########
+# Step 8
+File affected: MenuActivity.java, PlayerInfoActivity.java
+Flaw: These activities violate SOLID
+Fix: create a InfoMediator.java, pass the information to the activity. And create ItemAdapter to
+control the action from the activity.
+
+########
+# Step 9
+File affected: PokeSelectActivity.java
+Create a new activity and the following java class. Now we can select pokemons at the beginning of
+a fight.
+
+########
+# Step 10
+Refactor for User, UserData, and LoginActivity
+Since lots of activities interact with UserData, most files are affected.
+File affected: Most activities
+- Created UserIO for data access
+- Refactored for LoginActivity by MVP
+- Refactored UserManager by Single responsibility principle
+- Created UML folder for a series of UML diagrams.
+- More on LoginActivity UML, please have a look at the LoginActivity_UML.pdf
+
+########
+# Step 11
+File affected: StartUpActivity, LoginActivity
+- Rewrite StartUpActivity allowing user to choose start game or go to the scoreboard.
+- LoginActivity can go back to StartUpActivity
+
+########
+# Step 12
+File affected: NPC, Player
+- Refactored NPC duty with Duty enum
+- Added comparators of player to do rank sort later in the scoreboard Activity.
+- Added unit test for player comparators.
+- Created a ScoreBoard Activity (need list view)
+
+#########
+# Step 13
 File Added: PotionFactory
 File affected: NPC, SellerNPC, FighterNPC, HealerNPC, ShopActivity, ShopDialog
 Create a PotionFactory which can be used to create different potions.
@@ -36,51 +85,25 @@ Delete some unnecessary methods in all NPC classes.
 Change the method of trade.
 Rename ShopDialog.
 
-#########
-# Step 7
-Package affected: Map
-Flaw: MapManager violates SOLID, refactor the whole map system according to MVP and SOLID. Use
-design patterns as much as possible. Please see the details of whole structure in uml.
-
 ########
-# Step 8
-Flaw: ArrayList is too specific to construct.
-Fix: Change ArrayList to List.
-
-########
-# Step 9
-File affected: MenuActivity.java, PlayerInfoActivity.java
-Flaw: These activities violate SOLID
-Fix: create a InfoMediator.java, pass the information to the activity. And create ItemAdapter to
-control the action from the activity.
-
-########
-# Step 10
-File affected: PokeSelectActivity.java
-Create a new activity and the following java class. Now we can select pokemons at the beginning of
-a fight.
-
-########
-# Step 11
+# Step 14
 File added: ProductAdapter
 Create a new ShopActivity. Use ListView to present Products in the shop. We can easily add products
 in the shop without modifying too much code, which follows Open/Closed Principle.
 
 ########
-# Step 12：
+# Step 15
 File affected: RedPotion, PinkPotion, PurplePotion,PotionFactory
 Flaw: there exists static methods and variables.
 Fix: get rid of static methods and variables.
 
 ########
-#step 13:
+#step 16
 File added: ProductCreator, ProductBuilder, PotionBuilder
 Use Builder Design Pattern to create products in shop.
 
 ########
-#step 14:
+#step 17
 File added: ShopInteractor, ShopPresenter, ShopView
 File affected: ShopActivity
 Apply MVP in ShopActivity.
-
-

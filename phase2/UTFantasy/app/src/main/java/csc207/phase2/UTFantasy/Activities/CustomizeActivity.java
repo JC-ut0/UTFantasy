@@ -13,20 +13,18 @@ import android.widget.Toast;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.CustomizeException.ImproperPlayerNameException;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Map.MainActivity;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.User;
-import csc207.phase2.UTFantasy.UserManager;
+import csc207.phase2.UTFantasy.User.User;
 
 /** The activity used to create a new user. */
 public class CustomizeActivity extends Activity {
 
-  /** the unique UserManager */
-  UserManager userManager = UserManager.getUserManager();
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
   /**
-   * determine the progress of this activity
-   * 0 indicates player is asked for name
-   * 1 indicates player
+   * determine the progress of this activity 0 indicates player is asked for name 1 indicates player
    * is asked for gender
    */
   private int progress = 0;
@@ -110,7 +108,7 @@ public class CustomizeActivity extends Activity {
   }
 
   /**
-   * After registering a new account, information of this account is stored in the UserManager, and
+   * After registering a new account, information of this account is stored in the UserData, and
    * user can get into the game with a character, player.
    */
   private void move_to_main() {
@@ -121,9 +119,9 @@ public class CustomizeActivity extends Activity {
 
     // pass in name and gender to MainActivity
     Player player = new Player(name, gender);
-    User user = userManager.getUser(username);
+    User user = userIO.getUserData().getUser(username);
     user.setPlayer(player);
-    userManager.saveUserManager(CustomizeActivity.this);
+    userIO.saveUserData(CustomizeActivity.this);
     intent.putExtra("username", username);
     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
     // now go to main activity

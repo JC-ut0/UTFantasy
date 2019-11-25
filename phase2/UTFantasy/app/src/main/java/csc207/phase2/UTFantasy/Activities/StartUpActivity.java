@@ -3,7 +3,12 @@ package csc207.phase2.UTFantasy.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
+import csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity;
 import csc207.phase2.UTFantasy.R;
 
 /**
@@ -11,34 +16,51 @@ import csc207.phase2.UTFantasy.R;
  * and then go to
  */
 public class StartUpActivity extends Activity {
+  private RelativeLayout startUpScreen;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    getWindow()
+        .setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     // set the content view of this activity to be activity_start_up
     setContentView(R.layout.activity_start_up);
+    startUpScreen = findViewById(R.id.startUpScreen);
+    Button gameStartBt = findViewById(R.id.startButton);
+    Button scoreBoardBt = findViewById(R.id.scoreBoard);
+    Button leaveBt = findViewById(R.id.leaveButton);
 
-    // create a thread for this activity
-    Thread thread =
-        new Thread() {
-          // override run method
-
+    gameStartBt.setOnClickListener(
+        new View.OnClickListener() {
           @Override
-          public void run() {
-            try {
-              // show the start up picture for 5 seconds
-              sleep(500);
-            } catch (InterruptedException e) {
-              e.printStackTrace();
-            } finally {
-              // call the intent to go to next activity
-              Intent intent = new Intent(StartUpActivity.this, LoginActivity.class);
-              startActivity(intent);
-            }
+          public void onClick(View view) {
+            navigateToLoginActivity();
           }
-        };
+        });
 
-    // call the thread
-    thread.start();
+    scoreBoardBt.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            navigateToScoreBoardActivity();
+          }
+        });
+
+    leaveBt.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            finish();
+          }
+        });
+  }
+
+  private void navigateToLoginActivity() {
+    startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
+  }
+
+  private void navigateToScoreBoardActivity() {
+    startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
   }
 }

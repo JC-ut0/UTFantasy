@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.LoginActivityMVP;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,85 +14,92 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import csc207.phase2.UTFantasy.Activities.CustomizeActivity;
 import csc207.phase2.UTFantasy.CustomizeException.ImproperUserSettingException;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Map.MainActivity;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.User;
-import csc207.phase2.UTFantasy.UserManager;
+import csc207.phase2.UTFantasy.User.User;
+import csc207.phase2.UTFantasy.User.UserManagerFacade;
 
 /** The activity used to log into the game with username and passwords. */
-public class LoginActivity extends AppCompatActivity {
-  /** the unique UserManager */
-  private UserManager userManager = UserManager.getUserManager();
+public class LoginActivity extends AppCompatActivity implements LoginView {
+
   /** EditText account and password. */
   private EditText account, pwd;
 
-  /** account and password entered by a user */
-  private String accountStr, passwordStr;
-
   /** a checkbox shows whether this user want to remember his password. */
-  private CheckBox rememberPssword;
+  private CheckBox rememberPassword;
 
   /** SharedPreferences */
   private SharedPreferences pref;
+
+  /** LoginActivityFolder Presneter */
+  private LoginPresenter loginPresenter;
+
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getUserIO();
+
+  /** UserManagerFacade */
+  private UserManagerFacade userManagerFacade = new UserManagerFacade(userIO, LoginActivity.this);
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     Log.v("TAG", "Logging");
     super.onCreate(savedInstanceState);
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
+    // set for full screen and initialize all fields.
     getWindow()
         .setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_login);
+
+    userIO.loadUserData(LoginActivity.this);
+
+    loginPresenter = new LoginPresenter(userIO, this, userManagerFacade);
     account = findViewById(R.id.account);
     pwd = findViewById(R.id.pwd);
     pref = PreferenceManager.getDefaultSharedPreferences(this);
-    rememberPssword = findViewById(R.id.remember_password);
+    rememberPassword = findViewById(R.id.remember_password);
     loadPassword();
-    final Button btn_log = findViewById(R.id.btn_log);
-    final Button btn_register = findViewById(R.id.btn_register);
-
-    // firstly load the userManager
-    userManager.loadUserManager(LoginActivity.this);
+    final Button btnLog = findViewById(R.id.btn_log);
+    final Button btnRegister = findViewById(R.id.btn_register);
+    final Button btnBack = findViewById(R.id.backToStartUp);
 
     // when log in button is clicked
-    btn_log.setOnClickListener(
+    btnLog.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
             // exceptions we need to consider
             try {
-              nonEmptyAccountOrPassword();
+              loginPresenter.validateUsernameAndPasswordForLogin(
+                  account.getText().toString().trim(), pwd.getText().toString().trim());
             } catch (Exception e) {
+              e.printStackTrace();
               Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-            }
-            rememberPassword();
-            // login if
-            User user = userManager.login(accountStr, passwordStr);
-            if (user == null) {
-              // log in failed . pop up a window shows failure.
-              Toast.makeText(
-                      LoginActivity.this,
-                      "@string/account or password is not correct!",
-                      Toast.LENGTH_LONG)
-                  .show();
-            } else {
-              logInAction(user);
             }
           }
         });
-    btn_register.setOnClickListener(
+    // when register button is clicked
+    btnRegister.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
             // when register button is clicked
             try {
-              validateUsernameAndPassword();
+              validateUsernameAndPasswordForRegister();
             } catch (Exception e) {
               e.printStackTrace();
               Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
+          }
+        });
+    // when back button is clicked
+    btnBack.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            onBackPressed();
           }
         });
   }
@@ -102,13 +108,13 @@ public class LoginActivity extends AppCompatActivity {
    * If the user selects remember password, his password and username will be stored for his next
    * login.
    */
-  private void rememberPassword() {
+  public void rememberPassword() {
     // Save to sharedPreference
     SharedPreferences.Editor editor = pref.edit();
-    if (rememberPssword.isChecked()) {
+    if (rememberPassword.isChecked()) {
       editor.putBoolean("remember_password", true);
-      editor.putString("account", accountStr);
-      editor.putString("pwd", passwordStr);
+      editor.putString("account", account.getText().toString().trim());
+      editor.putString("pwd", pwd.getText().toString().trim());
     } else editor.clear();
     editor.apply();
   }
@@ -121,18 +127,7 @@ public class LoginActivity extends AppCompatActivity {
     if (isRemeber) {
       account.setText(pref.getString("account", ""));
       pwd.setText(pref.getString("pwd", ""));
-      rememberPssword.setChecked(true);
-    }
-  }
-
-  /** Make sure that the account and password are not empty. */
-  private void nonEmptyAccountOrPassword() {
-    accountStr = account.getText().toString().trim();
-    passwordStr = pwd.getText().toString().trim();
-    if (accountStr.equals("")) {
-      Toast.makeText(LoginActivity.this, "Please Enter your Account", Toast.LENGTH_LONG).show();
-    } else if (passwordStr.equals("")) {
-      Toast.makeText(LoginActivity.this, "Please Enter your Password", Toast.LENGTH_LONG).show();
+      rememberPassword.setChecked(true);
     }
   }
 
@@ -141,38 +136,17 @@ public class LoginActivity extends AppCompatActivity {
    *
    * @throws ImproperUserSettingException if username and password are not valid
    */
-  private void validateUsernameAndPassword() throws ImproperUserSettingException {
-    accountStr = account.getText().toString().trim();
-    passwordStr = pwd.getText().toString().trim();
-    if (accountStr.equals("")) {
-      throw new ImproperUserSettingException("Please Enter your Account");
-    } else if (passwordStr.equals("")) {
-      throw new ImproperUserSettingException("Please Enter your Password");
-    } else if (passwordStr.length() < 6) {
-      throw new ImproperUserSettingException("Your Password need to have at least 6 letters.");
-    } else if (passwordStr.contains(";")) {
-      throw new ImproperUserSettingException("Invalid punctuation is used.");
-    } else if (accountStr.contains(";")) {
-      throw new ImproperUserSettingException("Invalid punctuation is used.");
-    } else if (userManager.getUserHashMap().containsKey(accountStr)) {
-      Toast.makeText(LoginActivity.this, "The UserName is used.", Toast.LENGTH_LONG).show();
-    } else if (accountStr.contains("\n")) {
-      throw new ImproperUserSettingException("Invalid punctuation is used.");
-    } else if (accountStr.contains("fuck")) {
-      throw new ImproperUserSettingException("Please be polite!");
-    } else {
-      newPlayerAction();
-    }
+  private void validateUsernameAndPasswordForRegister() throws ImproperUserSettingException {
+    loginPresenter.validateUsernameAndPasswordForRegister(
+        account.getText().toString().trim(), pwd.getText().toString().trim());
   }
 
   /**
    * If the account is not registered or doesn't have a player, jump to CustomizeActivity to create
    * a new player.
    */
-  private void newPlayerAction() {
-    // this is a new user, saveFile the info of this user, go to set up activity
-    User user = userManager.register(accountStr, passwordStr);
-    userManager.saveUserManager(LoginActivity.this);
+  public void newPlayerAction(User user) {
+    rememberPassword();
     Intent register_intent = new Intent(LoginActivity.this, CustomizeActivity.class);
     // prevent User coming back to this activity!
     register_intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -186,7 +160,8 @@ public class LoginActivity extends AppCompatActivity {
    *
    * @param user the login user
    */
-  private void logInAction(User user) {
+  public void logInAction(User user) {
+    rememberPassword();
     // log in succeeded. pop up a window shows success. Get user Id here.
     if (user.hasPlayer()) {
       // go to MainActivity after logged in
@@ -196,7 +171,7 @@ public class LoginActivity extends AppCompatActivity {
       startActivity(login_intent);
     } else {
       // create a player
-      newPlayerAction();
+      newPlayerAction(user);
     }
   }
 }
