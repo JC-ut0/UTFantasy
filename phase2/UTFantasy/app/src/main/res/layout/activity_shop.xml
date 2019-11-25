@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/menubackground">
+    android:background="@drawable/background">
 
     <!--    <ImageView-->
 <!--        android:id="@+id/image_pink"-->
@@ -138,29 +138,17 @@
 
     <ListView
         android:id="@+id/productListView"
-        android:layout_width="243dp"
+        android:layout_width="216dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="35dp"
-        android:layout_marginEnd="438dp"
-        android:layout_marginBottom="40dp" />
+        android:layout_marginEnd="483dp"
+        android:layout_marginBottom="97dp" />
 
-    <Button
-        android:id="@+id/my_bag"
-        android:layout_width="137dp"
-        android:layout_height="51dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="491dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/text_box"
-        android:text="My Bag"
-        android:textColor="#FFFFFF" />
 
     <ImageButton
         android:id="@+id/back_to_main"
@@ -174,25 +162,25 @@
 
     <LinearLayout
         android:id="@+id/left_top"
-        android:layout_width="222dp"
-        android:layout_height="244dp"
+        android:layout_width="202dp"
+        android:layout_height="220dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="205dp"
-        android:layout_marginBottom="135dp"
+        android:layout_marginEnd="231dp"
+        android:layout_marginBottom="161dp"
         android:orientation="vertical" />
 
     <LinearLayout
         android:id="@+id/right_top"
-        android:layout_width="wrap_content"
-        android:layout_height="209dp"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="35dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="182dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="180dp"
         android:orientation="vertical">
 
         <Button
@@ -203,9 +191,9 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="30dp"
+            android:enabled="false"
             android:text="Add 1"
-            android:textSize="12sp"
-            android:enabled="false"/>
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/add10"
@@ -215,9 +203,9 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="23dp"
             android:layout_marginEnd="31dp"
+            android:enabled="false"
             android:text="Add 10"
-            android:textSize="12sp"
-            android:enabled="false"/>
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/enter_amount"
@@ -233,9 +221,9 @@
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_gravity="center_horizontal"
+            android:enabled="false"
             android:text="Apply"
-            android:textSize="12sp"
-            android:enabled="false"/>
+            android:textSize="12sp" />
 
 
     </LinearLayout>
@@ -363,21 +351,38 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/buy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/right_top"
-        android:layout_alignBottom="@+id/right_bottom"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="84dp"
-        android:gravity="center_horizontal"
-        android:text="BUY!"
-        android:textSize="20sp"
-        android:enabled="false"/>
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="64dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="466dp"
+        android:layout_marginBottom="17dp"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/my_bag"
+            android:layout_width="137dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="29dp"
+            android:layout_gravity="fill_vertical"
+            android:background="@drawable/text_box"
+            android:text="My Bag"
+            android:textColor="#FFFFFF" />
 
-    "
+        <Button
+            android:id="@+id/buy"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:background="@drawable/text_box"
+            android:enabled="false"
+            android:text="BUY!"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
