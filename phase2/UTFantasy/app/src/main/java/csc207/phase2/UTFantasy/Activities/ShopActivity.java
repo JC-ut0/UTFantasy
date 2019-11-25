@@ -25,15 +25,15 @@ import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.UserManager;
 
 /** The activity used to purchase products. */
-public class ShopActivity extends AppCompatActivity{
+public class ShopActivity extends AppCompatActivity implements ShopView {
 
-  /** A PotionFactory*/
+  /** A PotionFactory */
   PotionFactory potionFactory = new PotionFactory();
-  /** The amount of products a player wants to buy. */
-  int amount;
-  /** which product a player wants to buy */
-  Product product;
-  /** the intent of MainActivity */
+  //  /** The amount of products a player wants to buy. */
+  //  int amount;
+  //  /** which product a player wants to buy */
+  //  Product product;
+  //  /** the intent of MainActivity */
   Intent intent;
   /** the player */
   Player player;
@@ -41,22 +41,22 @@ public class ShopActivity extends AppCompatActivity{
   UserManager userManager = UserManager.getUserManager();
   /** the name of current user */
   String username;
-//  /** the amount of money a player has */
-//  int money;
+  //  /** the amount of money a player has */
+  //  int money;
   /** the TextView of money */
   TextView moneyLeft;
+
   TextView totalMoney;
   TextView productInBag;
   TextView productSelected;
   EditText enterAmount;
   LinearLayout layout;
-  //private  ShopPresenter presenter;
   Button add1;
   Button add10;
   Button apply;
   Button buy;
-//  private BaseAdapter productAdapter = null;
-  private ArrayList<Product> productInShop;//database
+  private ArrayList<Product> productInShop;
+  private ShopPresenter presenter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class ShopActivity extends AppCompatActivity{
     intent = getIntent();
     username = intent.getStringExtra("username");
     player = userManager.getUser(username).getPlayer();
-    //presenter = new ShopPresenter(new ShopInteractor(player), this);
+    presenter = new ShopPresenter(new ShopInteractor(player), this);
     ListView listView = findViewById(R.id.productListView);
     totalMoney = findViewById(R.id.totalMoney);
     moneyLeft = findViewById(R.id.money_left);
@@ -81,76 +81,67 @@ public class ShopActivity extends AppCompatActivity{
     final ImageButton backBtn = findViewById(R.id.back_to_main);
     final Button bagBtn = findViewById(R.id.my_bag);
 
-    productInShop = new ArrayList<>();
-    Product red = potionFactory.makePotion("red");
-    Product pink = potionFactory.makePotion("pink");
-    Product purple = potionFactory.makePotion("purple");
-    productInShop.add(red);
-    productInShop.add(pink);
-    productInShop.add(purple);
+    ProductCreator productCreator = new ProductCreator();
+    productInShop = productCreator.getProducts();
 
-    ProductAdapter productAdapter = new ProductAdapter(this,  R.layout.product_layout, productInShop);
-
+    ProductAdapter productAdapter =
+        new ProductAdapter(this, R.layout.product_layout, productInShop);
     listView.setAdapter(productAdapter);
 
-    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    listView.setOnItemClickListener(
+        new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            product = productInShop.get(position);
-            //View view1 = createView(product);
-            updateAll(product);
-            add1.setEnabled(true);
-            add10.setEnabled(true);
-            buy.setEnabled(true);
-            apply.setEnabled(true);
+            Product product = productInShop.get(position);
+            presenter.updateAll(product);
+            // View view1 = createView(product);
+            //            updateAll(product);
+            //            setButton();
           }
-      });
+        });
 
     add1.setOnClickListener(
-            new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                addNumber(1);
-                updateTotal();
-              }
-            }
-    );
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            int num = Integer.valueOf(productSelected.getText().toString());
+            presenter.updateSelected(1 + num);
+          }
+        });
 
     add10.setOnClickListener(
-            new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                addNumber(10);
-                updateTotal();
-              }
-            }
-    );
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            int num = Integer.valueOf(productSelected.getText().toString());
+            presenter.updateSelected(10 + num);
+          }
+        });
 
     apply.setOnClickListener(
-            new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                if (enterAmount.getText() != null){
-                  updateNewAmount(Integer.valueOf(enterAmount.getText().toString()));
-                  updateTotal();
-                  enterAmount.setText("0");
-                }else{
-                  showMessage("Please enter a number!");
-                }
-              }
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            if (enterAmount.getText() != null) {
+              int n = Integer.valueOf(enterAmount.getText().toString());
+              presenter.updateSelected(n);
+              enterAmount.setText("0");
+            } else {
+              showMessage("Please enter a number!");
             }
-    );
+          }
+        });
 
     buy.setOnClickListener(
-            new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                trade();
-                updateNewAmount(0);
-                updateTotal();
-              }
-            }
-    );
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            int total = Integer.valueOf(totalMoney.getText().toString());
+            int amount = Integer.valueOf(productSelected.getText().toString());
+            presenter.trade(total, amount);
+            presenter.updateSelected(0);
+          }
+        });
 
     backBtn.setOnClickListener(
         new View.OnClickListener() {
@@ -169,111 +160,94 @@ public class ShopActivity extends AppCompatActivity{
         });
   }
 
-//  /**
-//   * A window pops up where you can enter a number that represents the number of products you want
-//   * to purchase.
-//   */
-//  public void openDialog() {
-//    ShopDialog shopDialog = new ShopDialog();
-//    shopDialog.show(getSupportFragmentManager(), "shop dialog");
-//  }
+  //  /**
+  //   * A window pops up where you can enter a number that represents the number of products you
+  // want
+  //   * to purchase.
+  //   */
+  //  public void openDialog() {
+  //    ShopDialog shopDialog = new ShopDialog();
+  //    shopDialog.show(getSupportFragmentManager(), "shop dialog");
+  //  }
 
-//  /** Apply the text entered by the user to sellerNPC. */
-//  @Override
-//  public void applyTexts(String amount) {
-//    this.amount = Integer.valueOf(amount);
-//    trade();
-//    money.setText(String.valueOf(moneyLeft));
-//  }
+  //  /** Apply the text entered by the user to sellerNPC. */
+  //  @Override
+  //  public void applyTexts(String amount) {
+  //    this.amount = Integer.valueOf(amount);
+  //    trade();
+  //    money.setText(String.valueOf(moneyLeft));
+  //  }
 
   /** Navigate to Back. */
-  public void navigateToBag(){
+  public void navigateToBag() {
     Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
     intent.putExtra("username", username);
     startActivity(intent);
   }
 
-
-  public void showMessage(String text){
-    Toast.makeText(ShopActivity.this, text,  Toast.LENGTH_SHORT).show();
-  }
-//
-//  @Override
-//  public void setText(String text){
-//    moneyLeft.setText(text);
-//  }
-
-  public void addNumber(int num){
-    int n = Integer.valueOf(productSelected.getText().toString());
-    n += num;
-    productSelected.setText(String.valueOf(n));
+  public void showMessage(String text) {
+    Toast.makeText(ShopActivity.this, text, Toast.LENGTH_SHORT).show();
   }
 
-  public void updateTotal(){
-    int num = Integer.valueOf(productSelected.getText().toString());
-    int total = num * product.getPrice();
-    totalMoney.setText(String.valueOf(total));
-  }
-//  public void trade(){
-//    if (canAfford()){
-//      player.addItem(product, amount);
-//      int total = product.getPrice() * amount;
-//      money -= total;
-//      player.setMoney(money);
-//      String tradeInfo = "You bought " + this.amount + " " + product.getName() + "!";
-//      Toast.makeText(ShopActivity.this, tradeInfo,  Toast.LENGTH_SHORT).show();
-//    } else{
-//      String tradeInfo = "You don't have enough money.";
-//      Toast.makeText(ShopActivity.this, tradeInfo,  Toast.LENGTH_SHORT).show();
-//    }
-//  }
-  public void trade(){
-    int total = Integer.valueOf(totalMoney.getText().toString());
-    if (total != 0){
-      if (canAfford()){
-        int money = Integer.valueOf(moneyLeft.getText().toString()) - total;
-        player.setMoney(money);
-        int amount = Integer.valueOf(productSelected.getText().toString());
-        player.addItem(product, amount);
-        moneyLeft.setText(String.valueOf(money));
-        updateProductInBag();
-      } else {
-        showMessage("You don't Have enough money!");
-        productSelected.setText("0");
-        updateTotal();
-      }
-    }else{
-      showMessage("Please add products!");
-    }
+  //  public void trade(){
+  //    if (canAfford()){
+  //      player.addItem(product, amount);
+  //      int total = product.getPrice() * amount;
+  //      money -= total;
+  //      player.setMoney(money);
+  //      String tradeInfo = "You bought " + this.amount + " " + product.getName() + "!";
+  //      Toast.makeText(ShopActivity.this, tradeInfo,  Toast.LENGTH_SHORT).show();
+  //    } else{
+  //      String tradeInfo = "You don't have enough money.";
+  //      Toast.makeText(ShopActivity.this, tradeInfo,  Toast.LENGTH_SHORT).show();
+  //    }
+  //  }
+  //  public void trade(){
+  //    if (total != 0){
+  //      if (canAfford()){
+  //        int money = Integer.valueOf(moneyLeft.getText().toString()) - total;
+  //        player.setMoney(money);
+  //        int amount = Integer.valueOf(productSelected.getText().toString());
+  //        player.addItem(product, amount);
+  //        moneyLeft.setText(String.valueOf(money));
+  //        updateProductInBag();
+  //      } else {
+  //        showMessage("You don't Have enough money!");
+  //        productSelected.setText("0");
+  //        updateTotal();
+  //      }
+  //    }else{
+  //      showMessage("Please add products!");
+  //    }
 
+  //  private void updateProductInBag(){
+  //    productInBag.setText(productSelected.getText().toString());
+  //  }
 
-  }
-  private void updateProductInBag(){
-    productInBag.setText(productSelected.getText().toString());
-  }
+  //  public boolean canAfford(){
+  //    int price = product.getPrice();
+  //    int money = player.getMoney();
+  //    int total = price * amount;
+  //    return total <= money;
+  //  }
+  //  public boolean canAfford(){
+  //    return Integer.valueOf(totalMoney.getText().toString()) <=
+  // Integer.valueOf(moneyLeft.getText().toString());
+  //  }
 
-//  public boolean canAfford(){
-//    int price = product.getPrice();
-//    int money = player.getMoney();
-//    int total = price * amount;
-//    return total <= money;
-//  }
-  public boolean canAfford(){
-    return Integer.valueOf(totalMoney.getText().toString()) <= Integer.valueOf(moneyLeft.getText().toString());
-  }
+  //  public void updateAll(Product product){
+  //    //layout.addView(view, 0);
+  //    totalMoney.setText("0");
+  //    productSelected.setText("0");
+  //    Integer n = player.getBag().get(product);
+  //    if (n != null){
+  //      productInBag.setText(String.valueOf(n));
+  //    }else{
+  //      productInBag.setText("0");
+  //    }
+  //  }
 
-  public void updateAll(Product product){
-    //layout.addView(view, 0);
-    totalMoney.setText("0");
-    productSelected.setText("0");
-    Integer n = player.getBag().get(product);
-    if (n != null){
-      productInBag.setText(String.valueOf(n));
-    }else{
-      productInBag.setText("0");
-    }
-  }
-  public View createView(Product product){
+  public View createView(Product product) {
     int id = product.getProfile_id();
     String name = product.getName();
     String description = product.toString();
@@ -287,9 +261,35 @@ public class ShopActivity extends AppCompatActivity{
     productDescription.setText(description);
     return view;
   }
-  public void updateNewAmount(int num){
-    productSelected.setText(String.valueOf(num));
+  //  public void updateNewAmount(int num){
+  //    productSelected.setText(String.valueOf(num));
+  //  }
+
+  @Override
+  public void setButtons() {
+    add1.setEnabled(true);
+    add10.setEnabled(true);
+    buy.setEnabled(true);
+    apply.setEnabled(true);
   }
 
+  @Override
+  public void setProductSelected(String text) {
+    productSelected.setText(text);
+  }
 
+  @Override
+  public void setTotalMoney(String text) {
+    totalMoney.setText(text);
+  }
+
+  @Override
+  public void setProductInBag(String text) {
+    productInBag.setText(text);
+  }
+
+  @Override
+  public void setMoneyLeft(String text) {
+    moneyLeft.setText(text);
+  }
 }

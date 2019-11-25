@@ -77,3 +77,10 @@ Fix: get rid of static methods and variables.
 File added: ProductCreator, ProductBuilder, PotionBuilder
 Use Builder Design Pattern to create products in shop.
 
+########
+#step 14:
+File added: ShopInteractor, ShopPresenter, ShopView
+File affected: ShopActivity
+Apply MVP in ShopActivity.
+
+
