@@ -3,10 +3,8 @@ package csc207.phase2.UTFantasy.Activities.LoginActivityMVP;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,17 +12,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import csc207.phase2.UTFantasy.Activities.CustomizeActivity;
 import csc207.phase2.UTFantasy.CustomizeException.ImproperUserSettingException;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Map.MainActivity;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.User.User;
 import csc207.phase2.UTFantasy.User.UserManagerFacade;
-import csc207.phase2.UTFantasy.IO.UserIO;
 
 /** The activity used to log into the game with username and passwords. */
-public class LoginActivity extends AppCompatActivity implements LoginView{
+public class LoginActivity extends AppCompatActivity implements LoginView {
 
   /** EditText account and password. */
   private EditText account, pwd;
@@ -38,36 +37,31 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
   /** LoginActivityFolder Presneter */
   private LoginPresenter loginPresenter;
 
-  /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
-
-  /** UserManagerFacade */
-  private UserManagerFacade userManagerFacade = new UserManagerFacade(userIO, LoginActivity.this);
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     Log.v("TAG", "Logging");
     super.onCreate(savedInstanceState);
     // set for full screen and initialize all fields.
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
     getWindow()
         .setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_login);
-
-    userIO.loadUserData(LoginActivity.this);
-
-    loginPresenter = new LoginPresenter(userIO, this, userManagerFacade);
+    // initialize userIO and UserManagerFacade
+    UserIO userIO = UserIO.getSingletonUserIo();
+      userIO.loadUserData(LoginActivity.this);
+    UserManagerFacade userManagerFacade = new UserManagerFacade(userIO, LoginActivity.this);
+    loginPresenter = new LoginPresenter(this, userManagerFacade);
     account = findViewById(R.id.account);
     pwd = findViewById(R.id.pwd);
     pref = PreferenceManager.getDefaultSharedPreferences(this);
     rememberPassword = findViewById(R.id.remember_password);
     loadPassword();
-    final Button btn_log = findViewById(R.id.btn_log);
-    final Button btn_register = findViewById(R.id.btn_register);
+    final Button btnLog = findViewById(R.id.btn_log);
+    final Button btnRegister = findViewById(R.id.btn_register);
+    final Button btnBack = findViewById(R.id.backToStartUp);
 
     // when log in button is clicked
-    btn_log.setOnClickListener(
+    btnLog.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -82,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
           }
         });
     // when register button is clicked
-    btn_register.setOnClickListener(
+    btnRegister.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -93,6 +87,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
               e.printStackTrace();
               Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
+          }
+        });
+    // when back button is clicked
+    btnBack.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            onBackPressed();
           }
         });
   }
@@ -107,7 +109,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     if (rememberPassword.isChecked()) {
       editor.putBoolean("remember_password", true);
       editor.putString("account", account.getText().toString().trim());
-      editor.putString("pwd",  pwd.getText().toString().trim());
+      editor.putString("pwd", pwd.getText().toString().trim());
     } else editor.clear();
     editor.apply();
   }
@@ -116,8 +118,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
    * If the user selected remember password last time, his user name and password will be loaded.
    */
   private void loadPassword() {
-    boolean isRemeber = pref.getBoolean("remember_password", false);
-    if (isRemeber) {
+    boolean isRemember = pref.getBoolean("remember_password", false);
+    if (isRemember) {
       account.setText(pref.getString("account", ""));
       pwd.setText(pref.getString("pwd", ""));
       rememberPassword.setChecked(true);

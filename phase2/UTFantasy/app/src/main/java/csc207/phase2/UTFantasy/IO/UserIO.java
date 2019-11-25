@@ -20,20 +20,24 @@ public class UserIO implements UserIOInterface {
 
   /** The file to store UserData */
   private String userFile = "user.txt";
-
+  //  private String userFile =
+  // Environment.getExternalStorageDirectory().getAbsolutePath()+"/user.txt";
   private UserData userData;
+
   /** A unique UserIO that will be only created once. */
-  private static UserIO userIO;
+  private static UserIO SINGLETON_USER_IO = new UserIO();
 
   /** Singleton Constructor of UserIO. */
-  private UserIO() {
-  }
+  private UserIO() {}
 
-  public static UserIO getUserIO() {
-    if (userIO == null) {
-      userIO = new UserIO();
-    }
-    return userIO;
+  /**
+   * Always return a same UserIO. Initialize a UserIO when this method is call at first time. Should
+   * load data in the activity
+   *
+   * @return a unique UserIO
+   */
+  public static UserIO getSingletonUserIo() {
+    return SINGLETON_USER_IO;
   }
 
   /**
@@ -79,12 +83,12 @@ public class UserIO implements UserIOInterface {
         if (userData == null) userData = new UserData();
       }
     } catch (FileNotFoundException e) {
-      Toast.makeText(context, "Created a new UserData" + e.getMessage(), Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Created a new UserData" + e.getMessage(), Toast.LENGTH_LONG).show();
       e.printStackTrace();
       userData = new UserData();
     } catch (IOException | ClassNotFoundException e) {
       AlertDialog.Builder builder = new AlertDialog.Builder(context);
-      builder.setTitle(e.getLocalizedMessage());
+        builder.setTitle(e.getLocalizedMessage());
       builder.setMessage(e.getMessage());
       builder.setPositiveButton("OK", null);
       builder.show();

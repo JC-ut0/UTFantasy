@@ -42,4 +42,8 @@ public class UserManagerFacade implements UserManagerFacadeInterface {
   public void loadUserData() {
     userIO.loadUserData(activity);
   }
+
+  public boolean isUserExisted(String username) {
+    return userIO.getUserData().getUserHashMap().containsKey(username);
+  }
 }

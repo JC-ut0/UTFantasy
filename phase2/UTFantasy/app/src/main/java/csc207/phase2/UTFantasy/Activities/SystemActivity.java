@@ -8,14 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
 
 public class SystemActivity extends AppCompatActivity {
 
   /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
+  private UserIO userIO = UserIO.getSingletonUserIo();
 
   /** The buttons. */
   private Button save_button;
@@ -64,7 +63,7 @@ public class SystemActivity extends AppCompatActivity {
     // save file first
     userIO.saveUserData(SystemActivity.this);
     // go back to User Activity from the current Activity
-    Intent intent = new Intent(SystemActivity.this, LoginActivity.class);
+    Intent intent = new Intent(SystemActivity.this, StartUpActivity.class);
     // prevent User coming back to this activity!
     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
@@ -72,7 +71,7 @@ public class SystemActivity extends AppCompatActivity {
 
   /** Set the back button. */
   private void setBack_button() {
-    back_button = findViewById(R.id.back);
+    back_button = findViewById(R.id.backToStartUp);
     back_button.setOnClickListener(
         new View.OnClickListener() {
           @Override

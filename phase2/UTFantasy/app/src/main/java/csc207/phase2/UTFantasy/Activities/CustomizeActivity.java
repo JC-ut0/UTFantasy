@@ -17,12 +17,13 @@ import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Map.MainActivity;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.User.User;
+import csc207.phase2.UTFantasy.User.UserManagerFacade;
 
 /** The activity used to create a new user. */
 public class CustomizeActivity extends Activity {
 
   /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
+  private UserIO userIO = UserIO.getSingletonUserIo();
   /**
    * determine the progress of this activity 0 indicates player is asked for name 1 indicates player
    * is asked for gender
@@ -47,6 +48,9 @@ public class CustomizeActivity extends Activity {
     super.onCreate(savedInstanceState);
     // set the content view of this activity to activity_customize
     setContentView(R.layout.activity_customize);
+    // initialize userIO and UserManagerFacade
+    UserIO userIO = UserIO.getSingletonUserIo();
+    UserManagerFacade userManagerFacade = new UserManagerFacade(userIO, CustomizeActivity.this);
 
     // initialize all the palette
     Button buttonA = findViewById(R.id.button_a);
@@ -113,7 +117,7 @@ public class CustomizeActivity extends Activity {
    */
   private void move_to_main() {
     Intent login_intent = getIntent();
-    final String username = login_intent.getStringExtra("username");
+    String username = login_intent.getStringExtra("username");
     // initialize the intent
     Intent intent = new Intent(CustomizeActivity.this, MainActivity.class);
 

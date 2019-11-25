@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   private Player player;
 
   /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
+  private UserIO userIO = UserIO.getSingletonUserIo();
 
   /** The name of the current User. */
   private String username;
@@ -174,8 +174,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
             mapController.buttonAClick();
           }
         });
-
-    // ============================================================================================
 
     intent = getIntent();
     username = intent.getStringExtra("username");

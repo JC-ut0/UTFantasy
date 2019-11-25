@@ -30,7 +30,7 @@ public class ProductSelectActivity extends AppCompatActivity {
   /** the player */
   Player player;
   /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
+  private UserIO userIO = UserIO.getSingletonUserIo();
 
   List<Product> selectedList;
   HashMap<Product, Integer> productHashMap;

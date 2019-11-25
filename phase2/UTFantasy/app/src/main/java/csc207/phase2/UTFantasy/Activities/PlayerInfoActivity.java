@@ -21,7 +21,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
   private Player player;
 
   /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
+  private UserIO userIO = UserIO.getSingletonUserIo();
 
   private InfoMediator infoMediator;
 

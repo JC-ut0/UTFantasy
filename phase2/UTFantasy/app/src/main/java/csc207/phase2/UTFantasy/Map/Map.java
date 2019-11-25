@@ -2,7 +2,7 @@ package csc207.phase2.UTFantasy.Map;
 
 import java.io.Serializable;
 
-import csc207.phase2.UTFantasy.NPCManager;
+import csc207.phase2.UTFantasy.Character.NPCManager;
 
 public class Map implements Serializable {
   private int mapWidth;
@@ -46,7 +46,7 @@ public class Map implements Serializable {
     return npcManager;
   }
 
-  public void setNpcManager(NPCManager npcManager){
+  public void setNpcManager(NPCManager npcManager) {
     this.npcManager = npcManager;
   }
 }

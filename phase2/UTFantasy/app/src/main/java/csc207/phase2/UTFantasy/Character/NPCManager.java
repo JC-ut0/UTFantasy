@@ -1,9 +1,7 @@
-package csc207.phase2.UTFantasy;
+package csc207.phase2.UTFantasy.Character;
 
 import java.io.Serializable;
 import java.util.HashMap;
-
-import csc207.phase2.UTFantasy.Character.NPC;
 
 public class NPCManager implements Serializable {
 

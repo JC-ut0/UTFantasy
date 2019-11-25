@@ -11,7 +11,7 @@ public class Person implements Serializable {
   protected String direction;
   protected int money;
   protected List<Pokemon> pokemonList;
-  protected int maxSizeOfPokemonList = 6;
+  protected final int maxSizeOfPokemonList = 6;
 
   Person(String name) {
     this.name = name;
@@ -49,8 +49,8 @@ public class Person implements Serializable {
     return pokemonList;
   }
 
-  public void heal(){
-    for (Pokemon pokemon : pokemonList){
+  public void heal() {
+    for (Pokemon pokemon : pokemonList) {
       pokemon.setHp(pokemon.getMaximumHp());
     }
   }
