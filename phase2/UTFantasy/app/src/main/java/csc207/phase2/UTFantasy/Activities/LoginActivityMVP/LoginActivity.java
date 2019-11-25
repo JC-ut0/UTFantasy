@@ -48,7 +48,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     setContentView(R.layout.activity_login);
     // initialize userIO and UserManagerFacade
     UserIO userIO = UserIO.getSingletonUserIo();
-      userIO.loadUserData(LoginActivity.this);
     UserManagerFacade userManagerFacade = new UserManagerFacade(userIO, LoginActivity.this);
     loginPresenter = new LoginPresenter(this, userManagerFacade);
     account = findViewById(R.id.account);

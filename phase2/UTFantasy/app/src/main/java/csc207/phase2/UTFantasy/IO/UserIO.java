@@ -1,6 +1,7 @@
 package csc207.phase2.UTFantasy.IO;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -82,13 +83,16 @@ public class UserIO implements UserIOInterface {
         inputStream.close();
         if (userData == null) userData = new UserData();
       }
-    } catch (FileNotFoundException e) {
-        Toast.makeText(context, "Created a new UserData" + e.getMessage(), Toast.LENGTH_LONG).show();
+    } catch (FileNotFoundException | ClassNotFoundException e) {
+      Toast.makeText(
+              context, "Created a new UserData\n" + e.getClass().toString(), Toast.LENGTH_LONG)
+              .show();
       e.printStackTrace();
+      Log.e("Exception", e.getMessage() + e.getMessage());
       userData = new UserData();
-    } catch (IOException | ClassNotFoundException e) {
+    } catch (IOException e) {
       AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(e.getLocalizedMessage());
+      builder.setTitle(e.getClass().toString());
       builder.setMessage(e.getMessage());
       builder.setPositiveButton("OK", null);
       builder.show();
