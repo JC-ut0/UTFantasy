@@ -7,8 +7,8 @@ import csc207.phase2.UTFantasy.User.UserManagerFacadeInterface;
 
 class LoginPresenter {
 
-  private LoginView loginView;
-  private UserManagerFacadeInterface userManagerFacade;
+  private final LoginView loginView;
+  private final UserManagerFacadeInterface userManagerFacade;
 
   LoginPresenter(LoginView loginView, UserManagerFacade userManagerFacade) {
     this.userManagerFacade = userManagerFacade;
