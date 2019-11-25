@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.FightActivity">
+    tools:context=".activities.FightActivity">
 
     <RelativeLayout
 
@@ -23,7 +23,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="135dp"
-            android:layout_marginBottom="99dp" />
+            android:layout_marginBottom="99dp"
+            android:contentDescription="@string/rivalpokemon" />
 
         <ImageView
             android:id="@+id/myPokemon"
@@ -32,7 +33,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="481dp"
-            android:layout_marginBottom="-13dp" />
+            android:layout_marginBottom="-13dp"
+            android:contentDescription="@string/myPokemon" />
 
         <ProgressBar
             android:id="@+id/myHealthBar"
@@ -63,7 +65,7 @@
             android:layout_marginEnd="-2dp"
             android:layout_marginBottom="0dp"
             android:gravity="center"
-            android:text="0/0"
+            android:text="@string/healthBarText"
             android:textColor="@android:color/background_dark" />
 
         <ProgressBar
@@ -90,7 +92,7 @@
             android:layout_alignEnd="@+id/rivalHealthBar"
             android:layout_alignBottom="@+id/rivalHealthBar"
             android:gravity="center"
-            android:text="0/0"
+            android:text="@string/healthBarText"
             android:textColor="@android:color/background_dark" />
 
     </RelativeLayout>
@@ -117,7 +119,7 @@
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="114dp"
-                android:text="battle information..."
+                android:text="@string/battle_information"
                 android:textColor="#FFFF"
                 android:textSize="25sp" />
         </FrameLayout>
@@ -136,7 +138,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
                 android:background="@android:color/transparent"
-                android:text="FIGHT"
+                android:text="@string/fight"
                 android:textColor="#FFFF"
                 android:textSize="25sp" />
 
@@ -147,7 +149,7 @@
                 android:layout_marginStart="183dp"
                 android:layout_marginTop="15dp"
                 android:background="@android:color/transparent"
-                android:text="BAG"
+                android:text="@string/BAG"
                 android:textColor="#FFFF"
                 android:textSize="25sp" />
 
@@ -158,7 +160,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="50dp"
                 android:background="@android:color/transparent"
-                android:text="POKEMON"
+                android:text="@string/POKEMON"
                 android:textColor="#FFFF"
                 android:textSize="25sp" />
 
@@ -169,7 +171,7 @@
                 android:layout_marginStart="183dp"
                 android:layout_marginTop="50dp"
                 android:background="@android:color/transparent"
-                android:text="RUN"
+                android:text="@string/RUN"
                 android:textColor="#FFFF"
                 android:textSize="25sp" />
         </FrameLayout>
@@ -185,7 +187,6 @@
                 android:id="@+id/skillSection"
                 android:layout_width="488dp"
                 android:layout_height="match_parent"
-                android:layout_toEndOf="@+id/skillInformationSection"
                 android:background="@drawable/text_box">
 
                 <Button
@@ -241,7 +242,7 @@
                     android:layout_height="113dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:text="skill information..."
+                    android:text="@string/skill_information"
                     android:textColor="#FFFF"
                     android:textSize="25sp" />
             </FrameLayout>
@@ -269,7 +270,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:clickable="true"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/firtpokemon"
                 app:srcCompat="@drawable/pikachu1" />
 
             <RelativeLayout
@@ -300,7 +301,7 @@
                     android:layout_alignParentTop="true"
 
                     android:gravity="center"
-                    android:text="0/0"
+                    android:text="@string/healthBarText"
                     android:textColor="@android:color/background_dark"
                     android:visibility="visible" />
             </RelativeLayout>
@@ -319,7 +320,7 @@
                 android:id="@+id/secondPokemonInBag"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:contentDescription="First pokemon"
+                android:contentDescription="@string/second_pokemon"
                 app:srcCompat="@drawable/pikachu1" />
 
             <RelativeLayout
@@ -348,7 +349,7 @@
                     android:layout_alignParentTop="true"
 
                     android:gravity="center"
-                    android:text="0/0"
+                    android:text="@string/healthBarText"
                     android:textColor="@android:color/background_dark" />
             </RelativeLayout>
 
@@ -365,7 +366,7 @@
                 android:id="@+id/thirdPokemonInBag"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:contentDescription="First pokemon"
+                android:contentDescription="@string/third_pokemon"
                 app:srcCompat="@drawable/pikachu1" />
 
             <RelativeLayout
@@ -394,7 +395,7 @@
                     android:layout_alignParentTop="true"
 
                     android:gravity="center"
-                    android:text="0/0"
+                    android:text="@string/healthBarText"
                     android:textColor="@android:color/background_dark" />
             </RelativeLayout>
         </LinearLayout>
@@ -410,7 +411,7 @@
                 android:id="@+id/fourthPokemonInBag"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:contentDescription="First pokemon"
+                android:contentDescription="@string/fourth_pokemon"
                 app:srcCompat="@drawable/pikachu1" />
 
             <RelativeLayout
@@ -439,7 +440,7 @@
                     android:layout_alignParentTop="true"
 
                     android:gravity="center"
-                    android:text="0/0"
+                    android:text="@string/healthBarText"
                     android:textColor="@android:color/background_dark" />
             </RelativeLayout>
         </LinearLayout>
@@ -455,7 +456,7 @@
                 android:id="@+id/fifthPokemonInBag"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:contentDescription="First pokemon"
+                android:contentDescription="@string/fifth_pokemon"
                 app:srcCompat="@drawable/pikachu1" />
 
             <RelativeLayout
@@ -484,7 +485,7 @@
                     android:layout_alignParentTop="true"
 
                     android:gravity="center"
-                    android:text="0/0"
+                    android:text="@string/healthBarText"
                     android:textColor="@android:color/background_dark" />
             </RelativeLayout>
         </LinearLayout>
@@ -500,7 +501,7 @@
                 android:id="@+id/sixthPokemonInBag"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:contentDescription="First pokemon"
+                android:contentDescription="@string/sixth_pokemon"
                 app:srcCompat="@drawable/pikachu1" />
 
             <RelativeLayout
@@ -529,7 +530,7 @@
                     android:layout_alignParentTop="true"
 
                     android:gravity="center"
-                    android:text="0/0"
+                    android:text="@string/healthBarText"
                     android:textColor="@android:color/background_dark" />
             </RelativeLayout>
         </LinearLayout>
