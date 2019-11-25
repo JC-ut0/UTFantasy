@@ -68,7 +68,7 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name="csc207.phase2.UTFantasy.Activities.PokeSelectActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.ProductSelectActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
