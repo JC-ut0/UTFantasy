@@ -160,24 +160,6 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
         });
   }
 
-  //  /**
-  //   * A window pops up where you can enter a number that represents the number of products you
-  // want
-  //   * to purchase.
-  //   */
-  //  public void openDialog() {
-  //    ShopDialog shopDialog = new ShopDialog();
-  //    shopDialog.show(getSupportFragmentManager(), "shop dialog");
-  //  }
-
-  //  /** Apply the text entered by the user to sellerNPC. */
-  //  @Override
-  //  public void applyTexts(String amount) {
-  //    this.amount = Integer.valueOf(amount);
-  //    trade();
-  //    money.setText(String.valueOf(moneyLeft));
-  //  }
-
   /** Navigate to Back. */
   public void navigateToBag() {
     Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
@@ -188,64 +170,6 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   public void showMessage(String text) {
     Toast.makeText(ShopActivity.this, text, Toast.LENGTH_SHORT).show();
   }
-
-  //  public void trade(){
-  //    if (canAfford()){
-  //      player.addItem(product, amount);
-  //      int total = product.getPrice() * amount;
-  //      money -= total;
-  //      player.setMoney(money);
-  //      String tradeInfo = "You bought " + this.amount + " " + product.getName() + "!";
-  //      Toast.makeText(ShopActivity.this, tradeInfo,  Toast.LENGTH_SHORT).show();
-  //    } else{
-  //      String tradeInfo = "You don't have enough money.";
-  //      Toast.makeText(ShopActivity.this, tradeInfo,  Toast.LENGTH_SHORT).show();
-  //    }
-  //  }
-  //  public void trade(){
-  //    if (total != 0){
-  //      if (canAfford()){
-  //        int money = Integer.valueOf(moneyLeft.getText().toString()) - total;
-  //        player.setMoney(money);
-  //        int amount = Integer.valueOf(productSelected.getText().toString());
-  //        player.addItem(product, amount);
-  //        moneyLeft.setText(String.valueOf(money));
-  //        updateProductInBag();
-  //      } else {
-  //        showMessage("You don't Have enough money!");
-  //        productSelected.setText("0");
-  //        updateTotal();
-  //      }
-  //    }else{
-  //      showMessage("Please add products!");
-  //    }
-
-  //  private void updateProductInBag(){
-  //    productInBag.setText(productSelected.getText().toString());
-  //  }
-
-  //  public boolean canAfford(){
-  //    int price = product.getPrice();
-  //    int money = player.getMoney();
-  //    int total = price * amount;
-  //    return total <= money;
-  //  }
-  //  public boolean canAfford(){
-  //    return Integer.valueOf(totalMoney.getText().toString()) <=
-  // Integer.valueOf(moneyLeft.getText().toString());
-  //  }
-
-  //  public void updateAll(Product product){
-  //    //layout.addView(view, 0);
-  //    totalMoney.setText("0");
-  //    productSelected.setText("0");
-  //    Integer n = player.getBag().get(product);
-  //    if (n != null){
-  //      productInBag.setText(String.valueOf(n));
-  //    }else{
-  //      productInBag.setText("0");
-  //    }
-  //  }
 
   public View createView(Product product) {
     int id = product.getProfile_id();
@@ -261,9 +185,6 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     productDescription.setText(description);
     return view;
   }
-  //  public void updateNewAmount(int num){
-  //    productSelected.setText(String.valueOf(num));
-  //  }
 
   @Override
   public void setButtons() {

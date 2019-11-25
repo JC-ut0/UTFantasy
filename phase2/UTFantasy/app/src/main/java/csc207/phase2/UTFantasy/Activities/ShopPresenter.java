@@ -3,7 +3,6 @@ package csc207.phase2.UTFantasy.Activities;
 import android.widget.Space;
 
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.ShopDialog;
 
 public class ShopPresenter implements ShopInteractor.Listener {
   private ShopInteractor shopInteractor;
