@@ -44,7 +44,7 @@ class ScoreBoardAdapter extends BaseAdapter {
   public View getView(int position, View view, ViewGroup viewGroup) {
     ViewHolder holder = null;
     if (view == null) {
-      view = inflater.inflate(R.layout.productselect_layout, viewGroup, false);
+      view = inflater.inflate(R.layout.scoreboard_layout, viewGroup, false);
       holder = new ViewHolder();
 
       holder.rank = view.findViewById(R.id.rank);
