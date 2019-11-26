@@ -3,95 +3,149 @@ package csc207.phase2.UTFantasy.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import csc207.phase2.UTFantasy.Character.NPC;
+import java.util.ArrayList;
+
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.ExampleDialog;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.Products.PinkPotion;
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.Products.PurplePotion;
-import csc207.phase2.UTFantasy.Products.RedPotion;
 import csc207.phase2.UTFantasy.R;
 
 /** The activity used to purchase products. */
-public class ShopActivity extends AppCompatActivity implements ExampleDialog.ExampleDialogListener {
-  /** The product pinkPotion. */
-  PinkPotion pinkPotion = PinkPotion.getPink();
-  /** The product redPotion. */
-  RedPotion redPotion = RedPotion.getRed();
-  /** The product purplePotion. */
-  PurplePotion purplePotion = PurplePotion.getPurple();
-  /** The amount of products a player wants to buy. */
-  int amount;
-  /** which product a player wants to buy */
-  private Product product;
+public class ShopActivity extends AppCompatActivity implements ShopView {
+
   /** the intent of MainActivity */
-  private Intent intent;
-  /** the player */
-  private Player player;
+  Intent intent;
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
   /** the name of current user */
-  private String username;
-  /** the amount of money a player has */
-  int moneyLeft;
+  String username;
   /** the TextView of money */
-  private TextView money;
-  /** the sellerNPC */
-  private NPC sellerNPC;
+  TextView moneyLeft;
+
+  TextView totalMoney;
+  TextView productInBag;
+  TextView productSelected;
+  ImageView productImage;
+  TextView productName;
+  TextView prodcutDescription;
+  EditText enterAmount;
+  LinearLayout layout;
+  Button add1;
+  Button add10;
+  Button apply;
+  Button buy;
+  private ArrayList<Product> productInShop;
+  private ShopPresenter presenter;
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_shop);
     intent = getIntent();
     username = intent.getStringExtra("username");
-    player = userIO.getUserData().getUser(username).getPlayer();
-
-    final Button redPotionBtn = findViewById(R.id.choose_red);
-    final Button pinkPotionBtn = findViewById(R.id.choose_pink);
-    final Button purplePotionBtn = findViewById(R.id.choose_purple);
-    final ImageButton backBtn = findViewById(R.id.back_to_main);
+    final Player player = userIO.getUserData().getUser(username).getPlayer();
+    presenter = new ShopPresenter(new ShopInteractor(player), this);
+    ListView listView = findViewById(R.id.productListView);
+    totalMoney = findViewById(R.id.totalMoney);
+    moneyLeft = findViewById(R.id.money_left);
+    productInBag = findViewById(R.id.amountInBag);
+    productSelected = findViewById(R.id.num_selected);
+    enterAmount = findViewById(R.id.enter_amount);
+    moneyLeft.setText(String.valueOf(player.getMoney()));
+    layout = findViewById(R.id.left_top);
+    add1 = findViewById(R.id.add1);
+    add10 = findViewById(R.id.add10);
+    apply = findViewById(R.id.apply);
+    buy = findViewById(R.id.buy);
+    productImage = findViewById(R.id.productImage);
+    productName = findViewById(R.id.productName);
+    prodcutDescription = findViewById(R.id.productDescription);
+    final Button backBtn = findViewById(R.id.back_to_main);
     final Button bagBtn = findViewById(R.id.my_bag);
 
-    moneyLeft = player.getMoney();
+    ProductCreator productCreator = new ProductCreator();
+    productInShop = productCreator.getProducts();
 
-    sellerNPC = player.getPlayerMap().getNpcManager().getNPC("Alice");
+    ProductAdapter productAdapter =
+        new ProductAdapter(this, R.layout.product_layout, productInShop);
+    listView.setAdapter(productAdapter);
 
-    money = findViewById(R.id.money);
-    money.setText(String.valueOf(moneyLeft));
-
-    redPotionBtn.setOnClickListener(
-        new View.OnClickListener() {
-          public void onClick(View v) {
-            // Code here executes on main thread after user presses button
-            openDialog();
-            product = redPotion;
+    listView.setOnItemClickListener(
+        new AdapterView.OnItemClickListener() {
+          @Override
+          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Product product = productInShop.get(position);
+            presenter.updateAll(product);
           }
         });
 
-    pinkPotionBtn.setOnClickListener(
+    add1.setOnClickListener(
         new View.OnClickListener() {
+          @Override
           public void onClick(View v) {
-            // Code here executes on main thread after user presses button
-            openDialog();
-            product = pinkPotion;
+            if (presenter.getProduct() != null) {
+              int num = Integer.valueOf(productSelected.getText().toString());
+              presenter.updateSelected(1 + num);
+            } else {
+              showMessage("Please select a product.");
+            }
           }
         });
 
-    purplePotionBtn.setOnClickListener(
+    add10.setOnClickListener(
         new View.OnClickListener() {
+          @Override
           public void onClick(View v) {
-            // Code here executes on main thread after user presses button
-            openDialog();
-            product = purplePotion;
+            if (presenter.getProduct() != null) {
+              int num = Integer.valueOf(productSelected.getText().toString());
+              presenter.updateSelected(10 + num);
+            } else {
+              showMessage("Please select a product.");
+            }
+          }
+        });
+
+    apply.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            if (presenter.getProduct() != null) {
+              if (enterAmount.getText().toString().equals("")) {
+                showMessage("Please enter a number!");
+              } else {
+                int n = Integer.valueOf(enterAmount.getText().toString());
+                presenter.updateSelected(n);
+                enterAmount.setText("0");
+              }
+            } else {
+              showMessage("Please select a product.");
+            }
+          }
+        });
+
+    buy.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            if (presenter.getProduct() != null) {
+              int total = Integer.valueOf(totalMoney.getText().toString());
+              int amount = Integer.valueOf(productSelected.getText().toString());
+              presenter.trade(total, amount);
+              presenter.updateSelected(0);
+            } else {
+              showMessage("Please select a product.");
+            }
           }
         });
 
@@ -107,29 +161,47 @@ public class ShopActivity extends AppCompatActivity implements ExampleDialog.Exa
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-            Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
-            intent.putExtra("username", username);
-            startActivity(intent);
+            navigateToBag();
           }
         });
   }
 
-  /**
-   * A window pops up where you can enter a number that represents the number of products you want
-   * to purchase.
-   */
-  public void openDialog() {
-    ExampleDialog exampleDialog = new ExampleDialog();
-    exampleDialog.show(getSupportFragmentManager(), "example dialog");
+  /** Navigate to Back. */
+  public void navigateToBag() {
+    Intent intent = new Intent(ShopActivity.this, MenuActivity.class);
+    intent.putExtra("username", username);
+    startActivity(intent);
   }
 
-  /** Apply the text entered by the user to sellerNPC. */
   @Override
-  public void applyTexts(String amount) {
-    this.amount = Integer.valueOf(amount);
-    String tradeInfo = "You bought " + this.amount + " " + product.getName() + "!";
-    Toast.makeText(ShopActivity.this, tradeInfo, Toast.LENGTH_SHORT).show();
-    moneyLeft = player.getMoney();
-    money.setText(String.valueOf(moneyLeft));
+  public void showMessage(String text) {
+    Toast.makeText(ShopActivity.this, text, Toast.LENGTH_SHORT).show();
+  }
+
+  @Override
+  public void setProductSelected(String text) {
+    productSelected.setText(text);
+  }
+
+  @Override
+  public void setTotalMoney(String text) {
+    totalMoney.setText(text);
+  }
+
+  @Override
+  public void setProductInBag(String text) {
+    productInBag.setText(text);
+  }
+
+  @Override
+  public void setMoneyLeft(String text) {
+    moneyLeft.setText(text);
+  }
+
+  @Override
+  public void setProductInfo(int res, String name, String description) {
+    productImage.setImageResource(res);
+    productName.setText(name);
+    prodcutDescription.setText(description);
   }
 }

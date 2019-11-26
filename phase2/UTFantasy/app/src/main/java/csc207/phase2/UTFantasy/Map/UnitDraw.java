@@ -13,8 +13,6 @@ public class UnitDraw implements Serializable {
   /** the Y coordinate of this UnitDraw on the screen coordinate system */
   private float screenY;
 
-  // ======================================================================
-
   /**
    * construct a new UnitDraw
    *

@@ -12,15 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name="csc207.phase2.UTFantasy.Activities.ScoreBoardActivity"
-            android:screenOrientation="landscape">
-        </activity>
+
         <activity
             android:name="csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="landscape">
-        </activity>
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name="csc207.phase2.UTFantasy.Activities.StartUpActivity"
             android:screenOrientation="landscape">
@@ -36,9 +32,11 @@
         <activity
             android:name="csc207.phase2.UTFantasy.Map.MainActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="csc207.phase2.UTFantasy.Activities.scoreboard.ScoreBoardActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name="csc207.phase2.UTFantasy.Activities.FightActivity"
             android:screenOrientation="landscape"

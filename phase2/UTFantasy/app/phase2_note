@@ -47,7 +47,7 @@ control the action from the activity.
 
 ########
 # Step 9
-File affected: PokeSelectActivity.java
+File affected: ProductSelectActivity.java
 Create a new activity and the following java class. Now we can select pokemons at the beginning of
 a fight.
 
@@ -75,3 +75,51 @@ File affected: NPC, Player
 - Added comparators of player to do rank sort later in the scoreboard Activity.
 - Added unit test for player comparators.
 - Created a ScoreBoard Activity (need list view)
+
+########
+# Step 13
+File affected: ScoreboardActivity
+- implemented ScoreboardActivity methods
+
+#########
+# Step 14
+File Added: PotionFactory
+File affected: NPC, SellerNPC, FighterNPC, HealerNPC, ShopActivity, ShopDialog
+Create a PotionFactory which can be used to create different potions.
+Delete some unnecessary methods in all NPC classes.
+Change the method of trade.
+Rename ShopDialog.
+
+########
+# Step 15
+File added: ProductAdapter
+Create a new ShopActivity. Use ListView to present Products in the shop. We can easily add products
+in the shop without modifying too much code, which follows Open/Closed Principle.
+
+########
+# Step 16
+File affected: RedPotion, PinkPotion, PurplePotion,PotionFactory
+Flaw: there exists static methods and variables.
+Fix: get rid of static methods and variables.
+
+########
+#step 17
+File added: ProductCreator, ProductBuilder, PotionBuilder
+Use Builder Design Pattern to create products in shop.
+
+########
+#step 18
+File added: ShopInteractor, ShopPresenter, ShopView
+File affected: ShopActivity
+Apply MVP in ShopActivity.
+
+########
+# step 19
+File affected: ShopActivity, ShopPresenter, ShopInteractor, ShopView
+add new methods to update information of products
+
+########
+# Step 13
+File affected: ScoreboardActivity java and xml
+- implemented ScoreboardActivity methods
+- completed

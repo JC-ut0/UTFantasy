@@ -1,0 +1,67 @@
+package csc207.phase2.UTFantasy.Activities;
+
+import csc207.phase2.UTFantasy.Products.Product;
+
+public class ShopPresenter implements ShopInteractor.Listener {
+  private ShopInteractor shopInteractor;
+  private ShopView shopView;
+
+  ShopPresenter(ShopInteractor shopInteractor, ShopView shopView) {
+    this.shopInteractor = shopInteractor;
+    this.shopView = shopView;
+  }
+
+  void updateAll(Product product) {
+    shopInteractor.setProduct(product);
+    int n = shopInteractor.countProducts(product);
+    int money = shopInteractor.countMoney();
+    int res = shopInteractor.getProductImage();
+    String name = shopInteractor.getProductName();
+    String description = shopInteractor.getProductDescription();
+    if (shopView != null) {
+      shopView.setTotalMoney("0");
+      shopView.setProductSelected("0");
+      shopView.setProductInBag(String.valueOf(n));
+      shopView.setMoneyLeft(String.valueOf(money));
+      shopView.setProductInfo(res, name, description);
+    }
+  }
+
+  Product getProduct() {
+    return shopInteractor.getProduct();
+  }
+
+  @Override
+  public void showMessage(String message) {
+    if (shopView != null) {
+      shopView.showMessage(message);
+    }
+  }
+
+  @Override
+  public void updateSelected(int n) {
+    if (shopView != null) {
+      shopView.setProductSelected(String.valueOf(n));
+      int total = shopInteractor.calculateTotal(n);
+      shopView.setTotalMoney(String.valueOf(total));
+    }
+  }
+
+  @Override
+  public void updateProductsInBag(int n) {
+    if (shopView != null) {
+      shopView.setProductInBag(String.valueOf(n));
+    }
+  }
+
+  @Override
+  public void updateMoneyLeft(int n) {
+    if (shopView != null) {
+      shopView.setMoneyLeft(String.valueOf(n));
+    }
+  }
+
+  void trade(int total, int amount) {
+    shopInteractor.trade(total, amount, this);
+  }
+}

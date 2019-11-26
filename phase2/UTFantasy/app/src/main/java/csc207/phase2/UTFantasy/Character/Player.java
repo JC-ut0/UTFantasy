@@ -15,6 +15,7 @@ public class Player extends Person {
   private String gender;
   private Map playerMap;
   private HashMap<Product, Integer> bag;
+  private boolean showingScore = true;
 
   /**
    * construct a new player
@@ -97,10 +98,28 @@ public class Player extends Person {
   }
 
   public int getPlayerPokemonLV() {
-    int totalLV = 0;
+    int maxLv = 0;
     for (Pokemon pokemon : pokemonList) {
-      totalLV += pokemon.getLevel();
+      if (pokemon.getLevel() > maxLv) maxLv = pokemon.getLevel();
     }
-    return totalLV;
+    return maxLv;
+  }
+
+  public boolean isShowingScore() {
+    return showingScore;
+  }
+
+  public void setShowingScore(boolean showingScore) {
+    this.showingScore = showingScore;
+  }
+
+  public void useProduct(Product product) {
+    Integer num = bag.get(product);
+    if (num != null) {
+      bag.put(product, num - 1);
+      if (num == 0) {
+        bag.remove(product);
+      }
+    }
   }
 }

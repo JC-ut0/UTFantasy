@@ -2,6 +2,10 @@ package csc207.phase2.UTFantasy.User;
 
 import android.app.Activity;
 
+import java.util.List;
+
+import csc207.phase2.UTFantasy.Character.Player;
+
 public class UserManagerFacade implements UserManagerFacadeInterface {
 
   private UserIOInterface userIO;
@@ -45,5 +49,10 @@ public class UserManagerFacade implements UserManagerFacadeInterface {
 
   public boolean isUserExisted(String username) {
     return userIO.getUserData().getUserHashMap().containsKey(username);
+  }
+
+  @Override
+  public List<Player> getScoreBoardPlayerList() {
+    return userIO.getUserData().getScoreBoardPlayerList();
   }
 }

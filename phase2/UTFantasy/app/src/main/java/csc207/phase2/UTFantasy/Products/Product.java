@@ -14,7 +14,7 @@ public class Product implements Serializable {
   private int profileID;
 
   /** the constructor of product */
-  Product(String name, int price, int photoId) {
+  public Product(String name, int price, int photoId) {
     this.name = name;
     this.price = price;
     this.profileID = photoId;

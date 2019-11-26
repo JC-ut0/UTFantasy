@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity;
+import csc207.phase2.UTFantasy.Activities.scoreboard.ScoreBoardActivity;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
 
@@ -62,6 +63,6 @@ public class StartUpActivity extends Activity {
   }
 
   private void navigateToScoreBoardActivity() {
-    startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
+      startActivity(new Intent(StartUpActivity.this, ScoreBoardActivity.class));
   }
 }

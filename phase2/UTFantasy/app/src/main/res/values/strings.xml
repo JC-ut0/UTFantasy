@@ -25,4 +25,18 @@
     <string name="b">B</string>
     <string name="boy">boy</string>
     <string name="girl">girl</string>
+    <string name="go">GO!</string>
+    <string name="cancel">CANCEL</string>
+    <string name="name_gender">Name(Gender)</string>
+    <string name="pokomonnum">PokomonNum</string>
+    <string name="pokemonlv">PokemonLV</string>
+    <string name="level">level</string>
+    <string name="idk">idk</string>
+    <string name="pokenum">pokenum</string>
+    <string name="soceboardlogo">SoceboardLogo</string>
+    <string name="_1">1.</string>
+    <string name="num">Num</string>
+    <string name="name">name</string>
+    <string name="showingScore">Show score on the ScoreBoard</string>
+    <string name="percentile">Percentile</string>
 </resources>
