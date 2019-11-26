@@ -8,13 +8,14 @@ import csc207.phase2.UTFantasy.Map.Map;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.Product;
 
-public class Player extends Person{
+public class Player extends Person {
 
   private int x;
   private int y;
   private String gender;
   private Map playerMap;
   private HashMap<Product, Integer> bag;
+  private boolean showingScore = true;
 
   /**
    * construct a new player
@@ -85,8 +86,15 @@ public class Player extends Person{
   @NonNull
   @Override
   public String toString() {
-    return "Player: " + name + ", " + gender + ", PokemonNum: " + pokemonList.size()
-            + ", TotalLV: ." + getPlayerPokemonLV() + ".";
+    return "Player: "
+        + name
+        + ", "
+        + gender
+        + ", PokemonNum: "
+        + pokemonList.size()
+        + ", TotalLV: ."
+        + getPlayerPokemonLV()
+        + ".";
   }
 
   public int getPlayerPokemonLV() {
@@ -95,6 +103,14 @@ public class Player extends Person{
       totalLV += pokemon.getLevel();
     }
     return totalLV;
+  }
+
+  public boolean isShowingScore() {
+    return showingScore;
+  }
+
+  public void setShowingScore(boolean showingScore) {
+    this.showingScore = showingScore;
   }
 
   public void useProduct(Product product){

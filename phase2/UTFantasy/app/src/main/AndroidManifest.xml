@@ -13,16 +13,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Activities.ScoreBoardActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.scoreboard.ScoreBoardActivity"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".Activities.LoginActivityMVP.LoginActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="landscape">
         </activity>
         <activity
-            android:name=".Activities.StartUpActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.StartUpActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,44 +31,44 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.CustomizeActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.CustomizeActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Map.MainActivity"
+            android:name="csc207.phase2.UTFantasy.Map.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
         <activity
-            android:name=".Activities.FightActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.FightActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
         <activity
-            android:name=".Activities.PlayerInfoActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.PlayerInfoActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
         <activity
-            android:name=".Activities.ShopActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.ShopActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
         <activity
-            android:name=".Activities.MenuActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.MenuActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
         <activity
-            android:name=".Activities.SystemActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.SystemActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".Activities.PokeSelectActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.ProductSelectActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 

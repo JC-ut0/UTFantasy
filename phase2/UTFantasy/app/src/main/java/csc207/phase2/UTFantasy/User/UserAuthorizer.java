@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class UserAuthorizer implements Serializable {
+class UserAuthorizer implements Serializable {
   private final UserIOInterface userIOInterface;
 
-    UserAuthorizer(UserIOInterface userIOInterface) {
+  UserAuthorizer(UserIOInterface userIOInterface) {
     this.userIOInterface = userIOInterface;
   }
 
-  public UserData getUserData() {
+  UserData getUserData() {
     return userIOInterface.getUserData();
   }
 
@@ -23,7 +23,7 @@ public class UserAuthorizer implements Serializable {
    * @return A User if logged in successfully, null if not.
    */
   User login(String username, String password) {
-      HashMap<String, User> userHashMap = getUserData().getUserHashMap();
+    HashMap<String, User> userHashMap = getUserData().getUserHashMap();
     if (userHashMap.containsKey(username)) {
       String pwd = Objects.requireNonNull(userHashMap.get(username)).getPassword();
       if (password.equals(pwd)) {
@@ -40,13 +40,13 @@ public class UserAuthorizer implements Serializable {
    * @param password the password of the User.
    * @return A new User.
    */
-  public User register(String username, String password) {
+  User register(String username, String password) {
     User user = new User(username, password);
     getUserData().addUser(username, user);
     return user;
   }
 
-  public User getUser(String username) {
+  User getUser(String username) {
     return getUserData().getUser(username);
   }
 }

@@ -3,7 +3,6 @@ package csc207.phase2.UTFantasy.Activities.LoginActivityMVP;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import csc207.phase2.UTFantasy.Activities.CustomizeActivity;
 import csc207.phase2.UTFantasy.CustomizeException.ImproperUserSettingException;
@@ -37,12 +37,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
   /** LoginActivityFolder Presneter */
   private LoginPresenter loginPresenter;
 
-  /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
-
-  /** UserManagerFacade */
-  private UserManagerFacade userManagerFacade = new UserManagerFacade(userIO, LoginActivity.this);
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     Log.v("TAG", "Logging");
@@ -52,10 +46,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         .setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_login);
-
-    userIO.loadUserData(LoginActivity.this);
-
-    loginPresenter = new LoginPresenter(userIO, this, userManagerFacade);
+    // initialize userIO and UserManagerFacade
+    UserIO userIO = UserIO.getSingletonUserIo();
+    UserManagerFacade userManagerFacade = new UserManagerFacade(userIO, LoginActivity.this);
+    loginPresenter = new LoginPresenter(this, userManagerFacade);
     account = findViewById(R.id.account);
     pwd = findViewById(R.id.pwd);
     pref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -123,8 +117,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
    * If the user selected remember password last time, his user name and password will be loaded.
    */
   private void loadPassword() {
-    boolean isRemeber = pref.getBoolean("remember_password", false);
-    if (isRemeber) {
+    boolean isRemember = pref.getBoolean("remember_password", false);
+    if (isRemember) {
       account.setText(pref.getString("account", ""));
       pwd.setText(pref.getString("pwd", ""));
       rememberPassword.setChecked(true);

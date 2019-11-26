@@ -31,7 +31,7 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     /** the intent of MainActivity */
   Intent intent;
   /** the unique UserIO */
-  private UserIO userIO = UserIO.getUserIO();
+  private UserIO userIO = UserIO.getSingletonUserIo();
   /** the name of current user */
   String username;
   /** the TextView of money */

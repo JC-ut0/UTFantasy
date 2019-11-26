@@ -1,14 +1,5 @@
 package csc207.phase2.UTFantasy;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import csc207.phase2.UTFantasy.AllSkills.Skill;
-import csc207.phase2.UTFantasy.Character.NPC;
-import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.Interface.Fighter;
-import csc207.phase2.UTFantasy.Pet.Pokemon;
-
 public class FightManager {
 //
 //  /**

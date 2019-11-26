@@ -1,6 +1,10 @@
 package csc207.phase2.UTFantasy.User;
 
-interface UserManagerFacadeInterface {
+import java.util.List;
+
+import csc207.phase2.UTFantasy.Character.Player;
+
+public interface UserManagerFacadeInterface {
 
   User login(String username, String password);
 
@@ -11,4 +15,8 @@ interface UserManagerFacadeInterface {
   void saveUserData();
 
   void loadUserData();
+
+  boolean isUserExisted(String username);
+
+  List<Player> getScoreBoardPlayerList();
 }

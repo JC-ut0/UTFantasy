@@ -18,4 +18,11 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="back">Back</string>
     <string name="logout">Logout</string>
+    <string name="newPlayerName">What is your name?</string>
+    <string name="newPlayerGender">Are you a boy or a girl?</string>
+    <string name="newPlayerInstruction">click A or B to continue</string>
+    <string name="a">A</string>
+    <string name="b">B</string>
+    <string name="boy">boy</string>
+    <string name="girl">girl</string>
 </resources>

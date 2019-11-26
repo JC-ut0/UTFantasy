@@ -7,7 +7,7 @@ import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.PlayerComparator.PlayerPokemonLvComparator;
-import csc207.phase2.UTFantasy.Character.PlayerComparator.PlyaerPokemonNumComparator;
+import csc207.phase2.UTFantasy.Character.PlayerComparator.PlayerPokemonNumComparator;
 import csc207.phase2.UTFantasy.Pet.Pikachu;
 
 public class playerComparatorUnitTest {
@@ -37,7 +37,7 @@ public class playerComparatorUnitTest {
         playerList.add(p3);
         //    Collections.sort(playerList, new PlayerPokemonLvComparator());
         System.out.println("Before Sorting:" + playerList);
-        playerList.sort(new PlyaerPokemonNumComparator().reversed());
+        playerList.sort(new PlayerPokemonNumComparator().reversed());
         System.out.println("Sorted by Number from high to low:" + playerList);
         playerList.sort(new PlayerPokemonLvComparator().reversed());
         System.out.println("Sorted by TotalLV from high to low:" + playerList);

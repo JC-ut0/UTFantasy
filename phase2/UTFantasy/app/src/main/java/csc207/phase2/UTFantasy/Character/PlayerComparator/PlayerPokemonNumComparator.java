@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import csc207.phase2.UTFantasy.Character.Player;
 
-public class PlyaerPokemonNumComparator implements Comparator<Player> {
+public class PlayerPokemonNumComparator implements Comparator<Player> {
 
   @Override
   public int compare(Player p1, Player p2) {

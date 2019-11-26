@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 
 import csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity;
+import csc207.phase2.UTFantasy.Activities.scoreboard.ScoreBoardActivity;
+import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
 
 /**
@@ -16,7 +17,6 @@ import csc207.phase2.UTFantasy.R;
  * and then go to
  */
 public class StartUpActivity extends Activity {
-  private RelativeLayout startUpScreen;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,11 @@ public class StartUpActivity extends Activity {
     getWindow()
         .setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    // first time get userIO, load user data
+    UserIO userIO = UserIO.getSingletonUserIo();
+    userIO.loadUserData(StartUpActivity.this);
     // set the content view of this activity to be activity_start_up
     setContentView(R.layout.activity_start_up);
-    startUpScreen = findViewById(R.id.startUpScreen);
     Button gameStartBt = findViewById(R.id.startButton);
     Button scoreBoardBt = findViewById(R.id.scoreBoard);
     Button leaveBt = findViewById(R.id.leaveButton);
@@ -61,6 +63,6 @@ public class StartUpActivity extends Activity {
   }
 
   private void navigateToScoreBoardActivity() {
-    startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
+      startActivity(new Intent(StartUpActivity.this, ScoreBoardActivity.class));
   }
 }

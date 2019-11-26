@@ -2,7 +2,7 @@ package csc207.phase2.UTFantasy.Activities.LoginActivityMVP;
 
 import csc207.phase2.UTFantasy.User.User;
 
-public interface LoginView {
+interface LoginView {
 
   void newPlayerAction(User user);
 
