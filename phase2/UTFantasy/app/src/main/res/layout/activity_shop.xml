@@ -8,7 +8,7 @@
 
     <ListView
         android:id="@+id/productListView"
-        android:layout_width="216dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -16,30 +16,20 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="32dp"
         android:layout_marginTop="35dp"
-        android:layout_marginEnd="483dp"
-        android:layout_marginBottom="97dp" />
+        android:layout_marginEnd="486dp"
+        android:layout_marginBottom="138dp" />
 
-
-    <ImageButton
-        android:id="@+id/back_to_main"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="9dp"
-        android:background="@drawable/return_button" />
 
     <LinearLayout
         android:id="@+id/left_top"
-        android:layout_width="202dp"
-        android:layout_height="220dp"
+        android:layout_width="200dp"
+        android:layout_height="206dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="231dp"
-        android:layout_marginBottom="161dp"
+        android:layout_marginEnd="234dp"
+        android:layout_marginBottom="139dp"
         android:orientation="vertical">
 
         <ImageView
@@ -58,7 +48,9 @@
             android:layout_marginTop="5dp"
             android:text="Name"
             android:textAlignment="center"
-            android:textSize="15sp" />
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/productDescription"
@@ -68,20 +60,21 @@
             android:layout_marginTop="5dp"
             android:text="description"
             android:textAlignment="center"
-            android:textSize="15sp" />
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/right_top"
-        android:layout_width="181dp"
-        android:layout_height="wrap_content"
+        android:layout_width="182dp"
+        android:layout_height="355dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="35dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="9dp"
         android:orientation="vertical">
 
         <Button
@@ -90,11 +83,12 @@
             android:layout_height="35dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-            android:enabled="false"
-            android:text="Add 1"
-            android:textSize="12sp" />
+            android:background="@drawable/text_box"
+            android:text="ADD 1"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/add10"
@@ -102,29 +96,79 @@
             android:layout_height="35dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="31dp"
-            android:enabled="false"
-            android:text="Add 10"
-            android:textSize="12sp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_box"
+            android:text="ADD 10"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
 
         <EditText
             android:id="@+id/enter_amount"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
             android:autofillHints=""
             android:hint="Enter amount"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/apply"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="35dp"
             android:layout_gravity="center_horizontal"
-            android:enabled="false"
-            android:text="Apply"
-            android:textSize="12sp" />
+            android:layout_marginStart="35dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_box"
+            android:text="APPLY"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/buy"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_box"
+            android:text="BUY!"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/my_bag"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_box"
+            android:text="My Bag"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/back_to_main"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_box"
+            android:text="LEAVE"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp">
+
+        </Button>
 
 
     </LinearLayout>
@@ -135,8 +179,8 @@
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="253dp"
-        android:layout_marginBottom="43dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="27dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -152,14 +196,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number in bag:"
-                android:textSize="15sp" />
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/amountInBag"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:textSize="15sp" />
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -175,7 +223,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Amount selected:"
-                android:textSize="15sp" />
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/num_selected"
@@ -183,106 +233,91 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:textSize="15sp" />
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/right_bottom"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:layout_alignEnd="@+id/right_top"
-        android:layout_alignBottom="@+id/left_bottom"
-        android:layout_marginEnd="-7dp"
-        android:layout_marginBottom="7dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/right_bottom1"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/moneyLeft"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:text="Money in bag:"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/money_left"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:textSize="15sp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/right_bottom2"
-            android:layout_width="163dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/selected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:text="Total selected:"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/totalMoney"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:textSize="15sp" />
-
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="240dp"
-        android:layout_height="64dp"
+        android:layout_width="196dp"
+        android:layout_height="61dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="466dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="493dp"
+        android:layout_marginBottom="28dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/my_bag"
-            android:layout_width="137dp"
-            android:layout_height="50dp"
-            android:layout_gravity="fill_vertical"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="29dp"
-            android:background="@drawable/text_box"
-            android:text="My Bag"
-            android:textColor="#FFFFFF" />
+        <LinearLayout
+            android:id="@+id/right_bottom"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="448dp"
+            android:layout_marginBottom="19dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buy"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:background="@drawable/text_box"
-            android:enabled="false"
-            android:text="BUY!"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            <LinearLayout
+                android:id="@+id/right_bottom1"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/moneyLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Money in bag:"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/money_left"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/right_bottom2"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Total selected:"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/totalMoney"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 

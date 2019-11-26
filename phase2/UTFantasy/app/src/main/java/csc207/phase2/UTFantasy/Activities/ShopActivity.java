@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -50,12 +49,12 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   private ShopPresenter presenter;
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_shop);
     intent = getIntent();
     username = intent.getStringExtra("username");
-    Player player = userIO.getUserData().getUser(username).getPlayer();
+    final Player player = userIO.getUserData().getUser(username).getPlayer();
     presenter = new ShopPresenter(new ShopInteractor(player), this);
     ListView listView = findViewById(R.id.productListView);
     totalMoney = findViewById(R.id.totalMoney);
@@ -72,7 +71,7 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     productImage = findViewById(R.id.productImage);
     productName = findViewById(R.id.productName);
     prodcutDescription = findViewById(R.id.productDescription);
-    final ImageButton backBtn = findViewById(R.id.back_to_main);
+    final Button backBtn = findViewById(R.id.back_to_main);
     final Button bagBtn = findViewById(R.id.my_bag);
 
     ProductCreator productCreator = new ProductCreator();
@@ -95,8 +94,12 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            int num = Integer.valueOf(productSelected.getText().toString());
-            presenter.updateSelected(1 + num);
+            if (presenter.getProduct() != null) {
+              int num = Integer.valueOf(productSelected.getText().toString());
+              presenter.updateSelected(1 + num);
+            } else {
+              showMessage("Please select a product.");
+            }
           }
         });
 
@@ -104,8 +107,12 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            int num = Integer.valueOf(productSelected.getText().toString());
-            presenter.updateSelected(10 + num);
+            if (presenter.getProduct() != null) {
+              int num = Integer.valueOf(productSelected.getText().toString());
+              presenter.updateSelected(10 + num);
+            } else {
+              showMessage("Please select a product.");
+            }
           }
         });
 
@@ -113,12 +120,16 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            if (enterAmount.getText().toString().equals("")) {
-              showMessage("Please enter a number!");
+            if (presenter.getProduct() != null) {
+              if (enterAmount.getText().toString().equals("")) {
+                showMessage("Please enter a number!");
+              } else {
+                int n = Integer.valueOf(enterAmount.getText().toString());
+                presenter.updateSelected(n);
+                enterAmount.setText("0");
+              }
             } else {
-              int n = Integer.valueOf(enterAmount.getText().toString());
-              presenter.updateSelected(n);
-              enterAmount.setText("0");
+              showMessage("Please select a product.");
             }
           }
         });
@@ -127,10 +138,14 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            int total = Integer.valueOf(totalMoney.getText().toString());
-            int amount = Integer.valueOf(productSelected.getText().toString());
-            presenter.trade(total, amount);
-            presenter.updateSelected(0);
+            if (presenter.getProduct() != null) {
+              int total = Integer.valueOf(totalMoney.getText().toString());
+              int amount = Integer.valueOf(productSelected.getText().toString());
+              presenter.trade(total, amount);
+              presenter.updateSelected(0);
+            } else {
+              showMessage("Please select a product.");
+            }
           }
         });
 
@@ -158,31 +173,9 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     startActivity(intent);
   }
 
+  @Override
   public void showMessage(String text) {
     Toast.makeText(ShopActivity.this, text, Toast.LENGTH_SHORT).show();
-  }
-
-  //  public View createView(Product product) {
-  //    int id = product.getProfile_id();
-  //    String name = product.getName();
-  //    String description = product.toString();
-  //    LayoutInflater inflater = LayoutInflater.from(this);
-  //    View view = inflater.inflate(R.layout.product_info, layout, false);
-  //    ImageView productImage = view.findViewById(R.id.productImage);
-  //    TextView productDescription = view.findViewById(R.id.productDescription);
-  //    TextView productName = view.findViewById(R.id.productName);
-  //    productImage.setImageResource(id);
-  //    productName.setText(name);
-  //    productDescription.setText(description);
-  //    return view;
-  //  }
-
-  @Override
-  public void setButtons() {
-    add1.setEnabled(true);
-    add10.setEnabled(true);
-    buy.setEnabled(true);
-    apply.setEnabled(true);
   }
 
   @Override

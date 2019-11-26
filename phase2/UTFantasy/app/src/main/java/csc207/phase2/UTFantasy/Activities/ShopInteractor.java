@@ -5,15 +5,12 @@ import csc207.phase2.UTFantasy.Products.Product;
 
 public class ShopInteractor {
 
-  //    /** the amount of money a player has */
-  //    private int moneyLeft;
   /** the player */
   private Player player;
-  /** The amount of product player wanted to buy */
-  private int amount;
 
   private int total;
-  private Product product;
+
+  private Product product = null;
 
   interface Listener {
     void showMessage(String tradeInfo);
@@ -52,7 +49,6 @@ public class ShopInteractor {
 
   void trade(int total, int amount, Listener listener) {
     if (total != 0) {
-      this.amount = amount;
       this.total = total;
       if (canAfford()) {
         int money = countMoney() - total;
@@ -60,8 +56,7 @@ public class ShopInteractor {
         player.addItem(product, amount);
         listener.updateMoneyLeft(money);
         listener.updateProductsInBag(countProducts(product));
-        listener.showMessage("You have purchased " + amount + " " + product.getName() +
-                "（s）.");
+        listener.showMessage("You have purchased " + amount + " " + product.getName() + "（s）.");
       } else {
         listener.showMessage("You don't Have enough money!");
         listener.updateSelected(0);
@@ -69,6 +64,10 @@ public class ShopInteractor {
     } else {
       listener.showMessage("Please add products!");
     }
+  }
+
+  Product getProduct() {
+    return product;
   }
 
   private boolean canAfford() {
