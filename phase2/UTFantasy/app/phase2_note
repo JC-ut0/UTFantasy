@@ -112,3 +112,8 @@ Use Builder Design Pattern to create products in shop.
 File added: ShopInteractor, ShopPresenter, ShopView
 File affected: ShopActivity
 Apply MVP in ShopActivity.
+
+########
+# step 19
+File affected: ShopActivity, ShopPresenter, ShopInteractor, ShopView
+add new methods to update information of products
