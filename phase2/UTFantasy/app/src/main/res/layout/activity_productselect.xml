@@ -15,7 +15,7 @@
         android:layout_marginStart="461dp"
         android:layout_marginBottom="0dp"
         android:background="@drawable/text_box"
-        android:text="GO!"
+        android:text="@string/go"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -33,7 +33,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="76dp"
         android:background="@drawable/text_box"
-        android:text="CANCEL"
+        android:text="@string/cancel"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />

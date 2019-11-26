@@ -14,6 +14,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name="csc207.phase2.UTFantasy.Activities.scoreboard.ScoreBoardActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="landscape">
         </activity>
         <activity

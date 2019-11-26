@@ -3,19 +3,111 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.scoreboard.ScoreBoardActivity">
+    android:background="@drawable/scoreboard_background"
+    tools:context=".Activities.ScoreBoardActivity">
+
+    <ImageView
+        android:layout_width="289dp"
+        android:layout_height="104dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/scoreboard">
+
+    </ImageView>
 
     <ListView
         android:id="@+id/scoreBoardViewList"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp">
 
     </ListView>
 
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_alignStart="@+id/scoreBoardViewList"
+        android:layout_alignEnd="@+id/scoreBoardViewList"
+        android:layout_alignBottom="@+id/scoreBoardViewList"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="338dp"
+        android:layout_marginBottom="307dp"
+        android:text="Name+Gender"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_alignStart="@+id/scoreBoardViewList"
+        android:layout_alignEnd="@+id/scoreBoardViewList"
+        android:layout_alignBottom="@+id/scoreBoardViewList"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="338dp"
+        android:layout_marginBottom="307dp"
+        android:text="PokomonNum">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_alignStart="@+id/scoreBoardViewList"
+        android:layout_alignEnd="@+id/scoreBoardViewList"
+        android:layout_alignBottom="@+id/scoreBoardViewList"
+        android:layout_marginStart="280dp"
+        android:layout_marginEnd="338dp"
+        android:layout_marginBottom="307dp"
+        android:text="PokemonLV">
+
+    </TextView>
+
+
+    <Button
+        android:id="@+id/level"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/text_box"
+        android:text="level"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/pokeamount"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/level"
+        android:layout_alignTop="@+id/level"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/text_box"
+        android:text="pokenum"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/idk"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/level"
+        android:layout_alignTop="@+id/level"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/text_box"
+        android:text="idk"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </RelativeLayout>

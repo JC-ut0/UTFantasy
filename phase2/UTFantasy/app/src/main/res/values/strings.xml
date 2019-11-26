@@ -25,4 +25,6 @@
     <string name="b">B</string>
     <string name="boy">boy</string>
     <string name="girl">girl</string>
+    <string name="go">GO!</string>
+    <string name="cancel">CANCEL</string>
 </resources>
