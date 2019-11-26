@@ -21,51 +21,52 @@
             android:background="@drawable/utfantasylogo"
             android:contentDescription="@string/logo" />
 
-        <RelativeLayout
-            android:layout_width="400dp"
-            android:layout_height="300dp"
-            android:layout_centerInParent="true"
-            android:background="@color/white_half"
-            android:layout_below="@+id/UTLogoStartUp">
 
-            <Button
-                android:id="@+id/startButton"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="200dp"
-                android:layout_height="70dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:background="@color/blue_half"
-                android:text="@string/game_start"
-                android:textSize="24sp" />
+        <Button
+            android:id="@+id/startButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/UTLogoStartUp"
+            android:layout_marginTop="23dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/check"
+            android:text="@string/game_start"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/scoreBoard"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="200dp"
-                android:layout_height="70dp"
-                android:layout_below="@id/startButton"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:background="@color/blue_half"
-                android:text="@string/score_board"
-                android:textSize="24sp" />
+        <Button
+            android:id="@+id/scoreBoard"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/startButton"
+            android:layout_alignStart="@+id/startButton"
+            android:layout_alignEnd="@+id/startButton"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/check"
+            android:text="@string/score_board"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/leaveButton"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="200dp"
-                android:layout_height="70dp"
-                android:layout_below="@id/scoreBoard"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:background="@color/blue_half"
-                android:text="@string/leave"
-                android:textSize="24sp" />
-
-        </RelativeLayout>
+        <Button
+            android:id="@+id/leaveButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/scoreBoard"
+            android:layout_alignStart="@+id/scoreBoard"
+            android:layout_alignEnd="@+id/scoreBoard"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/check"
+            android:text="@string/leave"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
 
     </RelativeLayout>
-
 
 </RelativeLayout>

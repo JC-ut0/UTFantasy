@@ -2,6 +2,7 @@ package csc207.phase2.UTFantasy.Activities.scoreboard;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,14 @@ public class ScoreBoardActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.scoreBoardViewList);
         ScoreBoardAdapter adapter = new ScoreBoardAdapter(this, playerList);
         listView.setAdapter(adapter);
+
+        Button back = findViewById(R.id.backButton);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void sortByPokemonLv(View view) {

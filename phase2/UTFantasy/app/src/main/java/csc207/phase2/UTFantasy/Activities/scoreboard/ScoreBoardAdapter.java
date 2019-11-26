@@ -58,7 +58,7 @@ class ScoreBoardAdapter extends BaseAdapter {
 
     Player player = playerList.get(position);
     holder.rank.setText(position + 1 + ": ");
-    holder.playerName.setText(player.getName() + " " + player.getGender());
+    holder.playerName.setText(player.getName() + " (" + player.getGender()+")");
     holder.pokemonNum.setText(player.getPokemonList().size() + "");
     holder.pokemonLV.setText(player.getPlayerPokemonLV() + "");
 
