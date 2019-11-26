@@ -1,6 +1,7 @@
 package csc207.phase2.UTFantasy.Activities.scoreboard;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +17,9 @@ import csc207.phase2.UTFantasy.User.UserManagerFacade;
 
 public class ScoreBoardActivity extends AppCompatActivity {
 
-    /** the unique UserIO */
+    /**
+     * the unique UserIO
+     */
     private UserIO userIO;
     /**
      * User
@@ -32,20 +35,18 @@ public class ScoreBoardActivity extends AppCompatActivity {
         userIO = UserIO.getSingletonUserIo();
         userManagerFacade = new UserManagerFacade(userIO, this);
         playerList = userManagerFacade.getScoreBoardPlayerList();
-        sortByPokemonLv();
+        playerList.sort(new PlayerPokemonLvComparator());
 
         ListView listView = findViewById(R.id.scoreBoardViewList);
         ScoreBoardAdapter adapter = new ScoreBoardAdapter(this, playerList);
         listView.setAdapter(adapter);
     }
 
-    private void sortByPokemonLv() {
+    public void sortByPokemonLv(View view) {
         playerList.sort(new PlayerPokemonLvComparator());
     }
 
-    private void sortByPokemonNum() {
+    public void sortByPokemonNum(View view) {
         playerList.sort(new PlayerPokemonNumComparator());
     }
-
 }
-
