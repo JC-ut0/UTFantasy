@@ -117,3 +117,9 @@ Apply MVP in ShopActivity.
 # step 19
 File affected: ShopActivity, ShopPresenter, ShopInteractor, ShopView
 add new methods to update information of products
+
+########
+# Step 13
+File affected: ScoreboardActivity java and xml
+- implemented ScoreboardActivity methods
+- completed
