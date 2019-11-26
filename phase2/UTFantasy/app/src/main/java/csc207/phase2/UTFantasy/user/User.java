@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.User;
+package csc207.phase2.UTFantasy.user;
 
 import java.io.Serializable;
 
