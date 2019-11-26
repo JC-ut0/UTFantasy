@@ -2,7 +2,7 @@ package csc207.phase2.UTFantasy.Activities;
 
 import java.util.ArrayList;
 
-import csc207.phase2.UTFantasy.Products.PotionFactory;
+import csc207.phase2.UTFantasy.Products.Potion;
 import csc207.phase2.UTFantasy.Products.Product;
 
 public abstract class ProductBuilder {
@@ -12,7 +12,7 @@ public abstract class ProductBuilder {
     products = new ArrayList<>();
   }
 
-  abstract void addProduct(String name);
+  abstract void addProduct(Potion potion);
 
   public ArrayList<Product> getProducts() {
     return products;

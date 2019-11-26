@@ -4,15 +4,18 @@ import java.util.ArrayList;
 
 import csc207.phase2.UTFantasy.Products.Product;
 
+import static csc207.phase2.UTFantasy.Products.Potion.pink;
+import static csc207.phase2.UTFantasy.Products.Potion.purple;
+import static csc207.phase2.UTFantasy.Products.Potion.red;
+
 public class ProductCreator {
   private ArrayList<Product> products;
-  private ProductBuilder builder;
 
   ProductCreator() {
-    builder = new PotionBuilder();
-    builder.addProduct("pink");
-    builder.addProduct("red");
-    builder.addProduct("purple");
+    ProductBuilder builder = new PotionBuilder();
+    builder.addProduct(pink);
+    builder.addProduct(red);
+    builder.addProduct(purple);
     products = builder.getProducts();
   }
 

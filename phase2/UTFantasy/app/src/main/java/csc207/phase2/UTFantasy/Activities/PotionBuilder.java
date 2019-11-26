@@ -1,17 +1,15 @@
 package csc207.phase2.UTFantasy.Activities;
 
-import java.util.ArrayList;
-
+import csc207.phase2.UTFantasy.Products.Potion;
 import csc207.phase2.UTFantasy.Products.PotionFactory;
-import csc207.phase2.UTFantasy.Products.Product;
 
 public class PotionBuilder extends ProductBuilder {
   PotionBuilder() {
     super();
   }
 
-  public void addProduct(String name) {
+  public void addProduct(Potion potion) {
     PotionFactory potionFactory = new PotionFactory();
-    products.add(potionFactory.makePotion(name));
+    products.add(potionFactory.makePotion(potion));
   }
 }
