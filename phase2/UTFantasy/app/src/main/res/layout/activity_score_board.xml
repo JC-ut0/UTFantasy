@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/scoreboard_background"
-    tools:context=".Activities.ScoreBoardActivity">
+    tools:context=".Activities.scoreboard.ScoreBoardActivity">
 
     <ImageView
         android:layout_width="289dp"
@@ -81,7 +81,8 @@
         android:text="level"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="sortByPokemonLv" />
 
     <Button
         android:id="@+id/pokeamount"
@@ -95,7 +96,8 @@
         android:text="pokenum"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:onClick="sortByPokemonNum" />
 
     <Button
         android:id="@+id/idk"

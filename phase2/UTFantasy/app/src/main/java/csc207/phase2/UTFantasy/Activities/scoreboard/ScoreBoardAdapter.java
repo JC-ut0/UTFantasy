@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.Character.PlayerComparator.PlayerPokemonLvComparator;
 import csc207.phase2.UTFantasy.R;
 
 class ScoreBoardAdapter extends BaseAdapter {
@@ -56,10 +57,10 @@ class ScoreBoardAdapter extends BaseAdapter {
     } else holder = (ViewHolder) view.getTag();
 
     Player player = playerList.get(position);
-    holder.rank.setText(position + ": ");
+    holder.rank.setText(position + 1 + ": ");
     holder.playerName.setText(player.getName() + " " + player.getGender());
-    holder.pokemonNum.setText(player.getPokemonList().size());
-    holder.pokemonLV.setText(player.getPlayerPokemonLV());
+    holder.pokemonNum.setText(player.getPokemonList().size() + "");
+    holder.pokemonLV.setText(player.getPlayerPokemonLV() + "");
 
     return view;
   }
@@ -70,4 +71,10 @@ class ScoreBoardAdapter extends BaseAdapter {
     TextView pokemonLV;
     TextView rank;
   }
+
+  private void sortByPokemonLv(View view) {
+    playerList.sort(new PlayerPokemonLvComparator());
+  }
+
+
 }
