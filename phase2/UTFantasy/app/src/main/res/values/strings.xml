@@ -37,4 +37,6 @@
     <string name="_1">1.</string>
     <string name="num">Num</string>
     <string name="name">name</string>
+    <string name="showingScore">Show score on the ScoreBoard</string>
+    <string name="percentile">Percentile</string>
 </resources>
