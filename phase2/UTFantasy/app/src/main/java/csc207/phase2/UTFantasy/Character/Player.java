@@ -98,11 +98,11 @@ public class Player extends Person {
   }
 
   public int getPlayerPokemonLV() {
-    int totalLV = 0;
+    int maxLv = 0;
     for (Pokemon pokemon : pokemonList) {
-      totalLV += pokemon.getLevel();
+      if (pokemon.getLevel() > maxLv) maxLv = pokemon.getLevel();
     }
-    return totalLV;
+    return maxLv;
   }
 
   public boolean isShowingScore() {
@@ -113,11 +113,11 @@ public class Player extends Person {
     this.showingScore = showingScore;
   }
 
-  public void useProduct(Product product){
+  public void useProduct(Product product) {
     Integer num = bag.get(product);
-    if (num != null){
+    if (num != null) {
       bag.put(product, num - 1);
-      if (num == 0){
+      if (num == 0) {
         bag.remove(product);
       }
     }
