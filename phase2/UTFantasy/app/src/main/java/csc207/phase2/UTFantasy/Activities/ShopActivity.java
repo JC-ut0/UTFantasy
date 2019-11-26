@@ -28,28 +28,20 @@ import csc207.phase2.UTFantasy.R;
 /** The activity used to purchase products. */
 public class ShopActivity extends AppCompatActivity implements ShopView {
 
-  /** A PotionFactory */
-  PotionFactory potionFactory = new PotionFactory();
-  //  /** The amount of products a player wants to buy. */
-  //  int amount;
-  //  /** which product a player wants to buy */
-  //  Product product;
-  //  /** the intent of MainActivity */
+    /** the intent of MainActivity */
   Intent intent;
-  /** the player */
-  private Player player;
   /** the unique UserIO */
   private UserIO userIO = UserIO.getUserIO();
   /** the name of current user */
   String username;
-  //  /** the amount of money a player has */
-  //  int money;
   /** the TextView of money */
   TextView moneyLeft;
-
   TextView totalMoney;
   TextView productInBag;
   TextView productSelected;
+  ImageView productImage;
+  TextView productName;
+  TextView prodcutDescription;
   EditText enterAmount;
   LinearLayout layout;
   Button add1;
@@ -65,12 +57,7 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     setContentView(R.layout.activity_shop);
     intent = getIntent();
     username = intent.getStringExtra("username");
-    player = userIO.getUserData().getUser(username).getPlayer();
-
-    final Button redPotionBtn = findViewById(R.id.choose_red);
-    final Button pinkPotionBtn = findViewById(R.id.choose_pink);
-    final Button purplePotionBtn = findViewById(R.id.choose_purple);
-    player = userManager.getUser(username).getPlayer();
+    Player player = userIO.getUserData().getUser(username).getPlayer();
     presenter = new ShopPresenter(new ShopInteractor(player), this);
     ListView listView = findViewById(R.id.productListView);
     totalMoney = findViewById(R.id.totalMoney);
@@ -84,6 +71,9 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     add10 = findViewById(R.id.add10);
     apply = findViewById(R.id.apply);
     buy = findViewById(R.id.buy);
+    productImage = findViewById(R.id.productImage);
+    productName = findViewById(R.id.productName);
+    prodcutDescription = findViewById(R.id.productDescription);
     final ImageButton backBtn = findViewById(R.id.back_to_main);
     final Button bagBtn = findViewById(R.id.my_bag);
 
@@ -218,5 +208,12 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   @Override
   public void setMoneyLeft(String text) {
     moneyLeft.setText(text);
+  }
+
+  @Override
+  public void setProductInfo(Product product){
+      productImage.setImageResource(product.getProfile_id());
+      productName.setText(product.getName());
+      prodcutDescription.setText(product.toString());
   }
 }

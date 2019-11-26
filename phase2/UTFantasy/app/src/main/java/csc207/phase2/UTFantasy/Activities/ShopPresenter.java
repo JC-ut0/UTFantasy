@@ -23,6 +23,7 @@ public class ShopPresenter implements ShopInteractor.Listener {
       shopView.setProductInBag(String.valueOf(n));
       shopView.setMoneyLeft(String.valueOf(money));
       shopView.setButtons();
+      shopView.setProductInfo(product);
     }
   }
 
