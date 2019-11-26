@@ -1,7 +1,5 @@
 package csc207.phase2.UTFantasy.Activities;
 
-import csc207.phase2.UTFantasy.Products.Product;
-
 public interface ShopView {
   void showMessage(String message);
 
@@ -15,5 +13,5 @@ public interface ShopView {
 
   void setTotalMoney(String text);
 
-  void setProductInfo(Product product);
+  void setProductInfo(int res, String name, String description);
 }

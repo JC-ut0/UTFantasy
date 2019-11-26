@@ -2,7 +2,6 @@ package csc207.phase2.UTFantasy.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,15 +19,13 @@ import java.util.ArrayList;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.Products.PinkPotion;
-import csc207.phase2.UTFantasy.Products.PotionFactory;
 import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
 
 /** The activity used to purchase products. */
 public class ShopActivity extends AppCompatActivity implements ShopView {
 
-    /** the intent of MainActivity */
+  /** the intent of MainActivity */
   Intent intent;
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
@@ -36,6 +33,7 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   String username;
   /** the TextView of money */
   TextView moneyLeft;
+
   TextView totalMoney;
   TextView productInBag;
   TextView productSelected;
@@ -90,9 +88,6 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Product product = productInShop.get(position);
             presenter.updateAll(product);
-            // View view1 = createView(product);
-            //            updateAll(product);
-            //            setButton();
           }
         });
 
@@ -119,11 +114,11 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
           @Override
           public void onClick(View v) {
             if (enterAmount.getText().toString().equals("")) {
-                showMessage("Please enter a number!");
+              showMessage("Please enter a number!");
             } else {
-                int n = Integer.valueOf(enterAmount.getText().toString());
-                presenter.updateSelected(n);
-                enterAmount.setText("0");
+              int n = Integer.valueOf(enterAmount.getText().toString());
+              presenter.updateSelected(n);
+              enterAmount.setText("0");
             }
           }
         });
@@ -167,20 +162,20 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     Toast.makeText(ShopActivity.this, text, Toast.LENGTH_SHORT).show();
   }
 
-  public View createView(Product product) {
-    int id = product.getProfile_id();
-    String name = product.getName();
-    String description = product.toString();
-    LayoutInflater inflater = LayoutInflater.from(this);
-    View view = inflater.inflate(R.layout.product_info, layout, false);
-    ImageView productImage = view.findViewById(R.id.productImage);
-    TextView productDescription = view.findViewById(R.id.productDescription);
-    TextView productName = view.findViewById(R.id.productName);
-    productImage.setImageResource(id);
-    productName.setText(name);
-    productDescription.setText(description);
-    return view;
-  }
+  //  public View createView(Product product) {
+  //    int id = product.getProfile_id();
+  //    String name = product.getName();
+  //    String description = product.toString();
+  //    LayoutInflater inflater = LayoutInflater.from(this);
+  //    View view = inflater.inflate(R.layout.product_info, layout, false);
+  //    ImageView productImage = view.findViewById(R.id.productImage);
+  //    TextView productDescription = view.findViewById(R.id.productDescription);
+  //    TextView productName = view.findViewById(R.id.productName);
+  //    productImage.setImageResource(id);
+  //    productName.setText(name);
+  //    productDescription.setText(description);
+  //    return view;
+  //  }
 
   @Override
   public void setButtons() {
@@ -211,9 +206,9 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   }
 
   @Override
-  public void setProductInfo(Product product){
-      productImage.setImageResource(product.getProfile_id());
-      productName.setText(product.getName());
-      prodcutDescription.setText(product.toString());
+  public void setProductInfo(int res, String name, String description) {
+    productImage.setImageResource(res);
+    productName.setText(name);
+    prodcutDescription.setText(description);
   }
 }

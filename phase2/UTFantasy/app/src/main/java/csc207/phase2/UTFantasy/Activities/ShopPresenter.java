@@ -1,7 +1,5 @@
 package csc207.phase2.UTFantasy.Activities;
 
-import android.widget.Space;
-
 import csc207.phase2.UTFantasy.Products.Product;
 
 public class ShopPresenter implements ShopInteractor.Listener {
@@ -17,13 +15,16 @@ public class ShopPresenter implements ShopInteractor.Listener {
     shopInteractor.setProduct(product);
     int n = shopInteractor.countProducts(product);
     int money = shopInteractor.countMoney();
+    int res = shopInteractor.getProductImage();
+    String name = shopInteractor.getProductName();
+    String description = shopInteractor.getProductDescription();
     if (shopView != null) {
       shopView.setTotalMoney("0");
       shopView.setProductSelected("0");
       shopView.setProductInBag(String.valueOf(n));
       shopView.setMoneyLeft(String.valueOf(money));
       shopView.setButtons();
-      shopView.setProductInfo(product);
+      shopView.setProductInfo(res, name, description);
     }
   }
 

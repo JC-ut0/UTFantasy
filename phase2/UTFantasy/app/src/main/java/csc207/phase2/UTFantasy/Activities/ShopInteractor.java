@@ -60,7 +60,8 @@ public class ShopInteractor {
         player.addItem(product, amount);
         listener.updateMoneyLeft(money);
         listener.updateProductsInBag(countProducts(product));
-        listener.showMessage("You have purchased " + amount + " " + product.getName() + "s.");
+        listener.showMessage("You have purchased " + amount + " " + product.getName() +
+                "（s）.");
       } else {
         listener.showMessage("You don't Have enough money!");
         listener.updateSelected(0);
@@ -74,7 +75,15 @@ public class ShopInteractor {
     return total <= countMoney();
   }
 
-  int getMoneyLeft() {
-    return countMoney();
+  int getProductImage() {
+    return product.getProfile_id();
+  }
+
+  String getProductName() {
+    return product.getName();
+  }
+
+  String getProductDescription() {
+    return product.toString();
   }
 }
