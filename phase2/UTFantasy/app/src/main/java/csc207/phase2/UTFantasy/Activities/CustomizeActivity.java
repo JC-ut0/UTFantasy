@@ -16,8 +16,8 @@ import csc207.phase2.UTFantasy.CustomizeException.ImproperPlayerNameException;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Map.MainActivity;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.user.User;
-import csc207.phase2.UTFantasy.user.UserManagerFacade;
+import csc207.phase2.UTFantasy.User.User;
+import csc207.phase2.UTFantasy.User.UserManagerFacade;
 
 /** The activity used to create a new user. */
 public class CustomizeActivity extends Activity {

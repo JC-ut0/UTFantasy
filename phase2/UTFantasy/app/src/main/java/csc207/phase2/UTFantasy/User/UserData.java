@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.user;
+package csc207.phase2.UTFantasy.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;

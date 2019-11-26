@@ -16,7 +16,7 @@ import csc207.phase2.UTFantasy.Character.PlayerComparator.PlayerPokemonNumCompar
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Pet.Pikachu;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.user.UserManagerFacade;
+import csc207.phase2.UTFantasy.User.UserManagerFacade;
 
 public class ScoreBoardActivity extends AppCompatActivity {
 

@@ -1,9 +1,9 @@
 package csc207.phase2.UTFantasy.Activities.LoginActivityMVP;
 
 import csc207.phase2.UTFantasy.CustomizeException.ImproperUserSettingException;
-import csc207.phase2.UTFantasy.user.User;
-import csc207.phase2.UTFantasy.user.UserManagerFacade;
-import csc207.phase2.UTFantasy.user.UserManagerFacadeInterface;
+import csc207.phase2.UTFantasy.User.User;
+import csc207.phase2.UTFantasy.User.UserManagerFacade;
+import csc207.phase2.UTFantasy.User.UserManagerFacadeInterface;
 
 class LoginPresenter {
 

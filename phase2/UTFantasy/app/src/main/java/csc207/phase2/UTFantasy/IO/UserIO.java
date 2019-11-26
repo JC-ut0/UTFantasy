@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import csc207.phase2.UTFantasy.user.UserData;
-import csc207.phase2.UTFantasy.user.UserIOInterface;
+import csc207.phase2.UTFantasy.User.UserData;
+import csc207.phase2.UTFantasy.User.UserIOInterface;
 
 /** A Singleton class to manage UserData. Will be initialized in the StartUp activity. */
 public class UserIO implements UserIOInterface {
