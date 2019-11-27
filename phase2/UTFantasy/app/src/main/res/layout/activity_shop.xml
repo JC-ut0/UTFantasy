@@ -22,14 +22,14 @@
 
     <LinearLayout
         android:id="@+id/left_top"
-        android:layout_width="200dp"
-        android:layout_height="206dp"
+        android:layout_width="212dp"
+        android:layout_height="225dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="234dp"
-        android:layout_marginBottom="139dp"
+        android:layout_marginEnd="221dp"
+        android:layout_marginBottom="120dp"
         android:orientation="vertical">
 
         <ImageView
@@ -55,7 +55,7 @@
         <TextView
             android:id="@+id/productDescription"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="51dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:text="description"

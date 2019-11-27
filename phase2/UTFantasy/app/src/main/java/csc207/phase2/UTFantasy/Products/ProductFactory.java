@@ -1,15 +1,17 @@
 package csc207.phase2.UTFantasy.Products;
 
-public class PotionFactory {
+class ProductFactory {
 
-  public Product makePotion(Potion potion) {
+  Product makePotion(ProductName potion) {
     switch (potion) {
-      case red:
+      case redPotion:
         return new RedPotion();
-      case pink:
+      case pinkPotion:
         return new PinkPotion();
-      case purple:
+      case purplePotion:
         return new PurplePotion();
+      case masterBall:
+        return new MasterBall();
     }
     return null;
   }

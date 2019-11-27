@@ -19,13 +19,14 @@ import java.util.ArrayList;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Products.Product;
+import csc207.phase2.UTFantasy.Products.ProductCreator;
 import csc207.phase2.UTFantasy.R;
 
 /** The activity used to purchase products. */
 public class ShopActivity extends AppCompatActivity implements ShopView {
 
-  /** the intent of MainActivity */
-  Intent intent;
+//  /** the intent of MainActivity */
+//  private Intent intent;
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
   /** the name of current user */
@@ -52,7 +53,7 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_shop);
-    intent = getIntent();
+    Intent intent = getIntent();
     username = intent.getStringExtra("username");
     final Player player = userIO.getUserData().getUser(username).getPlayer();
     presenter = new ShopPresenter(new ShopInteractor(player), this);
