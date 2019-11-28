@@ -2,11 +2,13 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class Confusion extends Skill {
   /** Constructor of a Confusion Skill. */
   public Confusion() {
     name = "Confusion";
-    type = "Psychic";
+      type = TypeMap.type.PSYCHIC;
     power = 50;
     pp = 25;
   }

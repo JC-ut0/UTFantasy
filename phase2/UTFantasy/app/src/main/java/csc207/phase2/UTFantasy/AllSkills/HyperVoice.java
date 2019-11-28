@@ -2,13 +2,15 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class HyperVoice extends Skill {
   /** Constructor of a HyperVoice Skill. */
   public HyperVoice() {
     name = "Hyper Voice";
     power = 90;
     pp = 10;
-    type = "normal";
+      type = TypeMap.type.NORMAL;
   }
 
   /**

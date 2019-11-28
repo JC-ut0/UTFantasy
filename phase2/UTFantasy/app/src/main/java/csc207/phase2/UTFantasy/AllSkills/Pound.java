@@ -2,13 +2,15 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class Pound extends Skill {
   /** Constructor of a Pound Skill. */
   public Pound() {
     name = "Pound";
     power = 40;
     pp = 35;
-    type = "normal";
+      type = TypeMap.type.NORMAL;
   }
 
   /**

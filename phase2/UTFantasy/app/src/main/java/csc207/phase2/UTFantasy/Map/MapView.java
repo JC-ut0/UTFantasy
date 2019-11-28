@@ -9,8 +9,6 @@ import java.io.Serializable;
 
 public class MapView extends SurfaceView
     implements SurfaceHolder.Callback, Serializable, MapViewModel {
-  /** the mapPresenter of this MapView */
-  MapPresenter mapPresenter;
   /** The part of the program that manages time. */
   private MainThread thread;
 
@@ -18,7 +16,6 @@ public class MapView extends SurfaceView
     super(context);
     getHolder().addCallback(this);
     setFocusable(true);
-    this.mapPresenter = new MapPresenter(this);
   }
 
   public MainThread getThread() {

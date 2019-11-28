@@ -2,12 +2,14 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class QuickAttack extends Skill {
   /** Constructor of a QuickAttack Skill. */
   public QuickAttack() {
     power = 40;
     pp = 30;
-    type = "normal";
+      type = TypeMap.type.NORMAL;
     name = "Quick Attack";
   }
 

@@ -11,12 +11,14 @@ import csc207.phase2.UTFantasy.R;
 public class MapPresenter implements MapDrawer {
 
   private MapViewModel mapView;
+  private MainActivityModel activityModel;
   // all the bitmaps used to draw
   private Bitmap lawn;
   private Bitmap tree;
   private Bitmap fightNpc;
   private Bitmap sellerNpc;
   private Bitmap healerNpc;
+  private Bitmap pokemonBall;
   /** the Bitmaps of the character upwards */
   private Bitmap upPlayer0;
 
@@ -45,8 +47,9 @@ public class MapPresenter implements MapDrawer {
   private Bitmap rightPlayer2;
   private Bitmap rightPlayer3;
 
-  public MapPresenter(MapViewModel mapView) {
+  public MapPresenter(MapViewModel mapView, MainActivityModel activityModel) {
     this.mapView = mapView;
+    this.activityModel = activityModel;
     initializeBitMap();
   }
 
@@ -54,7 +57,7 @@ public class MapPresenter implements MapDrawer {
    * return a resized Bitmap with its returned size be widthIndex * heightIndex times the original
    * size
    *
-   * @param id the id of this bitmap drawable
+   * @param id the icon of this bitmap drawable
    * @param widthIndex the times that this bitmap's width should be resized by
    * @param heightIndex the times that this bitmap's height should be resized by
    * @return a resized bitmap
@@ -75,6 +78,7 @@ public class MapPresenter implements MapDrawer {
     fightNpc = getBitmap(R.drawable.professor, 2, 2);
     sellerNpc = getBitmap(R.drawable.big_mom, (float) 2.5, (float) 2.5);
     healerNpc = getBitmap(R.drawable.joy, 1, 1);
+    pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.3, (float) 0.3);
     // initialize the bitmap of player
     upPlayer0 = getBitmap(R.drawable.boy_up_0, 1, 1);
     upPlayer1 = getBitmap(R.drawable.boy_up_1, 1, 1);
@@ -111,24 +115,26 @@ public class MapPresenter implements MapDrawer {
         if (unit != null) {
           Bitmap bitmap = null;
           switch (unit.getDraw()) {
-            case "lawn":
+            case LAWN:
               bitmap = lawn;
               break;
-            case "tree":
+            case TREE:
               bitmap = tree;
               break;
-            case "Professor.P":
+            case PROFESSOR:
               bitmap = fightNpc;
               break;
-            case "Alice":
+            case ALICE:
               bitmap = sellerNpc;
               break;
-            case "SecondCup":
+            case JOY:
               bitmap = healerNpc;
               break;
+            case POKEMONBALL:
+              bitmap = pokemonBall;
           }
 
-          if (bitmap != null ) {
+          if (bitmap != null) {
             canvas.drawBitmap(
                 bitmap,
                 (unit.getScreenX() - 2) * UnitDraw.getUnitWidth(),
@@ -141,59 +147,87 @@ public class MapPresenter implements MapDrawer {
   }
 
   @Override
-  public void drawPlayer(Canvas canvas, String playerIcon, int x, int y) {
+  public void drawPlayer(Canvas canvas, Icon playerIcon, int x, int y) {
     Bitmap bitmap = null;
     switch (playerIcon) {
-      case "upPlayer0":
+      case UPPLAYER0:
         bitmap = upPlayer0;
         break;
-      case "upPlayer1":
+      case UPPLAYER1:
         bitmap = upPlayer1;
         break;
-      case "upPlayer2":
+      case UPPLAYER2:
         bitmap = upPlayer2;
         break;
-      case "upPlayer3":
+      case UPPLAYER3:
         bitmap = upPlayer3;
         break;
-      case "downPlayer0":
+      case DOWNPLAYER0:
         bitmap = downPlayer0;
         break;
-      case "downPlayer1":
+      case DOWNPLAYER1:
         bitmap = downPlayer1;
         break;
-      case "downPlayer2":
+      case DOWNPLAYER2:
         bitmap = downPlayer2;
         break;
-      case "downPlayer3":
+      case DOWNPLAYER3:
         bitmap = downPlayer3;
         break;
-      case "leftPlayer0":
+      case LEFTPLAYER0:
         bitmap = leftPlayer0;
         break;
-      case "leftPlayer1":
+      case LEFTPLAYER1:
         bitmap = leftPlayer1;
         break;
-      case "leftPlayer2":
+      case LEFTPLAYER2:
         bitmap = leftPlayer2;
         break;
-      case "leftPlayer3":
+      case LEFTPLAYER3:
         bitmap = leftPlayer3;
         break;
-      case "rightPlayer0":
+      case RIGHTPLAYER0:
         bitmap = rightPlayer0;
         break;
-      case "rightPlayer1":
+      case RIGHTPLAYER1:
         bitmap = rightPlayer1;
         break;
-      case "rightPlayer2":
+      case RIGHTPLAYER2:
         bitmap = rightPlayer2;
         break;
-      case "rightPlayer3":
+      case RIGHTPLAYER3:
         bitmap = rightPlayer3;
         break;
     }
     canvas.drawBitmap(bitmap, x * UnitDraw.getUnitWidth(), y * UnitDraw.getUnitHeight(), null);
+  }
+
+  @Override
+  public void popText(String text) {
+    activityModel.popText(text);
+  }
+
+  @Override
+  public void openDialogue(String dialogue) {
+    activityModel.hideButtons();
+    activityModel.openDialogue(dialogue);
+  }
+
+  public void hideDialogue() {
+    activityModel.showButtons();
+    activityModel.closeDiagloue();
+  }
+
+  ;
+
+  @Override
+  public void goToBattleActivity(String npcName) {
+    activityModel.goToBattleActivity(npcName);
+  }
+
+  @Override
+  public void goToShopActivity(String npcName) {
+    activityModel.goToShopActivity(npcName);
   }
 
   @Override

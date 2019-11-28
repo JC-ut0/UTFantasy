@@ -1,0 +1,30 @@
+package csc207.phase2.UTFantasy.Map;
+
+public enum Icon {
+    LAWN,
+    TREE,
+    TREEIMAGE,
+
+    UPPLAYER0,
+    UPPLAYER1,
+    UPPLAYER2,
+    UPPLAYER3,
+    DOWNPLAYER0,
+    DOWNPLAYER1,
+    DOWNPLAYER2,
+    DOWNPLAYER3,
+    LEFTPLAYER0,
+    LEFTPLAYER1,
+    LEFTPLAYER2,
+    LEFTPLAYER3,
+    RIGHTPLAYER0,
+    RIGHTPLAYER1,
+    RIGHTPLAYER2,
+    RIGHTPLAYER3,
+
+    PROFESSOR,
+    ALICE,
+    JOY,
+
+    POKEMONBALL
+}

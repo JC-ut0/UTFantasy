@@ -6,18 +6,22 @@ import java.io.Serializable;
 import java.util.Random;
 
 import csc207.phase2.UTFantasy.AllSkills.Skill;
+import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.Character.Person;
 
-public abstract class Pokemon implements Serializable {
+public abstract class Pokemon implements Serializable, ObservablePokemon {
+    protected BattleObserver observer;
   /** the name of the Pokemon */
   protected String pokemonName;
   /** The first type of this pokemon */
-  protected String type1;
+  protected TypeMap.type type1;
   /** The second type of this pokemon */
-  protected String type2;
+  protected TypeMap.type type2;
   /** Level growing type */
   protected String growType;
-  /** The unique profile id for each Pokemon. ID can be used to draw this Pokemon. */
+    /**
+     * The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
+     */
   protected int profileID;
   /** Base stat of hp */
   protected int baseHp;
@@ -59,6 +63,10 @@ public abstract class Pokemon implements Serializable {
   protected int maximumHp;
   /** skills the Pokemon have there are four different skills */
   protected Skill[] skills;
+    /**
+     * The status of this pokemon
+     */
+    protected String status;
 
   /** Constructor of Pokemon. */
   Pokemon() {
@@ -70,6 +78,7 @@ public abstract class Pokemon implements Serializable {
     ivAttack = r.nextInt(32);
     ivDefense = r.nextInt(32);
     ivSpeed = r.nextInt(32);
+      status = "healthy";
   }
 
   /**
@@ -95,7 +104,7 @@ public abstract class Pokemon implements Serializable {
    *
    * @return a String which is the type1 of the Pokemon.
    */
-  public String getType1() {
+  public TypeMap.type getType1() {
     return type1;
   }
 
@@ -104,7 +113,7 @@ public abstract class Pokemon implements Serializable {
    *
    * @param type1 a String which is the type of Pokemon to set.
    */
-  public void setType1(String type1) {
+  public void setType1(TypeMap.type type1) {
     this.type1 = type1;
   }
 
@@ -113,7 +122,7 @@ public abstract class Pokemon implements Serializable {
    *
    * @return a String which is the type2 of the Pokemon.
    */
-  public String getType2() {
+  public TypeMap.type getType2() {
     return type2;
   }
 
@@ -122,7 +131,7 @@ public abstract class Pokemon implements Serializable {
    *
    * @param type2 a String which is the type of Pokemon to set.
    */
-  public void setType2(String type2) {
+  public void setType2(TypeMap.type type2) {
       this.type2 = type2;
   }
 
@@ -630,14 +639,18 @@ public abstract class Pokemon implements Serializable {
    * @return an integer which is the number of Skills Pokemon currently has.
    */
   public int getSkillNum() {
-    int result = 0;
-    for (Skill skill : skills) {
-      if (skill != null) {
-        result += 1;
+      int result = 0;
+      for (Skill skill : skills) {
+          if (skill != null) {
+              result += 1;
+          }
       }
-    }
-    return result;
+      return result;
   }
+
+    public String getStatus() {
+        return status;
+    }
 
   /**
    * Return a String which contains Pokemon's name and current level.
@@ -657,6 +670,23 @@ public abstract class Pokemon implements Serializable {
    *     fainted.
    */
   public boolean isAlive() {
-    return hp != 0;
+      return hp != 0;
   }
+
+    @Override
+    public void setObserver(BattleObserver o) {
+        this.observer = o;
+    }
+
+    ;
+
+    @Override
+    public void notifyObserverHpChange() {
+        observer.updateHpBar();
+    }
+
+    @Override
+    public void notifyObserverExpChange() {
+        observer.updateExpBar();
+    }
 }

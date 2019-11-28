@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.FightActivity">
+    tools:context=".Battle.BattleActivity">
 
     <RelativeLayout
 
@@ -186,7 +186,8 @@
                 android:layout_width="488dp"
                 android:layout_height="match_parent"
                 android:layout_toEndOf="@+id/skillInformationSection"
-                android:background="@drawable/text_box">
+                android:background="@drawable/text_box"
+                android:visibility="visible">
 
                 <Button
                     android:id="@+id/skill_1"
@@ -252,286 +253,321 @@
     <LinearLayout
         android:id="@+id/choosePokemon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/text_box"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:visibility="gone">
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="35dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/firstPokemonInBag"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:clickable="true"
-                android:contentDescription="TODO"
-                app:srcCompat="@drawable/pikachu1" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:visibility="visible">
-
-                <ProgressBar
-                    android:id="@+id/firstPokemonHealthBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-
-                    android:background="#00FFFFFF"
-                    android:max="100"
-                    android:progress="100"
-                    android:progressBackgroundTint="#FFFFFF"
-                    android:progressTint="#80FD00"
-                    android:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/firstPokemonHealthInfo"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-
-                    android:gravity="center"
-                    android:text="0/0"
-                    android:textColor="@android:color/background_dark"
-                    android:visibility="visible" />
-            </RelativeLayout>
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            android:id="@+id/pokemonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="151dp"
+            android:orientation="horizontal">
 
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/secondPokemonInBag"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:contentDescription="First pokemon"
-                app:srcCompat="@drawable/pikachu1" />
+            <LinearLayout
+                android:layout_width="34dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+            <LinearLayout
+                android:id="@+id/firstPokemonLayout"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                android:orientation="vertical">
 
-                <ProgressBar
-                    android:id="@+id/secondPokemonHealthBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
+                <ImageView
+                    android:id="@+id/firstPokemonInBag"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                    android:layout_height="70dp"
+                    android:clickable="true"
+                    android:contentDescription="TODO"
+                    app:srcCompat="@drawable/pikachu1" />
 
-                    android:background="#00FFFFFF"
-                    android:max="100"
-                    android:progress="1000"
-                    android:progressBackgroundTint="#FFFFFF"
-                    android:progressTint="#80FD00" />
-
-                <TextView
-                    android:id="@+id/secondPokemonHealthInfo"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-
-                    android:gravity="center"
-                    android:text="0/0"
-                    android:textColor="@android:color/background_dark" />
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/thirdPokemonInBag"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:contentDescription="First pokemon"
-                app:srcCompat="@drawable/pikachu1" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
-
-                <ProgressBar
-                    android:id="@+id/thirdPokemonHealthBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:visibility="visible">
 
-                    android:background="#00FFFFFF"
-                    android:max="100"
-                    android:progress="100"
-                    android:progressBackgroundTint="#FFFFFF"
-                    android:progressTint="#80FD00" />
+                    <ProgressBar
+                        android:id="@+id/firstPokemonHealthBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
 
-                <TextView
-                    android:id="@+id/thirdPokemonHealthInfo"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                        android:background="#00FFFFFF"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressBackgroundTint="#FFFFFF"
+                        android:progressTint="#80FD00"
+                        android:visibility="visible" />
 
-                    android:gravity="center"
-                    android:text="0/0"
-                    android:textColor="@android:color/background_dark" />
-            </RelativeLayout>
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/firstPokemonHealthInfo"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
 
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
+                        android:gravity="center"
+                        android:text="0/0"
+                        android:textColor="@android:color/background_dark"
+                        android:visibility="visible" />
+                </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/fourthPokemonInBag"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:contentDescription="First pokemon"
-                app:srcCompat="@drawable/pikachu1" />
+            </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
 
-                <ProgressBar
-                    android:id="@+id/fourthPokemonHealthBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
+            <LinearLayout
+                android:id="@+id/secondPokemonLayout"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/secondPokemonInBag"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                    android:layout_height="70dp"
+                    android:contentDescription="First pokemon"
+                    app:srcCompat="@drawable/pikachu1" />
 
-                    android:background="#00FFFFFF"
-                    android:max="100"
-                    android:progress="100"
-                    android:progressBackgroundTint="#FFFFFF"
-                    android:progressTint="#80FD00" />
-
-                <TextView
-                    android:id="@+id/fourthPokemonHealthInfo"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-
-                    android:gravity="center"
-                    android:text="0/0"
-                    android:textColor="@android:color/background_dark" />
-            </RelativeLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/fifthPokemonInBag"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:contentDescription="First pokemon"
-                app:srcCompat="@drawable/pikachu1" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
-
-                <ProgressBar
-                    android:id="@+id/fifthPokemonHealthBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
 
-                    android:background="#00FFFFFF"
-                    android:max="100"
-                    android:progress="100"
-                    android:progressBackgroundTint="#FFFFFF"
-                    android:progressTint="#80FD00" />
+                    <ProgressBar
+                        android:id="@+id/secondPokemonHealthBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
 
-                <TextView
-                    android:id="@+id/fifthPokemonHealthInfo"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                        android:background="#00FFFFFF"
+                        android:max="100"
+                        android:progress="1000"
+                        android:progressBackgroundTint="#FFFFFF"
+                        android:progressTint="#80FD00" />
 
-                    android:gravity="center"
-                    android:text="0/0"
-                    android:textColor="@android:color/background_dark" />
-            </RelativeLayout>
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/secondPokemonHealthInfo"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
 
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
+                        android:gravity="center"
+                        android:text="0/0"
+                        android:textColor="@android:color/background_dark" />
+                </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/sixthPokemonInBag"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:contentDescription="First pokemon"
-                app:srcCompat="@drawable/pikachu1" />
+            </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
 
-                <ProgressBar
-                    android:id="@+id/sixthPokemonHealthBar"
-                    style="@android:style/Widget.ProgressBar.Horizontal"
+            <LinearLayout
+                android:id="@+id/thirdPokemonLayout"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/thirdPokemonInBag"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                    android:layout_height="70dp"
+                    android:contentDescription="First pokemon"
+                    app:srcCompat="@drawable/pikachu1" />
 
-                    android:background="#00FFFFFF"
-                    android:max="100"
-                    android:progress="100"
-                    android:progressBackgroundTint="#FFFFFF"
-                    android:progressTint="#80FD00" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
 
-                <TextView
-                    android:id="@+id/sixthPokemonHealthInfo"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
+                    <ProgressBar
+                        android:id="@+id/thirdPokemonHealthBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
 
-                    android:gravity="center"
-                    android:text="0/0"
-                    android:textColor="@android:color/background_dark" />
-            </RelativeLayout>
+                        android:background="#00FFFFFF"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressBackgroundTint="#FFFFFF"
+                        android:progressTint="#80FD00" />
+
+                    <TextView
+                        android:id="@+id/thirdPokemonHealthInfo"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+
+                        android:gravity="center"
+                        android:text="0/0"
+                        android:textColor="@android:color/background_dark" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/fourthPokemonLayout"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/fourthPokemonInBag"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:contentDescription="First pokemon"
+                    app:srcCompat="@drawable/pikachu1" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+                    <ProgressBar
+                        android:id="@+id/fourthPokemonHealthBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+
+                        android:background="#00FFFFFF"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressBackgroundTint="#FFFFFF"
+                        android:progressTint="#80FD00" />
+
+                    <TextView
+                        android:id="@+id/fourthPokemonHealthInfo"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+
+                        android:gravity="center"
+                        android:text="0/0"
+                        android:textColor="@android:color/background_dark" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fifthPokemonLayout"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/fifthPokemonInBag"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:contentDescription="First pokemon"
+                    app:srcCompat="@drawable/pikachu1" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+                    <ProgressBar
+                        android:id="@+id/fifthPokemonHealthBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+
+                        android:background="#00FFFFFF"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressBackgroundTint="#FFFFFF"
+                        android:progressTint="#80FD00" />
+
+                    <TextView
+                        android:id="@+id/fifthPokemonHealthInfo"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+
+                        android:gravity="center"
+                        android:text="0/0"
+                        android:textColor="@android:color/background_dark" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sixthPokemonLayout"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/sixthPokemonInBag"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:contentDescription="First pokemon"
+                    app:srcCompat="@drawable/pikachu1" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+                    <ProgressBar
+                        android:id="@+id/sixthPokemonHealthBar"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+
+                        android:background="#00FFFFFF"
+                        android:max="100"
+                        android:progress="100"
+                        android:progressBackgroundTint="#FFFFFF"
+                        android:progressTint="#80FD00" />
+
+                    <TextView
+                        android:id="@+id/sixthPokemonHealthInfo"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+
+                        android:gravity="center"
+                        android:text="0/0"
+                        android:textColor="@android:color/background_dark" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
         </LinearLayout>
 
 

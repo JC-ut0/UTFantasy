@@ -42,8 +42,8 @@ public class MapChecker {
 
   public NPC getFacingNpc() {
     UnitDraw facingUnitDraw = getFacingUnitDraw();
-    if (facingUnitDraw != null) {
-      String npcName = facingUnitDraw.getDraw();
+    if (facingUnitDraw != null && facingUnitDraw.isNPC()) {
+      String npcName = ((NPCDraw) facingUnitDraw).getNpcName();
       return npcManager.getNPC(npcName);
     }
     return null;
