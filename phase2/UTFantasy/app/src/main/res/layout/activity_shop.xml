@@ -22,14 +22,14 @@
 
     <LinearLayout
         android:id="@+id/left_top"
-        android:layout_width="200dp"
-        android:layout_height="206dp"
+        android:layout_width="212dp"
+        android:layout_height="225dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="234dp"
-        android:layout_marginBottom="139dp"
+        android:layout_marginEnd="221dp"
+        android:layout_marginBottom="120dp"
         android:orientation="vertical">
 
         <ImageView
@@ -55,7 +55,7 @@
         <TextView
             android:id="@+id/productDescription"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="51dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:text="description"
@@ -245,13 +245,13 @@
         android:layout_height="61dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="493dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="518dp"
+        android:layout_marginBottom="27dp"
         android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/right_bottom"
-            android:layout_width="170dp"
+            android:layout_width="236dp"
             android:layout_height="60dp"
             android:layout_marginEnd="448dp"
             android:layout_marginBottom="19dp"
@@ -259,7 +259,7 @@
 
             <LinearLayout
                 android:id="@+id/right_bottom1"
-                android:layout_width="160dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -276,8 +276,8 @@
 
                 <TextView
                     android:id="@+id/money_left"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:textColor="#000000"
@@ -289,7 +289,7 @@
 
             <LinearLayout
                 android:id="@+id/right_bottom2"
-                android:layout_width="163dp"
+                android:layout_width="236dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:orientation="horizontal">
@@ -307,7 +307,7 @@
 
                 <TextView
                     android:id="@+id/totalMoney"
-                    android:layout_width="40dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"

@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 
 import java.io.Serializable;
 
-public class Product implements Serializable {
+public abstract class Product implements Serializable {
 
   /** the name of this product */
   private String name;
@@ -30,10 +30,8 @@ public class Product implements Serializable {
     return name;
   }
 
-  @Override
-  public String toString() {
-    return "This is a product.";
-  }
+
+  public abstract String toString();
 
   /** the getter of ProfileID */
   public int getProfile_id() {

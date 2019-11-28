@@ -2,13 +2,14 @@ package csc207.phase2.UTFantasy.Pet;
 
 import csc207.phase2.UTFantasy.AllSkills.HydroPump;
 import csc207.phase2.UTFantasy.AllSkills.Scratch;
+import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 public class Psyduck extends Pokemon {
   /** Constructor of a Psyduck. */
   public Psyduck() {
     super();
-    setType1("water");
+      setType1(TypeMap.type.WATER);
     setPokemonName("Psyduck");
     skills[0] = new Scratch();
     skills[1] = new HydroPump();
@@ -22,7 +23,7 @@ public class Psyduck extends Pokemon {
     setDefense(calculateStatistic("defense"));
     setSpeed(calculateStatistic("speed"));
     setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
+      setExpToLevelUp(100);
     setExpAtCurrentLevel(calculateExpAtCurrentLevel());
     setLevelToEvolve(33);
   }

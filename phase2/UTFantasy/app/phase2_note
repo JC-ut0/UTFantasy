@@ -78,8 +78,9 @@ File affected: NPC, Player
 
 ########
 # Step 13
-File affected: ScoreboardActivity
+File affected: ScoreboardActivity java and xml
 - implemented ScoreboardActivity methods
+- completed
 
 #########
 # Step 14
@@ -116,10 +117,15 @@ Apply MVP in ShopActivity.
 ########
 # step 19
 File affected: ShopActivity, ShopPresenter, ShopInteractor, ShopView
-add new methods to update information of products
+Add new methods to update information of products.
 
 ########
-# Step 13
-File affected: ScoreboardActivity java and xml
-- implemented ScoreboardActivity methods
-- completed
+# step 20
+File added: PokemonBall
+Add a new product, pokemon ball, in shop.
+
+########
+# Step 21
+File affected: Package(Battle, Map, AllSkills, Character, Pet)
+Use linked list to refactor Battle system according to MVP. Please see the details of the whole
+structure in the uml. Change constant variables used in map and character to enum.

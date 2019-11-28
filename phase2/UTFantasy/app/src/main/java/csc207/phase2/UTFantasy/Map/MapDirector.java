@@ -34,4 +34,8 @@ public class MapDirector {
   public MapInteractor getMapInteractor() {
     return mapInteractor;
   }
+
+    public NPCInteractor getNPCInteractor() {
+        return new NPCInteractor(player);
+    }
 }

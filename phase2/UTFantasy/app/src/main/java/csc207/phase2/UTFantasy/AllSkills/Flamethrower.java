@@ -2,12 +2,15 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
+
 public class Flamethrower extends Skill {
   /** Constructor of a Flamethrower Skill. */
   public Flamethrower() {
     power = 95;
     pp = 15;
-    type = "fire";
+      type = TypeMap.type.FIRE;
     name = "Flamethrower";
   }
 

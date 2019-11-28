@@ -30,5 +30,5 @@ public interface MapInteractor {
 
   void transScreen(UnitDraw[][] map, int progress,boolean moveAble);
 
-  String getPlayerIcon(int progress);
+  Icon getPlayerIcon(int progress);
 }

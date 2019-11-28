@@ -2,11 +2,14 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
+
 public class HydroPump extends Skill {
   /** Constructor of a HydroPump Skill. */
   public HydroPump() {
     name = "Hydro Pump";
-    type = "water";
+      type = TypeMap.type.WATER;
     power = 120;
     pp = 5;
   }

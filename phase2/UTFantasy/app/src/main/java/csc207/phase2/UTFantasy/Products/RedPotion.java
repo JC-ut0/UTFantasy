@@ -4,11 +4,12 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.R;
 
-public class RedPotion extends Product {
+public class RedPotion extends Potion {
   /** Constructor of RedPotion */
   RedPotion() {
-    super("Super Potion", 200, R.drawable.red);
+    super("Super Potion", 200, R.drawable.red, 50);
   }
+
 
   @Override
   @NonNull

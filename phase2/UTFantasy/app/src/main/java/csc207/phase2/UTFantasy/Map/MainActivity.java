@@ -8,15 +8,17 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import csc207.phase2.UTFantasy.Activities.FightActivity;
 import csc207.phase2.UTFantasy.Activities.MenuActivity;
 import csc207.phase2.UTFantasy.Activities.PlayerInfoActivity;
 import csc207.phase2.UTFantasy.Activities.ShopActivity;
 import csc207.phase2.UTFantasy.Activities.SystemActivity;
+import csc207.phase2.UTFantasy.Battle.BattleActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
@@ -39,6 +41,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   /** The name of the current User. */
   private String username;
 
+  private Button leftButton;
+  private Button rightButton;
+  private Button upButton;
+  private Button downButton;
+  private Button A_Button;
+  private Button menuButton;
+  private RelativeLayout dialogueBox;
+  private TextView dialogueText;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -51,17 +62,19 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     final LinearLayout mapViewHolder = findViewById(R.id.mapViewHolder);
 
     // find all the buttons
-    Button leftButton = findViewById(R.id.leftButton);
-    Button rightButton = findViewById(R.id.rightButton);
-    Button upButton = findViewById(R.id.upButton);
-    Button downButton = findViewById(R.id.downButton);
-    final Button A_Button = findViewById(R.id.A_Button);
-    final Button menuButton = findViewById(R.id.menuButton);
+    leftButton = findViewById(R.id.leftButton);
+    rightButton = findViewById(R.id.rightButton);
+    upButton = findViewById(R.id.upButton);
+    downButton = findViewById(R.id.downButton);
+    A_Button = findViewById(R.id.A_Button);
+    menuButton = findViewById(R.id.menuButton);
     final Button menuBagButton = findViewById(R.id.menu_bag);
     final Button menu_system = findViewById(R.id.menu_system);
     final Button menuProfileButton = findViewById(R.id.menu_profile);
     final Button menuBackButton = findViewById(R.id.menu_back);
     final LinearLayout mainButtonHolder = findViewById(R.id.main_menu_holder);
+    dialogueBox = findViewById(R.id.dialogueBox);
+    dialogueText = findViewById(R.id.dialogueText);
 
     // set onClickListener for the buttons
     final View.OnClickListener moveClick =
@@ -175,13 +188,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
           }
         });
 
+
     intent = getIntent();
     username = intent.getStringExtra("username");
     player = userIO.getUserData().getUser(username).getPlayer();
-    mapController = new MapController(player, this);
+    mapController = new MapController(player);
     mapView = new MapView(this);
     mapInteractor = mapController.getMapInteractor();
-    mapDrawer = new MapPresenter(mapView);
+    mapDrawer = new MapPresenter(mapView, this);
+    mapController.getNpcInteractor().setDrawer(mapDrawer);
     mainThread = new MainThread(mapDrawer, mapInteractor);
     mapView.setThread(mainThread);
     mapViewHolder.addView(mapView);
@@ -204,14 +219,20 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
 
   @Override
   protected void onPause() {
-    super.onPause();
-    mapView.getThread().setRunning(false);
-    userIO.saveUserData(MainActivity.this);
+      super.onPause();
+      mapView.getThread().setRunning(false);
+
   }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        userIO.saveUserData(MainActivity.this);
+    }
 
   @Override
   public void fight() {
-    Intent intent = new Intent(MainActivity.this, FightActivity.class);
+    Intent intent = new Intent(MainActivity.this, BattleActivity.class);
     intent.putExtra("username", username);
     startActivity(intent);
   }
@@ -219,12 +240,58 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   @Override
   public void trade() {
     Intent intent = new Intent(MainActivity.this, ShopActivity.class);
-    intent.putExtra("username", username);
+    intent.putExtra("userName", username);
     startActivity(intent);
   }
 
   @Override
   public void popText(String text) {
     Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
+  }
+
+  @Override
+  public void openDialogue(String dialogue) {
+    dialogueBox.setVisibility(View.VISIBLE);
+    dialogueText.setText(dialogue);
+  }
+
+  @Override
+  public void closeDiagloue() {
+    dialogueBox.setVisibility(View.GONE);
+  }
+
+  @Override
+  public void goToBattleActivity(String npcName) {
+    intent = new Intent(MainActivity.this, BattleActivity.class);
+    intent.putExtra("username", username);
+    intent.putExtra("npcName", npcName);
+    startActivity(intent);
+  }
+
+  @Override
+  public void goToShopActivity(String npcName) {
+    intent = new Intent(MainActivity.this, ShopActivity.class);
+    intent.putExtra("username", username);
+    intent.putExtra("npcName", npcName);
+    startActivity(intent);
+  }
+
+  @Override
+  public void hideButtons() {
+    upButton.setVisibility(View.GONE);
+    downButton.setVisibility(View.GONE);
+    leftButton.setVisibility(View.GONE);
+    rightButton.setVisibility(View.GONE);
+    menuButton.setVisibility(View.GONE);
+
+  }
+
+  @Override
+  public void showButtons() {
+    upButton.setVisibility(View.VISIBLE);
+    downButton.setVisibility(View.VISIBLE);
+    leftButton.setVisibility(View.VISIBLE);
+    rightButton.setVisibility(View.VISIBLE);
+    menuButton.setVisibility(View.VISIBLE);
   }
 }

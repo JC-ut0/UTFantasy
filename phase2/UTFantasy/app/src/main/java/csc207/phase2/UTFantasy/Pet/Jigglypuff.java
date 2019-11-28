@@ -1,13 +1,14 @@
 package csc207.phase2.UTFantasy.Pet;
 
 import csc207.phase2.UTFantasy.AllSkills.Pound;
+import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 public class Jigglypuff extends Pokemon {
   /** Constructor of a Jigglypuff. */
   public Jigglypuff() {
     super();
-    setType1("normal");
+      setType1(TypeMap.type.NORMAL);
     skills[0] = new Pound();
     setProfileID(R.drawable.jigglypuff);
     setPokemonName("Jigglypuff");

@@ -1,13 +1,14 @@
 package csc207.phase2.UTFantasy.Pet;
 
 import csc207.phase2.UTFantasy.AllSkills.Scratch;
+import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 public class Charmander extends Pokemon {
   /** Constructor of a Charmander. */
   public Charmander() {
     super();
-    setType1("fire");
+      setType1(TypeMap.type.FIRE);
     skills[0] = new Scratch();
     setProfileID(R.drawable.charmander);
     setPokemonName("Charmander");

@@ -25,7 +25,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
   private UserIO userIO = UserIO.getSingletonUserIo();
 
   private InfoMediator infoMediator;
-    private CheckBox showingScoreCheckBox;
+  private CheckBox showingScoreCheckBox;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +37,8 @@ public class PlayerInfoActivity extends AppCompatActivity {
     player = userIO.getUserData().getUser(username).getPlayer();
     infoMediator = new InfoMediator(player);
 
-      setPlayerStatistics();
-      setScoreCheckBox();
+    setPlayerStatistics();
+    setScoreCheckBox();
     setBackToMain();
     setCharacter_description();
     setCharacter_gender_and_profile();
@@ -46,19 +46,19 @@ public class PlayerInfoActivity extends AppCompatActivity {
     setMoney();
   }
 
-    private void setPlayerStatistics() {
-        TextView percentile = findViewById(R.id.percentile);
-        percentile.setText("Top %");
-        TextView numPokemonOwned = findViewById(R.id.pokemonNum);
-        numPokemonOwned.setText("Nmber Pokemons Owned:" + player.getPokemonList().size());
-        TextView maxPokemonLV = findViewById(R.id.pokemonLV);
-        maxPokemonLV.setText("Highest Pokemons Level:" + player.getPokemonList().size());
-    }
+  private void setPlayerStatistics() {
+    TextView percentile = findViewById(R.id.percentile);
+    percentile.setText("Top %");
+    TextView numPokemonOwned = findViewById(R.id.pokemonNum);
+    numPokemonOwned.setText("Nmber Pokemons Owned:" + player.getPokemonList().size());
+    TextView maxPokemonLV = findViewById(R.id.pokemonLV);
+    maxPokemonLV.setText("Highest Pokemons Level:" + player.getPlayerPokemonMaxLV());
+  }
 
-    private void setScoreCheckBox() {
-        showingScoreCheckBox = findViewById(R.id.showingScore);
-        showingScoreCheckBox.setChecked(player.isShowingScore());
-    }
+  private void setScoreCheckBox() {
+    showingScoreCheckBox = findViewById(R.id.showingScore);
+    showingScoreCheckBox.setChecked(player.isShowingScore());
+  }
 
   /** Set the character's name. */
   private void setCharacter_name() {
@@ -100,9 +100,9 @@ public class PlayerInfoActivity extends AppCompatActivity {
         });
   }
 
-    public void changeShowingScore(View view) {
-        if (showingScoreCheckBox.isChecked()) {
-            player.setShowingScore(false);
-        } else player.setShowingScore(true);
-    }
+  public void changeShowingScore(View view) {
+    if (showingScoreCheckBox.isChecked()) {
+      player.setShowingScore(false);
+    } else player.setShowingScore(true);
+  }
 }

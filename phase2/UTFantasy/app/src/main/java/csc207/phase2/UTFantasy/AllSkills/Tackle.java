@@ -2,13 +2,15 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class Tackle extends Skill {
   /** Constructor of a Tackle Skill. */
   public Tackle() {
     name = "Tackle";
     power = 35;
     pp = 35;
-    type = "normal";
+      type = TypeMap.type.NORMAL;
   }
 
   /**

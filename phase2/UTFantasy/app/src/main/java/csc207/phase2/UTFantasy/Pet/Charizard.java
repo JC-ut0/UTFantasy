@@ -2,14 +2,15 @@ package csc207.phase2.UTFantasy.Pet;
 
 import csc207.phase2.UTFantasy.AllSkills.DragonRage;
 import csc207.phase2.UTFantasy.AllSkills.Flamethrower;
+import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 public class Charizard extends Pokemon {
     /** Constructor of a Charizard. */
     public Charizard() {
         super();
-        setType1("fire");
-        setType2("flying");
+        setType1(TypeMap.type.FIRE);
+        setType2(TypeMap.type.FLYING);
         setProfileID(R.drawable.charizard);
         skills[0] = new Flamethrower();
         skills[1] = new DragonRage();

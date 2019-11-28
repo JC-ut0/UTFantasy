@@ -36,74 +36,74 @@ public class ScreenTranser {
     }
   }
 
-  public String getPlayer(int progress) {
-    String playerIcon = null;
+  public Icon getPlayer(int progress) {
+    Icon playerIcon = null;
     switch (player.getDirection()) {
       case ("down"):
         switch (progress) {
           case 0:
-            playerIcon = "downPlayer0";
+            playerIcon = Icon.DOWNPLAYER0;
             break;
           case 1:
-            playerIcon = "downPlayer1";
+            playerIcon = Icon.DOWNPLAYER1;
             break;
           case 2:
-            playerIcon = "downPlayer2";
+            playerIcon = Icon.DOWNPLAYER2;
             break;
           case 3:
           case 4:
-            playerIcon = "downPlayer3";
+            playerIcon = Icon.DOWNPLAYER3;
             break;
         }
         break;
       case ("up"):
         switch (progress) {
           case 0:
-            playerIcon = "upPlayer0";
+            playerIcon = Icon.UPPLAYER0;
             break;
           case 1:
-            playerIcon = "upPlayer1";
+            playerIcon = Icon.UPPLAYER1;
             break;
           case 2:
-            playerIcon = "upPlayer2";
+            playerIcon = Icon.UPPLAYER2;
             break;
           case 3:
           case 4:
-            playerIcon = "upPlayer3";
+            playerIcon = Icon.UPPLAYER3;
             break;
         }
         break;
       case ("left"):
         switch (progress) {
           case 0:
-            playerIcon = "leftPlayer0";
+            playerIcon = Icon.LEFTPLAYER0;
             break;
           case 1:
-            playerIcon = "leftPlayer1";
+            playerIcon = Icon.LEFTPLAYER1;
             break;
           case 2:
-            playerIcon = "leftPlayer2";
+            playerIcon = Icon.LEFTPLAYER2;
             break;
           case 3:
           case 4:
-            playerIcon = "leftPlayer3";
+            playerIcon = Icon.LEFTPLAYER3;
             break;
         }
         break;
       case ("right"):
         switch (progress) {
           case 0:
-            playerIcon = "rightPlayer0";
+            playerIcon = Icon.RIGHTPLAYER0;
             break;
           case 1:
-            playerIcon = "rightPlayer1";
+            playerIcon = Icon.RIGHTPLAYER1;
             break;
           case 2:
-            playerIcon = "rightPlayer2";
+            playerIcon = Icon.RIGHTPLAYER2;
             break;
           case 3:
           case 4:
-            playerIcon = "rightPlayer3";
+            playerIcon = Icon.RIGHTPLAYER3;
             break;
         }
         break;

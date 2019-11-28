@@ -8,6 +8,8 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Character.Player;
 
 public class UserData implements Serializable {
+    private static final long serialVersionUID = 1L;
+
   /** A HashMap that keys are UserName, values are User instance. */
   private HashMap<String, User> userHashMap;
 
@@ -31,7 +33,7 @@ public class UserData implements Serializable {
     return userHashMap;
   }
 
-  void addUser(String username, User user) {
+    public void addUser(String username, User user) {
     userHashMap.put(username, user);
   }
 

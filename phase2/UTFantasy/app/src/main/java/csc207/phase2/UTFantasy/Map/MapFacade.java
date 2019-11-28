@@ -83,7 +83,7 @@ public class MapFacade implements MapInteractor {
   }
 
   @Override
-  public String getPlayerIcon(int progress) {
+  public Icon getPlayerIcon(int progress) {
     return screenTranser.getPlayer(progress);
   }
 }

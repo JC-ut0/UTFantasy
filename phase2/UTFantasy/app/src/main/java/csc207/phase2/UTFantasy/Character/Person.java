@@ -49,6 +49,22 @@ public class Person implements Serializable {
     return pokemonList;
   }
 
+  public Pokemon getFirstAlivePoke() {
+    int i = 0;
+    Pokemon result = null;
+    while (i < pokemonList.size() && result == null) {
+      if (pokemonList.get(i).isAlive()) {
+        result = pokemonList.get(i);
+      }
+      i++;
+    }
+    return result;
+  }
+
+  public boolean isFightAble() {
+    return getFirstAlivePoke() != null;
+  }
+
   public void heal() {
     for (Pokemon pokemon : pokemonList) {
       pokemon.setHp(pokemon.getMaximumHp());

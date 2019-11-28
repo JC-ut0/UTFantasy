@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class UnitDraw implements Serializable {
 
   /** the element this unitDraw represents */
-  private String draw;
+  protected Icon icon;
 
   /** the x coordinate of this UnitDraw on the screen coordinate system */
   private float screenX;
@@ -13,13 +13,18 @@ public class UnitDraw implements Serializable {
   /** the Y coordinate of this UnitDraw on the screen coordinate system */
   private float screenY;
 
+
+  public UnitDraw() {
+  }
+
+  ;
   /**
    * construct a new UnitDraw
    *
-   * @param draw the element this unitDraw represents
+   * @param icon the element this unitDraw represents
    */
-  public UnitDraw(String draw) {
-    this.draw = draw;
+  public UnitDraw(Icon icon) {
+    this.icon = icon;
   }
 
   public float getScreenX() {
@@ -49,7 +54,12 @@ public class UnitDraw implements Serializable {
   }
 
   /** @return the element that this unitDraw represents */
-  public String getDraw() {
-    return draw;
+  public Icon getDraw() {
+    return icon;
+  }
+
+  public boolean isNPC() {
+    System.out.println("im not");
+    return false;
   }
 }

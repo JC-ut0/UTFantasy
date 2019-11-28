@@ -93,11 +93,11 @@ public class Player extends Person {
         + ", PokemonNum: "
         + pokemonList.size()
         + ", TotalLV: ."
-        + getPlayerPokemonLV()
+            + getPlayerPokemonMaxLV()
         + ".";
   }
 
-  public int getPlayerPokemonLV() {
+  public int getPlayerPokemonMaxLV() {
     int maxLv = 0;
     for (Pokemon pokemon : pokemonList) {
       if (pokemon.getLevel() > maxLv) maxLv = pokemon.getLevel();

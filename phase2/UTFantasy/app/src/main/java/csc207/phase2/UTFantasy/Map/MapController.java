@@ -4,18 +4,24 @@ import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 
 public class MapController {
-  private MainActivityModel mainActivityModel;
   private MapInteractor mapInteractor;
+  private NPCInteractor npcInteractor;
+  private boolean dialogueFinished;
+  private NPC interactingNpc;
 
-  public MapController(Player player, MainActivityModel mainActivityModel) {
-    this.mainActivityModel = mainActivityModel;
+  public MapController(Player player) {
     MapDirector director = new MapDirector(player);
     director.constructMap();
     this.mapInteractor = director.getMapInteractor();
+    this.npcInteractor = director.getNPCInteractor();
   }
 
   public MapInteractor getMapInteractor() {
     return mapInteractor;
+  }
+
+  public NPCInteractor getNpcInteractor() {
+    return npcInteractor;
   }
 
   public void moveTouchDownAction(String direction) {
@@ -37,20 +43,17 @@ public class MapController {
   }
 
   public void buttonAClick() {
-    NPC npc = mapInteractor.getFacingNpc();
-    if (npc != null) {
-      switch (npc.getDuty()) {
-        case Fight:
-          mainActivityModel.fight();
-          break;
-        case Seller:
-          mainActivityModel.trade();
-          break;
-        case Healer:
-          mapInteractor.getPlayer().heal();
-          mainActivityModel.popText("You are healed!");
-          break;
+    if (!dialogueFinished) {
+      NPC npc = mapInteractor.getFacingNpc();
+      if (npc != null) {
+        interactingNpc = npc;
+        npcInteractor.openDialogue(npc);
+        dialogueFinished = true;
       }
+    } else {
+      npcInteractor.interact(interactingNpc);
+      interactingNpc = null;
+      dialogueFinished = false;
     }
   }
 }

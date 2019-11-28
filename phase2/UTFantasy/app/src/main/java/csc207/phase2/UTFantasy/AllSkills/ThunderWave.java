@@ -2,12 +2,14 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class ThunderWave extends Skill {
   /** Constructor of a ThunderWave Skill. */
   public ThunderWave() {
     power = 15;
     pp = 20;
-    type = "electric";
+      type = TypeMap.type.ELECTRIC;
     name = "Thunder Wave";
   }
 
