@@ -9,7 +9,7 @@ public class MapBuilder {
   private Map product;
   private NPCManager npcManager;
   private int mapWidth = 40;
-  private int mapHeight = 111;
+  private int mapHeight = 112;
   private UnitDraw[][] lowMap;
   private UnitDraw[][] highMap;
 
@@ -22,7 +22,7 @@ public class MapBuilder {
 
   public void buildLawn() {
     for (int x = 0; x < mapWidth; x += 1) {
-      for (int y = 1; y < mapHeight; y += 1) {
+      for (int y = 1; y < mapHeight - 1; y += 1) {
         lowMap[x][y] = new UnitDraw(Icon.LAWN);
       }
     }
