@@ -62,7 +62,7 @@ public class MapBuilder {
           highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
         }
       }
-    }
+
     for (int y = 2; y < 21; y++) { // tree block No.1 x: 18, y: 2-21, ten trees
       int x = 18;
         if (y % 2 == 0) {
