@@ -87,7 +87,7 @@ public class BattleData {
         CATCH,
         CHANGEPOKEMON,
         OPENMENU,
-        END;
+        END
     }
 
     public void setAction(Action action) {
@@ -104,5 +104,14 @@ public class BattleData {
 
     public void setSecondSkillUsed(boolean secondSkillUsed) {
         this.secondSkillUsed = secondSkillUsed;
+    }
+
+    void clearOberser() {
+        for (Pokemon pokemon : player.getPokemonList()) {
+            pokemon.setObserver(null);
+        }
+        for (Pokemon pokemon : rival.getPokemonList()) {
+            pokemon.setObserver(null);
+        }
     }
 }

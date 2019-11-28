@@ -195,6 +195,7 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
                     @Override
                     public void onClick(View view) {
                         endFight();
+                        interactor.getBattleData().clearOberser();
                     }
                 });
 

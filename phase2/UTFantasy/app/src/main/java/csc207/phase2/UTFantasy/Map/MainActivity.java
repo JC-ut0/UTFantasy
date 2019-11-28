@@ -219,10 +219,16 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
 
   @Override
   protected void onPause() {
-    super.onPause();
-    mapView.getThread().setRunning(false);
-    userIO.saveUserData(MainActivity.this);
+      super.onPause();
+      mapView.getThread().setRunning(false);
+
   }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        userIO.saveUserData(MainActivity.this);
+    }
 
   @Override
   public void fight() {

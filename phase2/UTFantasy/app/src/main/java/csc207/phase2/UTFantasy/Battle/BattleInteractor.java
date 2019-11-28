@@ -16,6 +16,7 @@ public class BattleInteractor implements BattleObserver {
         this.presenter = presenter;
         initializePokes();
         updateSkillButtons();
+        updateHpBar();
         presenter.showText(
                 battleData.getRival().getName()
                         + " sent out "
@@ -50,6 +51,7 @@ public class BattleInteractor implements BattleObserver {
                 break;
             case END:
                 presenter.endFight();
+                battleData.clearOberser();
                 break;
         }
         updatePokemonIcon();
@@ -129,8 +131,6 @@ public class BattleInteractor implements BattleObserver {
         presenter.updatePlayerHpBar(playerPoke.getHp(), playerPoke.getMaximumHp());
         presenter.updateRivalHpBar(rivalPoke.getHp(), rivalPoke.getMaximumHp());
     }
-
-    ;
 
     @Override
     public void updateExpBar() {

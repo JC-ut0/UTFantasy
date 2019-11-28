@@ -13,6 +13,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import csc207.phase2.UTFantasy.AllSkills.Thunderblot;
+import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.Pet.Pikachu;
+import csc207.phase2.UTFantasy.Pet.Pokemon;
+import csc207.phase2.UTFantasy.User.User;
 import csc207.phase2.UTFantasy.User.UserData;
 import csc207.phase2.UTFantasy.User.UserIOInterface;
 
@@ -21,8 +26,7 @@ public class UserIO implements UserIOInterface {
 
   /** The file to store UserData */
   private String userFile = "user.txt";
-  //  private String userFile =
-  // Environment.getExternalStorageDirectory().getAbsolutePath()+"/user.txt";
+
   private UserData userData;
 
   /** A unique UserIO that will be only created once. */
@@ -37,7 +41,7 @@ public class UserIO implements UserIOInterface {
    *
    * @return a unique UserIO
    */
-  public static UserIO getSingletonUserIo() {
+  public static synchronized UserIO getSingletonUserIo() {
     return SINGLETON_USER_IO;
   }
 
@@ -89,7 +93,7 @@ public class UserIO implements UserIOInterface {
               .show();
       e.printStackTrace();
       Log.e("Exception", e.getMessage() + e.getMessage());
-      userData = new UserData();
+        createNewUserData();
     } catch (IOException e) {
       AlertDialog.Builder builder = new AlertDialog.Builder(context);
       builder.setTitle(e.getClass().toString());
@@ -97,7 +101,20 @@ public class UserIO implements UserIOInterface {
       builder.setPositiveButton("OK", null);
       builder.show();
       e.printStackTrace();
-      userData = new UserData();
+        createNewUserData();
     }
+  }
+
+    private void createNewUserData() {
+        userData = new UserData();
+        User user = new User("yimi", "20191128");
+        Player player = new Player("yimi", "girl");
+        Pokemon pokemon = new Pikachu();
+        pokemon.setLevel(100);
+        pokemon.updateSkills(new Thunderblot(), null);
+        player.addPokemon(pokemon);
+        player.setMoney(1000000000);
+        user.setPlayer(player);
+        userData.addUser("yimi", user);
   }
 }

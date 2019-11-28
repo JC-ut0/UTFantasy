@@ -52,7 +52,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
     TextView numPokemonOwned = findViewById(R.id.pokemonNum);
     numPokemonOwned.setText("Nmber Pokemons Owned:" + player.getPokemonList().size());
     TextView maxPokemonLV = findViewById(R.id.pokemonLV);
-    maxPokemonLV.setText("Highest Pokemons Level:" + player.getPokemonList().size());
+    maxPokemonLV.setText("Highest Pokemons Level:" + player.getPlayerPokemonMaxLV());
   }
 
   private void setScoreCheckBox() {
