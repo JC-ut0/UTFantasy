@@ -2,12 +2,14 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class ThunderShock extends Skill {
   /** Constructor of a ThunderShock Skill. */
   public ThunderShock() {
     power = 40;
     pp = 30;
-    type = "electric";
+      type = TypeMap.type.ELECTRIC;
     name = "Thunder Shock";
   }
 

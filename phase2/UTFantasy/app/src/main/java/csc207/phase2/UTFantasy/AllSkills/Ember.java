@@ -2,12 +2,14 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class Ember extends Skill {
   /** Constructor of an Ember Skill. */
   public Ember() {
     power = 40;
     pp = 25;
-    type = "fire";
+      type = TypeMap.type.FIRE;
     name = "Ember";
   }
 

@@ -12,11 +12,32 @@
         android:orientation="horizontal"
         android:visibility="visible">
 
+
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:id="@+id/dialogueBox"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="250dp"
+            android:background="@drawable/text_box"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/dialogueText"
+                android:layout_width="650dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:text=""
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#FFFFFF"
+                android:textSize="23sp" />
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/main_menu_holder"
@@ -63,18 +84,6 @@
                 android:textSize="25sp"
                 android:textColor="@color/cardview_dark_background" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/B_Button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="100dp"
-            android:background="@drawable/circle_button"
-            android:text="B"
-            android:textSize="30sp" />
 
         <Button
             android:id="@+id/A_Button"

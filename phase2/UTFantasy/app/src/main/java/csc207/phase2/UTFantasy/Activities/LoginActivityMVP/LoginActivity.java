@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
    */
   public void logInAction(User user) {
     rememberPassword();
-    // log in succeeded. pop up a window shows success. Get user Id here.
+    // log in succeeded. pop up a window shows success. Get user Icon here.
     if (user.hasPlayer()) {
       // go to MainActivity after logged in
       Intent login_intent = new Intent(LoginActivity.this, MainActivity.class);

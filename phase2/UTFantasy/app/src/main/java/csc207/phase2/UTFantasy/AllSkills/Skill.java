@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 
 import java.io.Serializable;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public abstract class  Skill implements Serializable {
   /** The maximum amount of times of the Skill could be used. */
   public int maximumPp;
@@ -12,7 +14,7 @@ public abstract class  Skill implements Serializable {
   /** power points of this skill */
   protected int pp;
   /** The type of the skill. */
-  protected String type;
+  protected TypeMap.type type;
   /** The name of the skill. */
   protected String name;
 
@@ -92,7 +94,7 @@ public abstract class  Skill implements Serializable {
    *
    * @return a String which is the type of the Skill.
    */
-  public String getType() {
+  public TypeMap.type getType() {
     return type;
   }
 
@@ -101,7 +103,7 @@ public abstract class  Skill implements Serializable {
    *
    * @param type a String which the type of the Skill.
    */
-  public void setType(String type) {
+  public void setType(TypeMap.type type) {
     this.type = type;
   }
 

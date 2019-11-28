@@ -123,3 +123,9 @@ Add new methods to update information of products.
 # step 20
 File added: PokemonBall
 Add a new product, pokemon ball, in shop.
+
+########
+# Step 21
+File affected: Package(Battle, Map, AllSkills, Character, Pet)
+Use linked list to refactor Battle system according to MVP. Please see the details of the whole
+structure in the uml. Change constant variables used in map and character to enum.

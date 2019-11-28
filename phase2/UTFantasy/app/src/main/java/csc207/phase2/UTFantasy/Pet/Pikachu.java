@@ -2,6 +2,7 @@ package csc207.phase2.UTFantasy.Pet;
 
 import csc207.phase2.UTFantasy.AllSkills.QuickAttack;
 import csc207.phase2.UTFantasy.AllSkills.Thunder;
+import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 public class Pikachu extends Pokemon {
@@ -9,7 +10,7 @@ public class Pikachu extends Pokemon {
   public Pikachu() {
     // set its first skill to be QuickAttack
     super();
-    setType1("electric");
+      setType1(TypeMap.type.ELECTRIC);
     skills[0] = new QuickAttack();
     skills[1] = new Thunder();
     setProfileID(R.drawable.pikachu1);
@@ -34,7 +35,7 @@ public class Pikachu extends Pokemon {
    */
   @Override
   public int getProfileID() {
-    // The unique profile id for each Pokemon. ID can be used to draw this Pokemon.
+      // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
     return R.drawable.pikachu1;
   }
 }

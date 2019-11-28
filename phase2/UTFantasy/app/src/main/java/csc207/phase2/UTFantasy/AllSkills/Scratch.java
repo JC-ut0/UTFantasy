@@ -2,12 +2,14 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class Scratch extends Skill {
   /** Constructor of a Scratch Skill. */
   public Scratch() {
     power = 40;
     pp = 35;
-    type = "normal";
+      type = TypeMap.type.NORMAL;
     name = "Scratch";
   }
 

@@ -2,11 +2,13 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class BodySlam extends Skill {
   /** Constructor of a BodySlam Skill. */
   public BodySlam() {
     name = "Body Slam";
-    type = "normal";
+      type = TypeMap.type.NORMAL;
     power = 85;
     pp = 15;
   }

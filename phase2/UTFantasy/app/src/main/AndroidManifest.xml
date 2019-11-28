@@ -38,9 +38,10 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name="csc207.phase2.UTFantasy.Activities.FightActivity"
+            android:name="csc207.phase2.UTFantasy.Battle.BattleActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
 
         </activity>
         <activity

@@ -2,12 +2,14 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
+import csc207.phase2.UTFantasy.Battle.TypeMap;
+
 public class DragonRage extends Skill {
   /** Constructor of a DragonRage Skill. */
   public DragonRage() {
     power = 40;
     pp = 10;
-    type = "Dragon";
+      type = TypeMap.type.DRAGON;
     name = "Dragon Rage";
   }
 
