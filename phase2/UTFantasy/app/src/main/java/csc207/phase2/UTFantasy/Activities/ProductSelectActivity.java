@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,10 +20,7 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.InfoMediator;
-import csc207.phase2.UTFantasy.Products.PinkPotion;
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.Products.PurplePotion;
-import csc207.phase2.UTFantasy.Products.RedPotion;
 import csc207.phase2.UTFantasy.R;
 
 public class ProductSelectActivity extends AppCompatActivity {
@@ -39,64 +37,57 @@ public class ProductSelectActivity extends AppCompatActivity {
 
   InfoMediator infoMediator;
 
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_productselect);
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_productselect);
 
-    Intent intent = getIntent();
-    String username = intent.getStringExtra("username");
-    player = userIO.getUserData().getUser(username).getPlayer();
-    infoMediator = new InfoMediator(player);
-    productHashMap = infoMediator.getProductHashMap();
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        player = userIO.getUserData().getUser(username).getPlayer();
+        infoMediator = new InfoMediator(player);
+        productHashMap = infoMediator.getProductHashMap();
+        selectedList = new ArrayList<>();
 
-    //    productHashMap = new HashMap<>();
-    //    productHashMap.put(PinkPotion.getPink(), 2);
-    //    productHashMap.put(PurplePotion.getPurple(), 3);
-    //    productHashMap.put(RedPotion.getRed(), 1);
-    //    productList = new ArrayList<>();
-    //    productList.addAll(productHashMap.keySet());
-    selectedList = new ArrayList<>();
+        TextView textView = findViewById(R.id.textInfo);
+        textView.setText("Please choose one Product from your bag.");
+        ListView listView = findViewById(R.id.pokemon_select_listView);
+        Button goButton = findViewById(R.id.gobutton);
+        goButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        checkSelectedItem();
+                    }
+                });
 
-    TextView textView = findViewById(R.id.textInfo);
-    textView.setText("Please choose one Product from your bag.");
-    ListView listView = findViewById(R.id.pokemon_select_listView);
-    Button goButton = findViewById(R.id.gobutton);
-    goButton.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            checkSelectedItem();
-          }
-        });
-
-    Button cancelButton = findViewById(R.id.cancelButton);
-    cancelButton.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            onBackPressed();
-          }
-        });
-    final ProductSelectAdapter adapter = new ProductSelectAdapter(this, productHashMap);
-    listView.setAdapter(adapter);
-    listView.setOnItemClickListener(
-        new AdapterView.OnItemClickListener() {
-          @Override
-          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Product product = productList.get(position);
-            if (selectedList.contains(product)) {
-              selectedList.remove(product);
-            } else {
-              selectedList.add(product);
-            }
-            productList.set(position, product);
-
-            // now update the adapter
-            adapter.updateRecords(productList, selectedList);
-          }
-        });
-  }
+        Button cancelButton = findViewById(R.id.cancelButton);
+        cancelButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onBackPressed();
+                    }
+                });
+        final ProductSelectAdapter adapter = new ProductSelectAdapter(this, productHashMap);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Product product = productList.get(position);
+                        if (selectedList.contains(product)) {
+                            selectedList.remove(product);
+                        } else {
+                            selectedList.add(product);
+                        }
+                        productList.set(position, product);
+                        // now update the adapter
+                        adapter.updateRecords(productList, selectedList);
+                    }
+                });
+    }
 
   public void checkSelectedItem() {
     if (selectedList.size() > 1) {
