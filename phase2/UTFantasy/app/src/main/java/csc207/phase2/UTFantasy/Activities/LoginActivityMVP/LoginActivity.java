@@ -17,7 +17,7 @@ import androidx.preference.PreferenceManager;
 import csc207.phase2.UTFantasy.Activities.CustomizeActivity;
 import csc207.phase2.UTFantasy.CustomizeException.ImproperUserSettingException;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.Map.MainActivity;
+import csc207.phase2.UTFantasy.mapUI.MainActivity;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.User.User;
 import csc207.phase2.UTFantasy.User.UserManagerFacade;

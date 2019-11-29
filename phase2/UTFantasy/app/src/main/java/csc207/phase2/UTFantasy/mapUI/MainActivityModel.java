@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapUI;
 
 public interface MainActivityModel {
   void fight();
@@ -9,7 +9,9 @@ public interface MainActivityModel {
 
     void openDialogue(String dialogue);
 
-    void closeDiagloue();
+  void closeDialogue();
+
+  void display(int iconId);
 
     void goToBattleActivity(String npcName);
 

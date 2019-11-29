@@ -1,18 +1,18 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import csc207.phase2.UTFantasy.Character.NPC;
-import csc207.phase2.UTFantasy.Character.NPCManager;
+import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 import csc207.phase2.UTFantasy.Character.Player;
 
 public class MapChecker {
   private Player player;
   private Map map;
-  private NPCManager npcManager;
+  private NPCRepository npcRepository;
 
   public MapChecker(Player player) {
     this.player = player;
     this.map = player.getPlayerMap();
-    this.npcManager = map.getNpcManager();
+    this.npcRepository = map.getNpcRepository();
   }
 
   private UnitDraw getFacingUnitDraw() {
@@ -44,7 +44,7 @@ public class MapChecker {
     UnitDraw facingUnitDraw = getFacingUnitDraw();
     if (facingUnitDraw != null && facingUnitDraw.isNPC()) {
       String npcName = ((NPCDraw) facingUnitDraw).getNpcName();
-      return npcManager.getNPC(npcName);
+      return npcRepository.getNPC(npcName);
     }
     return null;
   }

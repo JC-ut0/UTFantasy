@@ -1,16 +1,23 @@
-package csc207.phase2.UTFantasy.Character;
+package csc207.phase2.UTFantasy.npcDomain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-public class NPCManager implements Serializable {
+import csc207.phase2.UTFantasy.Character.NPC;
+
+public class NPCRepository implements Serializable {
+  // list of npc that can be give player a pokemon at the beginning of the game
+  private List<NPC> beginningPokemonNPCs;
 
   /** A HashMap that keys are UserName, values are NPC instance. */
   private HashMap<String, NPC> npcHashMap;
 
   /** Constructor of npcManager. */
-  public NPCManager() {
+  public NPCRepository() {
     npcHashMap = new HashMap<>();
+    beginningPokemonNPCs = new ArrayList<>();
   }
 
   /**
@@ -33,5 +40,13 @@ public class NPCManager implements Serializable {
    */
   public void addNPC(String NPCname, NPC npc) {
     npcHashMap.put(NPCname, npc);
+  }
+
+  public void addBeginningPokemonNPC(NPC npc) {
+    beginningPokemonNPCs.add(npc);
+  }
+
+  public List<NPC> getBeginningPokemonNPCs() {
+    return beginningPokemonNPCs;
   }
 }

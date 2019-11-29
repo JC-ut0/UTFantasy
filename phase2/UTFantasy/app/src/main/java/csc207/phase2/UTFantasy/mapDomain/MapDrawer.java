@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
@@ -14,6 +14,8 @@ public interface MapDrawer {
     void openDialogue(String dialogue);
 
     void hideDialogue();
+
+    void display(int iconId);
 
     void goToBattleActivity(String npcName);
 

@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import java.io.Serializable;
 
@@ -43,18 +43,16 @@ public class UnitDraw implements Serializable {
     this.screenY = screenY;
   }
 
-  public static int getUnitWidth() {
-    int unitWidth = 88;
-    return unitWidth;
+  public int getUnitWidth() {
+    return 88;
   }
 
-  public static int getUnitHeight() {
-    int unitHeight = 88;
-    return unitHeight;
+  public int getUnitHeight() {
+    return 88;
   }
 
   /** @return the element that this unitDraw represents */
-  public Icon getDraw() {
+  public Icon getIcon() {
     return icon;
   }
 

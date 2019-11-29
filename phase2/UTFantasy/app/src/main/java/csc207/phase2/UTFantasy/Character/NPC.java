@@ -1,9 +1,13 @@
 package csc207.phase2.UTFantasy.Character;
 
+import csc207.phase2.UTFantasy.Character.PlayerComparator.Duty;
+
 public class NPC extends Person {
   private String name;
   private String dialogue;
+  private String interactedDialogue;
   private Duty duty;
+  private boolean interacted;
 
   public NPC(String name, Duty duty) {
     super(name);
@@ -14,13 +18,27 @@ public class NPC extends Person {
     this.dialogue = dialogue;
   }
 
-  public String getDialogu() {
+  public String getDialogue() {
     return dialogue;
+  }
+
+  public void setInteractedDialogue(String interactedDialogue) {
+    this.interactedDialogue = interactedDialogue;
+  }
+
+  public String getInteractedDialogue() {
+    return interactedDialogue;
   }
 
   public Duty getDuty() {
     return duty;
   }
 
-  ;
+  public boolean isInteracted() {
+    return interacted;
+  }
+
+  public void setInteracted(boolean interacted) {
+    this.interacted = interacted;
+  }
 }

@@ -13,6 +13,7 @@ public class EndChecker extends FightTurnNode {
             text = "You lost...";
             battleData.setAction(BattleData.Action.END);
         } else if (!battleData.getRival().isFightAble()) {
+            battleData.getRival().setInteracted(true);
             text = "You win!!!";
             battleData.setAction(BattleData.Action.END);
         }

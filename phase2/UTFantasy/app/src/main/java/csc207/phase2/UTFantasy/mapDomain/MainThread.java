@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
