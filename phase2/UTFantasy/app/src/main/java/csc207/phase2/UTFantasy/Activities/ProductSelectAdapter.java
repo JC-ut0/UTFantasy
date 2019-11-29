@@ -16,14 +16,16 @@ import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
 
 public class ProductSelectAdapter extends BaseAdapter {
-  Activity activity;
+  /** the product list */
   private List<Product> productList = new ArrayList<>();
+  /** the selected list of product */
   private List<Product> selectedList = new ArrayList<>();
+  /** the hashmap of the product */
   private HashMap<Product, Integer> productHashMap;
+  /** the inflater of the product */
   private LayoutInflater inflater;
 
   ProductSelectAdapter(Activity activity, HashMap<Product, Integer> productHashMap) {
-    this.activity = activity;
     this.productHashMap = productHashMap;
     productList.addAll(productHashMap.keySet());
     inflater = activity.getLayoutInflater();
@@ -47,6 +49,7 @@ public class ProductSelectAdapter extends BaseAdapter {
   @Override
   public View getView(int position, View view, ViewGroup viewGroup) {
     ViewHolder holder = null;
+    // set up the view of the listview
     if (view == null) {
       view = inflater.inflate(R.layout.productselect_layout, viewGroup, false);
       holder = new ViewHolder();
@@ -69,6 +72,12 @@ public class ProductSelectAdapter extends BaseAdapter {
     return view;
   }
 
+  /**
+   * Update the new selected list after each select by the player
+   *
+   * @param productList the product list
+   * @param selectedList the new selected list of the player
+   */
   void updateRecords(List<Product> productList, List<Product> selectedList) {
     this.productList = productList;
     this.selectedList = selectedList;

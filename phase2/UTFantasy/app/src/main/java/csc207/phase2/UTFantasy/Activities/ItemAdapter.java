@@ -17,23 +17,37 @@ import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
 
 public class ItemAdapter extends BaseAdapter {
-  String type;
-  Activity activity;
-  List<Pokemon> pokemonList;
-  List<Product> productList = new ArrayList<>();
-  HashMap<Product, Integer> productHashMap;
-  LayoutInflater inflater;
+  /** the type of the adapter */
+  private String type;
+  /** the list of pokemon */
+  private List<Pokemon> pokemonList;
+  /** the list of product */
+  private List<Product> productList = new ArrayList<>();
+  /** the hashmap of the product */
+  private HashMap<Product, Integer> productHashMap;
+  /** the inflater */
+  private LayoutInflater inflater;
 
+  /**
+   * The constructor for the pokemon
+   *
+   * @param activity the activity
+   * @param pokemonList the pokemon list of the player
+   */
   public ItemAdapter(Activity activity, List<Pokemon> pokemonList) {
-    this.activity = activity;
     this.pokemonList = pokemonList;
     this.type = "pokemon";
     inflater = activity.getLayoutInflater();
   }
 
+  /**
+   * The constructor for the product
+   *
+   * @param activity the activity
+   * @param productList the product list of the player
+   */
   public ItemAdapter(Activity activity, HashMap<Product, Integer> productList) {
     this.productHashMap = productList;
-    this.activity = activity;
     this.type = "potion";
     inflater = activity.getLayoutInflater();
   }
@@ -61,6 +75,7 @@ public class ItemAdapter extends BaseAdapter {
   public View getView(int position, View view, ViewGroup viewGroup) {
 
     ViewHolder holder = null;
+    // set up the list view
     if (view == null) {
       view = inflater.inflate(R.layout.pokemon_layout, viewGroup, false);
       holder = new ViewHolder();

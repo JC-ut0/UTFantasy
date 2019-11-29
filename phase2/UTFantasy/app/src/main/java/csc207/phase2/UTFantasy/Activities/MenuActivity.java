@@ -19,15 +19,13 @@ public class MenuActivity extends AppCompatActivity {
 
   /** the player. */
   Player player;
-
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
-
   /** The ListView for pokemon and items. */
   private ListView potionList;
 
   private ListView pokemonList;
-
+  /** The information mediator. */
   private InfoMediator infoMediator;
 
   @Override
@@ -39,8 +37,6 @@ public class MenuActivity extends AppCompatActivity {
     Intent intent = getIntent();
     String username = intent.getStringExtra("username");
     player = userIO.getUserData().getUser(username).getPlayer();
-
-    //    player = new Player("hello","boy");
     infoMediator = new InfoMediator(player);
 
     // draw all the stuffs to the activity

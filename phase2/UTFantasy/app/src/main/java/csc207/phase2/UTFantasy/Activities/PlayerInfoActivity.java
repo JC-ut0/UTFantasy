@@ -20,11 +20,11 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
   /** the player */
   private Player player;
-
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
-
+  /** The information mediator. */
   private InfoMediator infoMediator;
+  /** The checkbox for showing score*/
   private CheckBox showingScoreCheckBox;
 
   @Override

@@ -19,24 +19,22 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.InfoMediator;
-import csc207.phase2.UTFantasy.Products.PinkPotion;
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.Products.PurplePotion;
-import csc207.phase2.UTFantasy.Products.RedPotion;
 import csc207.phase2.UTFantasy.R;
 
 public class ProductSelectActivity extends AppCompatActivity {
 
-  /** the player */
+  /** The player */
   Player player;
-  /** the unique UserIO */
+  /** The unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
-
+  /** The list of the selected list of product */
   List<Product> selectedList;
+  /** The hashmap of the product */
   HashMap<Product, Integer> productHashMap;
-
+  /** The list of the product */
   List<Product> productList;
-
+  /** The information mediator */
   InfoMediator infoMediator;
 
   @Override
@@ -44,23 +42,41 @@ public class ProductSelectActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_productselect);
 
+    // get the data from the previous activity
     Intent intent = getIntent();
     String username = intent.getStringExtra("username");
     player = userIO.getUserData().getUser(username).getPlayer();
+    // load the hashmap to a list
     infoMediator = new InfoMediator(player);
     productHashMap = infoMediator.getProductHashMap();
-
-    //    productHashMap = new HashMap<>();
-    //    productHashMap.put(PinkPotion.getPink(), 2);
-    //    productHashMap.put(PurplePotion.getPurple(), 3);
-    //    productHashMap.put(RedPotion.getRed(), 1);
-    //    productList = new ArrayList<>();
-    //    productList.addAll(productHashMap.keySet());
     selectedList = new ArrayList<>();
 
+    // set up the activity
+    setTextView();
+    setButtons();
+    setViewList();
+  }
+
+  public void checkSelectedItem() {
+    //check if the selected item has only 1 amount
+    if (selectedList.size() > 1) {
+      Toast.makeText(this, "Please choose one product", Toast.LENGTH_LONG).show();
+    } else if (selectedList.size() == 0) {
+      Toast.makeText(this, "Please choose a product", Toast.LENGTH_LONG).show();
+    } else {
+      onBackPressed();
+      infoMediator.setSelectedPokemon(selectedList.get(0));
+    }
+  }
+
+  private void setTextView() {
+    // set up the text view
     TextView textView = findViewById(R.id.textInfo);
     textView.setText("Please choose one Product from your bag.");
-    ListView listView = findViewById(R.id.pokemon_select_listView);
+  }
+
+  private void setButtons() {
+    //set up the go button
     Button goButton = findViewById(R.id.gobutton);
     goButton.setOnClickListener(
         new View.OnClickListener() {
@@ -69,7 +85,7 @@ public class ProductSelectActivity extends AppCompatActivity {
             checkSelectedItem();
           }
         });
-
+    //set up the cancel button
     Button cancelButton = findViewById(R.id.cancelButton);
     cancelButton.setOnClickListener(
         new View.OnClickListener() {
@@ -78,6 +94,11 @@ public class ProductSelectActivity extends AppCompatActivity {
             onBackPressed();
           }
         });
+  }
+
+  private void setViewList() {
+    //set up the view list and the adapter
+    ListView listView = findViewById(R.id.pokemon_select_listView);
     final ProductSelectAdapter adapter = new ProductSelectAdapter(this, productHashMap);
     listView.setAdapter(adapter);
     listView.setOnItemClickListener(
@@ -96,16 +117,5 @@ public class ProductSelectActivity extends AppCompatActivity {
             adapter.updateRecords(productList, selectedList);
           }
         });
-  }
-
-  public void checkSelectedItem() {
-    if (selectedList.size() > 1) {
-      Toast.makeText(this, "Please choose one product", Toast.LENGTH_LONG).show();
-    } else if (selectedList.size() == 0) {
-      Toast.makeText(this, "Please choose a product", Toast.LENGTH_LONG).show();
-    } else {
-      onBackPressed();
-      infoMediator.setSelectedPokemon(selectedList.get(0));
-    }
   }
 }
