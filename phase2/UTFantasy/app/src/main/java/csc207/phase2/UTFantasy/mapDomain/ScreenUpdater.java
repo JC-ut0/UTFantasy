@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import android.content.res.Resources;
 
@@ -50,11 +50,13 @@ public class ScreenUpdater {
 
   public int getScreenUnitWidth(){
     int screenWidthPixel = Resources.getSystem().getDisplayMetrics().widthPixels;
-    return screenWidthPixel / UnitDraw.getUnitWidth() + 4;
+    int unitWidth = new UnitDraw().getUnitWidth();
+    return screenWidthPixel / unitWidth + 4;
   }
 
   public int getScreenUnitHeight(){
     int screenHeightPixel = Resources.getSystem().getDisplayMetrics().heightPixels;
-    return screenHeightPixel / UnitDraw.getUnitHeight() + 4;
+    int unitHeight = new UnitDraw().getUnitHeight();
+    return screenHeightPixel / unitHeight + 4;
   }
 }

@@ -1,20 +1,20 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import java.io.Serializable;
 
-import csc207.phase2.UTFantasy.Character.NPCManager;
+import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 
 public class Map implements Serializable {
   private int mapWidth;
   private int mapHeight;
   private UnitDraw[][] lowMap;
   private UnitDraw[][] highMap;
-  private NPCManager npcManager;
+  private NPCRepository npcRepository;
 
   public Map(int mapWidth, int mapHeight) {
     this.mapWidth = mapWidth;
     this.mapHeight = mapHeight;
-    this.npcManager = new NPCManager();
+    this.npcRepository = new NPCRepository();
   }
 
   // getters and setters for the field
@@ -42,11 +42,11 @@ public class Map implements Serializable {
     this.highMap = highMap;
   }
 
-  public NPCManager getNpcManager() {
-    return npcManager;
+  public NPCRepository getNpcRepository() {
+    return npcRepository;
   }
 
-  public void setNpcManager(NPCManager npcManager) {
-    this.npcManager = npcManager;
+  public void setNpcRepository(NPCRepository npcRepository) {
+    this.npcRepository = npcRepository;
   }
 }

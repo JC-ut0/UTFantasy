@@ -1,15 +1,15 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 
-public class MapFacade implements MapInteractor {
+public class MapFacadeInteractor implements MapInteractor {
   private MapChecker mapChecker;
   private ScreenUpdater screenUpdater;
   private MovementManager movementManager;
   private ScreenTranser screenTranser;
 
-  public MapFacade(
+  public MapFacadeInteractor(
       MapChecker checker, ScreenUpdater updater, MovementManager manager, ScreenTranser transer) {
     this.mapChecker = checker;
     this.screenUpdater = updater;

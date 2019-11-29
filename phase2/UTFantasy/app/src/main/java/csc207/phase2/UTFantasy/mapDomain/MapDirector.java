@@ -1,6 +1,7 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.npcDomain.NPCInteractor;
 
 public class MapDirector {
   private Map map;
@@ -28,7 +29,7 @@ public class MapDirector {
     ScreenUpdater screenUpdater = new ScreenUpdater(player);
     MovementManager movementManager = new MovementManager(player);
     ScreenTranser screenTranser = new ScreenTranser(player);
-    mapInteractor = new MapFacade(mapChecker, screenUpdater, movementManager, screenTranser);
+    mapInteractor = new MapFacadeInteractor(mapChecker, screenUpdater, movementManager, screenTranser);
   }
 
   public MapInteractor getMapInteractor() {

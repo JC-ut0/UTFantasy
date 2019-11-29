@@ -129,3 +129,9 @@ Add a new product, pokemon ball, in shop.
 File affected: Package(Battle, Map, AllSkills, Character, Pet)
 Use linked list to refactor Battle system according to MVP. Please see the details of the whole
 structure in the uml. Change constant variables used in map and character to enum.
+
+########
+# Step 22
+File affected: Package(mapUI, mapDomain, npcDomain)
+Try to package map and npc system by ports and adapters. Apply strategy pattern to NPC.duty. Add
+functionality that some npc can display icon when dialogue is ongoing.

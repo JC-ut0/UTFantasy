@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.InfoMediator;
-import csc207.phase2.UTFantasy.Map.MainActivity;
+import csc207.phase2.UTFantasy.mapUI.MainActivity;
 import csc207.phase2.UTFantasy.R;
 
 public class PlayerInfoActivity extends AppCompatActivity {

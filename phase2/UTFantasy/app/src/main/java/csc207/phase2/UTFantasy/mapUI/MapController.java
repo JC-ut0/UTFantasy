@@ -1,12 +1,15 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapUI;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.mapDomain.MapDirector;
+import csc207.phase2.UTFantasy.mapDomain.MapInteractor;
+import csc207.phase2.UTFantasy.npcDomain.NPCInteractor;
 
 public class MapController {
   private MapInteractor mapInteractor;
   private NPCInteractor npcInteractor;
-  private boolean dialogueFinished;
+  private boolean dialogueOnGoing;
   private NPC interactingNpc;
 
   public MapController(Player player) {
@@ -43,17 +46,27 @@ public class MapController {
   }
 
   public void buttonAClick() {
-    if (!dialogueFinished) {
+    if (!dialogueOnGoing) {
       NPC npc = mapInteractor.getFacingNpc();
       if (npc != null) {
         interactingNpc = npc;
-        npcInteractor.openDialogue(npc);
-        dialogueFinished = true;
+        dialogueOnGoing = true;
+        // player is not yet done interacting with this npc
+        if (!npc.isInteracted()) npcInteractor.openDialogue(npc);
+          // player already finished interacting with this npc before
+        else npcInteractor.openInteractedDialogue(npc);
       }
     } else {
-      npcInteractor.interact(interactingNpc);
+      npcInteractor.closeDialogue();
+      if (!interactingNpc.isInteracted()) npcInteractor.interact(interactingNpc);
       interactingNpc = null;
-      dialogueFinished = false;
+      dialogueOnGoing = false;
     }
+  }
+
+  public void buttonBClick() {
+    npcInteractor.closeDialogue();
+    dialogueOnGoing = false;
+    interactingNpc = null;
   }
 }

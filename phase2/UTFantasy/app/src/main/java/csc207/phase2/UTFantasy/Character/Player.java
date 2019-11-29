@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import java.util.HashMap;
 
-import csc207.phase2.UTFantasy.Map.Map;
+import csc207.phase2.UTFantasy.mapDomain.Map;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.Product;
 
@@ -16,6 +16,7 @@ public class Player extends Person {
   private Map playerMap;
   private HashMap<Product, Integer> bag;
   private boolean showingScore = true;
+  private WildPokemonObserver obserber;
 
   /**
    * construct a new player
@@ -122,4 +123,10 @@ public class Player extends Person {
       }
     }
   }
+
+  public void addObserver(WildPokemonObserver observer) {
+    this.obserber = observer;
+  }
+
+  ;
 }

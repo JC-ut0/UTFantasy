@@ -1,9 +1,12 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 public enum Icon {
     LAWN,
     TREE,
     TREEIMAGE,
+
+    GRASS0,
+    GRASS1,
 
     UPPLAYER0,
     UPPLAYER1,

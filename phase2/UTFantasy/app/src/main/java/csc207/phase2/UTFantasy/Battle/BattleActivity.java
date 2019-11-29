@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import csc207.phase2.UTFantasy.Character.Duty;
+import csc207.phase2.UTFantasy.Character.PlayerComparator.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
@@ -144,7 +144,7 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
         Player player = userIO.getUserData().getUser(username).getPlayer();
 
         String NPCname = intent.getStringExtra("npcName");
-        NPC npc = player.getPlayerMap().getNpcManager().getNPC(NPCname);
+        NPC npc = player.getPlayerMap().getNpcRepository().getNPC(NPCname);
         if (npc == null) {
             npc = new NPC("poor student", Duty.FIGHT);
             Pokemon squirtle = new Squirtle();
