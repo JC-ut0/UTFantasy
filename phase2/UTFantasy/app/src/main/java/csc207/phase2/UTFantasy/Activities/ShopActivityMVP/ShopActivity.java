@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.ShopActivityMVP;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+import csc207.phase2.UTFantasy.Activities.MenuActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Products.Product;
@@ -25,29 +26,29 @@ import csc207.phase2.UTFantasy.R;
 /** The activity used to purchase products. */
 public class ShopActivity extends AppCompatActivity implements ShopView {
 
-//  /** the intent of MainActivity */
-//  private Intent intent;
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
   /** the name of current user */
   String username;
-  /** the TextView of money */
+  /** a list of products provided in the shop */
+  private ArrayList<Product> productInShop;
+  /** presenter of ShopActivity */
+  private ShopPresenter presenter;
+  /** views in the layout */
   TextView moneyLeft;
-
   TextView totalMoney;
   TextView productInBag;
   TextView productSelected;
   ImageView productImage;
   TextView productName;
-  TextView prodcutDescription;
+  TextView productDescription;
   EditText enterAmount;
   LinearLayout layout;
   Button add1;
   Button add10;
   Button apply;
   Button buy;
-  private ArrayList<Product> productInShop;
-  private ShopPresenter presenter;
+
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     buy = findViewById(R.id.buy);
     productImage = findViewById(R.id.productImage);
     productName = findViewById(R.id.productName);
-    prodcutDescription = findViewById(R.id.productDescription);
+    productDescription = findViewById(R.id.productDescription);
     final Button backBtn = findViewById(R.id.back_to_main);
     final Button bagBtn = findViewById(R.id.my_bag);
 
@@ -174,35 +175,41 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     startActivity(intent);
   }
 
+  /** toast messages on ShopActivity */
   @Override
   public void showMessage(String text) {
     Toast.makeText(ShopActivity.this, text, Toast.LENGTH_SHORT).show();
   }
 
+  /** update the number of product the player wanted to buy */
   @Override
   public void setProductSelected(String text) {
     productSelected.setText(text);
   }
 
+  /** update money of selected number of product */
   @Override
   public void setTotalMoney(String text) {
     totalMoney.setText(text);
   }
 
+  /** update the number of product in player's bag */
   @Override
   public void setProductInBag(String text) {
     productInBag.setText(text);
   }
 
+  /** update the number of money in player's bag */
   @Override
   public void setMoneyLeft(String text) {
     moneyLeft.setText(text);
   }
 
+  /** update image resource, text of the selected product */
   @Override
   public void setProductInfo(int res, String name, String description) {
     productImage.setImageResource(res);
     productName.setText(name);
-    prodcutDescription.setText(description);
+    productDescription.setText(description);
   }
 }

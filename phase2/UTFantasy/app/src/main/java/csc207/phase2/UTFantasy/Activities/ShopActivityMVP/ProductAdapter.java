@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.ShopActivityMVP;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,7 +15,9 @@ import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
+  /** resource of layout */
   private int layoutRes;
+
   private Context context;
 
   static class ViewHolder {
@@ -36,6 +38,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
     this.layoutRes = res;
   }
 
+  /** return a view with information */
   @NonNull
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {

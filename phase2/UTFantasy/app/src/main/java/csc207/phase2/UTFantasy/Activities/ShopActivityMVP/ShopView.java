@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.ShopActivityMVP;
 
 public interface ShopView {
   void showMessage(String message);
