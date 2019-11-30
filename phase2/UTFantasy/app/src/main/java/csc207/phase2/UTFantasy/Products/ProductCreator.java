@@ -7,7 +7,7 @@ import static csc207.phase2.UTFantasy.Products.ProductName.pinkPotion;
 import static csc207.phase2.UTFantasy.Products.ProductName.purplePotion;
 import static csc207.phase2.UTFantasy.Products.ProductName.redPotion;
 
-
+/** Create a list of products on sale in shop */
 public class ProductCreator {
   private ArrayList<Product> products;
 

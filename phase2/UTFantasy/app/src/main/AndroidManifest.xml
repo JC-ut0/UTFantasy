@@ -51,7 +51,7 @@
 
         </activity>
         <activity
-            android:name="csc207.phase2.UTFantasy.Activities.ShopActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.ShopActivityMVP.ShopActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
