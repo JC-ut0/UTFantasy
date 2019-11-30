@@ -292,7 +292,7 @@
                     android:layout_height="70dp"
                     android:clickable="true"
                     android:contentDescription="TODO"
-                    app:srcCompat="@drawable/pikachu1" />
+                    app:srcCompat="@drawable/pikachu" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -345,7 +345,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:contentDescription="First pokemon"
-                    app:srcCompat="@drawable/pikachu1" />
+                    app:srcCompat="@drawable/pikachu" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -394,7 +394,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:contentDescription="First pokemon"
-                    app:srcCompat="@drawable/pikachu1" />
+                    app:srcCompat="@drawable/pikachu" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -442,7 +442,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:contentDescription="First pokemon"
-                    app:srcCompat="@drawable/pikachu1" />
+                    app:srcCompat="@drawable/pikachu" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -489,7 +489,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:contentDescription="First pokemon"
-                    app:srcCompat="@drawable/pikachu1" />
+                    app:srcCompat="@drawable/pikachu" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -534,7 +534,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:contentDescription="First pokemon"
-                    app:srcCompat="@drawable/pikachu1" />
+                    app:srcCompat="@drawable/pikachu" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
