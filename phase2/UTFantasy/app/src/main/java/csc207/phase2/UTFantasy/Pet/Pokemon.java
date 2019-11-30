@@ -14,17 +14,17 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   /** the name of the Pokemon */
   protected String pokemonName;
   /** The first type of this pokemon */
-  protected TypeMap.type type1;
+  protected TypeMap.TypeEnum type1;
   /** The second type of this pokemon */
-  protected TypeMap.type type2;
+  protected TypeMap.TypeEnum type2;
   /** Level growing type */
   protected String growType;
   /** The unique profile icon for each Pokemon. ID can be used to draw this Pokemon. */
   protected int profileID;
   /**
-   *  The unique icon of Pokemon back. ID can be used to draw the back of this Pokemon.
+   * The unique icon of Pokemon back. ID can be used to draw the back of this Pokemon.
    */
-  protected  int profileBackID;
+  protected int profileBackID;
   /** Base stat of hp */
   protected int baseHp;
   /** Base stat of attack */
@@ -78,6 +78,40 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
     ivSpeed = r.nextInt(32);
   }
 
+  Pokemon(
+          int level,
+          TypeMap.TypeEnum type1,
+          TypeMap.TypeEnum type2,
+          int profileID,
+          int profileBackID,
+          String pokemonName,
+          int baseHp,
+          int baseAttack,
+          int baseDefense,
+          int baseSpeed,
+          String growType,
+          int levelToEvolve) {
+    this();
+    setLevel(level);
+    setType1(type1);
+    setType2(type2);
+    setProfileID(profileID);
+    setProfileBackID(profileBackID);
+    setPokemonName(pokemonName);
+    setBaseHp(baseHp);
+    setBaseAttack(baseAttack);
+    setBaseDefense(baseDefense);
+    setBaseSpeed(baseSpeed);
+    setHp(calculateStatistic("hp"));
+    setAttack(calculateStatistic("attack"));
+    setDefense(calculateStatistic("defense"));
+    setSpeed(calculateStatistic("speed"));
+    setGrowType(growType);
+    setExpToLevelUp(calculateExpToLevelUp());
+    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
+    setLevelToEvolve(levelToEvolve);
+  }
+
   /**
    * Get the name of the Pokemon.
    *
@@ -101,7 +135,7 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    *
    * @return a String which is the type1 of the Pokemon.
    */
-  public TypeMap.type getType1() {
+  public TypeMap.TypeEnum getType1() {
     return type1;
   }
 
@@ -110,7 +144,7 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    *
    * @param type1 a String which is the type of Pokemon to set.
    */
-  public void setType1(TypeMap.type type1) {
+  public void setType1(TypeMap.TypeEnum type1) {
     this.type1 = type1;
   }
 
@@ -119,7 +153,7 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    *
    * @return a String which is the type2 of the Pokemon.
    */
-  public TypeMap.type getType2() {
+  public TypeMap.TypeEnum getType2() {
     return type2;
   }
 
@@ -128,7 +162,7 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    *
    * @param type2 a String which is the type of Pokemon to set.
    */
-  public void setType2(TypeMap.type type2) {
+  public void setType2(TypeMap.TypeEnum type2) {
     this.type2 = type2;
   }
 
@@ -174,14 +208,17 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    * @return an integer which is the profile ID of the Pokemon back.
    */
   public int getProfileBackID() {
-    return profileBackID;}
+    return profileBackID;
+  }
 
   /**
    * Set the profile ID for the Pokemon.
    *
    * @param profileBackID the profile ID to be set.
    */
-  public void setProfileBackID(int profileBackID){this.profileBackID = profileBackID;}
+  public void setProfileBackID(int profileBackID) {
+    this.profileBackID = profileBackID;
+  }
   /**
    * Get the the value of base health point of the Pokemon.
    *

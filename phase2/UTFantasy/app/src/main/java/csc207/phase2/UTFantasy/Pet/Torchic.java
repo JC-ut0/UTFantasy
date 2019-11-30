@@ -7,7 +7,7 @@ public class Torchic extends Pokemon {
   /** Constructor of a Torchic. */
   public Torchic() {
     super();
-    setType1(TypeMap.type.FIRE);
+      setType1(TypeMap.TypeEnum.FIRE);
     setProfileID(R.drawable.torchic);
     setProfileBackID(R.drawable.torchic_back);
     setPokemonName("Torchic");

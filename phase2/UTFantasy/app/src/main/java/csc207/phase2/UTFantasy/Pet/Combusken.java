@@ -7,8 +7,8 @@ public class Combusken extends Pokemon {
   /** Constructor of a Combusken. */
   public Combusken() {
     super();
-    setType1(TypeMap.type.FIRE);
-    setType2(TypeMap.type.FIGHT);
+      setType1(TypeMap.TypeEnum.FIRE);
+      setType2(TypeMap.TypeEnum.FIGHT);
     setProfileID(R.drawable.combusken);
     setProfileBackID(R.drawable.combusken_back);
     setPokemonName("Combusken");

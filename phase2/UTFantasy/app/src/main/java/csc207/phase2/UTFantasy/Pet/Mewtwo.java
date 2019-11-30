@@ -7,7 +7,7 @@ public class Mewtwo extends Pokemon {
   /** Constructor of a Mewtwo. */
   public Mewtwo() {
     super();
-    setType1(TypeMap.type.PSYCHIC);
+      setType1(TypeMap.TypeEnum.PSYCHIC);
     setProfileID(R.drawable.mewtwo);
     setProfileBackID(R.drawable.mewtwo);
     setPokemonName("Mewtwo");

@@ -7,8 +7,8 @@ public class Pidgey extends Pokemon {
   /** Constructor of a Pidgey. */
   public Pidgey() {
     super();
-    setType1(TypeMap.type.NORMAL);
-    setType2(TypeMap.type.FLYING);
+      setType1(TypeMap.TypeEnum.NORMAL);
+      setType2(TypeMap.TypeEnum.FLYING);
     setProfileID(R.drawable.pidgey);
     setProfileBackID(R.drawable.pidgey_back);
     setPokemonName("Pidgey");

@@ -7,8 +7,8 @@ public class Pidgeotto extends Pokemon {
   /** Constructor of a Pidgeotto. */
   public Pidgeotto() {
     super();
-    setType1(TypeMap.type.NORMAL);
-    setType2(TypeMap.type.FLYING);
+      setType1(TypeMap.TypeEnum.NORMAL);
+      setType2(TypeMap.TypeEnum.FLYING);
     setProfileID(R.drawable.pidgeotto);
     setProfileBackID(R.drawable.pidgeotto_back);
     setPokemonName("Pidgeotto");

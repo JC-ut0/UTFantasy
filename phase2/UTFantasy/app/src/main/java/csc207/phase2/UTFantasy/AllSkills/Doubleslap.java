@@ -10,7 +10,7 @@ public class Doubleslap extends Skill {
     name = "Doubleslap";
     power = 35;
     pp = 10;
-      type = TypeMap.type.NORMAL;
+      type = TypeMap.TypeEnum.NORMAL;
   }
 
   /**

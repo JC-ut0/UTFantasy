@@ -9,7 +9,7 @@ public class Charmeleon extends Pokemon {
   /** Constructor of a Charmeleon. */
   public Charmeleon() {
     super();
-    setType1(TypeMap.type.FIRE);
+    setType1(TypeMap.TypeEnum.FIRE);
     skills[0] = new Ember();
     skills[1] = new Flamethrower();
     setProfileID(R.drawable.charmeleon);

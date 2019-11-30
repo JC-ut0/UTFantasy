@@ -7,7 +7,7 @@ public class Wartortle extends Pokemon {
   /** Constructor of a Wartortle. */
   public Wartortle() {
     super();
-    setType1(TypeMap.type.WATER);
+      setType1(TypeMap.TypeEnum.WATER);
     setProfileID(R.drawable.wartortle);
     setProfileBackID(R.drawable.wartortle_back);
     setPokemonName("Wartortle");

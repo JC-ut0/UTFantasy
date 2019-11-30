@@ -9,7 +9,7 @@ public class Pikachu extends Pokemon {
   public Pikachu() {
     // set its first skill to be QuickAttack
     super();
-    setType1(TypeMap.type.ELECTRIC);
+    setType1(TypeMap.TypeEnum.ELECTRIC);
     skills[0] = new QuickAttack();
     setProfileID(R.drawable.pikachu);
     setProfileBackID(R.drawable.pikachu_back);

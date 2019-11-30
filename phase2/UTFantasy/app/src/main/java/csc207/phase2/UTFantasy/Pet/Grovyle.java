@@ -7,7 +7,7 @@ public class Grovyle extends Pokemon {
   /** Constructor of a Grovyle. */
   public Grovyle() {
     super();
-    setType1(TypeMap.type.GRASS);
+      setType1(TypeMap.TypeEnum.GRASS);
     setProfileID(R.drawable.grovyle);
     setProfileBackID(R.drawable.grovyle_back);
     setPokemonName("Grovyle");

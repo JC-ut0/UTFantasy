@@ -9,8 +9,8 @@ public class Charizard extends Pokemon {
   /** Constructor of a Charizard. */
   public Charizard() {
     super();
-    setType1(TypeMap.type.FIRE);
-    setType2(TypeMap.type.FLYING);
+    setType1(TypeMap.TypeEnum.FIRE);
+    setType2(TypeMap.TypeEnum.FLYING);
     setProfileID(R.drawable.charizard);
     setProfileBackID(R.drawable.charizard_back);
     skills[0] = new Flamethrower();

@@ -7,8 +7,8 @@ public class Gastly extends Pokemon {
   /** Constructor of a Gastly. */
   public Gastly() {
     super();
-    setType1(TypeMap.type.GHOST);
-    setType2(TypeMap.type.POISON);
+      setType1(TypeMap.TypeEnum.GHOST);
+      setType2(TypeMap.TypeEnum.POISON);
     setProfileID(R.drawable.gastly);
     setProfileBackID(R.drawable.gastly_back);
     setPokemonName("Gastly");

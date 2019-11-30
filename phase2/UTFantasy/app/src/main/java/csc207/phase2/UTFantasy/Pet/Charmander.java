@@ -8,7 +8,7 @@ public class Charmander extends Pokemon {
   /** Constructor of a Charmander. */
   public Charmander() {
     super();
-    setType1(TypeMap.type.FIRE);
+    setType1(TypeMap.TypeEnum.FIRE);
     skills[0] = new Scratch();
     setProfileID(R.drawable.charmander);
     setProfileBackID(R.drawable.charmander_back);

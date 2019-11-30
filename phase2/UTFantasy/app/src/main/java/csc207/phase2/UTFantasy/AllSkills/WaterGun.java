@@ -8,7 +8,7 @@ public class WaterGun extends Skill {
   /** Constructor of a WaterGun Skill. */
   public WaterGun() {
     name = "Water Gun";
-      type = TypeMap.type.WATER;
+      type = TypeMap.TypeEnum.WATER;
     power = 40;
     pp = 25;
   }

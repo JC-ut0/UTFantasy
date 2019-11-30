@@ -7,7 +7,7 @@ public class Blastoise extends Pokemon {
   /** Constructor of a Blastoise. */
   public Blastoise() {
     super();
-    setType1(TypeMap.type.WATER);
+      setType1(TypeMap.TypeEnum.WATER);
     setProfileID(R.drawable.blastoise);
     setProfileBackID(R.drawable.blastoise_back);
     setPokemonName("Blastoise");

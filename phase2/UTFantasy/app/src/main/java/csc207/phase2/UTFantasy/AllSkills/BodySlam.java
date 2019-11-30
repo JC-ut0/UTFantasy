@@ -8,7 +8,7 @@ public class BodySlam extends Skill {
   /** Constructor of a BodySlam Skill. */
   public BodySlam() {
     name = "Body Slam";
-      type = TypeMap.type.NORMAL;
+    type = TypeMap.TypeEnum.NORMAL;
     power = 85;
     pp = 15;
   }

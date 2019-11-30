@@ -7,7 +7,7 @@ public class Dragonair extends Pokemon {
   /** Constructor of a Dragonair. */
   public Dragonair() {
     super();
-    setType1(TypeMap.type.DRAGON);
+      setType1(TypeMap.TypeEnum.DRAGON);
     setProfileID(R.drawable.dragonair);
     setProfileBackID(R.drawable.dragonair_back);
     setPokemonName("Dragonair");

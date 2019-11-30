@@ -7,7 +7,7 @@ public class Treecko extends Pokemon {
   /** Constructor of a Treecko. */
   public Treecko() {
     super();
-    setType1(TypeMap.type.GRASS);
+      setType1(TypeMap.TypeEnum.GRASS);
     setProfileID(R.drawable.treecko);
     setProfileBackID(R.drawable.treecko_back);
     setPokemonName("Treecko");

@@ -7,7 +7,7 @@ public class Alakazam extends Pokemon {
   /** Constructor of a Alakazam. */
   public Alakazam() {
     super();
-    setType1(TypeMap.type.PSYCHIC);
+      setType1(TypeMap.TypeEnum.PSYCHIC);
     setProfileID(R.drawable.alakazam);
     setProfileBackID(R.drawable.alakazam_back);
     setPokemonName("Alakazam");

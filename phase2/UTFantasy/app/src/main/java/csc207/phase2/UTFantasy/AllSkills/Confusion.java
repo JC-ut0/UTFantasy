@@ -8,7 +8,7 @@ public class Confusion extends Skill {
   /** Constructor of a Confusion Skill. */
   public Confusion() {
     name = "Confusion";
-      type = TypeMap.type.PSYCHIC;
+      type = TypeMap.TypeEnum.PSYCHIC;
     power = 50;
     pp = 25;
   }

@@ -8,13 +8,13 @@ import csc207.phase2.UTFantasy.Battle.TypeMap;
 
 public abstract class  Skill implements Serializable {
   /** The maximum amount of times of the Skill could be used. */
-  public int maximumPp;
+  protected int maximumPp;
   /** The power of the skill. */
   protected int power;
   /** power points of this skill */
   protected int pp;
   /** The type of the skill. */
-  protected TypeMap.type type;
+  protected TypeMap.TypeEnum type;
   /** The name of the skill. */
   protected String name;
 
@@ -94,7 +94,7 @@ public abstract class  Skill implements Serializable {
    *
    * @return a String which is the type of the Skill.
    */
-  public TypeMap.type getType() {
+  public TypeMap.TypeEnum getType() {
     return type;
   }
 
@@ -103,7 +103,7 @@ public abstract class  Skill implements Serializable {
    *
    * @param type a String which the type of the Skill.
    */
-  public void setType(TypeMap.type type) {
+  public void setType(TypeMap.TypeEnum type) {
     this.type = type;
   }
 

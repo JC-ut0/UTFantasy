@@ -7,7 +7,7 @@ public class Dratini extends Pokemon {
   /** Constructor of a Dratini. */
   public Dratini() {
     super();
-    setType1(TypeMap.type.DRAGON);
+      setType1(TypeMap.TypeEnum.DRAGON);
     setProfileID(R.drawable.dratini);
     setProfileBackID(R.drawable.dratini_back);
     setPokemonName("Dratini");

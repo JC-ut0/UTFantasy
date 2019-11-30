@@ -7,7 +7,7 @@ public class Golduck extends Pokemon {
   /** Constructor of a Golduck. */
   public Golduck() {
     super();
-    setType1(TypeMap.type.WATER);
+      setType1(TypeMap.TypeEnum.WATER);
     setProfileID(R.drawable.golduck);
     setProfileBackID(R.drawable.golduck_back);
     setPokemonName("Golduck");

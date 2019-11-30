@@ -7,8 +7,8 @@ public class Blaziken extends Pokemon {
   /** Constructor of a Blaziken. */
   public Blaziken() {
     super();
-    setType1(TypeMap.type.FIRE);
-    setType2(TypeMap.type.FIGHT);
+      setType1(TypeMap.TypeEnum.FIRE);
+      setType2(TypeMap.TypeEnum.FIGHT);
     setProfileID(R.drawable.blaziken);
     setProfileBackID(R.drawable.blaziken_back);
     setPokemonName("Blaziken");

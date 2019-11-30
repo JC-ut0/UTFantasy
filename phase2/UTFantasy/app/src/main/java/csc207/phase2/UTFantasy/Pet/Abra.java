@@ -7,7 +7,7 @@ public class Abra extends Pokemon {
   /** Constructor of a Abra. */
   public Abra() {
     super();
-    setType1(TypeMap.type.PSYCHIC);
+    setType1(TypeMap.TypeEnum.PSYCHIC);
     setProfileID(R.drawable.abra);
     setProfileBackID(R.drawable.abra_back);
     setPokemonName("Abra");

@@ -7,7 +7,7 @@ public class Mew extends Pokemon {
   /** Constructor of a Mew */
   public Mew() {
     super();
-    setType1(TypeMap.type.PSYCHIC);
+      setType1(TypeMap.TypeEnum.PSYCHIC);
     setProfileID(R.drawable.mew);
     setProfileBackID(R.drawable.mew);
     setPokemonName("Mew");

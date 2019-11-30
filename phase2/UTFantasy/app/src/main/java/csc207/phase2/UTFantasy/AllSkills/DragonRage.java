@@ -9,7 +9,7 @@ public class DragonRage extends Skill {
   public DragonRage() {
     power = 40;
     pp = 10;
-      type = TypeMap.type.DRAGON;
+      type = TypeMap.TypeEnum.DRAGON;
     name = "Dragon Rage";
   }
 

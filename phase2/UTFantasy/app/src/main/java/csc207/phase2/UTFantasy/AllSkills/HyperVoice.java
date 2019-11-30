@@ -10,7 +10,7 @@ public class HyperVoice extends Skill {
     name = "Hyper Voice";
     power = 90;
     pp = 10;
-      type = TypeMap.type.NORMAL;
+      type = TypeMap.TypeEnum.NORMAL;
   }
 
   /**

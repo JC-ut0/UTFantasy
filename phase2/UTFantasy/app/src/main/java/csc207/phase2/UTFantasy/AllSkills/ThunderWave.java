@@ -9,7 +9,7 @@ public class ThunderWave extends Skill {
   public ThunderWave() {
     power = 15;
     pp = 20;
-      type = TypeMap.type.ELECTRIC;
+      type = TypeMap.TypeEnum.ELECTRIC;
     name = "Thunder Wave";
   }
 

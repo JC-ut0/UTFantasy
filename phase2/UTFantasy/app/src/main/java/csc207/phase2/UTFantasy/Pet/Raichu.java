@@ -7,7 +7,7 @@ public class Raichu extends Pokemon {
   /** Constructor of a Raichu. */
   public Raichu() {
     super();
-    setType1(TypeMap.type.ELECTRIC);
+      setType1(TypeMap.TypeEnum.ELECTRIC);
     setProfileID(R.drawable.raichu);
     setProfileBackID(R.drawable.raichu_back);
     setPokemonName("Raichu");

@@ -7,8 +7,8 @@ public class Gengar extends Pokemon {
   /** Constructor of a Gengar. */
   public Gengar() {
     super();
-    setType1(TypeMap.type.GHOST);
-    setType2(TypeMap.type.POISON);
+      setType1(TypeMap.TypeEnum.GHOST);
+      setType2(TypeMap.TypeEnum.POISON);
     setProfileID(R.drawable.genger);
     setProfileBackID(R.drawable.gengar_back);
     setPokemonName("Gengar");

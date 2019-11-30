@@ -9,7 +9,7 @@ public class ThunderShock extends Skill {
   public ThunderShock() {
     power = 40;
     pp = 30;
-      type = TypeMap.type.ELECTRIC;
+      type = TypeMap.TypeEnum.ELECTRIC;
     name = "Thunder Shock";
   }
 
