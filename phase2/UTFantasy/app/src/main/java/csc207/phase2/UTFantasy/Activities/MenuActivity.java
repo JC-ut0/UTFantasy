@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.InfoMediator;
 import csc207.phase2.UTFantasy.R;
 
 public class MenuActivity extends AppCompatActivity {

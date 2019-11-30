@@ -18,8 +18,6 @@ import csc207.phase2.UTFantasy.R;
 public class ProductSelectAdapter extends BaseAdapter {
   /** the product list */
   private List<Product> productList = new ArrayList<>();
-  /** the selected list of product */
-  private List<Product> selectedList = new ArrayList<>();
   /** the hashmap of the product */
   private HashMap<Product, Integer> productHashMap;
   /** the inflater of the product */
@@ -38,7 +36,7 @@ public class ProductSelectAdapter extends BaseAdapter {
 
   @Override
   public Object getItem(int position) {
-    return position;
+    return productList.get(position);
   }
 
   @Override
@@ -67,7 +65,7 @@ public class ProductSelectAdapter extends BaseAdapter {
     holder.level.setText("NUM: " + productHashMap.get(product));
     holder.potionImage.setImageResource(product.getProfile_id());
 
-    if (selectedList.contains(product)) holder.checkimage.setBackgroundResource(R.drawable.checked);
+    if (product.isSelected()) holder.checkimage.setBackgroundResource(R.drawable.checked);
     else holder.checkimage.setBackgroundResource(R.drawable.check);
     return view;
   }
@@ -75,12 +73,10 @@ public class ProductSelectAdapter extends BaseAdapter {
   /**
    * Update the new selected list after each select by the player
    *
-   * @param productList the product list
-   * @param selectedList the new selected list of the player
+   * @param productHashMap the product list
    */
-  void updateRecords(List<Product> productList, List<Product> selectedList) {
-    this.productList = productList;
-    this.selectedList = selectedList;
+  void updateRecords(HashMap<Product, Integer> productHashMap) {
+    this.productHashMap = productHashMap;
     notifyDataSetChanged();
   }
 

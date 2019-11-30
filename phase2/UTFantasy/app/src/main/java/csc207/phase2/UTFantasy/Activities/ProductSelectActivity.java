@@ -18,8 +18,10 @@ import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.InfoMediator;
+import csc207.phase2.UTFantasy.Products.PinkPotion;
+import csc207.phase2.UTFantasy.Products.Potion;
 import csc207.phase2.UTFantasy.Products.Product;
+import csc207.phase2.UTFantasy.Products.RedPotion;
 import csc207.phase2.UTFantasy.R;
 
 public class ProductSelectActivity extends AppCompatActivity {
@@ -29,13 +31,12 @@ public class ProductSelectActivity extends AppCompatActivity {
   /** The unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
   /** The list of the selected list of product */
-  List<Product> selectedList;
+  Product selectedProduct;
   /** The hashmap of the product */
   HashMap<Product, Integer> productHashMap;
-  /** The list of the product */
-  List<Product> productList;
   /** The information mediator */
   InfoMediator infoMediator;
+//  List<Product> productList;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +50,6 @@ public class ProductSelectActivity extends AppCompatActivity {
     // load the hashmap to a list
     infoMediator = new InfoMediator(player);
     productHashMap = infoMediator.getProductHashMap();
-    selectedList = new ArrayList<>();
 
     // set up the activity
     setTextView();
@@ -59,13 +59,11 @@ public class ProductSelectActivity extends AppCompatActivity {
 
   public void checkSelectedItem() {
     //check if the selected item has only 1 amount
-    if (selectedList.size() > 1) {
+    if (selectedProduct == null) {
       Toast.makeText(this, "Please choose one product", Toast.LENGTH_LONG).show();
-    } else if (selectedList.size() == 0) {
-      Toast.makeText(this, "Please choose a product", Toast.LENGTH_LONG).show();
     } else {
       onBackPressed();
-      infoMediator.setSelectedPokemon(selectedList.get(0));
+      infoMediator.setSelectedPokemon(selectedProduct);
     }
   }
 
@@ -105,17 +103,26 @@ public class ProductSelectActivity extends AppCompatActivity {
         new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Product product = productList.get(position);
-            if (selectedList.contains(product)) {
-              selectedList.remove(product);
-            } else {
-              selectedList.add(product);
+            Product product = (Product)adapter.getItem(position);
+            if (product.isSelected()) {
+              product.setSelected(false);
+              selectedProduct = null;
+            } else{
+              checkOnlyOne(product);
             }
-            productList.set(position, product);
-
-            // now update the adapter
-            adapter.updateRecords(productList, selectedList);
+//            productList.set(position, product);
+//            // now update the adapter
+            adapter.updateRecords(productHashMap);
           }
         });
+  }
+
+  private void checkOnlyOne(Product product){
+    if (selectedProduct != null){
+      Toast.makeText(this, "You can choose only one product", Toast.LENGTH_LONG).show();
+    }else{
+      product.setSelected(true);
+      selectedProduct = product;
+    }
   }
 }
