@@ -1,22 +1,21 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.Scratch;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Charmander extends Pokemon {
-  /** Constructor of a Charmander. */
-  public Charmander() {
+public class Bulbasaur extends Pokemon {
+  /** Constructor of a Bulbasaur. */
+  public Bulbasaur() {
     super();
-    setType1(TypeMap.type.FIRE);
-    skills[0] = new Scratch();
-    setProfileID(R.drawable.charmander);
-    setProfileBackID(R.drawable.charmander_back);
-    setPokemonName("Charmander");
-    setBaseHp(39);
-    setBaseAttack(56);
-    setBaseDefense(45);
-    setBaseSpeed(65);
+    setType1(TypeMap.type.GRASS);
+    setType2(TypeMap.type.POISON);
+    setProfileID(R.drawable.bulbasaur);
+    setProfileBackID(R.drawable.bulbasaur_back);
+    setPokemonName("Bulbasaur");
+    setBaseHp(45);
+    setBaseAttack(57);
+    setBaseDefense(57);
+    setBaseSpeed(45);
     setHp(calculateStatistic("hp"));
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
@@ -28,24 +27,24 @@ public class Charmander extends Pokemon {
   }
 
   /**
-   * Get the profile ID of Charmander.
+   * Get the profile ID of Bulbasaur.
    *
-   * @return an integer which is the profile ID of Charmander.
+   * @return an integer which is the profile ID of Bulbasaur.
    */
   @Override
   public int getProfileID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.charmander;
+    return R.drawable.bulbasaur;
   }
 
   /**
-   * Get the profile back ID of Charmander.
+   * Get the profile back ID of Bulbasaur.
    *
-   * @return an integer which is the profile ID of the back of Charmander.
+   * @return an integer which is the profile ID of the back of Bulbasaur.
    */
   @Override
   public int getProfileBackID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.charmander_back;
+    return R.drawable.bulbasaur_back;
   }
 }

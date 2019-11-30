@@ -1,22 +1,21 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.Tackle;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Squirtle extends Pokemon {
-  /** Constructor of a Squirtle. */
-  public Squirtle() {
+public class Lapras extends Pokemon {
+  /** Constructor of a Lapras. */
+  public Lapras() {
     super();
     setType1(TypeMap.type.WATER);
-    setPokemonName("Squirtle");
-    skills[0] = new Tackle();
-    setProfileID(R.drawable.squirtle);
-    setProfileID(R.drawable.squirtle_back);
-    setBaseHp(44);
-    setBaseAttack(48);
-    setBaseDefense(65);
-    setBaseSpeed(43);
+    setType2(TypeMap.type.ICE);
+    setProfileID(R.drawable.lapras);
+    setProfileBackID(R.drawable.lapras_back);
+    setPokemonName("Lapras");
+    setBaseHp(130);
+    setBaseAttack(85);
+    setBaseDefense(90);
+    setBaseSpeed(60);
     setHp(calculateStatistic("hp"));
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
@@ -24,28 +23,27 @@ public class Squirtle extends Pokemon {
     setGrowType("quick");
     setExpToLevelUp(calculateExpToLevelUp());
     setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(16);
+    setLevelToEvolve(1000);
   }
-
   /**
-   * Get the profile ID of Squirtle.
+   * Get the profile ID of Lapras.
    *
-   * @return an integer which is the profile ID of Squirtle.
+   * @return an integer which is the profile ID of Lapras.
    */
   @Override
   public int getProfileID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.squirtle;
+    return R.drawable.lapras;
   }
 
   /**
-   * Get the profile back ID of Squirtle.
+   * Get the profile back ID of Lapras.
    *
-   * @return an integer which is the profile ID of the back of Squirtle.
+   * @return an integer which is the profile ID of the back of Lapras.
    */
   @Override
   public int getProfileBackID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.squirtle_back;
+    return R.drawable.lapras_back;
   }
 }

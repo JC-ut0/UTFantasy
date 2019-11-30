@@ -10,7 +10,7 @@ import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.Character.Person;
 
 public abstract class Pokemon implements Serializable, ObservablePokemon {
-    protected BattleObserver observer;
+  protected BattleObserver observer;
   /** the name of the Pokemon */
   protected String pokemonName;
   /** The first type of this pokemon */
@@ -19,10 +19,12 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   protected TypeMap.type type2;
   /** Level growing type */
   protected String growType;
-    /**
-     * The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-     */
+  /** The unique profile icon for each Pokemon. ID can be used to draw this Pokemon. */
   protected int profileID;
+  /**
+   *  The unique icon of Pokemon back. ID can be used to draw the back of this Pokemon.
+   */
+  protected  int profileBackID;
   /** Base stat of hp */
   protected int baseHp;
   /** Base stat of attack */
@@ -63,10 +65,6 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   protected int maximumHp;
   /** skills the Pokemon have there are four different skills */
   protected Skill[] skills;
-    /**
-     * The status of this pokemon
-     */
-    protected String status;
 
   /** Constructor of Pokemon. */
   Pokemon() {
@@ -78,7 +76,6 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
     ivAttack = r.nextInt(32);
     ivDefense = r.nextInt(32);
     ivSpeed = r.nextInt(32);
-      status = "healthy";
   }
 
   /**
@@ -132,7 +129,7 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    * @param type2 a String which is the type of Pokemon to set.
    */
   public void setType2(TypeMap.type type2) {
-      this.type2 = type2;
+    this.type2 = type2;
   }
 
   /**
@@ -156,14 +153,14 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   /**
    * Get the profile ID of the Pokemon.
    *
-   * @return a integer which is the profile ID of the Pokemon.
+   * @return an integer which is the profile ID of the Pokemon.
    */
   public int getProfileID() {
     return profileID;
   }
 
   /**
-   * Set the profile ID for thr pokemon.
+   * Set the profile ID for the pokemon.
    *
    * @param profileID the profile ID to be set.
    */
@@ -171,6 +168,20 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
     this.profileID = profileID;
   }
 
+  /**
+   * Get the profile ID of Pokemon back.
+   *
+   * @return an integer which is the profile ID of the Pokemon back.
+   */
+  public int getProfileBackID() {
+    return profileBackID;}
+
+  /**
+   * Set the profile ID for the Pokemon.
+   *
+   * @param profileBackID the profile ID to be set.
+   */
+  public void setProfileBackID(int profileBackID){this.profileBackID = profileBackID;}
   /**
    * Get the the value of base health point of the Pokemon.
    *
@@ -537,9 +548,6 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
     return skills;
   }
 
-
-
-
   /**
    * Get if the Pokemon has a Master or not.
    *
@@ -558,27 +566,27 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   public int calculateStatistic(String statType) {
     switch (statType) {
       case "attack":
-      {
-        float base = ((baseAttack + ivAttack) * 2 * level) / 100;
-        return (int) Math.floor(base) + 5;
-      }
+        {
+          float base = ((baseAttack + ivAttack) * 2 * level) / 100;
+          return (int) Math.floor(base) + 5;
+        }
       case "defense":
-      {
-        float base = ((baseDefense + ivDefense) * 2 * level) / 100;
-        return (int) Math.floor(base) + 5;
-      }
+        {
+          float base = ((baseDefense + ivDefense) * 2 * level) / 100;
+          return (int) Math.floor(base) + 5;
+        }
       case "speed":
-      {
-        float base = ((baseSpeed + ivSpeed) * 2 * level) / 100;
-        return (int) Math.floor(base) + 5;
-      }
+        {
+          float base = ((baseSpeed + ivSpeed) * 2 * level) / 100;
+          return (int) Math.floor(base) + 5;
+        }
       case "hp":
-      {
-        float base = ((baseHp + ivHp) * 2 * level) / 100;
-        hp = (int) Math.floor(base) + level + 10;
-        setMaximumHp(hp);
-        return hp;
-      }
+        {
+          float base = ((baseHp + ivHp) * 2 * level) / 100;
+          hp = (int) Math.floor(base) + level + 10;
+          setMaximumHp(hp);
+          return hp;
+        }
       default:
         return 0;
     }
@@ -599,7 +607,6 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
     double thisLevelTotalExp = Math.pow(level, 3) * modifier;
     return (int) Math.floor(exp - thisLevelTotalExp);
   }
-
 
   /**
    * Calculate the value of experience point needed for this pokemon to level up.
@@ -639,18 +646,14 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    * @return an integer which is the number of Skills Pokemon currently has.
    */
   public int getSkillNum() {
-      int result = 0;
-      for (Skill skill : skills) {
-          if (skill != null) {
-              result += 1;
-          }
+    int result = 0;
+    for (Skill skill : skills) {
+      if (skill != null) {
+        result += 1;
       }
-      return result;
-  }
-
-    public String getStatus() {
-        return status;
     }
+    return result;
+  }
 
   /**
    * Return a String which contains Pokemon's name and current level.
@@ -670,23 +673,21 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    *     fainted.
    */
   public boolean isAlive() {
-      return hp != 0;
+    return hp != 0;
   }
 
-    @Override
-    public void setObserver(BattleObserver o) {
-        this.observer = o;
-    }
+  @Override
+  public void setObserver(BattleObserver o) {
+    this.observer = o;
+  }
 
-    ;
+  @Override
+  public void notifyObserverHpChange() {
+    observer.updateHpBar();
+  }
 
-    @Override
-    public void notifyObserverHpChange() {
-        observer.updateHpBar();
-    }
-
-    @Override
-    public void notifyObserverExpChange() {
-        observer.updateExpBar();
-    }
+  @Override
+  public void notifyObserverExpChange() {
+    observer.updateExpBar();
+  }
 }

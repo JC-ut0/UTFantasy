@@ -1,7 +1,6 @@
 package csc207.phase2.UTFantasy.Pet;
 
 import csc207.phase2.UTFantasy.AllSkills.QuickAttack;
-import csc207.phase2.UTFantasy.AllSkills.Thunder;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
@@ -10,10 +9,10 @@ public class Pikachu extends Pokemon {
   public Pikachu() {
     // set its first skill to be QuickAttack
     super();
-      setType1(TypeMap.type.ELECTRIC);
+    setType1(TypeMap.type.ELECTRIC);
     skills[0] = new QuickAttack();
-    skills[1] = new Thunder();
-    setProfileID(R.drawable.pikachu1);
+    setProfileID(R.drawable.pikachu);
+    setProfileBackID(R.drawable.pikachu_back);
     setPokemonName("Pikachu");
     setBaseHp(35);
     setBaseAttack(55);
@@ -26,16 +25,28 @@ public class Pikachu extends Pokemon {
     setGrowType("quick");
     setExpToLevelUp(calculateExpToLevelUp());
     setExpAtCurrentLevel(calculateExpAtCurrentLevel());
+    setLevelToEvolve(32);
   }
 
   /**
    * Get the profile ID of Pikachu.
    *
-   * @return an integer which the profile ID of Pikachu.
+   * @return an integer which is the profile ID of Pikachu.
    */
   @Override
   public int getProfileID() {
-      // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.pikachu1;
+    // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
+    return R.drawable.pikachu;
+  }
+
+  /**
+   * Get the profile back ID of Pikachu.
+   *
+   * @return an integer which is the profile ID of the back.
+   */
+  @Override
+  public int getProfileBackID() {
+    // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
+    return R.drawable.pikachu_back;
   }
 }

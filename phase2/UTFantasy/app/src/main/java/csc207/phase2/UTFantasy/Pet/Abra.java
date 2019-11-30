@@ -1,22 +1,20 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.Scratch;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Charmander extends Pokemon {
-  /** Constructor of a Charmander. */
-  public Charmander() {
+public class Abra extends Pokemon {
+  /** Constructor of a Abra. */
+  public Abra() {
     super();
-    setType1(TypeMap.type.FIRE);
-    skills[0] = new Scratch();
-    setProfileID(R.drawable.charmander);
-    setProfileBackID(R.drawable.charmander_back);
-    setPokemonName("Charmander");
-    setBaseHp(39);
-    setBaseAttack(56);
-    setBaseDefense(45);
-    setBaseSpeed(65);
+    setType1(TypeMap.type.PSYCHIC);
+    setProfileID(R.drawable.abra);
+    setProfileBackID(R.drawable.abra_back);
+    setPokemonName("Abra");
+    setBaseHp(25);
+    setBaseAttack(65);
+    setBaseDefense(35);
+    setBaseSpeed(90);
     setHp(calculateStatistic("hp"));
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
@@ -26,26 +24,25 @@ public class Charmander extends Pokemon {
     setExpAtCurrentLevel(calculateExpAtCurrentLevel());
     setLevelToEvolve(16);
   }
-
   /**
-   * Get the profile ID of Charmander.
+   * Get the profile ID of Abra.
    *
-   * @return an integer which is the profile ID of Charmander.
+   * @return an integer which is the profile ID of Abra.
    */
   @Override
   public int getProfileID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.charmander;
+    return R.drawable.abra;
   }
 
   /**
-   * Get the profile back ID of Charmander.
+   * Get the profile back ID of Abra.
    *
-   * @return an integer which is the profile ID of the back of Charmander.
+   * @return an integer which is the profile ID of the back of Abra.
    */
   @Override
   public int getProfileBackID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.charmander_back;
+    return R.drawable.abra_back;
   }
 }

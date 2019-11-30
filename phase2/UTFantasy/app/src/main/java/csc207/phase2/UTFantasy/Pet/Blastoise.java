@@ -1,51 +1,48 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.Tackle;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Squirtle extends Pokemon {
-  /** Constructor of a Squirtle. */
-  public Squirtle() {
+public class Blastoise extends Pokemon {
+  /** Constructor of a Blastoise. */
+  public Blastoise() {
     super();
     setType1(TypeMap.type.WATER);
-    setPokemonName("Squirtle");
-    skills[0] = new Tackle();
-    setProfileID(R.drawable.squirtle);
-    setProfileID(R.drawable.squirtle_back);
-    setBaseHp(44);
-    setBaseAttack(48);
-    setBaseDefense(65);
-    setBaseSpeed(43);
+    setProfileID(R.drawable.blastoise);
+    setProfileBackID(R.drawable.blastoise_back);
+    setPokemonName("Blastoise");
+    setBaseHp(79);
+    setBaseAttack(85);
+    setBaseDefense(105);
+    setBaseSpeed(78);
     setHp(calculateStatistic("hp"));
     setAttack(calculateStatistic("attack"));
     setDefense(calculateStatistic("defense"));
     setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
+    setGrowType("slow");
     setExpToLevelUp(calculateExpToLevelUp());
     setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(16);
+    setLevelToEvolve(1000);
   }
-
   /**
-   * Get the profile ID of Squirtle.
+   * Get the profile ID of Blastoise.
    *
-   * @return an integer which is the profile ID of Squirtle.
+   * @return an integer which is the profile ID of Blastoise.
    */
   @Override
   public int getProfileID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.squirtle;
+    return R.drawable.blastoise;
   }
 
   /**
-   * Get the profile back ID of Squirtle.
+   * Get the profile back ID of Blastoise.
    *
-   * @return an integer which is the profile ID of the back of Squirtle.
+   * @return an integer which is the profile ID of the back of Blastoise.
    */
   @Override
   public int getProfileBackID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.squirtle_back;
+    return R.drawable.blastoise_back;
   }
 }
