@@ -15,10 +15,12 @@ public class MapPresenter implements MapDrawer {
   // all the bitmaps used to draw
   private Bitmap lawn;
   private Bitmap tree;
+  private Bitmap redtree;
   private Bitmap fightNpc;
   private Bitmap sellerNpc;
   private Bitmap healerNpc;
   private Bitmap pokemonBall;
+  private Bitmap hallOfFame;
   /** the Bitmaps of the character upwards */
   private Bitmap upPlayer0;
 
@@ -75,10 +77,12 @@ public class MapPresenter implements MapDrawer {
   private void initializeBitMap() {
     lawn = getBitmap(R.drawable.lawn, (float) 2, (float) 2);
     tree = getBitmap(R.drawable.tree, (float) 2, (float) 2);
+    redtree = getBitmap(R.drawable.redtree, (float) 2, (float) 2);
     fightNpc = getBitmap(R.drawable.professor, 2, 2);
     sellerNpc = getBitmap(R.drawable.big_mom, (float) 2.5, (float) 2.5);
     healerNpc = getBitmap(R.drawable.joy, 1, 1);
     pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.3, (float) 0.3);
+    hallOfFame = getBitmap(R.drawable.halloffame, (float) 2.2, (float) 2);
     // initialize the bitmap of player
     upPlayer0 = getBitmap(R.drawable.boy_up_0, 1, 1);
     upPlayer1 = getBitmap(R.drawable.boy_up_1, 1, 1);
@@ -121,6 +125,9 @@ public class MapPresenter implements MapDrawer {
             case TREE:
               bitmap = tree;
               break;
+            case REDTREE:
+              bitmap = redtree;
+              break;
             case PROFESSOR:
               bitmap = fightNpc;
               break;
@@ -132,6 +139,9 @@ public class MapPresenter implements MapDrawer {
               break;
             case POKEMONBALL:
               bitmap = pokemonBall;
+              break;
+            case HALLOFFAME:
+              bitmap = hallOfFame;
           }
 
           if (bitmap != null) {
@@ -216,9 +226,7 @@ public class MapPresenter implements MapDrawer {
   public void hideDialogue() {
     activityModel.showButtons();
     activityModel.closeDiagloue();
-  }
-
-  ;
+  };
 
   @Override
   public void goToBattleActivity(String npcName) {

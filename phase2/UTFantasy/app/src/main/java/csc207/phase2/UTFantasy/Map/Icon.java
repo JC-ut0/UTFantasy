@@ -3,7 +3,8 @@ package csc207.phase2.UTFantasy.Map;
 public enum Icon {
     LAWN,
     TREE,
-    TREEIMAGE,
+    BLOCK,
+    REDTREE,
 
     UPPLAYER0,
     UPPLAYER1,
@@ -26,5 +27,7 @@ public enum Icon {
     ALICE,
     JOY,
 
-    POKEMONBALL
+    POKEMONBALL,
+
+    HALLOFFAME
 }

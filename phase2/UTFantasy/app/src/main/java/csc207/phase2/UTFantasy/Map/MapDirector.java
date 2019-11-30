@@ -17,6 +17,7 @@ public class MapDirector {
     mapBuilder.buildTree();
     mapBuilder.buildRoad();
     mapBuilder.buildWater();
+    mapBuilder.buildBuilding();
     mapBuilder.buildNpc();
     map = mapBuilder.getProduct();
     player.setPlayerMap(map);

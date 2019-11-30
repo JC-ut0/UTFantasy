@@ -34,7 +34,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -43,17 +43,16 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
-      highMap[18][1] = new UnitDraw(Icon.TREEIMAGE);
     }
     for (int y = 0; y < mapHeight - 2; y++) { // right vertical border
       for (int x = 38; x < 40; x++) {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -62,7 +61,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -72,7 +71,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -81,7 +80,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -90,7 +89,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -99,7 +98,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -108,7 +107,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -117,7 +116,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -126,7 +125,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -135,7 +134,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -144,7 +143,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -153,7 +152,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -162,7 +161,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -171,7 +170,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -180,7 +179,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -189,7 +188,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -198,7 +197,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -207,7 +206,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -216,7 +215,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -225,7 +224,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -234,7 +233,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -243,7 +242,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -252,7 +251,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -261,7 +260,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -270,7 +269,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -279,7 +278,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -288,7 +287,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -297,7 +296,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -306,7 +305,7 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -315,7 +314,34 @@ public class MapBuilder {
         if (x % 2 == 0 && y % 2 == 0) {
           highMap[x][y] = new UnitDraw(Icon.TREE);
         } else {
-          highMap[x][y] = new UnitDraw(Icon.TREEIMAGE);
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
+    for (int y = 75; y < 77; y++) {
+      for (int x = 35; x < 37; x++) {
+        if (x % 2 == 1 && y % 2 == 1) {
+          highMap[x][y] = new UnitDraw(Icon.REDTREE);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
+    for (int y = 6; y < 8; y++) {
+      for (int x = 32; x < 34; x++) {
+        if (x % 2 == 0 && y % 2 == 0) {
+          highMap[x][y] = new UnitDraw(Icon.REDTREE);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
+    for (int y = 34; y < 36; y++) {
+      for (int x = 34; x < 36; x++) {
+        if (x % 2 == 0 && y % 2 == 0) {
+          highMap[x][y] = new UnitDraw(Icon.REDTREE);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
         }
       }
     }
@@ -324,6 +350,19 @@ public class MapBuilder {
   public void buildRoad() {}
 
   public void buildWater() {}
+
+  public void buildBuilding() {
+    for (int x = 2; x < 14; x++) {
+      for (int y = 95; y < 101; y++) {
+        if (x == 2 && y == 95) {
+          highMap[x][y] = new UnitDraw(Icon.HALLOFFAME);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
+    highMap[13][94] = new UnitDraw(Icon.BLOCK);
+  }
 
   public void buildNpc() {
     NPC npc;
