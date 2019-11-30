@@ -135,3 +135,8 @@ structure in the uml. Change constant variables used in map and character to enu
 File affected: Package(mapUI, mapDomain, npcDomain)
 Try to package map and npc system by ports and adapters. Apply strategy pattern to NPC.duty. Add
 functionality that some npc can display icon when dialogue is ongoing.
+
+########
+# Step 23
+File affected: PlayerInfoActivity
+update PlayerInfoActivity to show the top percentile of the player ordered by pokemon max level
