@@ -13,10 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
+import csc207.phase2.UTFantasy.Activities.scoreboard.ScoreCalculator;
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.Character.PlayerComparator.PlayerPokemonLvComparator;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.InfoMediator;
+import csc207.phase2.UTFantasy.mapUI.MainActivity;
 import csc207.phase2.UTFantasy.R;
 
 public class PlayerInfoActivity extends AppCompatActivity {
@@ -26,8 +26,9 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
-
+  /** The information mediator. */
   private InfoMediator infoMediator;
+  /** The checkbox for showing score*/
   private CheckBox showingScoreCheckBox;
 
   @Override
@@ -49,15 +50,15 @@ public class PlayerInfoActivity extends AppCompatActivity {
     setMoney();
   }
 
-    @SuppressLint("SetTextI18n")
-    private void setPlayerStatistics() {
-        TextView percentile = findViewById(R.id.percentile);
-        percentile.setText(getTopPercentilByPokemonLv(player));
-        TextView numPokemonOwned = findViewById(R.id.pokemonNum);
-        numPokemonOwned.setText("Number Pokemons Owned:" + player.getPokemonList().size());
-        TextView maxPokemonLV = findViewById(R.id.pokemonLV);
-        maxPokemonLV.setText("Highest Pokemons Level:" + player.getPlayerPokemonMaxLV());
-    }
+  @SuppressLint("SetTextI18n")
+  private void setPlayerStatistics() {
+    TextView percentile = findViewById(R.id.percentile);
+    percentile.setText(getTopPercentilByPokemonLv(player));
+    TextView numPokemonOwned = findViewById(R.id.pokemonNum);
+    numPokemonOwned.setText("Number Pokemons Owned:" + player.getPokemonList().size());
+    TextView maxPokemonLV = findViewById(R.id.pokemonLV);
+    maxPokemonLV.setText("Highest Pokemons Level:" + player.getPlayerPokemonMaxLV());
+  }
 
   private void setScoreCheckBox() {
     showingScoreCheckBox = findViewById(R.id.showingScore);
@@ -97,7 +98,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              onBackPressed();
+            onBackPressed();
           }
         });
   }
@@ -108,18 +109,10 @@ public class PlayerInfoActivity extends AppCompatActivity {
     } else player.setShowingScore(true);
   }
 
-    public String getTopPercentilByPokemonLv(Player player) {
-        UserIO userIO = UserIO.getSingletonUserIo();
-        List<Player> playerList = userIO.getUserData().getScoreBoardPlayerList();
-        int maxPokemonLv = player.getPlayerPokemonMaxLV();
-        PlayerPokemonLvComparator comparator = new PlayerPokemonLvComparator();
-        playerList.sort(comparator.reversed());
-        int i;
-        for (i = 0; i < playerList.size(); i++) {
-            if (comparator.compare(player, playerList.get(i)) >= 0) {
-                return "Top" + (i + 1);
-            }
-        }
-        return "Top " + i;
-    }
+  public String getTopPercentilByPokemonLv(Player player) {
+    UserIO userIO = UserIO.getSingletonUserIo();
+    List<Player> playerList = userIO.getUserData().getScoreBoardPlayerList();
+    ScoreCalculator scoreCalculator = new ScoreCalculator(playerList);
+    return scoreCalculator.getTopPercentilByPokemonLv(player);
+  }
 }

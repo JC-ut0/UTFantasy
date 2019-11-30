@@ -17,6 +17,7 @@ public class Player extends Person {
   private HashMap<Product, Integer> bag;
   private boolean showingScore = true;
   private WildPokemonObserver obserber;
+  private Product selectedProduct;
 
   /**
    * construct a new player
@@ -71,7 +72,16 @@ public class Player extends Person {
   }
 
   public HashMap<Product, Integer> getBag() {
-    return bag;
+     return bag;
+
+  }
+
+  public Product getSelectedProduct() {
+    return selectedProduct;
+  }
+
+  public void setSelectedProduct(Product selectedProduct) {
+    this.selectedProduct = selectedProduct;
   }
 
   /** add num of item's to the player's bag */
@@ -128,5 +138,4 @@ public class Player extends Person {
     this.obserber = observer;
   }
 
-  ;
 }

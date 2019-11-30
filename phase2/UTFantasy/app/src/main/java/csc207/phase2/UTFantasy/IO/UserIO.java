@@ -105,6 +105,7 @@ public class UserIO implements UserIOInterface {
     }
   }
 
+  /** This method is only used for demo, should not be include in this class.*/
     private void createNewUserData() {
         userData = new UserData();
         User user = new User("yimi", "20191128");

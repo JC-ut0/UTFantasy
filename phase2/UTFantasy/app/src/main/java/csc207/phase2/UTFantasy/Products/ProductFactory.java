@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Products;
 
+/** Use Factory Design Pattern to create products. */
 class ProductFactory {
 
   Product makePotion(ProductName potion) {

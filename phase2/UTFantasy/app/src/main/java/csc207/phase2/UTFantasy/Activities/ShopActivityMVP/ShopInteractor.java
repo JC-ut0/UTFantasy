@@ -1,17 +1,19 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.ShopActivityMVP;
 
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.Character.PlayerManager;
 import csc207.phase2.UTFantasy.Products.Product;
 
 public class ShopInteractor {
 
   /** the player */
-  private Player player;
-
+  private PlayerManager playerManager;
+  /** total cost of selected amount of product */
   private int total;
-
+  /** the selected product */
   private Product product = null;
 
+  /** an interface used to interact with presenter */
   interface Listener {
     void showMessage(String tradeInfo);
 
@@ -22,38 +24,39 @@ public class ShopInteractor {
     void updateSelected(int n);
   }
 
-  ShopInteractor(Player player) {
-    this.player = player;
+  ShopInteractor(PlayerManager playerManager) {
+    this.playerManager = playerManager;
   }
 
+  /** return the number of given product in player's bag */
   int countProducts(Product product) {
-    Integer n = player.getBag().get(product);
+    Integer n = playerManager.getBag().get(product);
     if (n != null) {
       return n;
     } else {
       return 0;
     }
   }
-
+  /** return amount of money in player's bag */
   int countMoney() {
-    return player.getMoney();
+    return playerManager.getMoney();
   }
-
+  /** assign value to variable product */
   public void setProduct(Product product) {
     this.product = product;
   }
-
+  /** calculate total cost of given number of products */
   int calculateTotal(int n) {
     return n * product.getPrice();
   }
-
+  /** Update the amount of product and money in player's bag. */
   void trade(int total, int amount, Listener listener) {
     if (total != 0) {
       this.total = total;
       if (canAfford()) {
         int money = countMoney() - total;
-        player.setMoney(money);
-        player.addItem(product, amount);
+        playerManager.setMoney(money);
+        playerManager.addItem(product, amount);
         listener.updateMoneyLeft(money);
         listener.updateProductsInBag(countProducts(product));
         listener.showMessage("You have purchased " + amount + " " + product.getName() + "（s）.");
@@ -65,23 +68,23 @@ public class ShopInteractor {
       listener.showMessage("Please add products!");
     }
   }
-
+  /** return the value of variable product */
   Product getProduct() {
     return product;
   }
-
+  /** Check if player has enough money to buy certain number of product. */
   private boolean canAfford() {
     return total <= countMoney();
   }
-
+  /** return the image resource of product */
   int getProductImage() {
     return product.getProfile_id();
   }
-
+  /** return the name of product */
   String getProductName() {
     return product.getName();
   }
-
+  /** return the description of product */
   String getProductDescription() {
     return product.toString();
   }

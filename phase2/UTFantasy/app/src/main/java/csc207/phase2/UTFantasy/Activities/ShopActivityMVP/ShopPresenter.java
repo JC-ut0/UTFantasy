@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.ShopActivityMVP;
 
 import csc207.phase2.UTFantasy.Products.Product;
 
@@ -11,6 +11,10 @@ public class ShopPresenter implements ShopInteractor.Listener {
     this.shopView = shopView;
   }
 
+  /***
+   * Update all information of the product and initialize the TextViews.
+   * @param product the chosen product
+   */
   void updateAll(Product product) {
     shopInteractor.setProduct(product);
     int n = shopInteractor.countProducts(product);
@@ -27,10 +31,12 @@ public class ShopPresenter implements ShopInteractor.Listener {
     }
   }
 
+  /** return the chosen product*/
   Product getProduct() {
     return shopInteractor.getProduct();
   }
 
+  /** Call showMessage method in ShopView, called by ShopInteractor. */
   @Override
   public void showMessage(String message) {
     if (shopView != null) {
@@ -38,6 +44,7 @@ public class ShopPresenter implements ShopInteractor.Listener {
     }
   }
 
+  /** Update the number of product selected and the total cost of selected product. */
   @Override
   public void updateSelected(int n) {
     if (shopView != null) {
@@ -47,6 +54,7 @@ public class ShopPresenter implements ShopInteractor.Listener {
     }
   }
 
+  /** Update the number of product in bag in ShopView. */
   @Override
   public void updateProductsInBag(int n) {
     if (shopView != null) {
@@ -54,6 +62,7 @@ public class ShopPresenter implements ShopInteractor.Listener {
     }
   }
 
+  /** Update the number of money in bag in ShopView. */
   @Override
   public void updateMoneyLeft(int n) {
     if (shopView != null) {
@@ -61,6 +70,7 @@ public class ShopPresenter implements ShopInteractor.Listener {
     }
   }
 
+  /** It is used to purchase products in shop. */
   void trade(int total, int amount) {
     shopInteractor.trade(total, amount, this);
   }
