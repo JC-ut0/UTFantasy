@@ -77,7 +77,7 @@ public class BattleData {
         this.skill = skill;
     }
 
-    public double getTypeIndex(TypeMap.type attackType, TypeMap.type defendType) {
+    public double getTypeIndex(TypeMap.TypeEnum attackType, TypeMap.TypeEnum defendType) {
         return typeMap.getTypeIndex(attackType, defendType);
     }
 

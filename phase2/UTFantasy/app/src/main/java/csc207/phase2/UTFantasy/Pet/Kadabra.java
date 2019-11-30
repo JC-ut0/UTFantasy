@@ -7,7 +7,7 @@ public class Kadabra extends Pokemon {
   /** Constructor of a Kadabra. */
   public Kadabra() {
     super();
-    setType1(TypeMap.type.PSYCHIC);
+      setType1(TypeMap.TypeEnum.PSYCHIC);
     setProfileID(R.drawable.kadabra);
     setProfileBackID(R.drawable.kadabra_back);
     setPokemonName("Kadabra");

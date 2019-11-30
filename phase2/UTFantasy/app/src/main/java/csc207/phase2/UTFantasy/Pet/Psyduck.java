@@ -9,7 +9,7 @@ public class Psyduck extends Pokemon {
   /** Constructor of a Psyduck. */
   public Psyduck() {
     super();
-    setType1(TypeMap.type.WATER);
+    setType1(TypeMap.TypeEnum.WATER);
     setPokemonName("Psyduck");
     skills[0] = new Scratch();
     skills[1] = new HydroPump();

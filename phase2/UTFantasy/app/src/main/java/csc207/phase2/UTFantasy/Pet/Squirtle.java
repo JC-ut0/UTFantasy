@@ -8,7 +8,7 @@ public class Squirtle extends Pokemon {
   /** Constructor of a Squirtle. */
   public Squirtle() {
     super();
-    setType1(TypeMap.type.WATER);
+    setType1(TypeMap.TypeEnum.WATER);
     setPokemonName("Squirtle");
     skills[0] = new Tackle();
     setProfileID(R.drawable.squirtle);

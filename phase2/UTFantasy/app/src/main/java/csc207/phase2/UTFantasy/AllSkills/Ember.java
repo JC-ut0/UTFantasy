@@ -9,7 +9,7 @@ public class Ember extends Skill {
   public Ember() {
     power = 40;
     pp = 25;
-      type = TypeMap.type.FIRE;
+      type = TypeMap.TypeEnum.FIRE;
     name = "Ember";
   }
 

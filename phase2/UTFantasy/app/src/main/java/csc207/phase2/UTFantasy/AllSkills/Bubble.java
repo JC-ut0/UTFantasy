@@ -8,7 +8,7 @@ public class Bubble extends Skill {
   /** Constructor of a Bubble Skill. */
   public Bubble() {
     name = "Bubble";
-      type = TypeMap.type.WATER;
+      type = TypeMap.TypeEnum.WATER;
     power = 20;
     pp = 30;
   }

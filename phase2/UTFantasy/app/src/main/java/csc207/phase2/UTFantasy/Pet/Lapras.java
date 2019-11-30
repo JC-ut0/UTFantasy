@@ -7,8 +7,8 @@ public class Lapras extends Pokemon {
   /** Constructor of a Lapras. */
   public Lapras() {
     super();
-    setType1(TypeMap.type.WATER);
-    setType2(TypeMap.type.ICE);
+      setType1(TypeMap.TypeEnum.WATER);
+      setType2(TypeMap.TypeEnum.ICE);
     setProfileID(R.drawable.lapras);
     setProfileBackID(R.drawable.lapras_back);
     setPokemonName("Lapras");

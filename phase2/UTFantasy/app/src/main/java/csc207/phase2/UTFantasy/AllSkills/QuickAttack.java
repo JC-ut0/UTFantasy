@@ -9,7 +9,7 @@ public class QuickAttack extends Skill {
   public QuickAttack() {
     power = 40;
     pp = 30;
-      type = TypeMap.type.NORMAL;
+      type = TypeMap.TypeEnum.NORMAL;
     name = "Quick Attack";
   }
 

@@ -5,25 +5,20 @@ import csc207.phase2.UTFantasy.R;
 
 public class Metang extends Pokemon {
   /** Constructor of a Metang. */
-  public Metang() {
-    super();
-    setType1(TypeMap.type.STEEL);
-    setType1(TypeMap.type.PSYCHIC);
-    setProfileID(R.drawable.metang);
-    setProfileBackID(R.drawable.metang_back);
-    setPokemonName("Metang");
-    setBaseHp(60);
-    setBaseAttack(65);
-    setBaseDefense(90);
-    setBaseSpeed(50);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(45);
+  Metang(int level) {
+    super(
+            level,
+            TypeMap.TypeEnum.STEEL,
+            TypeMap.TypeEnum.PSYCHIC,
+            R.drawable.metang,
+            R.drawable.metang_back,
+            "Metang",
+            60,
+            65,
+            90,
+            50,
+            "slow",
+            45);
   }
   /**
    * Get the profile ID of Metang.

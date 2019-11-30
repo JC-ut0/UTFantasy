@@ -7,8 +7,8 @@ public class CharizardShiny extends Pokemon {
   /** Constructor of a Shiny Charizard. */
   public CharizardShiny() {
     super();
-    setType1(TypeMap.type.FIRE);
-    setType2(TypeMap.type.FLYING);
+      setType1(TypeMap.TypeEnum.FIRE);
+      setType2(TypeMap.TypeEnum.FLYING);
     setProfileID(R.drawable.charizard_shiny);
     setProfileBackID(R.drawable.charizard_shiny_back);
     setPokemonName("Charizard");

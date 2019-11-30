@@ -7,8 +7,8 @@ public class Ivysaur extends Pokemon {
   /** Constructor of a Ivysaur. */
   public Ivysaur() {
     super();
-    setType1(TypeMap.type.GRASS);
-    setType2(TypeMap.type.POISON);
+      setType1(TypeMap.TypeEnum.GRASS);
+      setType2(TypeMap.TypeEnum.POISON);
     setProfileID(R.drawable.ivysaur);
     setProfileBackID(R.drawable.ivysaur_back);
     setPokemonName("Ivysaur");

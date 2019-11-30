@@ -7,8 +7,8 @@ public class Beldum extends Pokemon {
   /** Constructor of a Beldum. */
   public Beldum() {
     super();
-    setType1(TypeMap.type.STEEL);
-    setType1(TypeMap.type.PSYCHIC);
+      setType1(TypeMap.TypeEnum.STEEL);
+      setType1(TypeMap.TypeEnum.PSYCHIC);
     setProfileID(R.drawable.beldum);
     setProfileBackID(R.drawable.beldum_back);
     setPokemonName("Beldum");

@@ -10,7 +10,7 @@ public class Tackle extends Skill {
     name = "Tackle";
     power = 35;
     pp = 35;
-      type = TypeMap.type.NORMAL;
+      type = TypeMap.TypeEnum.NORMAL;
   }
 
   /**

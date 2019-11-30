@@ -10,7 +10,7 @@ public class Pound extends Skill {
     name = "Pound";
     power = 40;
     pp = 35;
-      type = TypeMap.type.NORMAL;
+      type = TypeMap.TypeEnum.NORMAL;
   }
 
   /**

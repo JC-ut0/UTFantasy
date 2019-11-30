@@ -7,8 +7,8 @@ public class Venusaur extends Pokemon {
   /** Constructor of a Venusaur. */
   public Venusaur() {
     super();
-    setType1(TypeMap.type.GRASS);
-    setType2(TypeMap.type.POISON);
+      setType1(TypeMap.TypeEnum.GRASS);
+      setType2(TypeMap.TypeEnum.POISON);
     setProfileID(R.drawable.venusaur);
     setProfileBackID(R.drawable.venusaur_back);
     setPokemonName("Venusaur");

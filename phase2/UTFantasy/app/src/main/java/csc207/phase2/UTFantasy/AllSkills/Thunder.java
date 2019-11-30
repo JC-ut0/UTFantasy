@@ -9,7 +9,7 @@ public class Thunder extends Skill {
   public Thunder() {
     power = 120;
     pp = 10;
-      type = TypeMap.type.ELECTRIC;
+      type = TypeMap.TypeEnum.ELECTRIC;
     name = "Thunder";
   }
 

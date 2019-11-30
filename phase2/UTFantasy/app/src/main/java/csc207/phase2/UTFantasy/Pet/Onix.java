@@ -7,8 +7,8 @@ public class Onix extends Pokemon {
   /** Constructor of a Onix. */
   public Onix() {
     super();
-    setType1(TypeMap.type.ROCK);
-    setType2(TypeMap.type.GROUND);
+      setType1(TypeMap.TypeEnum.ROCK);
+      setType2(TypeMap.TypeEnum.GROUND);
     setProfileID(R.drawable.onix);
     setProfileBackID(R.drawable.onix_back);
     setPokemonName("Onix");

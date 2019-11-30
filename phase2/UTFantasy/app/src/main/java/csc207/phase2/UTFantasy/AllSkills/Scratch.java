@@ -9,7 +9,7 @@ public class Scratch extends Skill {
   public Scratch() {
     power = 40;
     pp = 35;
-      type = TypeMap.type.NORMAL;
+      type = TypeMap.TypeEnum.NORMAL;
     name = "Scratch";
   }
 

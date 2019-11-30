@@ -9,7 +9,7 @@ public class Thunderblot extends Skill {
   public Thunderblot() {
     power = 95;
     pp = 15;
-      type = TypeMap.type.ELECTRIC;
+      type = TypeMap.TypeEnum.ELECTRIC;
     name = "Thunder Blot";
   }
 

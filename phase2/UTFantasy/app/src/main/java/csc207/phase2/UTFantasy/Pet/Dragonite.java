@@ -7,8 +7,8 @@ public class Dragonite extends Pokemon {
   /** Constructor of a Dragonite */
   public Dragonite() {
     super();
-    setType1(TypeMap.type.DRAGON);
-    setType1(TypeMap.type.FLYING);
+      setType1(TypeMap.TypeEnum.DRAGON);
+      setType1(TypeMap.TypeEnum.FLYING);
     setProfileID(R.drawable.dragonite);
     setProfileBackID(R.drawable.dragonite_back);
     setPokemonName("Dragonite");

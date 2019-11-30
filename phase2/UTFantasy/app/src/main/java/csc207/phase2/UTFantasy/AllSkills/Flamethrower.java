@@ -10,7 +10,7 @@ public class Flamethrower extends Skill {
   public Flamethrower() {
     power = 95;
     pp = 15;
-      type = TypeMap.type.FIRE;
+      type = TypeMap.TypeEnum.FIRE;
     name = "Flamethrower";
   }
 

@@ -9,7 +9,7 @@ public class HydroPump extends Skill {
   /** Constructor of a HydroPump Skill. */
   public HydroPump() {
     name = "Hydro Pump";
-      type = TypeMap.type.WATER;
+      type = TypeMap.TypeEnum.WATER;
     power = 120;
     pp = 5;
   }

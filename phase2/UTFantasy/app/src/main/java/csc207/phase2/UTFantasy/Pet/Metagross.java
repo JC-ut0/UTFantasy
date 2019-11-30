@@ -7,8 +7,8 @@ public class Metagross extends Pokemon {
   /** Constructor of a Metagross. */
   public Metagross() {
     super();
-    setType1(TypeMap.type.STEEL);
-    setType1(TypeMap.type.PSYCHIC);
+      setType1(TypeMap.TypeEnum.STEEL);
+      setType1(TypeMap.TypeEnum.PSYCHIC);
     setProfileID(R.drawable.metagross);
     setProfileBackID(R.drawable.metagross_back);
     setPokemonName("Metagross");

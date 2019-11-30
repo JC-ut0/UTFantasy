@@ -7,8 +7,8 @@ public class Bulbasaur extends Pokemon {
   /** Constructor of a Bulbasaur. */
   public Bulbasaur() {
     super();
-    setType1(TypeMap.type.GRASS);
-    setType2(TypeMap.type.POISON);
+      setType1(TypeMap.TypeEnum.GRASS);
+      setType2(TypeMap.TypeEnum.POISON);
     setProfileID(R.drawable.bulbasaur);
     setProfileBackID(R.drawable.bulbasaur_back);
     setPokemonName("Bulbasaur");

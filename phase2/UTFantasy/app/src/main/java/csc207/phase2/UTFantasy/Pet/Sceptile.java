@@ -7,7 +7,7 @@ public class Sceptile extends Pokemon {
   /** Constructor of a Sceptile.*/
   public Sceptile() {
     super();
-    setType1(TypeMap.type.GRASS);
+      setType1(TypeMap.TypeEnum.GRASS);
     setProfileID(R.drawable.sceptile);
     setProfileBackID(R.drawable.sceptile_back);
     setPokemonName("Sceptile");
