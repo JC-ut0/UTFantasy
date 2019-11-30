@@ -2,6 +2,7 @@ package csc207.phase2.UTFantasy.Battle;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import csc207.phase2.UTFantasy.Activities.ProductSelectActivity;
 import csc207.phase2.UTFantasy.Character.PlayerComparator.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
@@ -25,6 +27,7 @@ import csc207.phase2.UTFantasy.Pet.Squirtle;
 import csc207.phase2.UTFantasy.R;
 
 public class BattleActivity extends AppCompatActivity implements BattleActivityModel {
+    private String username;
     /**
      * the bottom layout
      */
@@ -58,6 +61,7 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
     ImageView myPokemon;
 
     ImageView rivalPokemon;
+    ImageView catchAnimation;
     /**
      * healthBar
      */
@@ -139,8 +143,8 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UserIO userIO = UserIO.getSingletonUserIo();
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
+        final Intent intent = getIntent();
+        username = intent.getStringExtra("username");
         Player player = userIO.getUserData().getUser(username).getPlayer();
 
         String NPCname = intent.getStringExtra("npcName");
@@ -154,7 +158,7 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
         }
         NPC rival = npc;
         initializeLayOuts();
-        BattlePresenter presenter = new BattlePresenter(this);
+        final BattlePresenter presenter = new BattlePresenter(this);
         interactor = new BattleInteractor(new BattleData(player, rival), presenter);
         controller = new BattleController(interactor, presenter);
 
@@ -166,7 +170,7 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
                     }
                 });
 
-        // implement menu buttons onClickListener
+        // implement fight button onClickListener
         fight.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -174,6 +178,21 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
                         menuSection.setVisibility(View.GONE);
                         battleSection.setVisibility(View.GONE);
                         fightBox.setVisibility(View.VISIBLE);
+                    }
+                });
+
+        // implement bag button onclickListener
+        bag.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        menuSection.setVisibility(View.GONE);
+                        battleSection.setVisibility(View.GONE);
+                        Intent intent = new Intent(BattleActivity.this, ProductSelectActivity.class);
+                        intent.putExtra("username", username);
+                        startActivity(intent);
+                        controller.useItem();
+                        showText("...");
                     }
                 });
 
@@ -332,6 +351,7 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
 
     @Override
     public void showText(String text) {
+        battleSection.setVisibility(View.VISIBLE);
         battleInfo.setText(text);
     }
 
@@ -419,6 +439,27 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
         skill_4.setText(skill4);
     }
 
+    @Override
+    public void showCatch() {
+        rivalPokemon.setVisibility(View.GONE);
+        catchAnimation.setVisibility(View.VISIBLE);
+        ((AnimationDrawable) catchAnimation.getBackground()).start();
+    }
+
+    @Override
+    public void hideCatch() {
+        ((AnimationDrawable) catchAnimation.getBackground()).stop();
+        catchAnimation.setVisibility(View.GONE);
+        rivalPokemon.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showCaught() {
+        rivalPokemon.setVisibility(View.GONE);
+        catchAnimation.setBackground(getResources().getDrawable(R.drawable.pokeballcatched, null));
+        catchAnimation.setVisibility(View.VISIBLE);
+    }
+
     /**
      * Initialize layouts.
      */
@@ -448,6 +489,8 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
         // Pokemon View
         myPokemon = findViewById(R.id.myPokemon);
         rivalPokemon = findViewById(R.id.rivalPokemon);
+
+        catchAnimation = findViewById(R.id.catchAnimation);
         // healthBar
         myHealth = findViewById(R.id.myHealthBar);
         rivalHealth = findViewById(R.id.rivalHealthBar);

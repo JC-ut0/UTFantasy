@@ -83,8 +83,10 @@ public class BattleData {
 
     enum Action {
         FIGHT,
-        HEAL,
+        USEITEM,
         CATCH,
+        CATCHDECISION,
+        HEAL,
         CHANGEPOKEMON,
         OPENMENU,
         END

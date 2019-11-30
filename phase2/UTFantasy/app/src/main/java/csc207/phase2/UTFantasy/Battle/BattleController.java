@@ -4,11 +4,9 @@ import csc207.phase2.UTFantasy.AllSkills.Skill;
 
 public class BattleController {
     private BattleInteractor interactor;
-    private BattlePresenter presenter;
 
     public BattleController(BattleInteractor interactor, BattlePresenter presenter) {
         this.interactor = interactor;
-        this.presenter = presenter;
     }
 
     public void skillClick(int i) {
@@ -29,6 +27,10 @@ public class BattleController {
 
     public void choosePokemon(int i) {
         interactor.choosePokemon(i);
+    }
+
+    public void useItem() {
+        interactor.useItem();
     }
 
 }

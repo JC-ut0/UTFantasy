@@ -140,3 +140,8 @@ functionality that some npc can display icon when dialogue is ongoing.
 # Step 23
 File affected: PlayerInfoActivity
 update PlayerInfoActivity to show the top percentile of the player ordered by pokemon max level
+
+########
+# Step 24
+File affected: Package:Battle, PokemonBall
+Add functionality that player can catch or heal pokemon.

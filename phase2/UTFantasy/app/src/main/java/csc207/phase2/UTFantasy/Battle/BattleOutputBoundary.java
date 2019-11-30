@@ -34,4 +34,10 @@ public interface BattleOutputBoundary {
     void setSkill3(String skill3);
 
     void setSkill4(String skill4);
+
+    void showCatch();
+
+    void hideCatch();
+
+    void showCaught();
 }

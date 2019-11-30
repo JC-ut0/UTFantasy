@@ -1,15 +1,15 @@
 package csc207.phase2.UTFantasy.Products;
 
-abstract class PokemonBall extends Product {
+public abstract class PokemonBall extends Product {
   /** the probability of catching a pokemon, range from 0 to 1 */
-  private double getCaught;
+  private double getRate;
 
-  PokemonBall(String name, int price, int imageRes, double getCaught) {
+  PokemonBall(String name, int price, int imageRes, double getRate) {
     super(name, price, imageRes);
-    this.getCaught = getCaught;
+    this.getRate = getRate;
   }
 
-  double getGetCaught() {
-    return getCaught;
+  public double getRate() {
+    return getRate;
   }
 }

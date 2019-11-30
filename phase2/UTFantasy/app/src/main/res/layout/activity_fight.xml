@@ -25,6 +25,19 @@
             android:layout_marginEnd="135dp"
             android:layout_marginBottom="99dp" />
 
+
+        <ImageView
+            android:id="@+id/catchAnimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/catch_animation"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="170dp"
+            android:layout_marginBottom="99dp"
+            android:visibility="gone" />
+
+
         <ImageView
             android:id="@+id/myPokemon"
             android:layout_width="168dp"
@@ -93,6 +106,7 @@
             android:text="0/0"
             android:textColor="@android:color/background_dark" />
 
+
     </RelativeLayout>
 
     <LinearLayout
@@ -112,8 +126,8 @@
 
             <TextView
                 android:id="@+id/battle_info"
-                android:layout_width="240dp"
-                android:layout_height="98dp"
+                android:layout_width="298dp"
+                android:layout_height="95dp"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="114dp"

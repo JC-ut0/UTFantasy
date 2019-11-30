@@ -104,4 +104,20 @@ public class BattlePresenter implements BattleOutputBoundary {
     public void setSkill4(String skill4) {
         activityModel.setSkill4(skill4);
     }
+
+    @Override
+    public void showCatch() {
+        activityModel.showCatch();
+    }
+
+    @Override
+    public void hideCatch() {
+        activityModel.hideCatch();
+    }
+
+    @Override
+    public void showCaught() {
+        activityModel.showCaught();
+    }
+
 }
