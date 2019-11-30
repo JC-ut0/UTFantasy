@@ -28,6 +28,7 @@ public class TypeMap {
     waterMap.put(type.ICE, 1.0);
     waterMap.put(type.FIGHT, 1.0);
     waterMap.put(type.POISON, 1.0);
+    waterMap.put(type.STEEL, 1.0);
 
     // the outer hash map for self is type fire
     HashMap<type, Double> fireMap = new HashMap<>();
@@ -47,6 +48,7 @@ public class TypeMap {
     fireMap.put(type.ICE, 0.5);
     fireMap.put(type.FIGHT, 1.0);
     fireMap.put(type.POISON, 1.0);
+    fireMap.put(type.STEEL, 2.0);
 
     // the outer hash map for self is type normal
     HashMap<type, Double> normalMap = new HashMap<>();
@@ -66,6 +68,7 @@ public class TypeMap {
     normalMap.put(type.ICE, 1.0);
     normalMap.put(type.FIGHT, 1.0);
     normalMap.put(type.POISON, 1.0);
+    normalMap.put(type.STEEL, 0.5);
 
     // the outer hash map for self is type electric
     HashMap<type, Double> electricMap = new HashMap<>();
@@ -85,6 +88,7 @@ public class TypeMap {
     electricMap.put(type.ICE, 1.0);
     electricMap.put(type.FIGHT, 1.0);
     electricMap.put(type.POISON, 1.0);
+    electricMap.put(type.STEEL, 1.0);
 
     // the outer hash map for self is type grass
     HashMap<type, Double> grassMap = new HashMap<>();
@@ -104,6 +108,7 @@ public class TypeMap {
     grassMap.put(type.ICE, 1.0);
     grassMap.put(type.FIGHT, 1.0);
     grassMap.put(type.POISON, 0.5);
+    grassMap.put(type.STEEL, 0.5);
 
     // the outer hash map for self is type psychic
     HashMap<type, Double> psychicMap = new HashMap<>();
@@ -123,6 +128,7 @@ public class TypeMap {
     psychicMap.put(type.ICE, 1.0);
     psychicMap.put(type.FIGHT, 2.0);
     psychicMap.put(type.POISON, 2.0);
+    psychicMap.put(type.STEEL, 0.5);
 
     // the outer hash map for self is type dragon
     HashMap<type, Double> dragonMap = new HashMap<>();
@@ -142,6 +148,7 @@ public class TypeMap {
     dragonMap.put(type.ICE, 1.0);
     dragonMap.put(type.FIGHT, 1.0);
     dragonMap.put(type.POISON, 1.0);
+    dragonMap.put(type.STEEL, 0.5);
 
     // the outer hash map for self is type flying
     HashMap<type, Double> flyingMap = new HashMap<>();
@@ -161,6 +168,7 @@ public class TypeMap {
     flyingMap.put(type.ICE, 1.0);
     flyingMap.put(type.FIGHT, 2.0);
     flyingMap.put(type.POISON, 1.0);
+    flyingMap.put(type.STEEL, 0.5);
 
     // the outer hash map for self is type ghost
     HashMap<type, Double> ghostMap = new HashMap<>();
@@ -180,6 +188,7 @@ public class TypeMap {
     ghostMap.put(type.ICE, 1.0);
     ghostMap.put(type.FIGHT, 1.0);
     ghostMap.put(type.POISON, 1.0);
+    ghostMap.put(type.STEEL, 1.0);
 
     // the outer hash map for self is type ground
     HashMap<type, Double> groundMap = new HashMap<>();
@@ -199,6 +208,7 @@ public class TypeMap {
     groundMap.put(type.ICE, 1.0);
     groundMap.put(type.FIGHT, 1.0);
     groundMap.put(type.POISON, 2.0);
+    groundMap.put(type.STEEL, 2.0);
 
     // the outer hash map for self is type rock
     HashMap<type, Double> rockMap = new HashMap<>();
@@ -218,6 +228,7 @@ public class TypeMap {
     rockMap.put(type.ICE, 2.0);
     rockMap.put(type.FIGHT, 0.5);
     rockMap.put(type.POISON, 1.0);
+    rockMap.put(type.STEEL, 0.5);
 
     // the outer hash map for self is type ice
     HashMap<type, Double> iceMap = new HashMap<>();
@@ -237,6 +248,7 @@ public class TypeMap {
     iceMap.put(type.ICE, 0.5);
     iceMap.put(type.FIGHT, 1.0);
     iceMap.put(type.POISON, 1.0);
+    iceMap.put(type.STEEL, 0.5);
 
     // the outer hash map for self is type fight
     HashMap<type, Double> fightMap = new HashMap<>();
@@ -256,6 +268,7 @@ public class TypeMap {
     fightMap.put(type.ICE, 2.0);
     fightMap.put(type.FIGHT, 1.0);
     fightMap.put(type.POISON, 0.5);
+    fightMap.put(type.STEEL, 2.0);
 
     // the outer hash map for self is type poison
     HashMap<type, Double> poisonMap = new HashMap<>();
@@ -275,6 +288,27 @@ public class TypeMap {
     poisonMap.put(type.ICE, 1.0);
     poisonMap.put(type.FIGHT, 1.0);
     poisonMap.put(type.POISON, 0.5);
+    poisonMap.put(type.STEEL, 0.0);
+
+    // the outer hash map for self is type steel
+    HashMap<type, Double> steelMap = new HashMap<>();
+    typeMap.put(type.STEEL, steelMap);
+    // the inner hash maps for steel key
+    steelMap.put(type.FIRE, 0.5);
+    steelMap.put(type.NORMAL, 1.0);
+    steelMap.put(type.WATER, 0.5);
+    steelMap.put(type.ELECTRIC, 0.5);
+    steelMap.put(type.PSYCHIC, 1.0);
+    steelMap.put(type.DRAGON, 1.0);
+    steelMap.put(type.FLYING, 1.0);
+    steelMap.put(type.GRASS, 1.0);
+    steelMap.put(type.GHOST, 1.0);
+    steelMap.put(type.GROUND, 1.0);
+    steelMap.put(type.ROCK, 2.0);
+    steelMap.put(type.ICE, 2.0);
+    steelMap.put(type.FIGHT, 1.0);
+    steelMap.put(type.POISON, 1.0);
+    steelMap.put(type.STEEL, 0.5);
   }
 
   public double getTypeIndex(type attackType, type defenseType) {
@@ -299,6 +333,7 @@ public class TypeMap {
     ROCK,
     ICE,
     FIGHT,
-    POISON;
+    POISON,
+    STEEL;
   }
 }
