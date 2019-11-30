@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
+import csc207.phase2.UTFantasy.Activities.scoreboard.ScoreCalculator;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.mapUI.MainActivity;
@@ -19,6 +23,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
   /** the player */
   private Player player;
+
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
   /** The information mediator. */
@@ -45,11 +50,12 @@ public class PlayerInfoActivity extends AppCompatActivity {
     setMoney();
   }
 
+  @SuppressLint("SetTextI18n")
   private void setPlayerStatistics() {
     TextView percentile = findViewById(R.id.percentile);
-    percentile.setText("Top %");
+    percentile.setText(getTopPercentilByPokemonLv(player));
     TextView numPokemonOwned = findViewById(R.id.pokemonNum);
-    numPokemonOwned.setText("Nmber Pokemons Owned:" + player.getPokemonList().size());
+    numPokemonOwned.setText("Number Pokemons Owned:" + player.getPokemonList().size());
     TextView maxPokemonLV = findViewById(R.id.pokemonLV);
     maxPokemonLV.setText("Highest Pokemons Level:" + player.getPlayerPokemonMaxLV());
   }
@@ -92,9 +98,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            Intent intent = new Intent(PlayerInfoActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivity(intent);
+            onBackPressed();
           }
         });
   }
@@ -103,5 +107,12 @@ public class PlayerInfoActivity extends AppCompatActivity {
     if (showingScoreCheckBox.isChecked()) {
       player.setShowingScore(false);
     } else player.setShowingScore(true);
+  }
+
+  public String getTopPercentilByPokemonLv(Player player) {
+    UserIO userIO = UserIO.getSingletonUserIo();
+    List<Player> playerList = userIO.getUserData().getScoreBoardPlayerList();
+    ScoreCalculator scoreCalculator = new ScoreCalculator(playerList);
+    return scoreCalculator.getTopPercentilByPokemonLv(player);
   }
 }
