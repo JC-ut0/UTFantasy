@@ -64,6 +64,7 @@ public class ProductSelectActivity extends AppCompatActivity {
     } else {
       onBackPressed();
       infoMediator.setSelectedPokemon(selectedProduct);
+      selectedProduct.setSelected(false);
     }
   }
 
