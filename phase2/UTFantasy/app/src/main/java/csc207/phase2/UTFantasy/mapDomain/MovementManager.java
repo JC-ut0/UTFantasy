@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
 import csc207.phase2.UTFantasy.Character.Player;
 

@@ -1,13 +1,13 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapDomain;
 
-import csc207.phase2.UTFantasy.Character.Duty;
+import csc207.phase2.UTFantasy.Character.PlayerComparator.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
-import csc207.phase2.UTFantasy.Character.NPCManager;
+import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 import csc207.phase2.UTFantasy.Pet.Pikachu;
 
 public class MapBuilder {
   private Map product;
-  private NPCManager npcManager;
+  private NPCRepository npcRepository;
   private int mapWidth = 40;
   private int mapHeight = 112;
   private UnitDraw[][] lowMap;
@@ -17,7 +17,7 @@ public class MapBuilder {
     product = new Map(mapWidth, mapHeight);
     lowMap = new UnitDraw[mapWidth][mapHeight];
     highMap = new UnitDraw[mapWidth][mapHeight];
-    npcManager = product.getNpcManager();
+    npcRepository = product.getNpcRepository();
   }
 
   public void buildLawn() {
@@ -369,6 +369,7 @@ public class MapBuilder {
 
     npc = new NPC("Professor.P", Duty.FIGHT);
     npc.setDialog("ready for your final exam? great!");
+    npc.setInteractedDialogue("Good job!");
     npc.addPokemon(new Pikachu());
     buildSingleNpc(npc, Icon.PROFESSOR, 4, 7);
 
@@ -380,20 +381,28 @@ public class MapBuilder {
     npc.setDialog("welcome to hospital????");
     buildSingleNpc(npc, Icon.JOY, 14, 7);
 
-    npc = new NPC("psyduck", Duty.PSYDUCK);
-    npc.setDialog("Congratulation! You select a psyduck!");
+    npc = new NPC("charmander", Duty.CHARMANDER);
+    npc.setDialog("This is a charmander, do you wanna choose it?");
+    npc.setInteractedDialogue("A charmander...");
     buildSingleNpc(npc, Icon.POKEMONBALL, 3, 3);
+    npcRepository.addBeginningPokemonNPC(npc);
+
+    npc = new NPC("squirtle", Duty.SQUIRTLE);
+    npc.setDialog("This is a squirtle, do you wanna choose it?");
+    npc.setInteractedDialogue("A squirtle...");
+    buildSingleNpc(npc, Icon.POKEMONBALL, 6, 3);
+    npcRepository.addBeginningPokemonNPC(npc);
   }
 
   private void buildSingleNpc(NPC npc, Icon icon, int x, int y) {
     highMap[x][y] = new NPCDraw(icon, npc.getName());
-    npcManager.addNPC(npc.getName(), npc);
+    npcRepository.addNPC(npc.getName(), npc);
   }
 
   public Map getProduct() {
     product.setHighMap(highMap);
     product.setLowMap(lowMap);
-    product.setNpcManager(npcManager);
+    product.setNpcRepository(npcRepository);
     return product;
   }
 }

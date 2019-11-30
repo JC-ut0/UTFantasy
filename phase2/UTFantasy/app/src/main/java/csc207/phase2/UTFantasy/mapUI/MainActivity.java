@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapUI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,12 +7,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import csc207.phase2.UTFantasy.Activities.MenuActivity;
 import csc207.phase2.UTFantasy.Activities.PlayerInfoActivity;
@@ -21,6 +23,9 @@ import csc207.phase2.UTFantasy.Activities.SystemActivity;
 import csc207.phase2.UTFantasy.Battle.BattleActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
+import csc207.phase2.UTFantasy.mapDomain.MainThread;
+import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
+import csc207.phase2.UTFantasy.mapDomain.MapInteractor;
 import csc207.phase2.UTFantasy.R;
 
 public class MainActivity extends AppCompatActivity implements MainActivityModel {
@@ -45,10 +50,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   private Button rightButton;
   private Button upButton;
   private Button downButton;
-  private Button A_Button;
+  private Button aButton;
+  private Button bButton;
   private Button menuButton;
   private RelativeLayout dialogueBox;
   private TextView dialogueText;
+  private RelativeLayout displayCase;
+  private ImageView displayIcon;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +74,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     rightButton = findViewById(R.id.rightButton);
     upButton = findViewById(R.id.upButton);
     downButton = findViewById(R.id.downButton);
-    A_Button = findViewById(R.id.A_Button);
+    aButton = findViewById(R.id.A_Button);
+    bButton = findViewById(R.id.B_Button);
     menuButton = findViewById(R.id.menuButton);
     final Button menuBagButton = findViewById(R.id.menu_bag);
     final Button menu_system = findViewById(R.id.menu_system);
@@ -75,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     final LinearLayout mainButtonHolder = findViewById(R.id.main_menu_holder);
     dialogueBox = findViewById(R.id.dialogueBox);
     dialogueText = findViewById(R.id.dialogueText);
+    displayCase = findViewById(R.id.displayCase);
+    displayIcon = findViewById(R.id.displayIcon);
 
     // set onClickListener for the buttons
     final View.OnClickListener moveClick =
@@ -180,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
           }
         });
 
-    A_Button.setOnClickListener(
+    aButton.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -188,6 +199,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
           }
         });
 
+    bButton.setOnClickListener(
+            new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                mapController.buttonBClick();
+              }
+            });
 
     intent = getIntent();
     username = intent.getStringExtra("username");
@@ -256,8 +274,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   }
 
   @Override
-  public void closeDiagloue() {
+  public void closeDialogue() {
     dialogueBox.setVisibility(View.GONE);
+    displayCase.setVisibility(View.GONE);
+  }
+
+  @Override
+  public void display(int iconId) {
+    displayCase.setVisibility(View.VISIBLE);
+    displayIcon.setImageDrawable(getResources().getDrawable(iconId, null));
   }
 
   @Override

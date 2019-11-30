@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapUI;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -6,6 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.view.SurfaceHolder;
 
+import csc207.phase2.UTFantasy.mapDomain.Icon;
+import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
+import csc207.phase2.UTFantasy.mapDomain.UnitDraw;
 import csc207.phase2.UTFantasy.R;
 
 public class MapPresenter implements MapDrawer {
@@ -81,6 +84,7 @@ public class MapPresenter implements MapDrawer {
     fightNpc = getBitmap(R.drawable.professor, 2, 2);
     sellerNpc = getBitmap(R.drawable.big_mom, (float) 2.5, (float) 2.5);
     healerNpc = getBitmap(R.drawable.joy, 1, 1);
+    pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.2, (float) 0.2);
     pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.3, (float) 0.3);
     hallOfFame = getBitmap(R.drawable.halloffame, (float) 2.2, (float) 2);
     // initialize the bitmap of player
@@ -118,7 +122,7 @@ public class MapPresenter implements MapDrawer {
       for (UnitDraw unit : unitDraws) {
         if (unit != null) {
           Bitmap bitmap = null;
-          switch (unit.getDraw()) {
+          switch (unit.getIcon()) {
             case LAWN:
               bitmap = lawn;
               break;
@@ -147,8 +151,8 @@ public class MapPresenter implements MapDrawer {
           if (bitmap != null) {
             canvas.drawBitmap(
                 bitmap,
-                (unit.getScreenX() - 2) * UnitDraw.getUnitWidth(),
-                (unit.getScreenY() - 2) * UnitDraw.getUnitHeight(),
+                    (unit.getScreenX() - 2) * unit.getUnitWidth(),
+                    (unit.getScreenY() - 2) * unit.getUnitHeight(),
                 null);
           }
         }
@@ -209,7 +213,10 @@ public class MapPresenter implements MapDrawer {
         bitmap = rightPlayer3;
         break;
     }
-    canvas.drawBitmap(bitmap, x * UnitDraw.getUnitWidth(), y * UnitDraw.getUnitHeight(), null);
+    if (bitmap != null) {
+      UnitDraw unit = new UnitDraw();
+      canvas.drawBitmap(bitmap, x * unit.getUnitWidth(), y * unit.getUnitHeight(), null);
+    }
   }
 
   @Override
@@ -225,8 +232,13 @@ public class MapPresenter implements MapDrawer {
 
   public void hideDialogue() {
     activityModel.showButtons();
-    activityModel.closeDiagloue();
-  };
+    activityModel.closeDialogue();
+  }
+
+  @Override
+  public void display(int iconId) {
+    activityModel.display(iconId);
+  }
 
   @Override
   public void goToBattleActivity(String npcName) {

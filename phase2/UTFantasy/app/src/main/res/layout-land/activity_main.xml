@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,12 +20,29 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
+
+        <RelativeLayout
+            android:id="@+id/displayCase"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/text_box"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/displayIcon"
+                android:layout_width="120dp"
+                android:layout_height="128dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/dialogueBox"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="250dp"
             android:background="@drawable/text_box"
             android:visibility="gone">
 
@@ -95,6 +113,18 @@
             android:layout_marginBottom="40dp"
             android:background="@drawable/circle_button"
             android:text="A"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/B_Button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/circle_button"
+            android:text="B"
             android:textSize="30sp" />
 
         <Button

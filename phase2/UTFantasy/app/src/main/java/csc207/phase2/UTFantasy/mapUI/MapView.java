@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Map;
+package csc207.phase2.UTFantasy.mapUI;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -6,6 +6,9 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import java.io.Serializable;
+
+import csc207.phase2.UTFantasy.mapDomain.MainThread;
+import csc207.phase2.UTFantasy.mapUI.MapViewModel;
 
 public class MapView extends SurfaceView
     implements SurfaceHolder.Callback, Serializable, MapViewModel {
