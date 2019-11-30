@@ -16,14 +16,14 @@ import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
 
 public class ProductSelectAdapter extends BaseAdapter {
-  Activity activity;
+  /** the product list */
   private List<Product> productList = new ArrayList<>();
-  private List<Product> selectedList = new ArrayList<>();
+  /** the hashmap of the product */
   private HashMap<Product, Integer> productHashMap;
+  /** the inflater of the product */
   private LayoutInflater inflater;
 
   ProductSelectAdapter(Activity activity, HashMap<Product, Integer> productHashMap) {
-    this.activity = activity;
     this.productHashMap = productHashMap;
     productList.addAll(productHashMap.keySet());
     inflater = activity.getLayoutInflater();
@@ -36,7 +36,7 @@ public class ProductSelectAdapter extends BaseAdapter {
 
   @Override
   public Object getItem(int position) {
-    return position;
+    return productList.get(position);
   }
 
   @Override
@@ -47,6 +47,7 @@ public class ProductSelectAdapter extends BaseAdapter {
   @Override
   public View getView(int position, View view, ViewGroup viewGroup) {
     ViewHolder holder = null;
+    // set up the view of the listview
     if (view == null) {
       view = inflater.inflate(R.layout.productselect_layout, viewGroup, false);
       holder = new ViewHolder();
@@ -64,14 +65,18 @@ public class ProductSelectAdapter extends BaseAdapter {
     holder.level.setText("NUM: " + productHashMap.get(product));
     holder.potionImage.setImageResource(product.getProfile_id());
 
-    if (selectedList.contains(product)) holder.checkimage.setBackgroundResource(R.drawable.checked);
+    if (product.isSelected()) holder.checkimage.setBackgroundResource(R.drawable.checked);
     else holder.checkimage.setBackgroundResource(R.drawable.check);
     return view;
   }
 
-  void updateRecords(List<Product> productList, List<Product> selectedList) {
-    this.productList = productList;
-    this.selectedList = selectedList;
+  /**
+   * Update the new selected list after each select by the player
+   *
+   * @param productHashMap the product list
+   */
+  void updateRecords(HashMap<Product, Integer> productHashMap) {
+    this.productHashMap = productHashMap;
     notifyDataSetChanged();
   }
 

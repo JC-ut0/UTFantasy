@@ -14,12 +14,12 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.R;
 
 class ScoreBoardAdapter extends BaseAdapter {
-  private Activity activity;
+  /** the lsit of player */
   private List<Player> playerList;
+  /** the inflater */
   private LayoutInflater inflater;
 
   ScoreBoardAdapter(Activity activity, List<Player> playerList) {
-    this.activity = activity;
     this.playerList = playerList;
     inflater = activity.getLayoutInflater();
   }
@@ -42,6 +42,7 @@ class ScoreBoardAdapter extends BaseAdapter {
   @SuppressLint("SetTextI18n")
   @Override
   public View getView(int position, View view, ViewGroup viewGroup) {
+    //set up the view of the view list
     ViewHolder holder;
     if (view == null) {
       view = inflater.inflate(R.layout.scoreboard_layout, viewGroup, false);
@@ -57,7 +58,7 @@ class ScoreBoardAdapter extends BaseAdapter {
 
     Player player = playerList.get(position);
     holder.rank.setText(position + 1 + ". ");
-    holder.playerName.setText(player.getName() + " (" + player.getGender()+")");
+    holder.playerName.setText(player.getName() + " (" + player.getGender() + ")");
     holder.pokemonNum.setText(player.getPokemonList().size() + "");
     holder.pokemonLV.setText(player.getPlayerPokemonMaxLV() + "");
 

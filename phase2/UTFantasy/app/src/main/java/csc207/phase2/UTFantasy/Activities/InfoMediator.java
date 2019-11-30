@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy;
+package csc207.phase2.UTFantasy.Activities;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.Product;
+import csc207.phase2.UTFantasy.R;
 
 public class InfoMediator {
   /** the player. */
@@ -13,19 +14,13 @@ public class InfoMediator {
 
   private String description;
 
-  private Product selectedProduct;
-
   public InfoMediator(Player player) {
     this.player = player;
     this.setDescription("This is the character in U of T.");
   }
 
-  public Product getselectedProduct() {
-    return selectedProduct;
-  }
-
-  public void setSelectedPokemon(Product selectedProduct) {
-    this.selectedProduct = selectedProduct;
+  void setSelectedPokemon(Product selectedProduct) {
+    player.setSelectedProduct(selectedProduct);
   }
 
   public String getDescription() {
@@ -36,15 +31,15 @@ public class InfoMediator {
     this.description = description;
   }
 
-  public List<Pokemon> getPokemonList() {
+  List<Pokemon> getPokemonList() {
     return player.getPokemonList();
   }
 
-  public HashMap<Product, Integer> getProductHashMap() {
+  HashMap<Product, Integer> getProductHashMap() {
     return player.getBag();
   }
 
-  public String getGender() {
+  String getGender() {
     if (player.getGender().equals("boy")) {
       return "Gender: Male";
     } else {
@@ -52,7 +47,7 @@ public class InfoMediator {
     }
   }
 
-  public int getGenderImage() {
+  int getGenderImage() {
     if (player.getGender().equals("boy")) {
       return R.drawable.charater_male;
     } else {

@@ -12,6 +12,15 @@ public abstract class Product implements Serializable {
   private int price;
   /** the profileID of this product */
   private int profileID;
+  private boolean isSelected;
+
+  public boolean isSelected() {
+    return isSelected;
+  }
+
+  public void setSelected(boolean selected) {
+    isSelected = selected;
+  }
 
   /** the constructor of product */
   public Product(String name, int price, int photoId) {
