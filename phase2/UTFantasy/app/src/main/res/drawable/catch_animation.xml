@@ -1,0 +1,26 @@
+<?xml version ="1.0" encoding ="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+
+    <item
+        android:drawable="@drawable/pokeballopen"
+        android:duration="300" />
+    <item
+        android:drawable="@drawable/pokeballhalfopen"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/pokeball"
+        android:duration="450" />
+    <item
+        android:drawable="@drawable/pokeball45"
+        android:duration="250" />
+    <item
+        android:drawable="@drawable/pokeball"
+        android:duration="450" />
+    <item
+        android:drawable="@drawable/pokeball135"
+        android:duration="250" />
+    <item
+        android:drawable="@drawable/pokeball"
+        android:duration="450" />
+</animation-list>
