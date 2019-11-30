@@ -72,7 +72,8 @@ public class Player extends Person {
   }
 
   public HashMap<Product, Integer> getBag() {
-    return bag;
+     return bag;
+
   }
 
   public Product getSelectedProduct() {
@@ -137,5 +138,4 @@ public class Player extends Person {
     this.obserber = observer;
   }
 
-  ;
 }

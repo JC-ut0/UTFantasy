@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import csc207.phase2.UTFantasy.Activities.MenuActivity;
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.Character.PlayerManager;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.Products.ProductCreator;
@@ -49,7 +50,6 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   Button apply;
   Button buy;
 
-
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -57,7 +57,8 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     Intent intent = getIntent();
     username = intent.getStringExtra("username");
     final Player player = userIO.getUserData().getUser(username).getPlayer();
-    presenter = new ShopPresenter(new ShopInteractor(player), this);
+    PlayerManager playerManager = new PlayerManager(player);
+    presenter = new ShopPresenter(new ShopInteractor(playerManager), this);
     ListView listView = findViewById(R.id.productListView);
     totalMoney = findViewById(R.id.totalMoney);
     moneyLeft = findViewById(R.id.money_left);

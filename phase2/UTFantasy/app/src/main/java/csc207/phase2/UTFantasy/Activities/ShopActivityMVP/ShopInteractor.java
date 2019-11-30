@@ -1,12 +1,13 @@
 package csc207.phase2.UTFantasy.Activities.ShopActivityMVP;
 
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.Character.PlayerManager;
 import csc207.phase2.UTFantasy.Products.Product;
 
 public class ShopInteractor {
 
   /** the player */
-  private Player player;
+  private PlayerManager playerManager;
   /** total cost of selected amount of product */
   private int total;
   /** the selected product */
@@ -23,13 +24,13 @@ public class ShopInteractor {
     void updateSelected(int n);
   }
 
-  ShopInteractor(Player player) {
-    this.player = player;
+  ShopInteractor(PlayerManager playerManager) {
+    this.playerManager = playerManager;
   }
 
   /** return the number of given product in player's bag */
   int countProducts(Product product) {
-    Integer n = player.getBag().get(product);
+    Integer n = playerManager.getBag().get(product);
     if (n != null) {
       return n;
     } else {
@@ -38,7 +39,7 @@ public class ShopInteractor {
   }
   /** return amount of money in player's bag */
   int countMoney() {
-    return player.getMoney();
+    return playerManager.getMoney();
   }
   /** assign value to variable product */
   public void setProduct(Product product) {
@@ -54,8 +55,8 @@ public class ShopInteractor {
       this.total = total;
       if (canAfford()) {
         int money = countMoney() - total;
-        player.setMoney(money);
-        player.addItem(product, amount);
+        playerManager.setMoney(money);
+        playerManager.addItem(product, amount);
         listener.updateMoneyLeft(money);
         listener.updateProductsInBag(countProducts(product));
         listener.showMessage("You have purchased " + amount + " " + product.getName() + "（s）.");
