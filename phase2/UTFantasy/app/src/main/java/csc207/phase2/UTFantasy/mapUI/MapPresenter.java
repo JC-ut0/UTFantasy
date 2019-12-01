@@ -156,6 +156,7 @@ public class MapPresenter implements MapDrawer {
               bitmap = lawn;
               break;
             case GRASS0:
+            case GRASS1:
               bitmap = grass0;
               break;
             case TREE:

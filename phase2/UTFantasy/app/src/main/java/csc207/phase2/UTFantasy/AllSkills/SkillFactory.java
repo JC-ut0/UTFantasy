@@ -37,6 +37,8 @@ public class SkillFactory {
         return new ThunderShock();
       case THUNDERWAVE:
         return new ThunderWave();
+      case VINEWHIP:
+        return new VineWhip();
       case WATERGUN:
         return new WaterGun();
     }
@@ -62,6 +64,7 @@ public class SkillFactory {
     THUNDERBOLT,
     THUNDERSHOCK,
     THUNDERWAVE,
+    VINEWHIP,
     WATERGUN,
   }
 }

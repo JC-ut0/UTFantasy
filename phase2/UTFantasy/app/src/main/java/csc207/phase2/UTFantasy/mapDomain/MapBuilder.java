@@ -29,9 +29,14 @@ public class MapBuilder {
   }
 
   public void buildGrass() {
-    for (int x = 3; x < 5; x += 1) {
-      for (int y = 3; y < 5; y += 1) {
+    for (int x = 2; x < 6; x += 1) {
+      for (int y = 13; y < 16; y += 1) {
         lowMap[x][y] = new UnitDraw(Icon.GRASS0);
+      }
+    }
+    for (int x = 2; x < 6; x += 1) {
+      for (int y = 18; y < 21; y += 1) {
+        lowMap[x][y] = new UnitDraw(Icon.GRASS1);
       }
     }
   }

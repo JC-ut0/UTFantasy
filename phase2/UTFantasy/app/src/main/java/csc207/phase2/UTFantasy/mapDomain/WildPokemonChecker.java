@@ -34,8 +34,9 @@ public class WildPokemonChecker implements WildPokemonObserver {
                 pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 7);
                 break;
             case GRASS1:
-                rate = 0.01;
-                pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 5);
+                rate = 0.5;
+                pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARIZARD, 5);
+                break;
         }
         if (rate != 0) {
             double r = Math.random();
