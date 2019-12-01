@@ -1,15 +1,15 @@
 package csc207.phase2.UTFantasy.Pet;
 
 public interface ObservablePokemon {
-    public void setObserver(BattleObserver o);
+    void setObserver(BattleObserver o);
 
-    public void setHp(int Hp);
+    void setHp(int Hp);
 
-    public void addExp(int exp);
+    void addExp(int exp);
 
-    public void notifyObserverHpChange();
+    void notifyObserverHpChange();
 
-    public void notifyObserverExpChange();
+    void notifyObserverExpChange();
 
     //    public void addExp();
     //

@@ -43,7 +43,7 @@ public class SkillFactory {
     return null;
   }
 
-  enum SkillClass {
+  public enum SkillClass {
     BODYSLAM,
     BUBBLE,
     CONFUSION,

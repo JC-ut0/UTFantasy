@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Blastoise extends Pokemon {
+class Blastoise extends Pokemon {
   /** Constructor of a Blastoise. */
-  public Blastoise() {
-    super();
-      setType1(TypeMap.TypeEnum.WATER);
-    setProfileID(R.drawable.blastoise);
-    setProfileBackID(R.drawable.blastoise_back);
-    setPokemonName("Blastoise");
-    setBaseHp(79);
-    setBaseAttack(85);
-    setBaseDefense(105);
-    setBaseSpeed(78);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Blastoise(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.WATER,
+              null,
+              R.drawable.blastoise,
+              R.drawable.blastoise_back,
+              "Blastoise",
+              79,
+              85,
+              105,
+              78,
+              "slow",
+              1000);
   }
   /**
    * Get the profile ID of Blastoise.

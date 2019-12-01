@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Mew extends Pokemon {
+class Mew extends Pokemon {
   /** Constructor of a Mew */
-  public Mew() {
-    super();
-      setType1(TypeMap.TypeEnum.PSYCHIC);
-    setProfileID(R.drawable.mew);
-    setProfileBackID(R.drawable.mew);
-    setPokemonName("Mew");
-    setBaseHp(100);
-    setBaseAttack(100);
-    setBaseDefense(100);
-    setBaseSpeed(100);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Mew(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.PSYCHIC,
+              null,
+              R.drawable.mew,
+              R.drawable.mew,
+              "Mew",
+              100,
+              100,
+              100,
+              100,
+              "quick",
+              1000);
   }
   /**
    * Get the profile ID of Mew.

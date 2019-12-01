@@ -164,5 +164,11 @@ after got caught
 
 ########
 # Step 28
+File affected: all files under pet package
+- add a Pokemon Factory
+- refactored all pokemon constructors following builder and factory patten.
+
+########
+# Step 29
 File affected: ItemManager, BattleInteractor
 Make the shown text during battle more reasonable.

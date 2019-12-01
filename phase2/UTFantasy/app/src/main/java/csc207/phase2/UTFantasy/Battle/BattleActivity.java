@@ -17,13 +17,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Activities.ProductSelectActivity;
-import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
-import csc207.phase2.UTFantasy.Pet.Psyduck;
-import csc207.phase2.UTFantasy.Pet.Squirtle;
 import csc207.phase2.UTFantasy.R;
 
 public class BattleActivity extends AppCompatActivity implements BattleActivityModel {
@@ -150,11 +147,12 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
     String NPCname = intent.getStringExtra("npcName");
     NPC npc = player.getPlayerMap().getNpcRepository().getNPC(NPCname);
     if (npc == null) {
-      npc = new NPC("poor student", Duty.FIGHT);
-      Pokemon squirtle = new Squirtle();
-      squirtle.setLevel(5);
-      npc.addPokemon(squirtle);
-      npc.addPokemon(new Psyduck());
+      onBackPressed();
+//      npc = new NPC("poor student", Duty.FIGHT);
+//      Pokemon squirtle = new Squirtle();
+//      squirtle.setLevel(5);
+//      npc.addPokemon(squirtle);
+//      npc.addPokemon(new Psyduck());
     }
     NPC rival = npc;
     initializeLayOuts();

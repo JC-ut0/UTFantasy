@@ -4,9 +4,8 @@ import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.Pet.Charmander;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
-import csc207.phase2.UTFantasy.Pet.Squirtle;
+import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
 
@@ -24,8 +23,8 @@ public class SquirtleInteraction extends Interaction {
 
     @Override
     public void interact(NPC npc) {
-        Pokemon squirtle = new Squirtle();
-        squirtle.setLevel(5);
+        PokemonFactory pokemonFactory = new PokemonFactory();
+        Pokemon squirtle = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.SQUIRTLE, 5);
         player.addPokemon(squirtle);
         List<NPC> beginningPokemonNPCs =
                 player.getPlayerMap().getNpcRepository().getBeginningPokemonNPCs();

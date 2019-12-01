@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Grovyle extends Pokemon {
+class Grovyle extends Pokemon {
   /** Constructor of a Grovyle. */
-  public Grovyle() {
-    super();
-      setType1(TypeMap.TypeEnum.GRASS);
-    setProfileID(R.drawable.grovyle);
-    setProfileBackID(R.drawable.grovyle_back);
-    setPokemonName("Grovyle");
-    setBaseHp(50);
-    setBaseAttack(75);
-    setBaseDefense(55);
-    setBaseSpeed(95);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(36);
+  Grovyle(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.GRASS,
+              null,
+              R.drawable.grovyle,
+              R.drawable.grovyle_back,
+              "Grovyle",
+              50,
+              75,
+              55,
+              95,
+              "quick",
+              36);
   }
   /**
    * Get the profile ID of Grovyle.

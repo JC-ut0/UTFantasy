@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Beldum extends Pokemon {
+class Beldum extends Pokemon {
   /** Constructor of a Beldum. */
-  public Beldum() {
-    super();
-      setType1(TypeMap.TypeEnum.STEEL);
-      setType1(TypeMap.TypeEnum.PSYCHIC);
-    setProfileID(R.drawable.beldum);
-    setProfileBackID(R.drawable.beldum_back);
-    setPokemonName("Beldum");
-    setBaseHp(40);
-    setBaseAttack(45);
-    setBaseDefense(70);
-    setBaseSpeed(30);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(20);
+  Beldum(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.STEEL,
+              TypeMap.TypeEnum.PSYCHIC,
+              R.drawable.beldum,
+              R.drawable.beldum_back,
+              "Beldum",
+              40,
+              45,
+              70,
+              30,
+              "quick",
+              20);
   }
   /**
    * Get the profile ID of Beldum.

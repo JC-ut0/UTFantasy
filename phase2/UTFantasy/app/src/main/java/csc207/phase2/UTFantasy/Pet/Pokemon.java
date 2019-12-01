@@ -21,9 +21,9 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   protected String growType;
   /** The unique profile icon for each Pokemon. ID can be used to draw this Pokemon. */
   protected int profileID;
-  /**
-   * The unique icon of Pokemon back. ID can be used to draw the back of this Pokemon.
-   */
+    /**
+     * The unique icon of Pokemon back. ID can be used to draw the back of this Pokemon.
+     */
   protected int profileBackID;
   /** Base stat of hp */
   protected int baseHp;
@@ -78,19 +78,20 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
     ivSpeed = r.nextInt(32);
   }
 
-  Pokemon(
-          int level,
-          TypeMap.TypeEnum type1,
-          TypeMap.TypeEnum type2,
-          int profileID,
-          int profileBackID,
-          String pokemonName,
-          int baseHp,
-          int baseAttack,
-          int baseDefense,
-          int baseSpeed,
-          String growType,
-          int levelToEvolve) {
+    /** another advanced Constructor of Pokemon. Following builder pattern */
+    Pokemon(
+            int level,
+            TypeMap.TypeEnum type1,
+            TypeMap.TypeEnum type2,
+            int profileID,
+            int profileBackID,
+            String pokemonName,
+            int baseHp,
+            int baseAttack,
+            int baseDefense,
+            int baseSpeed,
+            String growType,
+            int levelToEvolve) {
     this();
     setLevel(level);
     setType1(type1);

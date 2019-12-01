@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Blaziken extends Pokemon {
+class Blaziken extends Pokemon {
   /** Constructor of a Blaziken. */
-  public Blaziken() {
-    super();
-      setType1(TypeMap.TypeEnum.FIRE);
-      setType2(TypeMap.TypeEnum.FIGHT);
-    setProfileID(R.drawable.blaziken);
-    setProfileBackID(R.drawable.blaziken_back);
-    setPokemonName("Blaziken");
-    setBaseHp(80);
-    setBaseAttack(105);
-    setBaseDefense(70);
-    setBaseSpeed(80);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Blaziken(int level) {
+    super(
+            level,
+            TypeMap.TypeEnum.FIRE,
+            TypeMap.TypeEnum.FIGHT,
+            R.drawable.blaziken,
+            R.drawable.blaziken_back,
+            "Blaziken",
+            80,
+            105,
+            70,
+            80,
+            "slow",
+            1000);
   }
   /**
    * Get the profile ID of Blaziken.

@@ -1,31 +1,27 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.QuickAttack;
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Pikachu extends Pokemon {
+class Pikachu extends Pokemon {
   /** Constructor of a Pikachu. */
-  public Pikachu() {
-    // set its first skill to be QuickAttack
-    super();
-    setType1(TypeMap.TypeEnum.ELECTRIC);
-    skills[0] = new QuickAttack();
-    setProfileID(R.drawable.pikachu);
-    setProfileBackID(R.drawable.pikachu_back);
-    setPokemonName("Pikachu");
-    setBaseHp(35);
-    setBaseAttack(55);
-    setBaseDefense(30);
-    setBaseSpeed(90);
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setHp(calculateStatistic("hp"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(32);
+  Pikachu(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.ELECTRIC,
+              null,
+              R.drawable.metagross,
+              R.drawable.metagross_back,
+              "Pikachu",
+              35,
+              55,
+              30,
+              90,
+              "quick",
+              32);
+    SkillFactory skillFactory = new SkillFactory();
+    skills[0] = skillFactory.getSkill(SkillFactory.SkillClass.QUICKATTACK);
   }
 
   /**

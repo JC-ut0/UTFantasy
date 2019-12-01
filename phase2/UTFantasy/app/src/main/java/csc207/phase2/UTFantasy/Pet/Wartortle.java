@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Wartortle extends Pokemon {
+class Wartortle extends Pokemon {
   /** Constructor of a Wartortle. */
-  public Wartortle() {
-    super();
-      setType1(TypeMap.TypeEnum.WATER);
-    setProfileID(R.drawable.wartortle);
-    setProfileBackID(R.drawable.wartortle_back);
-    setPokemonName("Wartortle");
-    setBaseHp(59);
-    setBaseAttack(64);
-    setBaseDefense(80);
-    setBaseSpeed(58);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(36);
+  Wartortle(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.WATER,
+              null,
+              R.drawable.wartortle,
+              R.drawable.wartortle_back,
+              "Wartortle",
+              59,
+              64,
+              80,
+              58,
+              "quick",
+              36);
   }
 
   /**

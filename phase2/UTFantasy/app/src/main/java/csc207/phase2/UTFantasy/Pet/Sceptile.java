@@ -3,26 +3,24 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Sceptile extends Pokemon {
-  /** Constructor of a Sceptile.*/
-  public Sceptile() {
-    super();
-      setType1(TypeMap.TypeEnum.GRASS);
-    setProfileID(R.drawable.sceptile);
-    setProfileBackID(R.drawable.sceptile_back);
-    setPokemonName("Sceptile");
-    setBaseHp(70);
-    setBaseAttack(95);
-    setBaseDefense(75);
-    setBaseSpeed(120);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+class Sceptile extends Pokemon {
+    /**
+     * Constructor of a Sceptile.
+     */
+    Sceptile(int level) {
+        super(
+                level,
+                TypeMap.TypeEnum.GRASS,
+                null,
+                R.drawable.sceptile,
+                R.drawable.sceptile_back,
+                "Sceptile",
+                70,
+                95,
+                75,
+                120,
+                "slow",
+                1000);
   }
   /**
    * Get the profile ID of Sceptile.

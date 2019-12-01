@@ -5,28 +5,24 @@ import csc207.phase2.UTFantasy.AllSkills.Flamethrower;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Charmeleon extends Pokemon {
+class Charmeleon extends Pokemon {
   /** Constructor of a Charmeleon. */
-  public Charmeleon() {
-    super();
-    setType1(TypeMap.TypeEnum.FIRE);
+  Charmeleon(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.FIRE,
+              null,
+              R.drawable.charmeleon,
+              R.drawable.charmeleon_back,
+              "Charmeleon",
+              58,
+              72,
+              62,
+              80,
+              "quick",
+              36);
     skills[0] = new Ember();
     skills[1] = new Flamethrower();
-    setProfileID(R.drawable.charmeleon);
-    setProfileBackID(R.drawable.charmeleon_back);
-    setPokemonName("Charmeleon");
-    setBaseHp(58);
-    setBaseAttack(72);
-    setBaseDefense(62);
-    setBaseSpeed(80);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(36);
   }
 
   /**

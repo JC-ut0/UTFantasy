@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Treecko extends Pokemon {
+class Treecko extends Pokemon {
   /** Constructor of a Treecko. */
-  public Treecko() {
-    super();
-      setType1(TypeMap.TypeEnum.GRASS);
-    setProfileID(R.drawable.treecko);
-    setProfileBackID(R.drawable.treecko_back);
-    setPokemonName("Treecko");
-    setBaseHp(40);
-    setBaseAttack(55);
-    setBaseDefense(45);
-    setBaseSpeed(70);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(16);
+  Treecko(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.GRASS,
+              null,
+              R.drawable.treecko,
+              R.drawable.treecko_back,
+              "Treecko",
+              40,
+              55,
+              45,
+              70,
+              "quick",
+              16);
   }
   /**
    * Get the profile ID of Treecko.

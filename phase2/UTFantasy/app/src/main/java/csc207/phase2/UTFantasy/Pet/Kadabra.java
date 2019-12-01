@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Kadabra extends Pokemon {
+class Kadabra extends Pokemon {
   /** Constructor of a Kadabra. */
-  public Kadabra() {
-    super();
-      setType1(TypeMap.TypeEnum.PSYCHIC);
-    setProfileID(R.drawable.kadabra);
-    setProfileBackID(R.drawable.kadabra_back);
-    setPokemonName("Kadabra");
-    setBaseHp(40);
-    setBaseAttack(80);
-    setBaseDefense(50);
-    setBaseSpeed(105);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(40);
+  Kadabra(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.PSYCHIC,
+              null,
+              R.drawable.kadabra,
+              R.drawable.kadabra_back,
+              "Kadabra",
+              40,
+              80,
+              50,
+              105,
+              "quick",
+              40);
   }
   /**
    * Get the profile ID of Kadabra.

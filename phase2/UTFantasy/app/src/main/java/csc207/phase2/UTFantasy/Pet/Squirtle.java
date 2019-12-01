@@ -1,30 +1,24 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.Tackle;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Squirtle extends Pokemon {
+class Squirtle extends Pokemon {
   /** Constructor of a Squirtle. */
-  public Squirtle() {
-    super();
-    setType1(TypeMap.TypeEnum.WATER);
-    setPokemonName("Squirtle");
-    skills[0] = new Tackle();
-    setProfileID(R.drawable.squirtle);
-    setProfileID(R.drawable.squirtle_back);
-    setBaseHp(44);
-    setBaseAttack(48);
-    setBaseDefense(65);
-    setBaseSpeed(43);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(16);
+  Squirtle(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.WATER,
+              null,
+              R.drawable.squirtle,
+              R.drawable.squirtle_back,
+              "Squirtle",
+              44,
+              48,
+              65,
+              43,
+              "quick",
+              16);
   }
 
   /**

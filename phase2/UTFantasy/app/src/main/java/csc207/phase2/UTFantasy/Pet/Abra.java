@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Abra extends Pokemon {
+class Abra extends Pokemon {
   /** Constructor of a Abra. */
-  public Abra() {
-    super();
-    setType1(TypeMap.TypeEnum.PSYCHIC);
-    setProfileID(R.drawable.abra);
-    setProfileBackID(R.drawable.abra_back);
-    setPokemonName("Abra");
-    setBaseHp(25);
-    setBaseAttack(65);
-    setBaseDefense(35);
-    setBaseSpeed(90);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(16);
+  public Abra(int level) {
+    super(
+            level,
+            TypeMap.TypeEnum.PSYCHIC,
+            null,
+            R.drawable.abra,
+            R.drawable.abra_back,
+            "Abra",
+            25,
+            65,
+            35,
+            90,
+            "quick",
+            16);
   }
   /**
    * Get the profile ID of Abra.

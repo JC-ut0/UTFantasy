@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Venusaur extends Pokemon {
+class Venusaur extends Pokemon {
   /** Constructor of a Venusaur. */
-  public Venusaur() {
-    super();
-      setType1(TypeMap.TypeEnum.GRASS);
-      setType2(TypeMap.TypeEnum.POISON);
-    setProfileID(R.drawable.venusaur);
-    setProfileBackID(R.drawable.venusaur_back);
-    setPokemonName("Venusaur");
-    setBaseHp(80);
-    setBaseAttack(91);
-    setBaseDefense(92);
-    setBaseSpeed(80);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Venusaur(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.GRASS,
+              TypeMap.TypeEnum.POISON,
+              R.drawable.venusaur,
+              R.drawable.venusaur_back,
+              "Venusaur",
+              80,
+              91,
+              92,
+              80,
+              "slow",
+              1000);
   }
 
   /**

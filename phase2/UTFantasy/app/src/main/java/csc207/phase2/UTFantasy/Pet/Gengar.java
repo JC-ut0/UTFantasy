@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Gengar extends Pokemon {
+class Gengar extends Pokemon {
   /** Constructor of a Gengar. */
-  public Gengar() {
-    super();
-      setType1(TypeMap.TypeEnum.GHOST);
-      setType2(TypeMap.TypeEnum.POISON);
-    setProfileID(R.drawable.genger);
-    setProfileBackID(R.drawable.gengar_back);
-    setPokemonName("Gengar");
-    setBaseHp(60);
-    setBaseAttack(100);
-    setBaseDefense(70);
-    setBaseSpeed(110);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Gengar(int level) {
+    super(
+            level,
+            TypeMap.TypeEnum.GHOST,
+            TypeMap.TypeEnum.POISON,
+            R.drawable.genger,
+            R.drawable.gengar_back,
+            "Gengar",
+            60,
+            100,
+            70,
+            110,
+            "slow",
+            1000);
   }
   /**
    * Get the profile ID of Gengar.
