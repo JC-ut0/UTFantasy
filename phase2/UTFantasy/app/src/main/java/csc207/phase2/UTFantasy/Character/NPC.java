@@ -1,7 +1,5 @@
 package csc207.phase2.UTFantasy.Character;
 
-import csc207.phase2.UTFantasy.Character.PlayerComparator.Duty;
-
 public class NPC extends Person {
   private String name;
   private String dialogue;
