@@ -22,9 +22,21 @@ public class MapPresenter implements MapDrawer {
   private Bitmap fightNpc;
   private Bitmap sellerNpc;
   private Bitmap healerNpc;
+  private Bitmap yimi;
+  private Bitmap jesse;
+  private Bitmap deniska;
+  private Bitmap quincy;
+  private Bitmap joy;
   private Bitmap pokemonBall;
-    private Bitmap pokemonBallOnMap;
+  private Bitmap pokemonBallOnMap;
   private Bitmap hallOfFame;
+  private Bitmap library;
+  private Bitmap pokemonCenter;
+  private Bitmap store;
+  private Bitmap houseWDoor;
+  private Bitmap houseWODoor;
+  private Bitmap greenHouse;
+  private Bitmap gym;
   /** the Bitmaps of the character upwards */
   private Bitmap upPlayer0;
 
@@ -52,7 +64,6 @@ public class MapPresenter implements MapDrawer {
   private Bitmap rightPlayer1;
   private Bitmap rightPlayer2;
   private Bitmap rightPlayer3;
-
 
   public MapPresenter(MapViewModel mapView, MainActivityModel activityModel) {
     this.mapView = mapView;
@@ -83,12 +94,26 @@ public class MapPresenter implements MapDrawer {
     lawn = getBitmap(R.drawable.lawn, (float) 2, (float) 2);
     tree = getBitmap(R.drawable.tree, (float) 2, (float) 2);
     redtree = getBitmap(R.drawable.redtree, (float) 2, (float) 2);
+    // initialize the bitmap of NPCs.
     fightNpc = getBitmap(R.drawable.professor, 2, 2);
-    sellerNpc = getBitmap(R.drawable.big_mom, (float) 2.5, (float) 2.5);
-    healerNpc = getBitmap(R.drawable.joy, 1, 1);
-      pokemonBallOnMap = getBitmap(R.drawable.pokeballonmap, (float) 0.4, (float) 0.4);
+    sellerNpc = getBitmap(R.drawable.saler, (float) 2.5, (float) 2.5);
+    healerNpc = getBitmap(R.drawable.beauty, 1, 1);
+    yimi = getBitmap(R.drawable.yimi, (float)1.0, (float)1.0);
+    jesse = getBitmap(R.drawable.lab, (float)1.0, (float)1.0);
+    joy = getBitmap(R.drawable.yyqx, (float)1.0, (float)1.0);
+    deniska = getBitmap(R.drawable.dd, (float)1.0, (float)1.0);
+    quincy = getBitmap(R.drawable.psyduck, (float)1.0, (float)1.0);
+    pokemonBallOnMap = getBitmap(R.drawable.pokeballonmap, (float) 0.4, (float) 0.4);
     pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.3, (float) 0.3);
+    // initialize the bitmap of buildings.
     hallOfFame = getBitmap(R.drawable.halloffame, (float) 2.2, (float) 2);
+    library = getBitmap(R.drawable.mp_building, (float) 1.1, (float) 1.0);
+    houseWDoor = getBitmap(R.drawable.house, (float) 2.5, (float) 2.7);
+    houseWODoor = getBitmap(R.drawable.house5, (float) 2.4, (float) 2.7);
+    greenHouse = getBitmap(R.drawable.house2, (float) 1.0, (float) 1.0);
+    pokemonCenter = getBitmap(R.drawable.house3, (float) 2.4, (float) 2.3);
+    store = getBitmap(R.drawable.house1, (float) 1.0, (float) 1.0);
+    gym = getBitmap(R.drawable.house4, (float) 1.0, (float) 1.0);
     // initialize the bitmap of player
     upPlayer0 = getBitmap(R.drawable.boy_up_0, 1, 1);
     upPlayer1 = getBitmap(R.drawable.boy_up_1, 1, 1);
@@ -137,11 +162,26 @@ public class MapPresenter implements MapDrawer {
             case PROFESSOR:
               bitmap = fightNpc;
               break;
-            case ALICE:
+            case SELLER:
               bitmap = sellerNpc;
               break;
-            case JOY:
+            case HEALER:
               bitmap = healerNpc;
+              break;
+            case JOY:
+              bitmap = joy;
+              break;
+            case JESSE:
+              bitmap = jesse;
+              break;
+            case YIMI:
+              bitmap = yimi;
+              break;
+            case QUINCY:
+              bitmap = quincy;
+              break;
+            case DENISKA:
+              bitmap = deniska;
               break;
             case POKEMONBALL:
               bitmap = pokemonBall;
@@ -151,7 +191,28 @@ public class MapPresenter implements MapDrawer {
                   break;
             case HALLOFFAME:
               bitmap = hallOfFame;
-                break;
+              break;
+            case LIBRARY:
+              bitmap = library;
+              break;
+            case GYM:
+              bitmap = gym;
+              break;
+            case STORE:
+              bitmap = store;
+              break;
+            case POKEMONCENTER:
+              bitmap = pokemonCenter;
+              break;
+            case HOUSEWDOOR:
+              bitmap = houseWDoor;
+              break;
+            case HOUSEWODOOR:
+              bitmap = houseWODoor;
+              break;
+            case GREENHOUSE:
+              bitmap = greenHouse;
+              break;
           }
 
           if (bitmap != null) {

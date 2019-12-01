@@ -2,7 +2,10 @@ package csc207.phase2.UTFantasy.mapDomain;
 
 import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
+import csc207.phase2.UTFantasy.Pet.CharizardShiny;
+import csc207.phase2.UTFantasy.Pet.Mewtwo;
 import csc207.phase2.UTFantasy.Pet.Pikachu;
+import csc207.phase2.UTFantasy.Pet.Psyduck;
 import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 
 public class MapBuilder {
@@ -362,6 +365,51 @@ public class MapBuilder {
       }
     }
     highMap[13][94] = new UnitDraw(Icon.BLOCK);
+    for (int x = 10; x < 18; x++) {
+      for (int y = 2; y < 10; y++) {
+        if (x == 10 && y == 3) {
+          highMap[x][y] = new UnitDraw(Icon.LIBRARY);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
+    for (int y = 34; y < 39; y++) {
+      for (int x = 2; x < 8; x++) {
+        if (x == 2 && y == 35) {
+          highMap[x][y] = new UnitDraw(Icon.HOUSEWODOOR);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
+    for (int x = 8; x < 14; x++) {
+      for (int y = 34; y < 39; y++) {
+        if (x == 8 && y == 35) {
+          highMap[x][y] = new UnitDraw(Icon.POKEMONCENTER);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
+    for (int x = 14; x < 19; x++) {
+      for (int y = 34; y < 39; y++) {
+        if (x == 14 && y == 35) {
+          highMap[x][y] = new UnitDraw(Icon.HOUSEWDOOR);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
+    for (int x = 26; x < 32; x++) {
+      for (int y = 53; y < 57; y++) {
+        if (x == 26 && y == 53) {
+          highMap[x][y] = new UnitDraw(Icon.HOUSEWDOOR);
+        } else {
+          highMap[x][y] = new UnitDraw(Icon.BLOCK);
+        }
+      }
+    }
   }
 
   public void buildNpc() {
@@ -371,15 +419,15 @@ public class MapBuilder {
     npc.setDialog("ready for your final exam? great!");
     npc.setInteractedDialogue("Good job!");
     npc.addPokemon(new Pikachu());
-    buildSingleNpc(npc, Icon.PROFESSOR, 4, 7);
+    buildSingleNpc(npc, Icon.PROFESSOR, 3, 10);
 
-    npc = new NPC("Alice", Duty.SALE);
+    npc = new NPC("Seller", Duty.SALE);
     npc.setDialog("How may I help you?");
-    buildSingleNpc(npc, Icon.ALICE, 9, 7);
+    buildSingleNpc(npc, Icon.SELLER, 5, 10);
 
-    npc = new NPC("Joy", Duty.HEAL);
+    npc = new NPC("Healer", Duty.HEAL);
     npc.setDialog("welcome to hospital????");
-    buildSingleNpc(npc, Icon.JOY, 14, 7);
+    buildSingleNpc(npc, Icon.HEALER, 7, 10);
 
     npc = new NPC("charmander", Duty.CHARMANDER);
     npc.setDialog("This is a charmander, do you wanna choose it?");
@@ -392,6 +440,36 @@ public class MapBuilder {
     npc.setInteractedDialogue("A squirtle...");
       buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 6, 3);
     npcRepository.addBeginningPokemonNPC(npc);
+
+    npc = new NPC("JC", Duty.FIGHT);
+    npc.setDialog("ready for your final exam? great!");
+    npc.setInteractedDialogue("Good job!");
+    npc.addPokemon(new Mewtwo());
+    buildSingleNpc(npc, Icon.JESSE, 3, 6);
+
+    npc = new NPC("Quincy", Duty.FIGHT);
+    npc.setDialog("ready for your final exam? great!");
+    npc.setInteractedDialogue("Good job!");
+    npc.addPokemon(new Psyduck());
+    buildSingleNpc(npc, Icon.QUINCY, 4, 6);
+
+    npc = new NPC("Deniska", Duty.FIGHT);
+    npc.setDialog("ready for your final exam? great!");
+    npc.setInteractedDialogue("Good job!");
+    npc.addPokemon(new CharizardShiny());
+    buildSingleNpc(npc, Icon.DENISKA, 5, 6);
+
+    npc = new NPC("Joy", Duty.FIGHT);
+    npc.setDialog("ready for your final exam? great!");
+    npc.setInteractedDialogue("Good job!");
+    npc.addPokemon(new Pikachu());
+    buildSingleNpc(npc, Icon.JOY, 6, 6);
+
+    npc = new NPC("Yimi", Duty.FIGHT);
+    npc.setDialog("ready for your final exam? great!");
+    npc.setInteractedDialogue("Good job!");
+    npc.addPokemon(new Pikachu());
+    buildSingleNpc(npc, Icon.YIMI, 7, 6);
   }
 
   private void buildSingleNpc(NPC npc, Icon icon, int x, int y) {

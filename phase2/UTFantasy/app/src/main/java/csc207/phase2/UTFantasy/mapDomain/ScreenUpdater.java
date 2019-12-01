@@ -66,7 +66,7 @@ public class ScreenUpdater {
    * @return the extended number of units of the low map and high map
    */
   public int getExtendedWidth() {
-    return 14;
+    return 24;
   }
 
   /**
@@ -75,6 +75,6 @@ public class ScreenUpdater {
    * @return the extended number of units of the high map and high map
    */
   public int getExtendedHeight() {
-    return 14;
+    return 24;
   }
 }

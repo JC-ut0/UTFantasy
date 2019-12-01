@@ -27,11 +27,25 @@ public enum Icon {
     RIGHTPLAYER3,
 
     PROFESSOR,
-    ALICE,
+    SELLER,
+    HEALER,
+    YIMI,
     JOY,
+    JESSE,
+    DENISKA,
+    QUINCY,
 
     POKEMONBALL,
     POKEMONBALLONMAP,
 
-    HALLOFFAME
+    HALLOFFAME,
+    LIBRARY,
+    POKEMONCENTER,
+    STORE,
+    GREENHOUSE,
+    HOUSEWDOOR,
+    HOUSEWODOOR,
+    GYM,
+
+
 }
