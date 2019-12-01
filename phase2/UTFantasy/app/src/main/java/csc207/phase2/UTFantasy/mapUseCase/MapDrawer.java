@@ -21,4 +21,6 @@ public interface MapDrawer {
     void goToBattleActivity(String npcName);
 
     void goToShopActivity(String npcName);
+
+    void goToEvolutionActivity(int pokemonIndex);
 }

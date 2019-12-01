@@ -41,4 +41,8 @@ public class MapDirector {
     public NPCInteractor getNPCInteractor() {
         return new NPCInteractor(player);
     }
+
+    public EvolutionChecker getEvolutionChecker() {
+        return new EvolutionChecker(player);
+    }
 }

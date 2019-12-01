@@ -287,6 +287,12 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
         sixthPokemonInBag.setOnClickListener(pokemonChooseListener);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        controller.updateText();
+    }
+
     /**
      * Update ImageView, ProgressBar, TextView of a pokemon.
      *
@@ -462,15 +468,6 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
         catchAnimation.setVisibility(View.VISIBLE);
     }
 
-    @Override
-    public void evolve(int pokemonIndex) {
-        if (0 <= pokemonIndex && pokemonIndex < player.getPokemonList().size()) {
-            Intent intent = new Intent(BattleActivity.this, EvolutionActivity.class);
-            intent.putExtra("username", username);
-            intent.putExtra("pokemonIndex", pokemonIndex);
-            startActivity(intent);
-        }
-    }
 
     /**
      * Initialize layouts.

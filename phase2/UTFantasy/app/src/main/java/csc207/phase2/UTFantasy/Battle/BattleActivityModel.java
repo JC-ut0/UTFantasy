@@ -36,6 +36,4 @@ public interface BattleActivityModel {
     void hideCatch();
 
     void showCaught();
-
-    void evolve(int pokemonIndex);
 }

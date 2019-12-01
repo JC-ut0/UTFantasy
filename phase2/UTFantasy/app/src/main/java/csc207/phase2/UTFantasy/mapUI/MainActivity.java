@@ -19,11 +19,13 @@ import csc207.phase2.UTFantasy.Activities.MenuActivity;
 import csc207.phase2.UTFantasy.Activities.PlayerInfoActivity;
 import csc207.phase2.UTFantasy.Activities.ShopActivityMVP.ShopActivity;
 import csc207.phase2.UTFantasy.Activities.SystemActivity;
+import csc207.phase2.UTFantasy.Activities.evolutionUI.EvolutionActivity;
 import csc207.phase2.UTFantasy.Battle.BattleActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.WildPokemonObserver;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
+import csc207.phase2.UTFantasy.mapUseCase.EvolutionChecker;
 import csc207.phase2.UTFantasy.mapUseCase.MainThread;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 import csc207.phase2.UTFantasy.mapUseCase.MapInteractor;
@@ -216,6 +218,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     mapInteractor = mapController.getMapInteractor();
     mapDrawer = new MapPresenter(mapView, this);
     mapController.getNpcInteractor().setDrawer(mapDrawer);
+    mapController.getEvolutionChecker().setDrawer(mapDrawer);
     mainThread = new MainThread(mapDrawer, mapInteractor);
     mapView.setThread(mainThread);
     mapViewHolder.addView(mapView);
@@ -236,6 +239,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
       mapView.setThread(new MainThread(mapDrawer, mapInteractor));
       mapView.getThread().setRunning(true);
     }
+    mapController.checkEvolution();
   }
 
   @Override
@@ -304,6 +308,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
   }
 
   @Override
+  public void goToEvolutionActivity(int pokemonIndex) {
+    intent = new Intent(MainActivity.this, EvolutionActivity.class);
+    intent.putExtra("username", username);
+    intent.putExtra("pokemonIndex", pokemonIndex);
+    startActivity(intent);
+  }
+
+  @Override
   public void hideButtons() {
     upButton.setVisibility(View.GONE);
     downButton.setVisibility(View.GONE);
@@ -311,6 +323,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     rightButton.setVisibility(View.GONE);
     menuButton.setVisibility(View.GONE);
   }
+
 
   @Override
   public void showButtons() {
