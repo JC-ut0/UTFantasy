@@ -54,6 +54,7 @@ public class SkillFactory {
     HYDROPUMP,
     HYPERVOICE,
     POUND,
+    PSYCHIC,
     QUICKATTACK,
     SCARTCH,
     TACKLE,
