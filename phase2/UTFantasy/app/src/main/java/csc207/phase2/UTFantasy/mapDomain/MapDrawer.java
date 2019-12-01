@@ -5,7 +5,8 @@ import android.view.SurfaceHolder;
 
 public interface MapDrawer {
     SurfaceHolder getHolder();
-    void draw(Canvas canvas, UnitDraw[][] map);
+
+    void draw(Canvas canvas, UnitDraw[][] map, int extendedWidth, int extendedHeight);
 
     void drawPlayer(Canvas canvas, Icon playerIcon, int x, int y);
 

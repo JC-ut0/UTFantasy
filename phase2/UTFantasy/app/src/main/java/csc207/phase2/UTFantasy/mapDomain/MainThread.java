@@ -38,13 +38,15 @@ public class MainThread extends Thread {
         UnitDraw[][] highScreen = interactor.updateScreenOverHighMap();
         interactor.transScreen(lowScreen, progress, moveAble);
         interactor.transScreen(highScreen, progress, moveAble);
-        drawer.draw(canvas, lowScreen);
-        drawer.draw(canvas, highScreen);
+        int translatedWidth = interactor.getExtendedWidth() / 2;
+        int translatedHeight = interactor.getExtendedHeight() / 2;
+        drawer.draw(canvas, lowScreen, translatedWidth, translatedHeight);
+        drawer.draw(canvas, highScreen, translatedWidth, translatedHeight);
         drawer.drawPlayer(
             canvas,
             interactor.getPlayerIcon(progress),
-            interactor.getScreenUnitWidth() / 2 - 2,
-            interactor.getScreenUnitHeight() / 2 - 2);
+                interactor.getScreenUnitWidth() / 2 - translatedWidth,
+                interactor.getScreenUnitHeight() / 2 - translatedHeight);
         sleep(30);
       } catch (Exception e) {
         e.printStackTrace();

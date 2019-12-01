@@ -18,6 +18,10 @@ public interface MapInteractor {
 
   int getScreenUnitHeight();
 
+  int getExtendedWidth();
+
+  int getExtendedHeight();
+
   void startMove(String direction);
 
   void endMove();

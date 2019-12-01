@@ -116,7 +116,7 @@ public class MapPresenter implements MapDrawer {
    * @param map the collection of elements that need to be drawn
    */
   @Override
-  public void draw(Canvas canvas, UnitDraw[][] map) {
+  public void draw(Canvas canvas, UnitDraw[][] map, int translatedX, int translatedY) {
     // draw the screen except the player
     for (UnitDraw[] unitDraws : map) {
       for (UnitDraw unit : unitDraws) {
@@ -151,8 +151,8 @@ public class MapPresenter implements MapDrawer {
           if (bitmap != null) {
             canvas.drawBitmap(
                 bitmap,
-                    (unit.getScreenX() - 2) * unit.getUnitWidth(),
-                    (unit.getScreenY() - 2) * unit.getUnitHeight(),
+                    (unit.getScreenX() - translatedX) * unit.getUnitWidth(),
+                    (unit.getScreenY() - translatedY) * unit.getUnitHeight(),
                 null);
           }
         }

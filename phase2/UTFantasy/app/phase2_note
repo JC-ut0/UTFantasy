@@ -150,3 +150,8 @@ Add functionality that player can catch or heal pokemon.
 # Step 25
 File affected: Pokemon, ItemManager, Player, PlayerManager, BattleInteractor
 Fix bugs that possibly occur when use items.
+
+#######
+# Step 26
+File affected: mapDomain, mapPresenter
+Add feature that make the drawn screen size changeable.

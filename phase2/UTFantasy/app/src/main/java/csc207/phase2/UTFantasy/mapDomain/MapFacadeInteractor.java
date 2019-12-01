@@ -53,6 +53,16 @@ public class MapFacadeInteractor implements MapInteractor {
   }
 
   @Override
+  public int getExtendedWidth() {
+    return screenUpdater.getExtendedWidth();
+  }
+
+  @Override
+  public int getExtendedHeight() {
+    return screenUpdater.getExtendedHeight();
+  }
+
+  @Override
   public void startMove(String direction) {
     movementManager.startMove(direction);
   }

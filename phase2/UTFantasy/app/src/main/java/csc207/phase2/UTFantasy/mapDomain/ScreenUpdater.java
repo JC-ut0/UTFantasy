@@ -15,7 +15,7 @@ public class ScreenUpdater {
 
   private UnitDraw[][] updateScreenOverMap(UnitDraw[][] map) {
     int screenWidthUnit = getScreenUnitWidth();
-    int screenHeightUnit =getScreenUnitHeight();
+    int screenHeightUnit = getScreenUnitHeight();
     UnitDraw[][] result = new UnitDraw[screenWidthUnit][screenHeightUnit];
     int playerX = player.getX();
     int playerY = player.getY();
@@ -48,15 +48,33 @@ public class ScreenUpdater {
     return updateScreenOverMap(map.getHighMap());
   }
 
-  public int getScreenUnitWidth(){
+  public int getScreenUnitWidth() {
     int screenWidthPixel = Resources.getSystem().getDisplayMetrics().widthPixels;
     int unitWidth = new UnitDraw().getUnitWidth();
-    return screenWidthPixel / unitWidth + 4;
+    return screenWidthPixel / unitWidth + getExtendedWidth();
   }
 
-  public int getScreenUnitHeight(){
+  public int getScreenUnitHeight() {
     int screenHeightPixel = Resources.getSystem().getDisplayMetrics().heightPixels;
     int unitHeight = new UnitDraw().getUnitHeight();
-    return screenHeightPixel / unitHeight + 4;
+    return screenHeightPixel / unitHeight + getExtendedHeight();
+  }
+
+  /**
+   * counts in unit
+   *
+   * @return the extended number of units of the low map and high map
+   */
+  public int getExtendedWidth() {
+    return 14;
+  }
+
+  /**
+   * counts in unit
+   *
+   * @return the extended number of units of the high map and high map
+   */
+  public int getExtendedHeight() {
+    return 14;
   }
 }
