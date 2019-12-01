@@ -60,5 +60,6 @@ public class MovementManager {
         player.setY(player.getY() + 1);
         break;
     }
+    player.notifyChange();
   }
 }

@@ -58,6 +58,7 @@ public class ItemManager {
       if (random < rate) {
         // the pokemon is successfully caught
         isCaught = true;
+          battleData.getCurrRivalPoke().setMaster(battleData.getPlayer());
         battleData.getPlayer().addPokemon(battleData.getCurrRivalPoke());
         battleData.setAction(BattleData.Action.END);
         text =

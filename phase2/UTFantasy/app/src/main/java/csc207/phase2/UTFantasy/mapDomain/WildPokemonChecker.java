@@ -1,5 +1,7 @@
 package csc207.phase2.UTFantasy.mapDomain;
 
+import android.text.Spannable;
+
 import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
@@ -14,10 +16,10 @@ public class WildPokemonChecker implements WildPokemonObserver {
     private Map map;
     private MapDrawer drawer;
 
-    public WildPokemonChecker(Player player, Map map, MapDrawer drawer) {
+    public WildPokemonChecker(Player player, MapDrawer drawer) {
         this.player = player;
-        this.map = map;
         this.drawer = drawer;
+        this.map = player.getPlayerMap();
     }
 
     @Override
@@ -40,7 +42,7 @@ public class WildPokemonChecker implements WildPokemonObserver {
         }
         if (rate != 0) {
             double r = Math.random();
-            if (r <= rate) {
+            if (r <= rate && player.isFightAble()) {
                 NPC npc = new NPC("wild pokemon", Duty.FIGHT);
                 npc.addPokemon(pokemon);
                 NPCRepository npcRepository = player.getPlayerMap().getNpcRepository();

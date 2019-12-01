@@ -16,7 +16,7 @@ public class Player extends Person {
   private Map playerMap;
   private HashMap<Product, Integer> bag;
   private boolean showingScore = true;
-  private WildPokemonObserver obserber;
+  private WildPokemonObserver observer;
   private Product selectedProduct;
 
   /**
@@ -132,6 +132,10 @@ public class Player extends Person {
   }
 
   public void addObserver(WildPokemonObserver observer) {
-    this.obserber = observer;
+    this.observer = observer;
+  }
+
+  public void notifyChange() {
+    if (observer != null) observer.checkWildPokeBattle();
   }
 }
