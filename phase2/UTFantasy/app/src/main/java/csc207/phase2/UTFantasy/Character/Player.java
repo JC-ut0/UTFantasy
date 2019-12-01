@@ -72,8 +72,7 @@ public class Player extends Person {
   }
 
   public HashMap<Product, Integer> getBag() {
-     return bag;
-
+    return bag;
   }
 
   public Product getSelectedProduct() {
@@ -91,6 +90,14 @@ public class Player extends Person {
       bag.put(item, bag.get(item) + num);
     } catch (NullPointerException e) {
       bag.put(item, num);
+    }
+  }
+
+  public void deleteItem(Product product) {
+    Integer num = bag.get(product);
+    if (num != null) {
+      if (num == 1) bag.remove(product);
+      else bag.remove(product, 1);
     }
   }
 
@@ -124,18 +131,7 @@ public class Player extends Person {
     this.showingScore = showingScore;
   }
 
-  public void useProduct(Product product) {
-    Integer num = bag.get(product);
-    if (num != null) {
-      bag.put(product, num - 1);
-      if (num == 0) {
-        bag.remove(product);
-      }
-    }
-  }
-
   public void addObserver(WildPokemonObserver observer) {
     this.obserber = observer;
   }
-
 }

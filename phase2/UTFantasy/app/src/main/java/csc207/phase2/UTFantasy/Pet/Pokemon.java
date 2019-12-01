@@ -720,7 +720,7 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
 
   @Override
   public void notifyObserverHpChange() {
-    observer.updateHpBar();
+    if (observer != null) observer.updateHpBar();
   }
 
   @Override

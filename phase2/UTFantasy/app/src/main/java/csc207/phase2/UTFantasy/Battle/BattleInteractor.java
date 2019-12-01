@@ -1,7 +1,5 @@
 package csc207.phase2.UTFantasy.Battle;
 
-import android.graphics.drawable.AnimationDrawable;
-
 import csc207.phase2.UTFantasy.AllSkills.Skill;
 import csc207.phase2.UTFantasy.Pet.BattleObserver;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
@@ -35,7 +33,7 @@ public class BattleInteractor implements BattleObserver {
     rivalPoke.setObserver(this);
     battleData.setCurrPlayerPoke(myPoke);
     battleData.setCurrRivalPoke(rivalPoke);
-    updatePokemonIcon();
+    updatePokemon();
     updateHpBar();
   }
 
@@ -92,8 +90,8 @@ public class BattleInteractor implements BattleObserver {
         presenter.warnPokeNotAlive();
       } else {
         battleData.setCurrPlayerPoke(pokemon);
-        presenter.updatePlayerPokeView(pokemon.getProfileID());
-        presenter.updatePlayerHpBar(pokemon.getHp(), pokemon.getMaximumHp());
+        updatePokemon();
+        updateHpBar();
         updateSkillButtons();
         presenter.closePokemonChoose();
         presenter.showText(pokemon.getPokemonName() + " go!");
@@ -110,7 +108,7 @@ public class BattleInteractor implements BattleObserver {
     return battleData;
   }
 
-  private void updatePokemonIcon() {
+  private void updatePokemon() {
     Pokemon myPoke = battleData.getCurrPlayerPoke();
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
     myPoke.setObserver(this);
