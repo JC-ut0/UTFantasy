@@ -99,7 +99,7 @@ public class MapPresenter implements MapDrawer {
     sellerNpc = getBitmap(R.drawable.saler, (float) 2.5, (float) 2.5);
     healerNpc = getBitmap(R.drawable.beauty, 1, 1);
     yimi = getBitmap(R.drawable.yimi, (float)1.0, (float)1.0);
-    jesse = getBitmap(R.drawable.lab, (float)1.0, (float)1.0);
+    jesse = getBitmap(R.drawable.jesse, (float)1.0, (float)1.0);
     joy = getBitmap(R.drawable.yyqx, (float)1.0, (float)1.0);
     deniska = getBitmap(R.drawable.dd, (float)1.0, (float)1.0);
     quincy = getBitmap(R.drawable.psyduck, (float)1.0, (float)1.0);

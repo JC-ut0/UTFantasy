@@ -454,8 +454,8 @@ public class MapBuilder {
     buildSingleNpc(npc, Icon.QUINCY, 4, 6);
 
     npc = new NPC("Deniska", Duty.FIGHT);
-    npc.setDialog("ready for your final exam? great!");
-    npc.setInteractedDialogue("Good job!");
+    npc.setDialog("Do. Or do not. There is no try.");
+    npc.setInteractedDialogue("I am your father!");
     npc.addPokemon(new CharizardShiny());
     buildSingleNpc(npc, Icon.DENISKA, 5, 6);
 
