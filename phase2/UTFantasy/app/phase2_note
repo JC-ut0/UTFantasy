@@ -145,3 +145,8 @@ update PlayerInfoActivity to show the top percentile of the player ordered by po
 # Step 24
 File affected: Package:Battle, PokemonBall
 Add functionality that player can catch or heal pokemon.
+
+#######
+# Step 25
+File affected: Pokemon, ItemManager, Player, PlayerManager, BattleInteractor
+Fix bugs that possibly occur when use items.
