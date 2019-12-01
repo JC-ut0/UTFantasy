@@ -1,9 +1,9 @@
 package csc207.phase2.UTFantasy.mapDomain;
 
-import csc207.phase2.UTFantasy.Character.PlayerComparator.Duty;
+import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
-import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 import csc207.phase2.UTFantasy.Pet.Pikachu;
+import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 
 public class MapBuilder {
   private Map product;

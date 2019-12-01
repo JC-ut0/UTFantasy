@@ -16,7 +16,6 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Activities.scoreboard.ScoreCalculator;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.mapUI.MainActivity;
 import csc207.phase2.UTFantasy.R;
 
 public class PlayerInfoActivity extends AppCompatActivity {
@@ -28,7 +27,9 @@ public class PlayerInfoActivity extends AppCompatActivity {
   private UserIO userIO = UserIO.getSingletonUserIo();
   /** The information mediator. */
   private InfoMediator infoMediator;
-  /** The checkbox for showing score*/
+  /**
+   * The checkbox for showing score
+   */
   private CheckBox showingScoreCheckBox;
 
   @Override
@@ -95,20 +96,34 @@ public class PlayerInfoActivity extends AppCompatActivity {
   private void setBackToMain() {
     ImageButton backToMain = findViewById(R.id.back_to_main);
     backToMain.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            onBackPressed();
-          }
-        });
+            new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                onBackPressed();
+              }
+            });
   }
 
+  /**
+   * When ShowingScore checkbox is clicked, change player's showingScore status.
+   *
+   * @param view PlayerInfoActivity
+   */
   public void changeShowingScore(View view) {
     if (showingScoreCheckBox.isChecked()) {
       player.setShowingScore(true);
     } else player.setShowingScore(false);
+    setPlayerStatistics();
   }
 
+  /**
+   * Return a string that shows Top percentile of the player compare to all players that willing to
+   * show their scores.
+   *
+   * @param player a Player instance
+   * @return a string that shows Top percentile of this player compare to all players that willing
+   *     to show their scores.
+   */
   public String getTopPercentilByPokemonLv(Player player) {
     UserIO userIO = UserIO.getSingletonUserIo();
     List<Player> playerList = userIO.getUserData().getScoreBoardPlayerList();

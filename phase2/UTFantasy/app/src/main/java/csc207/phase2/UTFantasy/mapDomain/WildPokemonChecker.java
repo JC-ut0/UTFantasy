@@ -1,8 +1,8 @@
 package csc207.phase2.UTFantasy.mapDomain;
 
+import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.Character.PlayerComparator.Duty;
 import csc207.phase2.UTFantasy.Character.WildPokemonObserver;
 import csc207.phase2.UTFantasy.Pet.Charmander;
 import csc207.phase2.UTFantasy.Pet.Pikachu;

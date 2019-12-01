@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Character.PlayerComparator;
+package csc207.phase2.UTFantasy.Character;
 
 public enum Duty {
     FIGHT, SALE, HEAL, CHARMANDER, SQUIRTLE,

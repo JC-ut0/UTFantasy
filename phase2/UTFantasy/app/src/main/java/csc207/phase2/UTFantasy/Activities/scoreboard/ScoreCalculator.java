@@ -29,10 +29,10 @@ public class ScoreCalculator {
         playerList.sort(comparator.reversed());
         int i;
         for (i = 0; i < playerList.size(); i++) {
-            if (comparator.compare(player, playerList.get(i)) > 0) {
-                return "Top" + i;
+            if (comparator.compare(player, playerList.get(i)) >= 0) {
+                return "Top " + (i + 1);
             }
         }
-        return "Top " + i;
+        return "Top " + (i + 1);
     }
 }
