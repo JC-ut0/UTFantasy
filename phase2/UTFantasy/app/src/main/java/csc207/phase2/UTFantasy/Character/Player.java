@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import java.util.HashMap;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
+import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.mapUseCase.Map;
 
@@ -33,6 +34,8 @@ public class Player extends Person {
     this.setX(10);
     this.setY(10);
     this.setDirection("down");
+      PokemonFactory factory = new PokemonFactory();
+      addPokemon(factory.createPokemon(PokemonFactory.PokemonClass.SQUIRTLE, 16));
   }
 
   public int getX() {
@@ -96,8 +99,8 @@ public class Player extends Person {
   public void useItem(Product product) {
     Integer num = bag.get(product);
     if (num != null) {
-      if (num == 1) bag.remove(product);
-      else bag.remove(product, 1);
+        if (num <= 1) bag.remove(product);
+        else bag.replace(product, num - 1);
     }
   }
 
