@@ -1,6 +1,6 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.QuickAttack;
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
@@ -20,7 +20,8 @@ class Pikachu extends Pokemon {
               90,
               "quick",
               32);
-    skills[0] = new QuickAttack();
+    SkillFactory skillFactory = new SkillFactory();
+    skills[0] = skillFactory.getSkill(SkillFactory.SkillClass.QUICKATTACK);
   }
 
   /**
