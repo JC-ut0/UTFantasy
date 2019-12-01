@@ -17,8 +17,8 @@ class Pidgeotto extends Pokemon {
               55,
               50,
               71,
-              "quick",
-              36);
+              "quick");
+    setLevelToEvolve(36, new Pidgeot(36));
   }
   /**
    * Get the profile ID of Pidgeotto.

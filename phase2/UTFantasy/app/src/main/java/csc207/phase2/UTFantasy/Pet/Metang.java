@@ -17,8 +17,8 @@ class Metang extends Pokemon {
             65,
             90,
             50,
-            "slow",
-            45);
+            "slow");
+    setLevelToEvolve(45, new Metagross(45));
   }
   /**
    * Get the profile ID of Metang.

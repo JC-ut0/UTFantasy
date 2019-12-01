@@ -17,8 +17,8 @@ class Blastoise extends Pokemon {
               85,
               105,
               78,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Blastoise.

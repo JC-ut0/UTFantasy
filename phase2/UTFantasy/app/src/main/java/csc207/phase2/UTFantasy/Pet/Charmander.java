@@ -19,8 +19,8 @@ class Charmander extends Pokemon {
             56,
             45,
             65,
-            "quick",
-            16);
+            "quick");
+    setLevelToEvolve(16, new Charmeleon(16));
     SkillFactory factory = new SkillFactory();
     skills[0] = factory.getSkill(SkillFactory.SkillClass.SCARTCH);
   }

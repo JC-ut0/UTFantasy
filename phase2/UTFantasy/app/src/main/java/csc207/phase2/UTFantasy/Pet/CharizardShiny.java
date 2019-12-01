@@ -19,8 +19,8 @@ class CharizardShiny extends Pokemon {
               97,
               82,
               100,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
     SkillFactory factory = new SkillFactory();
     skills[0] = factory.getSkill(SkillFactory.SkillClass.FLAMETHROWER);
     skills[1] = factory.getSkill(SkillFactory.SkillClass.DRAGONRAGE);

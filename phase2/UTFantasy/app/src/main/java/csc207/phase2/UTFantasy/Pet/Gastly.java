@@ -17,8 +17,8 @@ class Gastly extends Pokemon {
               65,
               30,
               80,
-              "quick",
-              25);
+              "quick");
+    setLevelToEvolve(25, new Haunter(25));
   }
   /**
    * Get the profile ID of Gastly.

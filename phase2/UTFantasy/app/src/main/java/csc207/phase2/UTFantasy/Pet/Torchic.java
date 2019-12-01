@@ -17,8 +17,8 @@ class Torchic extends Pokemon {
               65,
               45,
               45,
-              "quick",
-              16);
+              "quick");
+    setLevelToEvolve(16, new Combusken(16));
   }
   /**
    * Get the profile ID of Torchic.

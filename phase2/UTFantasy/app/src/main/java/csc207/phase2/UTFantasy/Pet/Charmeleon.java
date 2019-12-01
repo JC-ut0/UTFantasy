@@ -18,8 +18,8 @@ class Charmeleon extends Pokemon {
               72,
               62,
               80,
-              "quick",
-              36);
+              "quick");
+    setLevelToEvolve(36, new Charizard(36));
     SkillFactory factory = new SkillFactory();
     skills[0] = factory.getSkill(SkillFactory.SkillClass.EMBER);
     skills[1] = factory.getSkill(SkillFactory.SkillClass.FLAMETHROWER);

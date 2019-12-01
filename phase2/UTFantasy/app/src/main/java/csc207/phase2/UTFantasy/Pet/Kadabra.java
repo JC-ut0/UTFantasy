@@ -17,8 +17,8 @@ class Kadabra extends Pokemon {
               80,
               50,
               105,
-              "quick",
-              40);
+              "quick");
+    setLevelToEvolve(40, new Alakazam(40));
   }
   /**
    * Get the profile ID of Kadabra.

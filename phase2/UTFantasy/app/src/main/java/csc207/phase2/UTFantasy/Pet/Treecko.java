@@ -17,8 +17,8 @@ class Treecko extends Pokemon {
               55,
               45,
               70,
-              "quick",
-              16);
+              "quick");
+    setLevelToEvolve(16, new Grovyle(16));
   }
   /**
    * Get the profile ID of Treecko.

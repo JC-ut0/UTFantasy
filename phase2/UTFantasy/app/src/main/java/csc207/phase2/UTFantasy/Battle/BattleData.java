@@ -89,6 +89,7 @@ public class BattleData {
         HEAL,
         CHANGEPOKEMON,
         OPENMENU,
+        EVOLVE,
         END
     }
 

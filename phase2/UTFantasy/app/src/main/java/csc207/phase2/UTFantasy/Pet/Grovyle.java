@@ -17,8 +17,8 @@ class Grovyle extends Pokemon {
               75,
               55,
               95,
-              "quick",
-              36);
+              "quick");
+    setLevelToEvolve(36, new Sceptile(36));
   }
   /**
    * Get the profile ID of Grovyle.

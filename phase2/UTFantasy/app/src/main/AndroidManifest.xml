@@ -72,6 +72,14 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
+
+        <activity
+            android:name="csc207.phase2.UTFantasy.Activities.evolutionUI.EvolutionActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+
         <activity
             android:name=".Activities.EndingActivity"
             android:screenOrientation="landscape"

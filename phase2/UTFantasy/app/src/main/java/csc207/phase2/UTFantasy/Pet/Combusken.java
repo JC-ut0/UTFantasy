@@ -10,15 +10,15 @@ class Combusken extends Pokemon {
               level,
               TypeMap.TypeEnum.STEEL,
               TypeMap.TypeEnum.PSYCHIC,
-              R.drawable.metang,
-              R.drawable.metang_back,
+              R.drawable.combusken,
+              R.drawable.combusken_back,
               "Combusken",
               60,
               85,
               60,
               55,
-              "quick",
-              36);
+              "quick");
+    setLevelToEvolve(36, new Blaziken(36));
   }
   /**
    * Get the profile ID of Combusken.

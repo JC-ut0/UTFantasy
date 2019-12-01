@@ -17,8 +17,8 @@ class Blaziken extends Pokemon {
             105,
             70,
             80,
-            "slow",
-            1000);
+            "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Blaziken.

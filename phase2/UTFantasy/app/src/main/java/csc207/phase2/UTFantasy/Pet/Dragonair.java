@@ -17,8 +17,8 @@ class Dragonair extends Pokemon {
               77,
               68,
               70,
-              "slow",
-              55);
+              "slow");
+    setLevelToEvolve(55, new Dragonite(55));
   }
   /**
    * Get the profile ID of Dragonair.

@@ -21,8 +21,8 @@ class Psyduck extends Pokemon {
               58,
               48,
               55,
-              "quick",
-              33);
+              "quick");
+    setLevelToEvolve(33, new Golduck(33));
     SkillFactory factory = new SkillFactory();
     skills[0] = factory.getSkill(SkillFactory.SkillClass.SCARTCH);
     skills[1] = factory.getSkill(SkillFactory.SkillClass.HYDROPUMP);

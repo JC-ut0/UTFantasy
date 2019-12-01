@@ -18,8 +18,8 @@ class Pikachu extends Pokemon {
               55,
               30,
               90,
-              "quick",
-              32);
+              "quick");
+    setLevelToEvolve(32, new Raichu(32));
     SkillFactory skillFactory = new SkillFactory();
     skills[0] = skillFactory.getSkill(SkillFactory.SkillClass.QUICKATTACK);
   }

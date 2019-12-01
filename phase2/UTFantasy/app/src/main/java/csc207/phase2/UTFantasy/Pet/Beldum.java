@@ -17,8 +17,8 @@ class Beldum extends Pokemon {
               45,
               70,
               30,
-              "quick",
-              20);
+              "quick");
+    setLevelToEvolve(20, new Metang(20));
   }
   /**
    * Get the profile ID of Beldum.

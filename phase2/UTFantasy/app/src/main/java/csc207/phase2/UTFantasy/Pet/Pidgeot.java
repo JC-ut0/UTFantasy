@@ -17,8 +17,8 @@ class Pidgeot extends Pokemon {
               75,
               75,
               101,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Pidgeot.

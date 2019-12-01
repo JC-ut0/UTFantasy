@@ -17,8 +17,8 @@ class Mew extends Pokemon {
               100,
               100,
               100,
-              "quick",
-              1000);
+              "quick");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Mew.

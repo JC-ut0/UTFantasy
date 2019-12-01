@@ -17,8 +17,8 @@ class Raichu extends Pokemon {
               90,
               67,
               110,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Raichu.

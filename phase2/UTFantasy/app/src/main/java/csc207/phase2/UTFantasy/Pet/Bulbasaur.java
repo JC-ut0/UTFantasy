@@ -18,8 +18,8 @@ class Bulbasaur extends Pokemon {
               57,
               57,
               45,
-              "quick",
-              16);
+              "quick");
+      setLevelToEvolve(16, new Ivysaur(16));
       SkillFactory sf = new SkillFactory();
       skills[0] = sf.getSkill(SkillFactory.SkillClass.TACKLE);
       skills[1] = sf.getSkill(SkillFactory.SkillClass.VINEWHIP);

@@ -17,8 +17,8 @@ class Lapras extends Pokemon {
               85,
               90,
               60,
-              "quick",
-              1000);
+              "quick");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Lapras.

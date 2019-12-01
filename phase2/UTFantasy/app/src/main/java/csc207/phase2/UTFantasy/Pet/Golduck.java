@@ -17,8 +17,8 @@ class Golduck extends Pokemon {
               88,
               79,
               85,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Golduck.

@@ -172,3 +172,8 @@ File affected: all files under pet package
 # Step 29
 File affected: ItemManager, BattleInteractor
 Make the shown text during battle more reasonable, add grass to the map, fix bugs.
+
+########
+# Step 30
+File affected: Package(Battle, Activities.evolutionUI)
+Add feature that certain pokemons can evolve at certain levels.

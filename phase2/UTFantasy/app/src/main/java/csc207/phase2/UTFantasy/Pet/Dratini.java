@@ -17,8 +17,8 @@ class Dratini extends Pokemon {
               57,
               48,
               50,
-              "quick",
-              30);
+              "quick");
+    setLevelToEvolve(30, new Dragonair(30));
   }
   /**
    * Get the profile ID of Dratini.

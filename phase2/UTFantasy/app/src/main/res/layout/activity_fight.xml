@@ -111,7 +111,7 @@
 
     <LinearLayout
         android:id="@+id/bottom_layout"
-        android:layout_width="731dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/text_box"
         android:orientation="horizontal"

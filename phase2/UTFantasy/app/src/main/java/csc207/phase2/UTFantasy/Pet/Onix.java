@@ -17,8 +17,8 @@ class Onix extends Pokemon {
               45,
               110,
               70,
-              "quick",
-              1000);
+              "quick");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Onix.

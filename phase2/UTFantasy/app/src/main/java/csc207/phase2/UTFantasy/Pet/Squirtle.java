@@ -17,8 +17,8 @@ class Squirtle extends Pokemon {
               48,
               65,
               43,
-              "quick",
-              16);
+              "quick");
+    setLevelToEvolve(16, new Wartortle(16));
   }
 
   /**

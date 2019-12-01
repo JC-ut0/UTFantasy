@@ -17,8 +17,8 @@ class Ivysaur extends Pokemon {
               71,
               72,
               60,
-              "quick",
-              36);
+              "quick");
+    setLevelToEvolve(36, new Venusaur(36));
   }
   /**
    * Get the profile ID of Ivysaur.

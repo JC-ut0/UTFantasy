@@ -17,8 +17,8 @@ class Wartortle extends Pokemon {
               64,
               80,
               58,
-              "quick",
-              36);
+              "quick");
+    setLevelToEvolve(36, new Blastoise(36));
   }
 
   /**

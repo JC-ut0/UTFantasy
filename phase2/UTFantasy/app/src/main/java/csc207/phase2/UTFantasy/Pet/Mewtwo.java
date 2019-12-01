@@ -18,8 +18,8 @@ class Mewtwo extends Pokemon {
               134,
               90,
               130,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
       SkillFactory factory = new SkillFactory();
       skills[0] = factory.getSkill(SkillFactory.SkillClass.BODYSLAM);
   }

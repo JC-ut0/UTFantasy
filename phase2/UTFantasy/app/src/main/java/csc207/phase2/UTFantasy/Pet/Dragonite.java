@@ -17,8 +17,8 @@ class Dragonite extends Pokemon {
               117,
               98,
               80,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Dragonite.

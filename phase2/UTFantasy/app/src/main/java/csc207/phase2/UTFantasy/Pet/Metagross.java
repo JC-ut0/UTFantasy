@@ -17,8 +17,8 @@ class Metagross extends Pokemon {
               115,
               110,
               70,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Metagross.

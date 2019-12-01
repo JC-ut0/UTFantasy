@@ -17,8 +17,8 @@ class Gengar extends Pokemon {
             100,
             70,
             110,
-            "slow",
-            1000);
+            "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Gengar.

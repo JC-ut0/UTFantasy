@@ -17,8 +17,8 @@ class Haunter extends Pokemon {
               75,
               50,
               95,
-              "quick",
-              40);
+              "quick");
+    setLevelToEvolve(40, new Gengar(40));
   }
   /**
    * Get the profile ID of Haunter.

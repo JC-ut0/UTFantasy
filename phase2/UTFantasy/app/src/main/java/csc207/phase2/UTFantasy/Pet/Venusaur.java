@@ -17,8 +17,8 @@ class Venusaur extends Pokemon {
               91,
               92,
               80,
-              "slow",
-              1000);
+              "slow");
+    setLevelToEvolve(maxLevel, null);
   }
 
   /**

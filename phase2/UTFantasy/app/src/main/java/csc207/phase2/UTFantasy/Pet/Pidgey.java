@@ -17,8 +17,8 @@ class Pidgey extends Pokemon {
               40,
               35,
               56,
-              "quick",
-              18);
+              "quick");
+    setLevelToEvolve(18, new Pidgeotto(18));
   }
   /**
    * Get the profile ID of Pidgey.

@@ -5,7 +5,7 @@ import csc207.phase2.UTFantasy.R;
 
 class Abra extends Pokemon {
   /** Constructor of a Abra. */
-  public Abra(int level) {
+  Abra(int level) {
     super(
             level,
             TypeMap.TypeEnum.PSYCHIC,
@@ -17,8 +17,9 @@ class Abra extends Pokemon {
             65,
             35,
             90,
-            "quick",
-            16);
+            "quick"
+    );
+    setLevelToEvolve(16, new Kadabra(16));
   }
   /**
    * Get the profile ID of Abra.
