@@ -65,6 +65,7 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   protected int maximumHp;
   /** skills the Pokemon have there are four different skills */
   protected Skill[] skills;
+  private boolean isWild;
 
   /** Constructor of Pokemon. */
   Pokemon() {
@@ -76,6 +77,7 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
     ivAttack = r.nextInt(32);
     ivDefense = r.nextInt(32);
     ivSpeed = r.nextInt(32);
+    isWild = false;
   }
 
     /** another advanced Constructor of Pokemon. Following builder pattern */
@@ -587,14 +589,17 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   }
 
   /**
-   * Get if the Pokemon has a Master or not.
+   * Get if the Pokemon is wild or not.
    *
-   * @return a boolean represent the Pokemon has Master or not.
+   * @return a boolean represent the Pokemon is wild or not.
    */
-  public boolean hasMaster() {
-    return this.master == null;
+  public boolean isWild() {
+    return isWild;
   }
 
+  public void setWild(boolean isWild) {
+    this.isWild = isWild;
+  }
   /**
    * calculate the value of a statType of a pokemon.
    *

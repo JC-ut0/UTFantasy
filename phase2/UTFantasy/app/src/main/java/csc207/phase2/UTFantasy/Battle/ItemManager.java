@@ -20,7 +20,7 @@ public class ItemManager {
       battleData.getPlayer().deleteItem(product);
       text = battleData.getPlayer().getName() + " used " + product.getName();
       if (product instanceof PokemonBall) {
-        if (!battleData.getCurrRivalPoke().hasMaster()) {
+        if (!battleData.getCurrRivalPoke().isWild()) {
           productFailedToUse(product);
           text = "You can only catch wild pokemon.";
         } else {

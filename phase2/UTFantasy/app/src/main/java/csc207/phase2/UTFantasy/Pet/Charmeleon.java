@@ -1,7 +1,6 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.Ember;
-import csc207.phase2.UTFantasy.AllSkills.Flamethrower;
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
@@ -21,8 +20,9 @@ class Charmeleon extends Pokemon {
               80,
               "quick",
               36);
-    skills[0] = new Ember();
-    skills[1] = new Flamethrower();
+    SkillFactory factory = new SkillFactory();
+    skills[0] = factory.getSkill(SkillFactory.SkillClass.EMBER);
+    skills[1] = factory.getSkill(SkillFactory.SkillClass.FLAMETHROWER);
   }
 
   /**

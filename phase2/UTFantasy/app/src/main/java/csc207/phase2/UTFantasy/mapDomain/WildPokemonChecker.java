@@ -40,6 +40,7 @@ public class WildPokemonChecker implements WildPokemonObserver {
         if (rate != 0) {
             double r = Math.random();
             if (r <= rate && player.isFightAble()) {
+                pokemon.setWild(true);
                 NPC npc = new NPC("wild pokemon", Duty.FIGHT);
                 npc.addPokemon(pokemon);
                 NPCRepository npcRepository = player.getPlayerMap().getNpcRepository();

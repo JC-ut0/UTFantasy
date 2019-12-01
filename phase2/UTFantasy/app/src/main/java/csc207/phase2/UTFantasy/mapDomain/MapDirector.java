@@ -15,6 +15,7 @@ public class MapDirector {
   public void constructMap() {
     MapBuilder mapBuilder = new MapBuilder();
     mapBuilder.buildLawn();
+    mapBuilder.buildGrass();
     mapBuilder.buildTree();
     mapBuilder.buildRoad();
     mapBuilder.buildWater();

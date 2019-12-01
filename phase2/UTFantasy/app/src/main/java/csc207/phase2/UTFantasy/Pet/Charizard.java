@@ -1,28 +1,28 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.DragonRage;
-import csc207.phase2.UTFantasy.AllSkills.Flamethrower;
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 class Charizard extends Pokemon {
   /** Constructor of a Charizard. */
   Charizard(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.FIRE,
-              TypeMap.TypeEnum.FLYING,
-              R.drawable.charizard,
-              R.drawable.charizard_back,
-              "Charizard",
-              78,
-              97,
-              82,
-              100,
-              "slow",
-              1000);
-    skills[0] = new Flamethrower();
-    skills[1] = new DragonRage();
+    super(
+            level,
+            TypeMap.TypeEnum.FIRE,
+            TypeMap.TypeEnum.FLYING,
+            R.drawable.charizard,
+            R.drawable.charizard_back,
+            "Charizard",
+            78,
+            97,
+            82,
+            100,
+            "slow",
+            1000);
+    SkillFactory factory = new SkillFactory();
+    skills[0] = factory.getSkill(SkillFactory.SkillClass.FLAMETHROWER);
+    skills[1] = factory.getSkill(SkillFactory.SkillClass.DRAGONRAGE);
   }
 
   /**

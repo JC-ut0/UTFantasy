@@ -171,4 +171,4 @@ File affected: all files under pet package
 ########
 # Step 29
 File affected: ItemManager, BattleInteractor
-Make the shown text during battle more reasonable.
+Make the shown text during battle more reasonable, add grass to the map, fix bugs.

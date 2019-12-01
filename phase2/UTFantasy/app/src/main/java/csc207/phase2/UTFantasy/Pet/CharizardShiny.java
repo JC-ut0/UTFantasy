@@ -1,7 +1,7 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.DragonRage;
-import csc207.phase2.UTFantasy.AllSkills.Flamethrower;
+import csc207.phase2.UTFantasy.AllSkills.Skill;
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
@@ -21,8 +21,9 @@ class CharizardShiny extends Pokemon {
               100,
               "slow",
               1000);
-      skills[0] = new Flamethrower();
-      skills[1] = new DragonRage();
+    SkillFactory factory = new SkillFactory();
+    skills[0] = factory.getSkill(SkillFactory.SkillClass.FLAMETHROWER);
+    skills[1] = factory.getSkill(SkillFactory.SkillClass.DRAGONRAGE);
   }
   /**
    * Get the profile ID of Shiny Charizard.

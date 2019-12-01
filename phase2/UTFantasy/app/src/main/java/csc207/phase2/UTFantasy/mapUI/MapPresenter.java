@@ -17,6 +17,7 @@ public class MapPresenter implements MapDrawer {
   private MainActivityModel activityModel;
   // all the bitmaps used to draw
   private Bitmap lawn;
+  private Bitmap grass0;
   private Bitmap tree;
   private Bitmap redtree;
   private Bitmap fightNpc;
@@ -92,6 +93,7 @@ public class MapPresenter implements MapDrawer {
   /** initialize the image of the player */
   private void initializeBitMap() {
     lawn = getBitmap(R.drawable.lawn, (float) 2, (float) 2);
+    grass0 = getBitmap(R.drawable.grass0, (float) 2, (float) 2);
     tree = getBitmap(R.drawable.tree, (float) 2, (float) 2);
     redtree = getBitmap(R.drawable.redtree, (float) 2, (float) 2);
     // initialize the bitmap of NPCs.
@@ -152,6 +154,9 @@ public class MapPresenter implements MapDrawer {
           switch (unit.getIcon()) {
             case LAWN:
               bitmap = lawn;
+              break;
+            case GRASS0:
+              bitmap = grass0;
               break;
             case TREE:
               bitmap = tree;

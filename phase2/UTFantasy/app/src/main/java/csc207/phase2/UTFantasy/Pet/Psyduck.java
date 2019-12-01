@@ -1,7 +1,9 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.AllSkills.HydroPump;
-import csc207.phase2.UTFantasy.AllSkills.Scratch;
+import android.text.Spannable;
+
+import csc207.phase2.UTFantasy.AllSkills.Skill;
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
@@ -21,8 +23,9 @@ class Psyduck extends Pokemon {
               55,
               "quick",
               33);
-    skills[0] = new Scratch();
-    skills[1] = new HydroPump();
+    SkillFactory factory = new SkillFactory();
+    skills[0] = factory.getSkill(SkillFactory.SkillClass.SCARTCH);
+    skills[1] = factory.getSkill(SkillFactory.SkillClass.HYDROPUMP);
     setExpToLevelUp(100);
   }
 

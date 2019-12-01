@@ -28,6 +28,14 @@ public class MapBuilder {
     }
   }
 
+  public void buildGrass() {
+    for (int x = 3; x < 5; x += 1) {
+      for (int y = 3; y < 5; y += 1) {
+        lowMap[x][y] = new UnitDraw(Icon.GRASS0);
+      }
+    }
+  }
+
   public void buildTree() {
     for (int y = 0; y < mapHeight - 2; y++) { // left vertical border of the map
       for (int x = 0; x < 2; x++) {
@@ -443,31 +451,30 @@ public class MapBuilder {
     npc = new NPC("JC", Duty.FIGHT);
     npc.setDialog("ready for your final exam? great!");
     npc.setInteractedDialogue("Good job!");
-    npc.addPokemon(new Mewtwo());
+    npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.MEWTWO, 50));
     buildSingleNpc(npc, Icon.JESSE, 3, 6);
 
     npc = new NPC("Quincy", Duty.FIGHT);
     npc.setDialog("ready for your final exam? great!");
     npc.setInteractedDialogue("Good job!");
-    npc.addPokemon(new Psyduck());
+    npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PSYDUCK, 50));
     buildSingleNpc(npc, Icon.QUINCY, 4, 6);
 
     npc = new NPC("Deniska", Duty.FIGHT);
     npc.setDialog("Do. Or do not. There is no try.");
     npc.setInteractedDialogue("I am your father!");
-    npc.addPokemon(new CharizardShiny());
+    npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARIZARDSHINY, 50));
     buildSingleNpc(npc, Icon.DENISKA, 5, 6);
 
     npc = new NPC("Joy", Duty.FIGHT);
     npc.setDialog("ready for your final exam? great!");
     npc.setInteractedDialogue("Good job!");
-    npc.addPokemon(new Pikachu());
+    npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 50));
     buildSingleNpc(npc, Icon.JOY, 6, 6);
 
     npc = new NPC("Yimi", Duty.FIGHT);
     npc.setDialog("ready for your final exam? great!");
-    npc.setInteractedDialogue("Good job!");
-    npc.addPokemon(new Pikachu());
+    npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 50));
     buildSingleNpc(npc, Icon.YIMI, 7, 6);
   }
 

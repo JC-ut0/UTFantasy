@@ -22,7 +22,7 @@ public class BattleInteractor implements BattleObserver {
     updateHpBar();
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
     String text;
-    if (rivalPoke.hasMaster()) {
+      if (!rivalPoke.isWild()) {
       text = battleData.getRival().getName() + " sent out " + rivalPoke.getPokemonName();
     } else {
       text = "A wild " + rivalPoke.getPokemonName() + " has appeared!";

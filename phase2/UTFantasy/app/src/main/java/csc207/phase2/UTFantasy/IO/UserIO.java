@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import csc207.phase2.UTFantasy.AllSkills.Thunderblot;
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
@@ -112,7 +112,8 @@ public class UserIO implements UserIOInterface {
         Player player = new Player("yimi", "girl");
         PokemonFactory pokemonFactory = new PokemonFactory();
         Pokemon pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 100);
-        pokemon.updateSkills(new Thunderblot(), null);
+      SkillFactory skillFactory = new SkillFactory();
+      pokemon.updateSkills(skillFactory.getSkill(SkillFactory.SkillClass.THUNDERBOLT), null);
         player.addPokemon(pokemon);
         player.setMoney(1000000000);
         user.setPlayer(player);
