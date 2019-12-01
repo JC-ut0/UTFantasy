@@ -39,8 +39,8 @@
 
     <TextView
         android:id="@+id/level"
-        android:layout_width="76dp"
-        android:layout_height="70dp"
+        android:layout_width="112dp"
+        android:layout_height="37dp"
         android:layout_alignStart="@+id/productName2"
         android:layout_alignTop="@+id/productName2"
         android:layout_marginStart="43dp"

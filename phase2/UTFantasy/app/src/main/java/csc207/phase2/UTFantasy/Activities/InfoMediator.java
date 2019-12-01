@@ -65,4 +65,10 @@ public class InfoMediator {
   public void discardPokemon(int position){
     player.discardPokemon(position);
   }
+
+  public void resetSelect(){
+    for (Product product: player.getBag().keySet() ){
+      product.setSelected(false);
+    }
+  }
 }

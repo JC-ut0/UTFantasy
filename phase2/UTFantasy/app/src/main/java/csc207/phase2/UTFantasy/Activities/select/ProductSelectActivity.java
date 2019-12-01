@@ -12,7 +12,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import csc207.phase2.UTFantasy.Activities.InfoMediator;
 import csc207.phase2.UTFantasy.Character.Player;
@@ -85,6 +87,7 @@ public class ProductSelectActivity extends AppCompatActivity {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
+            reset();
             onBackPressed();
           }
         });
@@ -119,5 +122,9 @@ public class ProductSelectActivity extends AppCompatActivity {
       product.setSelected(true);
       selectedProduct = product;
     }
+  }
+
+  private void reset(){
+    infoMediator.resetSelect();
   }
 }
