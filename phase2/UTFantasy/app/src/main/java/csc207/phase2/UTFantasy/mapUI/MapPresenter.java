@@ -95,13 +95,13 @@ public class MapPresenter implements MapDrawer {
     tree = getBitmap(R.drawable.tree, (float) 2, (float) 2);
     redtree = getBitmap(R.drawable.redtree, (float) 2, (float) 2);
     // initialize the bitmap of NPCs.
-    fightNpc = getBitmap(R.drawable.professor, 2, 2);
-    sellerNpc = getBitmap(R.drawable.saler, (float) 2.0, (float) 2.0);
-    healerNpc = getBitmap(R.drawable.beauty, (float) 2.0, (float) 2.0);
-    yimi = getBitmap(R.drawable.yimi, (float) 1.2, (float) 1.4);
-    jesse = getBitmap(R.drawable.jesse, (float) 2.0, (float) 1.8);
-    joy = getBitmap(R.drawable.yyqx, (float) 2.0, (float) 1.9);
-    deniska = getBitmap(R.drawable.dd, (float) 2.0, (float) 2.0);
+    fightNpc = getBitmap(R.drawable.professor, (float) 1.85, (float) 1.85);
+    sellerNpc = getBitmap(R.drawable.saler, (float) 1.9, (float) 1.9);
+    healerNpc = getBitmap(R.drawable.beauty, (float) 1.9, (float) 1.95);
+    yimi = getBitmap(R.drawable.yimi, (float) 1.2, (float) 1.22);
+    jesse = getBitmap(R.drawable.jesse, (float) 2.0, (float) 1.73);
+    joy = getBitmap(R.drawable.yyqx, (float) 1.9, (float) 1.75);
+    deniska = getBitmap(R.drawable.dd, (float) 1.9, (float) 1.8);
     quincy = getBitmap(R.drawable.psyduck, (float) 1.0, (float) 1.1);
     pokemonBallOnMap = getBitmap(R.drawable.pokeballonmap, (float) 0.4, (float) 0.4);
     pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.3, (float) 0.3);
