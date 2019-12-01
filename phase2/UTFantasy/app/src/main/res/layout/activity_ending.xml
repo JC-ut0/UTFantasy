@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/pic1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="130dp" />
+
+    <ImageView
+        android:id="@+id/pic3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignStart="@+id/pic2"
+        android:layout_alignTop="@+id/pic2"
+        android:layout_alignBottom="@+id/pic2"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp" />
+
+    <ImageView
+        android:id="@+id/pic4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignStart="@+id/pic3"
+        android:layout_alignTop="@+id/pic3"
+        android:layout_alignBottom="@+id/pic3"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp" />
+
+    <ImageView
+        android:id="@+id/pic5"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignStart="@+id/pic4"
+        android:layout_alignTop="@+id/pic4"
+        android:layout_alignBottom="@+id/pic4"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp" />
+
+    <ImageView
+        android:id="@+id/pic2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignStart="@+id/pic1"
+        android:layout_alignTop="@+id/pic1"
+        android:layout_alignBottom="@+id/pic1"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp" />
+
+    <TextView
+        android:id="@+id/name1"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/pic1"
+        android:layout_alignStart="@+id/pic1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Duan Liu"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/name2"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/pic2"
+        android:layout_alignTop="@+id/name1"
+        android:layout_alignBottom="@+id/name1"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="Yizhen Wang"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/name3"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/pic3"
+        android:layout_alignTop="@+id/name2"
+        android:layout_alignBottom="@+id/name2"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="Yexiong Xu"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/name4"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/pic4"
+        android:layout_alignTop="@+id/name3"
+        android:layout_alignBottom="@+id/name3"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="Qinxi Yu"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/name5"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/pic5"
+        android:layout_alignTop="@+id/name4"
+        android:layout_alignBottom="@+id/name4"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="Yan Zhou"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:text="~Producers~"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/ending_back"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="#33FFFFFF"
+        android:text="press here to continue"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp" />
+</RelativeLayout>

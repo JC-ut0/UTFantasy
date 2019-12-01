@@ -36,7 +36,6 @@ public class ProductSelectActivity extends AppCompatActivity {
   HashMap<Product, Integer> productHashMap;
   /** The information mediator */
   InfoMediator infoMediator;
-//  List<Product> productList;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,8 +110,7 @@ public class ProductSelectActivity extends AppCompatActivity {
             } else{
               checkOnlyOne(product);
             }
-//            productList.set(position, product);
-//            // now update the adapter
+            // now update the adapter
             adapter.updateRecords(productHashMap);
           }
         });

@@ -16,7 +16,7 @@
         <activity
             android:name="csc207.phase2.UTFantasy.Activities.LoginActivityMVP.LoginActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="csc207.phase2.UTFantasy.Activities.StartUpActivity"
             android:screenOrientation="landscape">
@@ -32,11 +32,11 @@
         <activity
             android:name="csc207.phase2.UTFantasy.mapUI.MainActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name="csc207.phase2.UTFantasy.Activities.scoreboard.ScoreBoardActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name="csc207.phase2.UTFantasy.Battle.BattleActivity"
             android:screenOrientation="landscape"
@@ -72,6 +72,10 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
+        <activity
+            android:name=".Activities.EndingActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>
