@@ -4,9 +4,9 @@ import androidx.annotation.NonNull;
 
 import java.util.HashMap;
 
-import csc207.phase2.UTFantasy.mapDomain.Map;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.Product;
+import csc207.phase2.UTFantasy.mapUseCase.Map;
 
 public class Player extends Person {
 
@@ -93,7 +93,7 @@ public class Player extends Person {
     }
   }
 
-  public void deleteItem(Product product) {
+    public void useItem(Product product) {
     Integer num = bag.get(product);
     if (num != null) {
       if (num == 1) bag.remove(product);

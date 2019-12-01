@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.mapDomain;
+package csc207.phase2.UTFantasy.mapUseCase;
 
 public enum Icon {
     LAWN,

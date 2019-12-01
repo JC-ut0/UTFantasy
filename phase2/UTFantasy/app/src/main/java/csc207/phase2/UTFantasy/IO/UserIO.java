@@ -24,13 +24,14 @@ import csc207.phase2.UTFantasy.User.UserIOInterface;
 /** A Singleton class to manage UserData. Will be initialized in the StartUp activity. */
 public class UserIO implements UserIOInterface {
 
+  /**
+   * A unique UserIO that will be only created once.
+   */
+  private static UserIO SINGLETON_USER_IO = new UserIO();
   /** The file to store UserData */
   private String userFile = "user.txt";
 
   private UserData userData;
-
-  /** A unique UserIO that will be only created once. */
-  private static UserIO SINGLETON_USER_IO = new UserIO();
 
   /** Singleton Constructor of UserIO. */
   private UserIO() {}
@@ -93,7 +94,7 @@ public class UserIO implements UserIOInterface {
               .show();
       e.printStackTrace();
       Log.e("Exception", e.getMessage() + e.getMessage());
-        createNewUserData();
+      createNewUserData();
     } catch (IOException e) {
       AlertDialog.Builder builder = new AlertDialog.Builder(context);
       builder.setTitle(e.getClass().toString());
@@ -101,22 +102,24 @@ public class UserIO implements UserIOInterface {
       builder.setPositiveButton("OK", null);
       builder.show();
       e.printStackTrace();
-        createNewUserData();
+      createNewUserData();
     }
   }
 
-  /** This method is only used for demo, should not be include in this class.*/
-    private void createNewUserData() {
-        userData = new UserData();
-        User user = new User("yimi", "20191128");
-        Player player = new Player("yimi", "girl");
-        PokemonFactory pokemonFactory = new PokemonFactory();
-        Pokemon pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 100);
-      SkillFactory skillFactory = new SkillFactory();
-      pokemon.updateSkills(skillFactory.getSkill(SkillFactory.SkillClass.THUNDERBOLT), null);
-        player.addPokemon(pokemon);
-        player.setMoney(1000000000);
-        user.setPlayer(player);
-        userData.addUser("yimi", user);
+  /**
+   * This method is only used for demo, should not be include in this class.
+   */
+  private void createNewUserData() {
+    userData = new UserData();
+    User user = new User("yimi", "20191128");
+    Player player = new Player("yimi", "girl");
+    PokemonFactory pokemonFactory = new PokemonFactory();
+    Pokemon pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARIZARDSHINY, 100);
+    SkillFactory skillFactory = new SkillFactory();
+    pokemon.updateSkills(skillFactory.getSkill(SkillFactory.SkillClass.THUNDERBOLT), null);
+    player.addPokemon(pokemon);
+    player.setMoney(1000000000);
+    user.setPlayer(player);
+    userData.addUser("yimi", user);
   }
 }

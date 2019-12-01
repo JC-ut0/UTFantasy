@@ -17,7 +17,7 @@ public class PlayerManager {
   }
 
   public void deleteItem(Product product) {
-    player.deleteItem(product);
+      player.useItem(product);
   }
 
   public int getMoney() {

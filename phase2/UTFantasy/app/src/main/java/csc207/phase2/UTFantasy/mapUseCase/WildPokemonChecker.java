@@ -1,4 +1,6 @@
-package csc207.phase2.UTFantasy.mapDomain;
+package csc207.phase2.UTFantasy.mapUseCase;
+
+import java.io.Serializable;
 
 import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
@@ -8,7 +10,7 @@ import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 
-public class WildPokemonChecker implements WildPokemonObserver {
+public class WildPokemonChecker implements WildPokemonObserver, Serializable {
     private Player player;
     private Map map;
     private MapDrawer drawer;

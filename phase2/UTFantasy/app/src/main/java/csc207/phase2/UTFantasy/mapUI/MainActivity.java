@@ -24,10 +24,10 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.WildPokemonObserver;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.mapDomain.MainThread;
-import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
-import csc207.phase2.UTFantasy.mapDomain.MapInteractor;
-import csc207.phase2.UTFantasy.mapDomain.WildPokemonChecker;
+import csc207.phase2.UTFantasy.mapUseCase.MainThread;
+import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
+import csc207.phase2.UTFantasy.mapUseCase.MapInteractor;
+import csc207.phase2.UTFantasy.mapUseCase.WildPokemonChecker;
 
 public class MainActivity extends AppCompatActivity implements MainActivityModel {
   private MapView mapView;

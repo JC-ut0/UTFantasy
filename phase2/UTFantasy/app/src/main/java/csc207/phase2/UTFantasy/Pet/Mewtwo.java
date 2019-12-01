@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Pet;
 
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
@@ -19,6 +20,8 @@ class Mewtwo extends Pokemon {
               130,
               "slow",
               1000);
+      SkillFactory factory = new SkillFactory();
+      skills[0] = factory.getSkill(SkillFactory.SkillClass.BODYSLAM);
   }
   /**
    * Get the profile ID of Mewtwo.

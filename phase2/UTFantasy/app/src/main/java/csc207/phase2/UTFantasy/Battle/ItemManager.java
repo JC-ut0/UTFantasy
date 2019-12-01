@@ -1,8 +1,5 @@
 package csc207.phase2.UTFantasy.Battle;
 
-import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment;
-
-import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.PokemonBall;
 import csc207.phase2.UTFantasy.Products.Potion;
@@ -18,10 +15,9 @@ public class ItemManager {
 
   public String useItem() {
     Product product = battleData.getPlayer().getSelectedProduct();
-    battleData.getPlayer().setSelectedProduct(null);
     String text = null;
     if (product != null) {
-      battleData.getPlayer().deleteItem(product);
+      battleData.getPlayer().useItem(product);
       text = battleData.getPlayer().getName() + " used " + product.getName();
       if (product instanceof PokemonBall) {
         if (!battleData.getCurrRivalPoke().isWild()) {
@@ -81,7 +77,7 @@ public class ItemManager {
         text = battleData.getCurrRivalPoke().getPokemonName() + " has escaped...";
       }
     }
-      battleData.getPlayer().setSelectedProduct(null);
+    battleData.getPlayer().setSelectedProduct(null);
     return text;
   }
 
@@ -96,7 +92,7 @@ public class ItemManager {
       playerPoke.notifyObserverHpChange();
       text = playerPoke.getPokemonName() + " has been healed!";
     }
-      battleData.getPlayer().setSelectedProduct(null);
+    battleData.getPlayer().setSelectedProduct(null);
     return text;
   }
 

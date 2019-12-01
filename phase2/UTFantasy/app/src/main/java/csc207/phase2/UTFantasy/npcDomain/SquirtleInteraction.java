@@ -7,7 +7,7 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
+import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
 public class SquirtleInteraction extends Interaction {
 

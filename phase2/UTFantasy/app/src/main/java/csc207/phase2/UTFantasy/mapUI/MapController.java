@@ -2,8 +2,8 @@ package csc207.phase2.UTFantasy.mapUI;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.mapDomain.MapDirector;
-import csc207.phase2.UTFantasy.mapDomain.MapInteractor;
+import csc207.phase2.UTFantasy.mapUseCase.MapDirector;
+import csc207.phase2.UTFantasy.mapUseCase.MapInteractor;
 import csc207.phase2.UTFantasy.npcDomain.NPCInteractor;
 
 public class MapController {

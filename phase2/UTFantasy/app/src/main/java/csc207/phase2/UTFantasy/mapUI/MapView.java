@@ -7,8 +7,7 @@ import android.view.SurfaceView;
 
 import java.io.Serializable;
 
-import csc207.phase2.UTFantasy.mapDomain.MainThread;
-import csc207.phase2.UTFantasy.mapUI.MapViewModel;
+import csc207.phase2.UTFantasy.mapUseCase.MainThread;
 
 public class MapView extends SurfaceView
     implements SurfaceHolder.Callback, Serializable, MapViewModel {

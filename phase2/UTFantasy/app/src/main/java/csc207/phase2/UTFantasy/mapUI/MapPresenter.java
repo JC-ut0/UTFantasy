@@ -7,9 +7,9 @@ import android.graphics.Matrix;
 import android.view.SurfaceHolder;
 
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.mapDomain.Icon;
-import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
-import csc207.phase2.UTFantasy.mapDomain.UnitDraw;
+import csc207.phase2.UTFantasy.mapUseCase.Icon;
+import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
+import csc207.phase2.UTFantasy.mapUseCase.UnitDraw;
 
 public class MapPresenter implements MapDrawer {
 

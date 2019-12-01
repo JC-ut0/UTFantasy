@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.mapDomain;
+package csc207.phase2.UTFantasy.mapUseCase;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
