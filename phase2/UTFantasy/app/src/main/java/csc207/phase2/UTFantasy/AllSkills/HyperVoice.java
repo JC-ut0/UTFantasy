@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class HyperVoice extends Skill {
+class HyperVoice extends Skill {
   /** Constructor of a HyperVoice Skill. */
-  public HyperVoice() {
-    name = "Hyper Voice";
-    power = 90;
-    pp = 10;
-      type = TypeMap.TypeEnum.NORMAL;
+  HyperVoice() {
+    super(10, 90, TypeMap.TypeEnum.NORMAL, "Hyper Voice");
   }
 
   /**

@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class ThunderShock extends Skill {
+class ThunderShock extends Skill {
   /** Constructor of a ThunderShock Skill. */
-  public ThunderShock() {
-    power = 40;
-    pp = 30;
-      type = TypeMap.TypeEnum.ELECTRIC;
-    name = "Thunder Shock";
+  ThunderShock() {
+    super(30, 40, TypeMap.TypeEnum.ELECTRIC, "Thunder Shock");
   }
 
   /**

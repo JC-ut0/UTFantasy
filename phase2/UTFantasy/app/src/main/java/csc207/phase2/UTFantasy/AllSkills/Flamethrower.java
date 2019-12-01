@@ -4,14 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-
-public class Flamethrower extends Skill {
+class Flamethrower extends Skill {
   /** Constructor of a Flamethrower Skill. */
-  public Flamethrower() {
-    power = 95;
-    pp = 15;
-      type = TypeMap.TypeEnum.FIRE;
-    name = "Flamethrower";
+  Flamethrower() {
+    super(15, 95, TypeMap.TypeEnum.FIRE, "Flamethrower");
   }
 
   /**

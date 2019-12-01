@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class DragonRage extends Skill {
+class DragonRage extends Skill {
   /** Constructor of a DragonRage Skill. */
-  public DragonRage() {
-    power = 40;
-    pp = 10;
-      type = TypeMap.TypeEnum.DRAGON;
-    name = "Dragon Rage";
+  DragonRage() {
+    super(10, 40, TypeMap.TypeEnum.DRAGON, "Dragon Rage");
   }
 
   /**

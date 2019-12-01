@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class Bubble extends Skill {
+class Bubble extends Skill {
   /** Constructor of a Bubble Skill. */
-  public Bubble() {
-    name = "Bubble";
-      type = TypeMap.TypeEnum.WATER;
-    power = 20;
-    pp = 30;
+  Bubble() {
+    super(30, 20, TypeMap.TypeEnum.WATER, "Bubble");
   }
 
   /**

@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public abstract class  Skill implements Serializable {
+public abstract class Skill implements Serializable {
   /** The maximum amount of times of the Skill could be used. */
   protected int maximumPp;
   /** The power of the skill. */
@@ -18,6 +18,12 @@ public abstract class  Skill implements Serializable {
   /** The name of the skill. */
   protected String name;
 
+  Skill(int maximumPp, int power, TypeMap.TypeEnum type, String name) {
+    setMaximumPp(maximumPp);
+    setPower(power);
+    setType(type);
+    setName(name);
+  }
   /**
    * Get the value of the power of the Skill.
    *
@@ -65,6 +71,7 @@ public abstract class  Skill implements Serializable {
 
   /**
    * Set the maximumpp of the skill.
+   *
    * @param pp the value to be set.
    */
   public void setMaximumPp(int pp) {

@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class Ember extends Skill {
+class Ember extends Skill {
   /** Constructor of an Ember Skill. */
-  public Ember() {
-    power = 40;
-    pp = 25;
-      type = TypeMap.TypeEnum.FIRE;
-    name = "Ember";
+  Ember() {
+    super(25, 40, TypeMap.TypeEnum.FIRE, "Ember");
   }
 
   /**

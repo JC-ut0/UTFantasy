@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class QuickAttack extends Skill {
+class QuickAttack extends Skill {
   /** Constructor of a QuickAttack Skill. */
-  public QuickAttack() {
-    power = 40;
-    pp = 30;
-      type = TypeMap.TypeEnum.NORMAL;
-    name = "Quick Attack";
+  QuickAttack() {
+    super(30, 40, TypeMap.TypeEnum.NORMAL, "Quick Attack");
   }
 
   /**

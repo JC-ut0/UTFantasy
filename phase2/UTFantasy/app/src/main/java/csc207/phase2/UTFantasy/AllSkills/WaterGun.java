@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class WaterGun extends Skill {
+class WaterGun extends Skill {
   /** Constructor of a WaterGun Skill. */
-  public WaterGun() {
-    name = "Water Gun";
-      type = TypeMap.TypeEnum.WATER;
-    power = 40;
-    pp = 25;
+  WaterGun() {
+    super(25, 40, TypeMap.TypeEnum.WATER, "Water Gun");
   }
 
   /**

@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class Confusion extends Skill {
+class Confusion extends Skill {
   /** Constructor of a Confusion Skill. */
-  public Confusion() {
-    name = "Confusion";
-      type = TypeMap.TypeEnum.PSYCHIC;
-    power = 50;
-    pp = 25;
+  Confusion() {
+    super(25, 50, TypeMap.TypeEnum.PSYCHIC, "Confusion");
   }
 
   /**

@@ -4,14 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-
-public class HydroPump extends Skill {
+class HydroPump extends Skill {
   /** Constructor of a HydroPump Skill. */
-  public HydroPump() {
-    name = "Hydro Pump";
-      type = TypeMap.TypeEnum.WATER;
-    power = 120;
-    pp = 5;
+  HydroPump() {
+    super(5, 120, TypeMap.TypeEnum.WATER, "Hydro Pump");
   }
 
   /**

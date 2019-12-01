@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class BodySlam extends Skill {
+class BodySlam extends Skill {
   /** Constructor of a BodySlam Skill. */
-  public BodySlam() {
-    name = "Body Slam";
-    type = TypeMap.TypeEnum.NORMAL;
-    power = 85;
-    pp = 15;
+  BodySlam() {
+    super(15, 85, TypeMap.TypeEnum.NORMAL, "Body Slam");
   }
 
   /**

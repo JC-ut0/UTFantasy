@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class ThunderWave extends Skill {
+class ThunderWave extends Skill {
   /** Constructor of a ThunderWave Skill. */
-  public ThunderWave() {
-    power = 15;
-    pp = 20;
-      type = TypeMap.TypeEnum.ELECTRIC;
-    name = "Thunder Wave";
+  ThunderWave() {
+    super(20, 15, TypeMap.TypeEnum.ELECTRIC, "Thunder Wave");
   }
 
   /**

@@ -4,13 +4,10 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 
-public class Thunderblot extends Skill {
+class Thunderblot extends Skill {
   /** Constructor of a Thunderblot Skill. */
-  public Thunderblot() {
-    power = 95;
-    pp = 15;
-      type = TypeMap.TypeEnum.ELECTRIC;
-    name = "Thunder Blot";
+  Thunderblot() {
+    super(15, 95, TypeMap.TypeEnum.ELECTRIC, "Thunder Bolt");
   }
 
   /**
