@@ -20,10 +20,14 @@ public class BattleInteractor implements BattleObserver {
     initializePokes();
     updateSkillButtons();
     updateHpBar();
-    presenter.showText(
-            battleData.getRival().getName()
-                    + " sent out "
-                    + battleData.getCurrRivalPoke().getPokemonName());
+    Pokemon rivalPoke = battleData.getCurrRivalPoke();
+    String text;
+    if (rivalPoke.hasMaster()) {
+      text = battleData.getRival().getName() + " sent out " + rivalPoke.getPokemonName();
+    } else {
+      text = "A wild " + rivalPoke.getPokemonName() + " has appeared!";
+    }
+    presenter.showText(text);
   }
 
   private void initializePokes() {

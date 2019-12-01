@@ -42,6 +42,10 @@ public class NPCRepository implements Serializable {
     npcHashMap.put(NPCname, npc);
   }
 
+  public void deleteNPC(String NPCname) {
+    npcHashMap.remove(NPCname);
+  }
+
   public void addBeginningPokemonNPC(NPC npc) {
     beginningPokemonNPCs.add(npc);
   }

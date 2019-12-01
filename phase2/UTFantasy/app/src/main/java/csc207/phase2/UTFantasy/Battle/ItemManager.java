@@ -58,13 +58,19 @@ public class ItemManager {
       if (random < rate) {
         // the pokemon is successfully caught
         isCaught = true;
-          battleData.getCurrRivalPoke().setMaster(battleData.getPlayer());
+        battleData.getCurrRivalPoke().setMaster(battleData.getPlayer());
         battleData.getPlayer().addPokemon(battleData.getCurrRivalPoke());
         battleData.setAction(BattleData.Action.END);
         text =
                 "Congratulations! You have caught "
                         + battleData.getCurrRivalPoke().getPokemonName()
                         + "!!!";
+        // delete this pokemon npc from player's npc repository
+        battleData
+                .getPlayer()
+                .getPlayerMap()
+                .getNpcRepository()
+                .deleteNPC(battleData.getRival().getName());
       } else {
         // the pokemon is failed to be caught
         isCaught = false;
