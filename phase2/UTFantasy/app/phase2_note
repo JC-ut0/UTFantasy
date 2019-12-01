@@ -146,12 +146,18 @@ update PlayerInfoActivity to show the top percentile of the player ordered by po
 File affected: Package:Battle, PokemonBall
 Add functionality that player can catch or heal pokemon.
 
-#######
+########
 # Step 25
 File affected: Pokemon, ItemManager, Player, PlayerManager, BattleInteractor
 Fix bugs that possibly occur when use items.
 
-#######
+########
 # Step 26
 File affected: mapDomain, mapPresenter
 Add feature that make the drawn screen size changeable.
+
+########
+# Step 27
+File affected: Player, MovementManager, WildPokemonChecker, MainActivity, ItemManager
+Add feature that player can encounter wild pokemons. Fix bug that pokemon didn't get set master
+after got caught

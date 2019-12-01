@@ -21,11 +21,13 @@ import csc207.phase2.UTFantasy.Activities.ShopActivityMVP.ShopActivity;
 import csc207.phase2.UTFantasy.Activities.SystemActivity;
 import csc207.phase2.UTFantasy.Battle.BattleActivity;
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.Character.WildPokemonObserver;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.mapDomain.MainThread;
 import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
 import csc207.phase2.UTFantasy.mapDomain.MapInteractor;
+import csc207.phase2.UTFantasy.mapDomain.WildPokemonChecker;
 
 public class MainActivity extends AppCompatActivity implements MainActivityModel {
   private MapView mapView;
@@ -217,6 +219,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     mainThread = new MainThread(mapDrawer, mapInteractor);
     mapView.setThread(mainThread);
     mapViewHolder.addView(mapView);
+    WildPokemonObserver wildPokemonObserver = new WildPokemonChecker(player, mapDrawer);
+    player.addObserver(wildPokemonObserver);
   }
 
   /** resume this activity called when this activity is resumed from being paused */
@@ -236,16 +240,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
 
   @Override
   protected void onPause() {
-      super.onPause();
-      mapView.getThread().setRunning(false);
-
+    super.onPause();
+    mapView.getThread().setRunning(false);
   }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        userIO.saveUserData(MainActivity.this);
-    }
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    userIO.saveUserData(MainActivity.this);
+  }
 
   @Override
   public void fight() {
@@ -307,7 +310,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     leftButton.setVisibility(View.GONE);
     rightButton.setVisibility(View.GONE);
     menuButton.setVisibility(View.GONE);
-
   }
 
   @Override
