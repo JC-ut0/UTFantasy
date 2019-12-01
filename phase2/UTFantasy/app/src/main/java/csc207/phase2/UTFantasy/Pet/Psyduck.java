@@ -5,28 +5,25 @@ import csc207.phase2.UTFantasy.AllSkills.Scratch;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Psyduck extends Pokemon {
+class Psyduck extends Pokemon {
   /** Constructor of a Psyduck. */
-  public Psyduck() {
-    super();
-    setType1(TypeMap.TypeEnum.WATER);
-    setPokemonName("Psyduck");
+  Psyduck(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.WATER,
+              null,
+              R.drawable.psyduck,
+              R.drawable.psyduck_back,
+              "Psyduck",
+              50,
+              58,
+              48,
+              55,
+              "quick",
+              33);
     skills[0] = new Scratch();
     skills[1] = new HydroPump();
-    setProfileID(R.drawable.psyduck);
-    setProfileBackID(R.drawable.psyduck_back);
-    setBaseHp(50);
-    setBaseAttack(58);
-    setBaseDefense(48);
-    setBaseSpeed(55);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
     setExpToLevelUp(100);
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(33);
   }
 
   /**

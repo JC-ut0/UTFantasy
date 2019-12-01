@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Pidgeotto extends Pokemon {
+class Pidgeotto extends Pokemon {
   /** Constructor of a Pidgeotto. */
-  public Pidgeotto() {
-    super();
-      setType1(TypeMap.TypeEnum.NORMAL);
-      setType2(TypeMap.TypeEnum.FLYING);
-    setProfileID(R.drawable.pidgeotto);
-    setProfileBackID(R.drawable.pidgeotto_back);
-    setPokemonName("Pidgeotto");
-    setBaseHp(63);
-    setBaseAttack(55);
-    setBaseDefense(50);
-    setBaseSpeed(71);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(36);
+  Pidgeotto(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.NORMAL,
+              TypeMap.TypeEnum.FLYING,
+              R.drawable.pidgeotto,
+              R.drawable.pidgeotto_back,
+              "Pidgeotto",
+              63,
+              55,
+              50,
+              71,
+              "quick",
+              36);
   }
   /**
    * Get the profile ID of Pidgeotto.

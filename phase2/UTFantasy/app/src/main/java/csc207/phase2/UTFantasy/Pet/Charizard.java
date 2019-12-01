@@ -5,29 +5,24 @@ import csc207.phase2.UTFantasy.AllSkills.Flamethrower;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Charizard extends Pokemon {
+class Charizard extends Pokemon {
   /** Constructor of a Charizard. */
-  public Charizard() {
-    super();
-    setType1(TypeMap.TypeEnum.FIRE);
-    setType2(TypeMap.TypeEnum.FLYING);
-    setProfileID(R.drawable.charizard);
-    setProfileBackID(R.drawable.charizard_back);
+  Charizard(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.FIRE,
+              TypeMap.TypeEnum.FLYING,
+              R.drawable.charizard,
+              R.drawable.charizard_back,
+              "Charizard",
+              78,
+              97,
+              82,
+              100,
+              "slow",
+              1000);
     skills[0] = new Flamethrower();
     skills[1] = new DragonRage();
-    setPokemonName("Charizard");
-    setBaseHp(78);
-    setBaseAttack(97);
-    setBaseDefense(82);
-    setBaseSpeed(100);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
   }
 
   /**

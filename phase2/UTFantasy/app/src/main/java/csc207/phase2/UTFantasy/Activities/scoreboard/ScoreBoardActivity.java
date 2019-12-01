@@ -14,7 +14,8 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.PlayerComparator.PlayerPokemonLvComparator;
 import csc207.phase2.UTFantasy.Character.PlayerComparator.PlayerPokemonNumComparator;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.Pet.Pikachu;
+import csc207.phase2.UTFantasy.Pet.Pokemon;
+import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.User.UserManagerFacade;
 
@@ -76,15 +77,14 @@ public class ScoreBoardActivity extends AppCompatActivity {
         Player p2 = new Player("p2", "boy");
         Player p3 = new Player("p3", "girl");
 
-        Pikachu pet1 = new Pikachu();
-        Pikachu pet2 = new Pikachu();
+        PokemonFactory pokemonFactory = new PokemonFactory();
 
-        pet1.setLevel(10);
-        pet2.setLevel(12);
+        Pokemon pet1 = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 10);
+        Pokemon pet2 = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 12);
 
         p1.addPokemon(pet1);
-        p1.addPokemon(new Pikachu());
-        p1.addPokemon(new Pikachu());
+        p1.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 1));
+        p1.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 1));
         p2.addPokemon(pet1);
         p2.addPokemon(pet2);
         p3.addPokemon(pet1);

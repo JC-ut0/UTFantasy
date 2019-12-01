@@ -1,12 +1,11 @@
 package csc207.phase2.UTFantasy.npcDomain;
 
-import java.net.PortUnreachableException;
 import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.Pet.Charmander;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
+import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
 
@@ -24,8 +23,8 @@ public class CharmanderInteraction extends Interaction {
 
     @Override
     public void interact(NPC npc) {
-        Pokemon charmander = new Charmander();
-        charmander.setLevel(5);
+        PokemonFactory pokemonFactory = new PokemonFactory();
+        Pokemon charmander = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARMANDER, 5);
         player.addPokemon(charmander);
         List<NPC> beginningPokemonNPCs =
                 player.getPlayerMap().getNpcRepository().getBeginningPokemonNPCs();

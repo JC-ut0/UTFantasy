@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Raichu extends Pokemon {
+class Raichu extends Pokemon {
   /** Constructor of a Raichu. */
-  public Raichu() {
-    super();
-      setType1(TypeMap.TypeEnum.ELECTRIC);
-    setProfileID(R.drawable.raichu);
-    setProfileBackID(R.drawable.raichu_back);
-    setPokemonName("Raichu");
-    setBaseHp(60);
-    setBaseAttack(90);
-    setBaseDefense(67);
-    setBaseSpeed(110);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Raichu(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.ELECTRIC,
+              null,
+              R.drawable.raichu,
+              R.drawable.raichu_back,
+              "Raichu",
+              60,
+              90,
+              67,
+              110,
+              "slow",
+              1000);
   }
   /**
    * Get the profile ID of Raichu.

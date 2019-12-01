@@ -15,8 +15,8 @@ import java.io.ObjectOutputStream;
 
 import csc207.phase2.UTFantasy.AllSkills.Thunderblot;
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.Pet.Pikachu;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
+import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.User.User;
 import csc207.phase2.UTFantasy.User.UserData;
 import csc207.phase2.UTFantasy.User.UserIOInterface;
@@ -110,8 +110,8 @@ public class UserIO implements UserIOInterface {
         userData = new UserData();
         User user = new User("yimi", "20191128");
         Player player = new Player("yimi", "girl");
-        Pokemon pokemon = new Pikachu();
-        pokemon.setLevel(100);
+        PokemonFactory pokemonFactory = new PokemonFactory();
+        Pokemon pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 100);
         pokemon.updateSkills(new Thunderblot(), null);
         player.addPokemon(pokemon);
         player.setMoney(1000000000);

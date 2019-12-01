@@ -186,9 +186,9 @@ public class MapPresenter implements MapDrawer {
             case POKEMONBALL:
               bitmap = pokemonBall;
               break;
-              case POKEMONBALLONMAP:
-                  bitmap = pokemonBallOnMap;
-                  break;
+            case POKEMONBALLONMAP:
+              bitmap = pokemonBallOnMap;
+              break;
             case HALLOFFAME:
               bitmap = hallOfFame;
               break;

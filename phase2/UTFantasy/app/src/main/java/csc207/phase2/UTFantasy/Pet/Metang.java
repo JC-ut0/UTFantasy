@@ -3,7 +3,7 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Metang extends Pokemon {
+class Metang extends Pokemon {
   /** Constructor of a Metang. */
   Metang(int level) {
     super(

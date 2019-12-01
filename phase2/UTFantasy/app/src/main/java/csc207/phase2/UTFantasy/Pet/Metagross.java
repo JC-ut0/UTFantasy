@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Metagross extends Pokemon {
+class Metagross extends Pokemon {
   /** Constructor of a Metagross. */
-  public Metagross() {
-    super();
-      setType1(TypeMap.TypeEnum.STEEL);
-      setType1(TypeMap.TypeEnum.PSYCHIC);
-    setProfileID(R.drawable.metagross);
-    setProfileBackID(R.drawable.metagross_back);
-    setPokemonName("Metagross");
-    setBaseHp(80);
-    setBaseAttack(115);
-    setBaseDefense(110);
-    setBaseSpeed(70);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Metagross(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.STEEL,
+              TypeMap.TypeEnum.PSYCHIC,
+              R.drawable.metagross,
+              R.drawable.metagross_back,
+              "Metagross",
+              80,
+              115,
+              110,
+              70,
+              "slow",
+              1000);
   }
   /**
    * Get the profile ID of Metagross.

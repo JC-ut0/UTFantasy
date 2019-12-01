@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Dragonite extends Pokemon {
+class Dragonite extends Pokemon {
   /** Constructor of a Dragonite */
-  public Dragonite() {
-    super();
-      setType1(TypeMap.TypeEnum.DRAGON);
-      setType1(TypeMap.TypeEnum.FLYING);
-    setProfileID(R.drawable.dragonite);
-    setProfileBackID(R.drawable.dragonite_back);
-    setPokemonName("Dragonite");
-    setBaseHp(91);
-    setBaseAttack(117);
-    setBaseDefense(98);
-    setBaseSpeed(80);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Dragonite(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.DRAGON,
+              TypeMap.TypeEnum.FLYING,
+              R.drawable.dragonite,
+              R.drawable.dragonite_back,
+              "Dragonite",
+              91,
+              117,
+              98,
+              80,
+              "slow",
+              1000);
   }
   /**
    * Get the profile ID of Dragonite.

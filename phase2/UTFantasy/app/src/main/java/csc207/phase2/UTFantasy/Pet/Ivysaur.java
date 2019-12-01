@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Ivysaur extends Pokemon {
+class Ivysaur extends Pokemon {
   /** Constructor of a Ivysaur. */
-  public Ivysaur() {
-    super();
-      setType1(TypeMap.TypeEnum.GRASS);
-      setType2(TypeMap.TypeEnum.POISON);
-    setProfileID(R.drawable.ivysaur);
-    setProfileBackID(R.drawable.ivysaur_back);
-    setPokemonName("Ivysaur");
-    setBaseHp(60);
-    setBaseAttack(71);
-    setBaseDefense(72);
-    setBaseSpeed(60);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(36);
+  Ivysaur(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.GRASS,
+              TypeMap.TypeEnum.POISON,
+              R.drawable.ivysaur,
+              R.drawable.ivysaur_back,
+              "Ivysaur",
+              60,
+              71,
+              72,
+              60,
+              "quick",
+              36);
   }
   /**
    * Get the profile ID of Ivysaur.

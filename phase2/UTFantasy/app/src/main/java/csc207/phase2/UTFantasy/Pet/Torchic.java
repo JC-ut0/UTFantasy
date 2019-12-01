@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Torchic extends Pokemon {
+class Torchic extends Pokemon {
   /** Constructor of a Torchic. */
-  public Torchic() {
-    super();
-      setType1(TypeMap.TypeEnum.FIRE);
-    setProfileID(R.drawable.torchic);
-    setProfileBackID(R.drawable.torchic_back);
-    setPokemonName("Torchic");
-    setBaseHp(45);
-    setBaseAttack(65);
-    setBaseDefense(45);
-    setBaseSpeed(45);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(16);
+  Torchic(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.FIRE,
+              null,
+              R.drawable.torchic,
+              R.drawable.torchic_back,
+              "Torchic",
+              45,
+              65,
+              45,
+              45,
+              "quick",
+              16);
   }
   /**
    * Get the profile ID of Torchic.
