@@ -462,8 +462,8 @@ public class MapBuilder {
         buildSingleNpc(npc, Icon.JESSE, 3, 6);
 
         npc = new NPC("Quincy", Duty.FIGHT);
-        npc.setDialog("ready for your final exam? great!");
-        npc.setInteractedDialogue("Good job!");
+        npc.setDialog("Pick the duck, lost the luck!!!");
+        npc.setInteractedDialogue("psyduck...");
         npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PSYDUCK, 50));
         buildSingleNpc(npc, Icon.QUINCY, 4, 6);
 
@@ -474,13 +474,14 @@ public class MapBuilder {
         buildSingleNpc(npc, Icon.DENISKA, 5, 6);
 
         npc = new NPC("Joy", Duty.FIGHT);
-        npc.setDialog("ready for your final exam? great!");
-        npc.setInteractedDialogue("Good job!");
+        npc.setDialog("You are a loser!!");
+        npc.setInteractedDialogue("I will be back!");
         npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 50));
         buildSingleNpc(npc, Icon.JOY, 6, 6);
 
         npc = new NPC("Yimi", Duty.FIGHT);
-        npc.setDialog("ready for your final exam? great!");
+        npc.setDialog("Pikapika,Pikapika!! >w<");
+        npc.setInteractedDialogue("Pikachu......");
         npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 50));
         buildSingleNpc(npc, Icon.YIMI, 7, 6);
     }
