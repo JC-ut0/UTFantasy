@@ -1,8 +1,5 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import android.text.Spannable;
-
-import csc207.phase2.UTFantasy.AllSkills.Skill;
 import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
@@ -14,7 +11,7 @@ class Psyduck extends Pokemon {
               level,
               TypeMap.TypeEnum.WATER,
               null,
-              R.drawable.psyduck,
+              R.drawable.psyduck_notpixel,
               R.drawable.psyduck_back,
               "Psyduck",
               50,

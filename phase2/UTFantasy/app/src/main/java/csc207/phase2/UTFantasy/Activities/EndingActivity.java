@@ -22,7 +22,7 @@ public class EndingActivity extends AppCompatActivity {
         ImageView yimi = findViewById(R.id.pic2);
         yimi.setImageResource(R.drawable.yimi);
         ImageView jessie = findViewById(R.id.pic3);
-        jessie.setImageResource(R.drawable.mewtwo);
+        jessie.setImageResource(R.drawable.jesse);
         ImageView quincy = findViewById(R.id.pic4);
         quincy.setImageResource(R.drawable.psyduck);
         ImageView joy = findViewById(R.id.pic5);
