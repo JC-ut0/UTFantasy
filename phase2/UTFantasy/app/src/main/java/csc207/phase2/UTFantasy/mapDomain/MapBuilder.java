@@ -2,10 +2,7 @@ package csc207.phase2.UTFantasy.mapDomain;
 
 import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
-import csc207.phase2.UTFantasy.Pet.CharizardShiny;
-import csc207.phase2.UTFantasy.Pet.Mewtwo;
-import csc207.phase2.UTFantasy.Pet.Pikachu;
-import csc207.phase2.UTFantasy.Pet.Psyduck;
+import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 
 public class MapBuilder {
@@ -415,10 +412,12 @@ public class MapBuilder {
   public void buildNpc() {
     NPC npc;
 
+    PokemonFactory pokemonFactory = new PokemonFactory();
+
     npc = new NPC("Professor.P", Duty.FIGHT);
     npc.setDialog("ready for your final exam? great!");
     npc.setInteractedDialogue("Good job!");
-    npc.addPokemon(new Pikachu());
+    npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARIZARDSHINY, 50));
     buildSingleNpc(npc, Icon.PROFESSOR, 3, 10);
 
     npc = new NPC("Seller", Duty.SALE);

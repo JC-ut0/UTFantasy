@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Golduck extends Pokemon {
+class Golduck extends Pokemon {
   /** Constructor of a Golduck. */
-  public Golduck() {
-    super();
-      setType1(TypeMap.TypeEnum.WATER);
-    setProfileID(R.drawable.golduck);
-    setProfileBackID(R.drawable.golduck_back);
-    setPokemonName("Golduck");
-    setBaseHp(80);
-    setBaseAttack(88);
-    setBaseDefense(79);
-    setBaseSpeed(85);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Golduck(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.WATER,
+              null,
+              R.drawable.golduck,
+              R.drawable.golduck_back,
+              "Golduck",
+              80,
+              88,
+              79,
+              85,
+              "slow",
+              1000);
   }
   /**
    * Get the profile ID of Golduck.

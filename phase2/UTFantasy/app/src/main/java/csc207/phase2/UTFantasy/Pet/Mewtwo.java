@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Mewtwo extends Pokemon {
+class Mewtwo extends Pokemon {
   /** Constructor of a Mewtwo. */
-  public Mewtwo() {
-    super();
-      setType1(TypeMap.TypeEnum.PSYCHIC);
-    setProfileID(R.drawable.mewtwo);
-    setProfileBackID(R.drawable.mewtwo);
-    setPokemonName("Mewtwo");
-    setBaseHp(106);
-    setBaseAttack(134);
-    setBaseDefense(90);
-    setBaseSpeed(130);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Mewtwo(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.PSYCHIC,
+              null,
+              R.drawable.mewtwo,
+              R.drawable.mewtwo,
+              "Mewtwo",
+              106,
+              134,
+              90,
+              130,
+              "slow",
+              1000);
   }
   /**
    * Get the profile ID of Mewtwo.

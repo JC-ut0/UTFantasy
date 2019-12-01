@@ -4,27 +4,23 @@ import csc207.phase2.UTFantasy.AllSkills.Scratch;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Charmander extends Pokemon {
+class Charmander extends Pokemon {
   /** Constructor of a Charmander. */
-  public Charmander() {
-    super();
-    setType1(TypeMap.TypeEnum.FIRE);
+  Charmander(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.FIRE,
+              null,
+              R.drawable.charmander,
+              R.drawable.charmander_back,
+              "Charmander",
+              39,
+              56,
+              45,
+              65,
+              "quick",
+              16);
     skills[0] = new Scratch();
-    setProfileID(R.drawable.charmander);
-    setProfileBackID(R.drawable.charmander_back);
-    setPokemonName("Charmander");
-    setBaseHp(39);
-    setBaseAttack(56);
-    setBaseDefense(45);
-    setBaseSpeed(65);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(16);
   }
 
   /**

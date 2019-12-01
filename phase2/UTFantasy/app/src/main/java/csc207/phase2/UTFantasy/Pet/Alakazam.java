@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Alakazam extends Pokemon {
+class Alakazam extends Pokemon {
   /** Constructor of a Alakazam. */
-  public Alakazam() {
-    super();
-      setType1(TypeMap.TypeEnum.PSYCHIC);
-    setProfileID(R.drawable.alakazam);
-    setProfileBackID(R.drawable.alakazam_back);
-    setPokemonName("Alakazam");
-    setBaseHp(55);
-    setBaseAttack(110);
-    setBaseDefense(75);
-    setBaseSpeed(120);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Alakazam(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.PSYCHIC,
+              null,
+              R.drawable.alakazam,
+              R.drawable.alakazam_back,
+              "Alakazam",
+              55,
+              110,
+              75,
+              120,
+              "slow",
+              1000);
   }
   /**
    * Get the profile ID of Alakazam.

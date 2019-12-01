@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Haunter extends Pokemon {
+class Haunter extends Pokemon {
   /** Constructor of a Haunter. */
-  public Haunter() {
-    super();
-      setType1(TypeMap.TypeEnum.GHOST);
-      setType2(TypeMap.TypeEnum.POISON);
-    setProfileID(R.drawable.haunter);
-    setProfileBackID(R.drawable.haunter_back);
-    setPokemonName("Haunter");
-    setBaseHp(45);
-    setBaseAttack(75);
-    setBaseDefense(50);
-    setBaseSpeed(95);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(40);
+  Haunter(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.GHOST,
+              TypeMap.TypeEnum.POISON,
+              R.drawable.haunter,
+              R.drawable.haunter_back,
+              "Haunter",
+              45,
+              75,
+              50,
+              95,
+              "quick",
+              40);
   }
   /**
    * Get the profile ID of Haunter.

@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Lapras extends Pokemon {
+class Lapras extends Pokemon {
   /** Constructor of a Lapras. */
-  public Lapras() {
-    super();
-      setType1(TypeMap.TypeEnum.WATER);
-      setType2(TypeMap.TypeEnum.ICE);
-    setProfileID(R.drawable.lapras);
-    setProfileBackID(R.drawable.lapras_back);
-    setPokemonName("Lapras");
-    setBaseHp(130);
-    setBaseAttack(85);
-    setBaseDefense(90);
-    setBaseSpeed(60);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Lapras(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.WATER,
+              TypeMap.TypeEnum.ICE,
+              R.drawable.lapras,
+              R.drawable.lapras_back,
+              "Lapras",
+              130,
+              85,
+              90,
+              60,
+              "quick",
+              1000);
   }
   /**
    * Get the profile ID of Lapras.

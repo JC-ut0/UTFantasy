@@ -161,3 +161,9 @@ Add feature that make the drawn screen size changeable.
 File affected: Player, MovementManager, WildPokemonChecker, MainActivity, ItemManager
 Add feature that player can encounter wild pokemons. Fix bug that pokemon didn't get set master
 after got caught
+
+########
+# Step 28
+File affected: all files under pet package
+- add a Pokemon Factory
+- refactored all pokemon constructors following builder and factory patten.

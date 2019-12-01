@@ -1,24 +1,23 @@
 package csc207.phase2.UTFantasy.mapDomain;
 
-import android.text.Spannable;
-
 import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.WildPokemonObserver;
-import csc207.phase2.UTFantasy.Pet.Charmander;
-import csc207.phase2.UTFantasy.Pet.Pikachu;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
+import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 
 public class WildPokemonChecker implements WildPokemonObserver {
     private Player player;
     private Map map;
     private MapDrawer drawer;
+    private PokemonFactory pokemonFactory;
 
     public WildPokemonChecker(Player player, MapDrawer drawer) {
         this.player = player;
         this.drawer = drawer;
+        pokemonFactory = new PokemonFactory();
         this.map = player.getPlayerMap();
     }
 
@@ -32,13 +31,11 @@ public class WildPokemonChecker implements WildPokemonObserver {
         switch (icon) {
             case GRASS0:
                 rate = 0.2;
-                pokemon = new Pikachu();
-                pokemon.setLevel(7);
+                pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 7);
                 break;
             case GRASS1:
                 rate = 0.01;
-                pokemon = new Charmander();
-                pokemon.setLevel(5);
+                pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.PIKACHU, 5);
         }
         if (rate != 0) {
             double r = Math.random();

@@ -3,26 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Dragonair extends Pokemon {
+class Dragonair extends Pokemon {
   /** Constructor of a Dragonair. */
-  public Dragonair() {
-    super();
-      setType1(TypeMap.TypeEnum.DRAGON);
-    setProfileID(R.drawable.dragonair);
-    setProfileBackID(R.drawable.dragonair_back);
-    setPokemonName("Dragonair");
-    setBaseHp(61);
-    setBaseAttack(77);
-    setBaseDefense(68);
-    setBaseSpeed(70);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("slow");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(55);
+  Dragonair(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.DRAGON,
+              null,
+              R.drawable.dragonair,
+              R.drawable.dragonair_back,
+              "Dragonair",
+              61,
+              77,
+              68,
+              70,
+              "slow",
+              55);
   }
   /**
    * Get the profile ID of Dragonair.

@@ -3,27 +3,22 @@ package csc207.phase2.UTFantasy.Pet;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
-public class Onix extends Pokemon {
+class Onix extends Pokemon {
   /** Constructor of a Onix. */
-  public Onix() {
-    super();
-      setType1(TypeMap.TypeEnum.ROCK);
-      setType2(TypeMap.TypeEnum.GROUND);
-    setProfileID(R.drawable.onix);
-    setProfileBackID(R.drawable.onix_back);
-    setPokemonName("Onix");
-    setBaseHp(35);
-    setBaseAttack(45);
-    setBaseDefense(110);
-    setBaseSpeed(70);
-    setHp(calculateStatistic("hp"));
-    setAttack(calculateStatistic("attack"));
-    setDefense(calculateStatistic("defense"));
-    setSpeed(calculateStatistic("speed"));
-    setGrowType("quick");
-    setExpToLevelUp(calculateExpToLevelUp());
-    setExpAtCurrentLevel(calculateExpAtCurrentLevel());
-    setLevelToEvolve(1000);
+  Onix(int level) {
+      super(
+              level,
+              TypeMap.TypeEnum.ROCK,
+              TypeMap.TypeEnum.GROUND,
+              R.drawable.onix,
+              R.drawable.onix_back,
+              "Onix",
+              35,
+              45,
+              110,
+              70,
+              "quick",
+              1000);
   }
   /**
    * Get the profile ID of Onix.
