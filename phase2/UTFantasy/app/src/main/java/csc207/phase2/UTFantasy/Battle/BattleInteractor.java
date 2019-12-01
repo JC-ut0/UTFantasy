@@ -23,6 +23,11 @@ public class BattleInteractor implements BattleObserver {
     updateHpBar();
   }
 
+  public void fight(){
+    Pokemon playerPoke = battleData.getCurrPlayerPoke();
+    if(playerPoke.isAlive()) presenter.openSkillBox();
+    else presenter.popText(playerPoke.getPokemonName() + " is not alive...");
+  }
 
   private void initializePokes() {
     Pokemon myPoke = battleData.getPlayer().getFirstAlivePoke();
@@ -92,7 +97,7 @@ public class BattleInteractor implements BattleObserver {
     }
     if (pokemon != null) {
       if (!pokemon.isAlive()) {
-        presenter.warnPokeNotAlive();
+        presenter.popText("You can't choose a fainted pokemon.");
       } else {
         battleData.setCurrPlayerPoke(pokemon);
         updatePokemon();

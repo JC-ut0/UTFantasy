@@ -33,4 +33,7 @@ public class BattleController {
         interactor.useItem();
     }
 
+    public void fight(){
+        interactor.fight();
+    }
 }

@@ -23,6 +23,11 @@ public class BattlePresenter implements BattleOutputBoundary {
     }
 
     @Override
+    public void openSkillBox(){
+        activityModel.openSkillBox();
+    }
+
+    @Override
     public void showPokeList(List<Pokemon> pokeList, Pokemon currPlayerPoke) {
         for (int i = 0; i < 6; i++) {
             Pokemon pokemon;
@@ -81,8 +86,8 @@ public class BattlePresenter implements BattleOutputBoundary {
     ;
 
     @Override
-    public void warnPokeNotAlive() {
-        activityModel.warnPokeNotAlive();
+    public void popText(String text) {
+        activityModel.popText(text);
     }
 
     @Override

@@ -19,13 +19,6 @@ public class LevelUpChecker extends FightTurnNode {
         text = attacker.getPokemonName() + "level up!";
         attacker.notifyObserverExpChange();
       }
-      // check if player's pokemon evolves
-      Pokemon playerPoke = battleData.getCurrPlayerPoke();
-      if (playerPoke.getEvolution() != null
-              && playerPoke.getLevelToEvolve() == playerPoke.getLevel()) {
-        battleData.setEvolving(true);
-        text = "Hmmm???";
-      }
     }
     return text;
   }

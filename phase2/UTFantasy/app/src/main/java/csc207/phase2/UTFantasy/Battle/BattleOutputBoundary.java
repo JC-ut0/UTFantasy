@@ -9,6 +9,8 @@ public interface BattleOutputBoundary {
 
     void openMenu();
 
+    void openSkillBox();
+
     void showPokeList(List<Pokemon> pokeList, Pokemon currPlayerPokemon);
 
     void closeSkillMenu();
@@ -25,7 +27,7 @@ public interface BattleOutputBoundary {
 
     void endFight();
 
-    void warnPokeNotAlive();
+    void popText(String text);
 
     void setSkill1(String skill1);
 

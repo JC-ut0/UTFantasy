@@ -5,6 +5,8 @@ public interface BattleActivityModel {
 
     void openMenu();
 
+    void openSkillBox();
+
     void closePokemonChoose();
 
     void closeSkillMenu();
@@ -21,7 +23,7 @@ public interface BattleActivityModel {
 
     void showSinglePokemonForChoose(int pokeNum, boolean isAttending, int pokeId, int maxHp, int hp);
 
-    void warnPokeNotAlive();
+    void popText(String text);
 
     void setSkill1(String skill1);
 
