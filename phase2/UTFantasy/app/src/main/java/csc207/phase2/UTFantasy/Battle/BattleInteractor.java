@@ -117,7 +117,7 @@ public class BattleInteractor implements BattleObserver {
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
     myPoke.setObserver(this);
     rivalPoke.setObserver(this);
-    presenter.updatePlayerPokeView(battleData.getCurrPlayerPoke().getProfileID());
+      presenter.updatePlayerPokeView(battleData.getCurrPlayerPoke().getProfileBackID());
     presenter.updateRivalPokeView(battleData.getCurrRivalPoke().getProfileID());
   }
 
