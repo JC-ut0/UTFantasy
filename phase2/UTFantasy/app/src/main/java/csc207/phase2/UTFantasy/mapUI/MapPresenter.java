@@ -96,13 +96,13 @@ public class MapPresenter implements MapDrawer {
     redtree = getBitmap(R.drawable.redtree, (float) 2, (float) 2);
     // initialize the bitmap of NPCs.
     fightNpc = getBitmap(R.drawable.professor, 2, 2);
-    sellerNpc = getBitmap(R.drawable.saler, (float) 2.5, (float) 2.5);
-    healerNpc = getBitmap(R.drawable.beauty, 1, 1);
-    yimi = getBitmap(R.drawable.yimi, (float)1.0, (float)1.0);
-    jesse = getBitmap(R.drawable.jesse, (float)1.0, (float)1.0);
-    joy = getBitmap(R.drawable.yyqx, (float)1.0, (float)1.0);
-    deniska = getBitmap(R.drawable.dd, (float)1.0, (float)1.0);
-    quincy = getBitmap(R.drawable.psyduck, (float)1.0, (float)1.0);
+    sellerNpc = getBitmap(R.drawable.saler, (float) 2.0, (float) 2.0);
+    healerNpc = getBitmap(R.drawable.beauty, (float) 2.0, (float) 2.0);
+    yimi = getBitmap(R.drawable.yimi, (float) 1.2, (float) 1.4);
+    jesse = getBitmap(R.drawable.jesse, (float) 2.0, (float) 1.8);
+    joy = getBitmap(R.drawable.yyqx, (float) 2.0, (float) 1.9);
+    deniska = getBitmap(R.drawable.dd, (float) 2.0, (float) 2.0);
+    quincy = getBitmap(R.drawable.psyduck, (float) 1.0, (float) 1.1);
     pokemonBallOnMap = getBitmap(R.drawable.pokeballonmap, (float) 0.4, (float) 0.4);
     pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.3, (float) 0.3);
     // initialize the bitmap of buildings.
@@ -186,9 +186,9 @@ public class MapPresenter implements MapDrawer {
             case POKEMONBALL:
               bitmap = pokemonBall;
               break;
-              case POKEMONBALLONMAP:
-                  bitmap = pokemonBallOnMap;
-                  break;
+            case POKEMONBALLONMAP:
+              bitmap = pokemonBallOnMap;
+              break;
             case HALLOFFAME:
               bitmap = hallOfFame;
               break;
@@ -218,8 +218,8 @@ public class MapPresenter implements MapDrawer {
           if (bitmap != null) {
             canvas.drawBitmap(
                 bitmap,
-                    (unit.getScreenX() - translatedX) * unit.getUnitWidth(),
-                    (unit.getScreenY() - translatedY) * unit.getUnitHeight(),
+                (unit.getScreenX() - translatedX) * unit.getUnitWidth(),
+                (unit.getScreenY() - translatedY) * unit.getUnitHeight(),
                 null);
           }
         }
