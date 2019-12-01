@@ -672,6 +672,11 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
         return evolution;
     }
 
+    public void deleteEvolution() {
+        this.evolution = null;
+        this.levelToEvolve = maxLevel;
+    }
+
     /**
      * return null if this pokemon is not evolving
      *

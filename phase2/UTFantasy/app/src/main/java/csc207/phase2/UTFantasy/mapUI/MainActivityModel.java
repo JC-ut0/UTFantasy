@@ -20,4 +20,6 @@ public interface MainActivityModel {
     void showButtons();
 
     void hideButtons();
+
+  void goToEvolutionActivity(int pokemonIndex);
 }

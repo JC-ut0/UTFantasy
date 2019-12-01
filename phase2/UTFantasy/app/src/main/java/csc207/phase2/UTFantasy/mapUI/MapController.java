@@ -2,6 +2,7 @@ package csc207.phase2.UTFantasy.mapUI;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
+import csc207.phase2.UTFantasy.mapUseCase.EvolutionChecker;
 import csc207.phase2.UTFantasy.mapUseCase.MapDirector;
 import csc207.phase2.UTFantasy.mapUseCase.MapInteractor;
 import csc207.phase2.UTFantasy.npcDomain.NPCInteractor;
@@ -9,6 +10,7 @@ import csc207.phase2.UTFantasy.npcDomain.NPCInteractor;
 public class MapController {
   private MapInteractor mapInteractor;
   private NPCInteractor npcInteractor;
+  private EvolutionChecker evolutionChecker;
   private boolean dialogueOnGoing;
   private NPC interactingNpc;
 
@@ -17,6 +19,7 @@ public class MapController {
     director.constructMap();
     this.mapInteractor = director.getMapInteractor();
     this.npcInteractor = director.getNPCInteractor();
+    this.evolutionChecker = director.getEvolutionChecker();
   }
 
   public MapInteractor getMapInteractor() {
@@ -25,6 +28,10 @@ public class MapController {
 
   public NPCInteractor getNpcInteractor() {
     return npcInteractor;
+  }
+
+  public EvolutionChecker getEvolutionChecker() {
+    return evolutionChecker;
   }
 
   public void moveTouchDownAction(String direction) {
@@ -68,5 +75,9 @@ public class MapController {
     npcInteractor.closeDialogue();
     dialogueOnGoing = false;
     interactingNpc = null;
+  }
+
+  public void checkEvolution() {
+    evolutionChecker.checkEvolution();
   }
 }

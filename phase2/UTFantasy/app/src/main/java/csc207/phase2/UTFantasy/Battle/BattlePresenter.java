@@ -119,10 +119,4 @@ public class BattlePresenter implements BattleOutputBoundary {
     public void showCaught() {
         activityModel.showCaught();
     }
-
-    @Override
-    public void evolve(int pokemonIndex) {
-        activityModel.evolve(pokemonIndex);
-    }
-
 }

@@ -324,6 +324,11 @@ public class MapPresenter implements MapDrawer {
   }
 
   @Override
+  public void goToEvolutionActivity(int pokemonIndex) {
+    activityModel.goToEvolutionActivity(pokemonIndex);
+  }
+
+  @Override
   public SurfaceHolder getHolder() {
     return mapView.getHolder();
   }

@@ -40,6 +40,4 @@ public interface BattleOutputBoundary {
     void hideCatch();
 
     void showCaught();
-
-    void evolve(int PokemonIndex);
 }

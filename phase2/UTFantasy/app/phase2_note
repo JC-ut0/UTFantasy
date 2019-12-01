@@ -177,3 +177,9 @@ Make the shown text during battle more reasonable, add grass to the map, fix bug
 # Step 30
 File affected: Package(Battle, Activities.evolutionUI)
 Add feature that certain pokemons can evolve at certain levels.
+
+#######
+# Step 31
+File affected: Package: Battle, MapUI, MapUseCase, Evolution
+Make pokemons able to evolve after fight instead of during fight. Fix bugs possibly that possibly
+occur during evolution. Improve evolution animation, improve battle dialogue.
