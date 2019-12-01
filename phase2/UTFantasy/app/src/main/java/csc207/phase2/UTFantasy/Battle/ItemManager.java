@@ -46,7 +46,6 @@ public class ItemManager {
   private void productFailedToUse(Product product) {
     battleData.setAction(BattleData.Action.OPENMENU);
     battleData.getPlayer().addItem(product, 1);
-    battleData.getPlayer().setSelectedProduct(null);
   }
 
   public String useBall() {
@@ -78,6 +77,7 @@ public class ItemManager {
         text = battleData.getCurrRivalPoke().getPokemonName() + " has escaped...";
       }
     }
+      battleData.getPlayer().setSelectedProduct(null);
     return text;
   }
 
@@ -92,6 +92,7 @@ public class ItemManager {
       playerPoke.notifyObserverHpChange();
       text = playerPoke.getPokemonName() + " has been healed!";
     }
+      battleData.getPlayer().setSelectedProduct(null);
     return text;
   }
 
