@@ -101,6 +101,14 @@ public class Player extends Person {
     }
   }
 
+    public void swapPokemon(int i1, int i2) {
+        if (i1 < 6 && i2 < 6) {
+            Pokemon temp = pokemonList.get(i1);
+            pokemonList.set(i1, pokemonList.get(i2));
+            pokemonList.set(i2, temp);
+        }
+    }
+
   @NonNull
   @Override
   public String toString() {
