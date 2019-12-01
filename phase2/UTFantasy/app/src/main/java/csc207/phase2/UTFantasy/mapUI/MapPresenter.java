@@ -6,10 +6,10 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.view.SurfaceHolder;
 
+import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.mapDomain.Icon;
 import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
 import csc207.phase2.UTFantasy.mapDomain.UnitDraw;
-import csc207.phase2.UTFantasy.R;
 
 public class MapPresenter implements MapDrawer {
 
@@ -23,6 +23,7 @@ public class MapPresenter implements MapDrawer {
   private Bitmap sellerNpc;
   private Bitmap healerNpc;
   private Bitmap pokemonBall;
+    private Bitmap pokemonBallOnMap;
   private Bitmap hallOfFame;
   /** the Bitmaps of the character upwards */
   private Bitmap upPlayer0;
@@ -51,6 +52,7 @@ public class MapPresenter implements MapDrawer {
   private Bitmap rightPlayer1;
   private Bitmap rightPlayer2;
   private Bitmap rightPlayer3;
+
 
   public MapPresenter(MapViewModel mapView, MainActivityModel activityModel) {
     this.mapView = mapView;
@@ -84,7 +86,7 @@ public class MapPresenter implements MapDrawer {
     fightNpc = getBitmap(R.drawable.professor, 2, 2);
     sellerNpc = getBitmap(R.drawable.big_mom, (float) 2.5, (float) 2.5);
     healerNpc = getBitmap(R.drawable.joy, 1, 1);
-    pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.2, (float) 0.2);
+      pokemonBallOnMap = getBitmap(R.drawable.pokeballonmap, (float) 0.4, (float) 0.4);
     pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.3, (float) 0.3);
     hallOfFame = getBitmap(R.drawable.halloffame, (float) 2.2, (float) 2);
     // initialize the bitmap of player
@@ -144,8 +146,12 @@ public class MapPresenter implements MapDrawer {
             case POKEMONBALL:
               bitmap = pokemonBall;
               break;
+              case POKEMONBALLONMAP:
+                  bitmap = pokemonBallOnMap;
+                  break;
             case HALLOFFAME:
               bitmap = hallOfFame;
+                break;
           }
 
           if (bitmap != null) {

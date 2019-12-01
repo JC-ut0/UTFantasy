@@ -1,6 +1,5 @@
 package csc207.phase2.UTFantasy.Activities.ShopActivityMVP;
 
-import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.PlayerManager;
 import csc207.phase2.UTFantasy.Products.Product;
 

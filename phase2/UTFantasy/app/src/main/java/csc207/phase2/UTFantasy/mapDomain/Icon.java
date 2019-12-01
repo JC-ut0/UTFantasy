@@ -31,6 +31,7 @@ public enum Icon {
     JOY,
 
     POKEMONBALL,
+    POKEMONBALLONMAP,
 
     HALLOFFAME
 }
