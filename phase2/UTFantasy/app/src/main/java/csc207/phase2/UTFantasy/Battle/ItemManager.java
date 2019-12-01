@@ -1,5 +1,8 @@
 package csc207.phase2.UTFantasy.Battle;
 
+import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment;
+
+import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.PokemonBall;
 import csc207.phase2.UTFantasy.Products.Potion;
@@ -15,6 +18,7 @@ public class ItemManager {
 
   public String useItem() {
     Product product = battleData.getPlayer().getSelectedProduct();
+    battleData.getPlayer().setSelectedProduct(null);
     String text = null;
     if (product != null) {
       battleData.getPlayer().deleteItem(product);
@@ -46,7 +50,6 @@ public class ItemManager {
   private void productFailedToUse(Product product) {
     battleData.setAction(BattleData.Action.OPENMENU);
     battleData.getPlayer().addItem(product, 1);
-    battleData.getPlayer().setSelectedProduct(null);
   }
 
   public String useBall() {
