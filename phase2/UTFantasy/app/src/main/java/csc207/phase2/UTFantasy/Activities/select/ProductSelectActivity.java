@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.select;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
 
+import csc207.phase2.UTFantasy.Activities.InfoMediator;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Products.Product;

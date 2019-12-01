@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import csc207.phase2.UTFantasy.Activities.MenuActivity;
+import csc207.phase2.UTFantasy.Activities.menu.MenuActivity;
 import csc207.phase2.UTFantasy.Activities.PlayerInfoActivity;
 import csc207.phase2.UTFantasy.Activities.ShopActivityMVP.ShopActivity;
 import csc207.phase2.UTFantasy.Activities.SystemActivity;

@@ -19,7 +19,7 @@ public class InfoMediator {
     this.setDescription("This is the character in U of T.");
   }
 
-  void setSelectedPokemon(Product selectedProduct) {
+  public void setSelectedPokemon(Product selectedProduct) {
     player.setSelectedProduct(selectedProduct);
   }
 
@@ -31,11 +31,11 @@ public class InfoMediator {
     this.description = description;
   }
 
-  List<Pokemon> getPokemonList() {
+  public List<Pokemon> getPokemonList() {
     return player.getPokemonList();
   }
 
-  HashMap<Product, Integer> getProductHashMap() {
+  public HashMap<Product, Integer> getProductHashMap() {
     return player.getBag();
   }
 
@@ -57,5 +57,12 @@ public class InfoMediator {
 
   public String getMoney() {
     return "Money: $" + player.getMoney();
+  }
+
+  public void swapPokemon(int position){
+    player.swapPokemon(position);
+  }
+  public void discardPokemon(int position){
+    player.discardPokemon(position);
   }
 }

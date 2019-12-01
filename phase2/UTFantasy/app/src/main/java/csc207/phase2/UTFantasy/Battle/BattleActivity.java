@@ -16,9 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.button.MaterialButton;
-
-import csc207.phase2.UTFantasy.Activities.ProductSelectActivity;
+import csc207.phase2.UTFantasy.Activities.select.ProductSelectActivity;
 import csc207.phase2.UTFantasy.Activities.evolutionUI.EvolutionActivity;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;

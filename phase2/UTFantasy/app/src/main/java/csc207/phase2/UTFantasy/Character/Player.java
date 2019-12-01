@@ -93,7 +93,7 @@ public class Player extends Person {
     }
   }
 
-    public void useItem(Product product) {
+  public void useItem(Product product) {
     Integer num = bag.get(product);
     if (num != null) {
       if (num == 1) bag.remove(product);
@@ -101,13 +101,16 @@ public class Player extends Person {
     }
   }
 
-    public void swapPokemon(int i1, int i2) {
-        if (i1 < 6 && i2 < 6) {
-            Pokemon temp = pokemonList.get(i1);
-            pokemonList.set(i1, pokemonList.get(i2));
-            pokemonList.set(i2, temp);
-        }
+  public void swapPokemon(int i1) {
+    if (i1 < 6) {
+      Pokemon temp = pokemonList.remove(i1);
+      pokemonList.add(temp);
     }
+  }
+
+  public void discardPokemon(int i1) {
+    pokemonList.remove(i1);
+  }
 
   @NonNull
   @Override
@@ -119,7 +122,7 @@ public class Player extends Person {
         + ", PokemonNum: "
         + pokemonList.size()
         + ", TotalLV: ."
-            + getPlayerPokemonMaxLV()
+        + getPlayerPokemonMaxLV()
         + ".";
   }
 

@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.select;
 
 import android.app.Activity;
 import android.view.LayoutInflater;

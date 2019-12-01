@@ -57,4 +57,48 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/return_button" />
 
+    <Button
+        android:id="@+id/discard"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="66dp"
+        android:background="@drawable/check"
+        android:text="DISCARD"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/swap"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/discard"
+        android:layout_alignTop="@+id/discard"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/check"
+        android:text="LAST"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/nothing"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/swap"
+        android:layout_alignTop="@+id/swap"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/check"
+        android:text="BACK"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+
+
 </RelativeLayout>

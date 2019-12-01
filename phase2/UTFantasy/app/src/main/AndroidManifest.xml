@@ -57,7 +57,7 @@
 
         </activity>
         <activity
-            android:name="csc207.phase2.UTFantasy.Activities.MenuActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.menu.MenuActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
@@ -67,7 +67,7 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name="csc207.phase2.UTFantasy.Activities.ProductSelectActivity"
+            android:name="csc207.phase2.UTFantasy.Activities.select.ProductSelectActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 

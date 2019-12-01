@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Activities;
+package csc207.phase2.UTFantasy.Activities.menu;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -100,6 +100,11 @@ public class ItemAdapter extends BaseAdapter {
       holder.pokeName.setText(product.getName());
     }
     return view;
+  }
+
+  void updateRecords(List<Pokemon> pokemonList) {
+    this.pokemonList = pokemonList;
+    notifyDataSetChanged();
   }
 
   class ViewHolder {

@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-import csc207.phase2.UTFantasy.Activities.MenuActivity;
+import csc207.phase2.UTFantasy.Activities.menu.MenuActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.PlayerManager;
 import csc207.phase2.UTFantasy.IO.UserIO;
