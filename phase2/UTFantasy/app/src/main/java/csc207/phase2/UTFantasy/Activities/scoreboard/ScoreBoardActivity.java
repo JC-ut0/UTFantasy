@@ -39,8 +39,10 @@ public class ScoreBoardActivity extends AppCompatActivity {
         userIO = UserIO.getSingletonUserIo();
         userManagerFacade = new UserManagerFacade(userIO, this);
         playerList = userManagerFacade.getScoreBoardPlayerList();
+
         //todo: delete later, this is only for testing
         addPokemon();
+
         playerList.sort(new PlayerPokemonLvComparator().reversed());
 
         ListView listView = findViewById(R.id.scoreBoardViewList);
@@ -68,7 +70,7 @@ public class ScoreBoardActivity extends AppCompatActivity {
         Toast.makeText(this, "Sorted", Toast.LENGTH_SHORT).show();
     }
 
-    //todo: delete later, this is only for testing
+    //todo: delete later, this is only for testing and demo
     private void addPokemon() {
         Player p1 = new Player("p1", "boy");
         Player p2 = new Player("p2", "boy");

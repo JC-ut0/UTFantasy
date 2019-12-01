@@ -384,13 +384,13 @@ public class MapBuilder {
     npc = new NPC("charmander", Duty.CHARMANDER);
     npc.setDialog("This is a charmander, do you wanna choose it?");
     npc.setInteractedDialogue("A charmander...");
-    buildSingleNpc(npc, Icon.POKEMONBALL, 3, 3);
+      buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 3, 3);
     npcRepository.addBeginningPokemonNPC(npc);
 
     npc = new NPC("squirtle", Duty.SQUIRTLE);
     npc.setDialog("This is a squirtle, do you wanna choose it?");
     npc.setInteractedDialogue("A squirtle...");
-    buildSingleNpc(npc, Icon.POKEMONBALL, 6, 3);
+      buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 6, 3);
     npcRepository.addBeginningPokemonNPC(npc);
   }
 

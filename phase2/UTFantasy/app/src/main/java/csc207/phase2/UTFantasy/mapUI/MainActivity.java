@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import csc207.phase2.UTFantasy.Activities.MenuActivity;
 import csc207.phase2.UTFantasy.Activities.PlayerInfoActivity;
@@ -23,10 +22,10 @@ import csc207.phase2.UTFantasy.Activities.SystemActivity;
 import csc207.phase2.UTFantasy.Battle.BattleActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
+import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.mapDomain.MainThread;
 import csc207.phase2.UTFantasy.mapDomain.MapDrawer;
 import csc207.phase2.UTFantasy.mapDomain.MapInteractor;
-import csc207.phase2.UTFantasy.R;
 
 public class MainActivity extends AppCompatActivity implements MainActivityModel {
   private MapView mapView;

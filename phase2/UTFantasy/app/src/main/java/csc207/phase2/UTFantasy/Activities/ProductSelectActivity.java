@@ -12,16 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.Products.PinkPotion;
-import csc207.phase2.UTFantasy.Products.Potion;
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.Products.RedPotion;
 import csc207.phase2.UTFantasy.R;
 
 public class ProductSelectActivity extends AppCompatActivity {
