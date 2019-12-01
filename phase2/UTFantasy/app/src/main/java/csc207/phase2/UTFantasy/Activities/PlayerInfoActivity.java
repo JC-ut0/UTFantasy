@@ -105,8 +105,8 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
   public void changeShowingScore(View view) {
     if (showingScoreCheckBox.isChecked()) {
-      player.setShowingScore(false);
-    } else player.setShowingScore(true);
+      player.setShowingScore(true);
+    } else player.setShowingScore(false);
   }
 
   public String getTopPercentilByPokemonLv(Player player) {
