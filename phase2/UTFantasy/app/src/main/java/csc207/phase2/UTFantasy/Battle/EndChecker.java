@@ -1,8 +1,12 @@
 package csc207.phase2.UTFantasy.Battle;
 
-public class EndChecker extends FightTurnNode {
+/**
+ * A fightTurnNode that is responsible for checking if the battle should end after current turn end
+ * Return text informing if player wins or not
+ */
+class EndChecker extends FightTurnNode {
 
-    public EndChecker(BattleData battleData) {
+    EndChecker(BattleData battleData) {
         this.battleData = battleData;
     }
 

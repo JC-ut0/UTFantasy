@@ -1,5 +1,7 @@
 package csc207.phase2.UTFantasy.Battle;
 
+import java.util.List;
+
 import csc207.phase2.UTFantasy.AllSkills.Skill;
 import csc207.phase2.UTFantasy.Pet.BattleObserver;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
@@ -7,6 +9,11 @@ import csc207.phase2.UTFantasy.Pet.Pokemon;
 import static csc207.phase2.UTFantasy.Battle.BattleData.Action.CATCHDECISION;
 import static csc207.phase2.UTFantasy.Battle.BattleData.Action.OPENMENU;
 
+/**
+ * the interactor of this battle responsible for the connection between updating the correct data
+ * and display them
+ * acting as observer of pokemon responsible for update pokemon hp bar
+ */
 public class BattleInteractor implements BattleObserver {
   private BattleData battleData;
   private FightManager fightManager;
@@ -23,12 +30,17 @@ public class BattleInteractor implements BattleObserver {
     updateHpBar();
   }
 
-  public void fight(){
+  /**
+   * check if fight action can be done fight action can be done iff the current player pokemon is
+   * alive
+   */
+  void fight() {
     Pokemon playerPoke = battleData.getCurrPlayerPoke();
-    if(playerPoke.isAlive()) presenter.openSkillBox();
+    if (playerPoke.isAlive()) presenter.openSkillBox();
     else presenter.popText(playerPoke.getPokemonName() + " is not alive...");
   }
 
+  /** initialize the pokemons and corresponding images at the beginning of the battle */
   private void initializePokes() {
     Pokemon myPoke = battleData.getPlayer().getFirstAlivePoke();
     Pokemon rivalPoke = battleData.getRival().getFirstAlivePoke();
@@ -40,12 +52,16 @@ public class BattleInteractor implements BattleObserver {
     updateHpBar();
   }
 
-  public void useSkill(Skill skill) {
+  void useSkill(Skill skill) {
     fightManager.useSkill(skill);
     presenter.closeSkillMenu();
   }
 
-  public void updateText() {
+  /**
+   * update the correct text information to display them to user the one that is responsible for
+   * updating text depending on the situation
+   */
+  void updateText() {
     updatePokemon();
     updateHpBar();
     switch (battleData.getAction()) {
@@ -78,27 +94,25 @@ public class BattleInteractor implements BattleObserver {
         break;
       case END:
         presenter.endFight();
-        battleData.clearOberser();
         break;
     }
   }
 
-
-  public void openPokemonChoose() {
+  void openPokemonChoose() {
     presenter.showPokeList(battleData.getPlayer().getPokemonList(), battleData.getCurrPlayerPoke());
   }
 
-  public void choosePokemon(int i) {
-    Pokemon pokemon;
-    try {
-      pokemon = battleData.getPlayer().getPokemonList().get(i);
-    } catch (IndexOutOfBoundsException e) {
-      pokemon = null;
+  void choosePokemon(int i) {
+    Pokemon pokemon = null;
+    List<Pokemon> pokemonList = battleData.getPlayer().getPokemonList();
+    if (0 <= i && i < battleData.getPlayer().getPokemonList().size()) {
+      pokemon = pokemonList.get(i);
     }
     if (pokemon != null) {
       if (!pokemon.isAlive()) {
         presenter.popText("You can't choose a fainted pokemon.");
       } else {
+        // set the current player's pokemon to be selected pokemon and update corresponding feedback
         battleData.setCurrPlayerPoke(pokemon);
         updatePokemon();
         updateHpBar();
@@ -109,15 +123,18 @@ public class BattleInteractor implements BattleObserver {
     }
   }
 
-  public void useItem() {
+  void useItem() {
     battleData.setAction(BattleData.Action.USEITEM);
     presenter.showText("...");
   }
 
-  public BattleData getBattleData() {
+  BattleData getBattleData() {
     return battleData;
   }
 
+  /**
+   * @return the correct text at the beginning of the battle
+   */
   private String getBeginningText() {
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
     String text;
@@ -129,6 +146,9 @@ public class BattleInteractor implements BattleObserver {
     return text;
   }
 
+  /**
+   * update pokemons' observer to be this and update the images that is displaying
+   */
   private void updatePokemon() {
     Pokemon myPoke = battleData.getCurrPlayerPoke();
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
@@ -138,6 +158,9 @@ public class BattleInteractor implements BattleObserver {
     presenter.updateRivalPokeView(battleData.getCurrRivalPoke().getProfileID());
   }
 
+  /**
+   * update the text of skill buttons to be name of skills of current player's pokemon
+   */
   private void updateSkillButtons() {
     Pokemon pokemon = battleData.getCurrPlayerPoke();
     for (int i = 0; i < 4; i++) {
@@ -170,9 +193,5 @@ public class BattleInteractor implements BattleObserver {
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
     presenter.updatePlayerHpBar(playerPoke.getHp(), playerPoke.getMaximumHp());
     presenter.updateRivalHpBar(rivalPoke.getHp(), rivalPoke.getMaximumHp());
-  }
-
-  @Override
-  public void updateExpBar() {
   }
 }

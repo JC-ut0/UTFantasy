@@ -3,9 +3,13 @@ package csc207.phase2.UTFantasy.Battle;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
-public class RivalPokemonUpdater extends FightTurnNode {
+/**
+ * A fightTurnNode that is responsible for updating the current rival pokemon
+ * Return text informing that rival update pokemon
+ */
+class RivalPokemonUpdater extends FightTurnNode {
 
-    public RivalPokemonUpdater(BattleData battleData) {
+    RivalPokemonUpdater(BattleData battleData) {
         this.battleData = battleData;
     }
 

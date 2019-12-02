@@ -4,49 +4,52 @@ import java.io.Serializable;
 
 import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
 
+/**
+ * The entity that stores the data of this player's map
+ */
 public class Map implements Serializable {
-    private int mapWidth;
-    private int mapHeight;
-    private UnitDraw[][] lowMap;
-    private UnitDraw[][] highMap;
-    private NPCRepository npcRepository;
+  private int mapWidth;
+  private int mapHeight;
+  private UnitDraw[][] lowMap;
+  private UnitDraw[][] highMap;
+  private NPCRepository npcRepository;
 
-    public Map(int mapWidth, int mapHeight) {
-        this.mapWidth = mapWidth;
-        this.mapHeight = mapHeight;
-        this.npcRepository = new NPCRepository();
-    }
+  Map(int mapWidth, int mapHeight) {
+    this.mapWidth = mapWidth;
+    this.mapHeight = mapHeight;
+    this.npcRepository = new NPCRepository();
+  }
 
-    // getters and setters for the field
-    public int getMapWidth() {
-        return mapWidth;
-    }
+  // getters and setters for the field
+  int getMapWidth() {
+    return mapWidth;
+  }
 
-    public int getMapHeight() {
-        return mapHeight;
-    }
+  int getMapHeight() {
+    return mapHeight;
+  }
 
-    public UnitDraw[][] getLowMap() {
-        return lowMap;
-    }
+  UnitDraw[][] getLowMap() {
+    return lowMap;
+  }
 
-    public UnitDraw[][] getHighMap() {
-        return highMap;
-    }
+  UnitDraw[][] getHighMap() {
+    return highMap;
+  }
 
-    public void setLowMap(UnitDraw[][] lowMap) {
-        this.lowMap = lowMap;
-    }
+  void setLowMap(UnitDraw[][] lowMap) {
+    this.lowMap = lowMap;
+  }
 
-    public void setHighMap(UnitDraw[][] highMap) {
-        this.highMap = highMap;
-    }
+  void setHighMap(UnitDraw[][] highMap) {
+    this.highMap = highMap;
+  }
 
-    public NPCRepository getNpcRepository() {
-        return npcRepository;
-    }
+  public NPCRepository getNpcRepository() {
+    return npcRepository;
+  }
 
-    public void setNpcRepository(NPCRepository npcRepository) {
-        this.npcRepository = npcRepository;
-    }
+  void setNpcRepository(NPCRepository npcRepository) {
+    this.npcRepository = npcRepository;
+  }
 }

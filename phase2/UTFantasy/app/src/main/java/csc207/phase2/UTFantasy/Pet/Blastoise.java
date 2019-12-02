@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Pet;
 
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
@@ -19,6 +20,9 @@ class Blastoise extends Pokemon {
               78,
               "slow");
     setLevelToEvolve(maxLevel, null);
+    SkillFactory sf = new SkillFactory();
+    skills[0] = sf.getSkill(SkillFactory.SkillClass.BUBBLE);
+    skills[1] = sf.getSkill(SkillFactory.SkillClass.HYDROPUMP);
   }
   /**
    * Get the profile ID of Blastoise.

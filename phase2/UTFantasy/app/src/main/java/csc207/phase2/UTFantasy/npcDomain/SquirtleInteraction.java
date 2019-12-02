@@ -11,7 +11,7 @@ import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
 public class SquirtleInteraction extends Interaction {
 
-    public SquirtleInteraction(MapDrawer drawer, Player player) {
+    SquirtleInteraction(MapDrawer drawer, Player player) {
         super(drawer, player);
     }
 
@@ -31,6 +31,6 @@ public class SquirtleInteraction extends Interaction {
         for (NPC pokemonNPC : beginningPokemonNPCs) {
             pokemonNPC.setInteracted(true);
         }
-        drawer.popText("Congratulations! You get a charmander!!!");
+        drawer.popText("Congratulations! You get a squirtle!!!");
     }
 }

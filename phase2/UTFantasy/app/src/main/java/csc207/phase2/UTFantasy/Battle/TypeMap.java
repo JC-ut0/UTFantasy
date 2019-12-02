@@ -2,6 +2,10 @@ package csc207.phase2.UTFantasy.Battle;
 
 import java.util.HashMap;
 
+/**
+ * the entity that stores data about the type index of skill usage
+ * damage of skill usage is affected by type index
+ */
 public class TypeMap {
   private HashMap<TypeEnum, HashMap<TypeEnum, Double>> typeMap = new HashMap<>();
 
@@ -311,12 +315,15 @@ public class TypeMap {
     steelMap.put(TypeEnum.STEEL, 0.5);
   }
 
-  public double getTypeIndex(TypeEnum attackTypeEnum, TypeEnum defenseTypeEnum) {
-    if (typeMap.containsKey(attackTypeEnum) && typeMap.get(attackTypeEnum).containsKey(defenseTypeEnum)) {
-      return typeMap.get(attackTypeEnum).get(defenseTypeEnum);
-    } else {
-      return 1.0;
+  double getTypeIndex(TypeEnum attackTypeEnum, TypeEnum defenseTypeEnum) {
+    HashMap<TypeEnum, Double> innerMap = typeMap.get(attackTypeEnum);
+    if (innerMap != null) {
+      Double typeIndex = innerMap.get(defenseTypeEnum);
+      if (typeIndex != null) {
+        return typeIndex;
+      }
     }
+    return 1.0;
   }
 
   public enum TypeEnum {

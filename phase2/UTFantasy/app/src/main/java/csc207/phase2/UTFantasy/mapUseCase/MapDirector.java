@@ -3,8 +3,10 @@ package csc207.phase2.UTFantasy.mapUseCase;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.npcDomain.NPCInteractor;
 
+/**
+ * The director that uses MapBuilder to build the map
+ */
 public class MapDirector {
-    private Map map;
     private Player player;
     private MapInteractor mapInteractor;
 
@@ -21,7 +23,7 @@ public class MapDirector {
         mapBuilder.buildWater();
         mapBuilder.buildBuilding();
         mapBuilder.buildNpc();
-        map = mapBuilder.getProduct();
+        Map map = mapBuilder.getProduct();
         player.setPlayerMap(map);
         constructMapFacade();
     }

@@ -5,17 +5,27 @@ import csc207.phase2.UTFantasy.Products.Ball;
 import csc207.phase2.UTFantasy.Products.Potion;
 import csc207.phase2.UTFantasy.Products.Product;
 
-public class ItemManager {
+/**
+ * A manager responsible for updating message about using items An item can be either a potion or a
+ * ball Update the corresponding battle data
+ */
+class ItemManager {
   private BattleData battleData;
   private boolean isCaught;
 
-  public ItemManager(BattleData battleData) {
+  ItemManager(BattleData battleData) {
     this.battleData = battleData;
   }
 
-  public String useItem() {
+  /**
+   * use the selected product by user
+   * update the corresponding battleData action
+   *
+   * @return the message if the product is successfully used
+   */
+  String useItem() {
     Product product = battleData.getPlayer().getSelectedProduct();
-    String text = null;
+    String text;
     if (product != null) {
       battleData.getPlayer().useItem(product);
       text = battleData.getPlayer().getName() + " used " + product.getName();
@@ -48,7 +58,13 @@ public class ItemManager {
     battleData.getPlayer().addItem(product, 1);
   }
 
-  public String useBall() {
+  /**
+   * called when ball is successfully used
+   * update the usage of ball
+   *
+   * @return the message informing if the pokemon is used
+   */
+  String useBall() {
     Product pokemonBall = battleData.getPlayer().getSelectedProduct();
     String text = null;
     if (pokemonBall instanceof Ball) {
@@ -81,7 +97,13 @@ public class ItemManager {
     return text;
   }
 
-  public String usePotion() {
+  /**
+   * called when potion is successfully used
+   * update the usage of potion
+   *
+   * @return the message informing usage of potion
+   */
+  String usePotion() {
     Product potion = battleData.getPlayer().getSelectedProduct();
     String text = null;
     if (potion instanceof Potion) {
@@ -96,7 +118,7 @@ public class ItemManager {
     return text;
   }
 
-  public boolean isCaught() {
+  boolean isCaught() {
     return isCaught;
   }
 }
