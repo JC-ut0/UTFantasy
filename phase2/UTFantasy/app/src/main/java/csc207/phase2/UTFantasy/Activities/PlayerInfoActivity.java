@@ -125,7 +125,6 @@ public class PlayerInfoActivity extends AppCompatActivity {
    *     to show their scores.
    */
   public String getTopPercentilByPokemonLv(Player player) {
-    UserIO userIO = UserIO.getSingletonUserIo();
     List<Player> playerList = userIO.getUserData().getScoreBoardPlayerList();
     ScoreCalculator scoreCalculator = new ScoreCalculator(playerList);
     return scoreCalculator.getTopPercentileByPokemonLv(player);

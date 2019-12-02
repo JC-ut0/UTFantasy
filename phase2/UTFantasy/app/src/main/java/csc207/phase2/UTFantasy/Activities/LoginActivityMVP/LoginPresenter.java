@@ -1,26 +1,30 @@
 package csc207.phase2.UTFantasy.Activities.LoginActivityMVP;
 
 import csc207.phase2.UTFantasy.CustomizeException.ImproperUserSettingException;
-import csc207.phase2.UTFantasy.User.User;
-import csc207.phase2.UTFantasy.User.UserManagerFacade;
-import csc207.phase2.UTFantasy.User.UserManagerFacadeInterface;
+import csc207.phase2.UTFantasy.userUseCase.User;
+import csc207.phase2.UTFantasy.userUseCase.UserManagerFacade;
+import csc207.phase2.UTFantasy.userUseCase.UserManagerFacadeInterface;
 
+/**
+ * Presenter of LoginActivity.
+ */
 class LoginPresenter {
 
-    private LoginView loginView;
-    private UserManagerFacadeInterface userManagerFacade;
+  private LoginView loginView;
+  private UserManagerFacadeInterface userManagerFacade;
 
   LoginPresenter(LoginView loginView, UserManagerFacade userManagerFacade) {
     this.userManagerFacade = userManagerFacade;
     this.loginView = loginView;
   }
+
   /**
    * Make sure that the username and password are valid.
    *
    * @throws ImproperUserSettingException if username and password are not valid
    */
   void validateUsernameAndPasswordForRegister(String username, String password)
-      throws ImproperUserSettingException {
+          throws ImproperUserSettingException {
     if (username.equals("")) {
       throw new ImproperUserSettingException("Please Enter your Account");
     } else if (password.equals("")) {
@@ -50,7 +54,7 @@ class LoginPresenter {
    * @throws ImproperUserSettingException if username and password are not valid
    */
   void validateUsernameAndPasswordForLogin(String username, String password)
-      throws ImproperUserSettingException {
+          throws ImproperUserSettingException {
     if (username.equals("")) {
       throw new ImproperUserSettingException("Please Enter your Account");
     } else if (password.equals("")) {

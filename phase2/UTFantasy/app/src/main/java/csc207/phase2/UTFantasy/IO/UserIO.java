@@ -17,9 +17,9 @@ import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
-import csc207.phase2.UTFantasy.User.User;
-import csc207.phase2.UTFantasy.User.UserData;
-import csc207.phase2.UTFantasy.User.UserIOInterface;
+import csc207.phase2.UTFantasy.userUseCase.User;
+import csc207.phase2.UTFantasy.userUseCase.UserData;
+import csc207.phase2.UTFantasy.userUseCase.UserIOInterface;
 
 /** A Singleton class to manage UserData. Will be initialized in the StartUp activity. */
 public class UserIO implements UserIOInterface {
@@ -47,9 +47,9 @@ public class UserIO implements UserIOInterface {
   }
 
   /**
-   * return UserData
+   * return UserData.
    *
-   * @return UserData
+   * @return UserData.
    */
   public UserData getUserData() {
     return userData;
@@ -74,7 +74,7 @@ public class UserIO implements UserIOInterface {
   }
 
   /**
-   * Load UserData from local..
+   * Load UserData from local.
    *
    * @param context the Activity(Context) that calls this method.
    */

@@ -1,7 +1,5 @@
 package csc207.phase2.UTFantasy.Activities.evolutionUI;
 
-import android.graphics.drawable.AnimationDrawable;
-
 public interface EvolutionActivityModel {
   /**
    * start the animation of evlution

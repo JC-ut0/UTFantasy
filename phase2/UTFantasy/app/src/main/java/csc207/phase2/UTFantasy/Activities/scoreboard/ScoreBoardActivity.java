@@ -17,7 +17,7 @@ import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.User.UserManagerFacade;
+import csc207.phase2.UTFantasy.userUseCase.UserManagerFacade;
 
 public class ScoreBoardActivity extends AppCompatActivity {
 
@@ -25,6 +25,7 @@ public class ScoreBoardActivity extends AppCompatActivity {
   private List<Player> playerList;
   /** the adapter of scoreboard */
   private ScoreBoardAdapter adapter;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -53,20 +54,22 @@ public class ScoreBoardActivity extends AppCompatActivity {
         });
   }
 
-    /**
-     * sort by the pokemon's level
-     * @param view the view
-     */
+  /**
+   * sort by the pokemon's level
+   *
+   * @param view the view
+   */
   public void sortByPokemonLv(View view) {
     playerList.sort(new PlayerPokemonLvComparator().reversed());
     adapter.notifyDataSetChanged();
     Toast.makeText(this, "Sorted", Toast.LENGTH_SHORT).show();
   }
 
-    /**
-     * sort by the number of the pokemon
-     * @param view the view
-     */
+  /**
+   * sort by the number of the pokemon
+   *
+   * @param view the view
+   */
   public void sortByPokemonNum(View view) {
     playerList.sort(new PlayerPokemonNumComparator().reversed());
     adapter.notifyDataSetChanged();
@@ -74,6 +77,8 @@ public class ScoreBoardActivity extends AppCompatActivity {
   }
 
   // todo: delete later, this is only for testing and demo
+
+  /** This method is only used for testing and demo, should be deleted if you are going to play. */
   private void addPokemon() {
     Player p1 = new Player("p1", "boy");
     Player p2 = new Player("p2", "boy");

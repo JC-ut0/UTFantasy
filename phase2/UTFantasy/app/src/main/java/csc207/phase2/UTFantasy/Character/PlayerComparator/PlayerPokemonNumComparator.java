@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 import csc207.phase2.UTFantasy.Character.Player;
 
+/**
+ * A comparator of Player, which will sort player by owned Pokemon number
+ */
 public class PlayerPokemonNumComparator implements Comparator<Player> {
 
   @Override

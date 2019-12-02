@@ -13,9 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import csc207.phase2.UTFantasy.Activities.InfoMediator;
 import csc207.phase2.UTFantasy.Character.Player;
