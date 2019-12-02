@@ -1,2 +1,34 @@
 ###
-- All UML diagrams are in UML folder, pleas take a look.
+- All UML diagrams are in UML folder, please take a look.
+
+- First, register a new account with account and password, create a new player with name and gender.
+You can check your profile in the menu -> profile. Every new player will have $1000 at beginning.
+We did not have access to making money.
+
+- Use four buttons down on the left to control the player.
+
+- There are two pokemon ball on the map, Charmander and Squirtle. You can only choose one of them,
+and it will be shown in your menu -> bag.
+
+- You can only have 6 pokemon. The extra ones will not be put in your bag.
+
+- There are 6 npc who you can fight with using your pokemon. 5 of them stand for each of us, and
+the last one represents the professor.
+
+- There is a npc who you can buy different products from. We have 3 different potions can 3 different
+poke balls in the shop.
+
+- In the shop, you have to click the product first and then you can add numbers.Remember to click
+button buy. If you have enough money, you can buy products with applied amount, else the trading
+process failed and the number you added will be cleared. Button add 1 means you add 1 product while
+add 10 means you can add 10, the number shown on the left bottom corner of the screen is cumulative
+for buttons while if you enter the number and click apply, the number will be override.
+After purchasing products, all of them will be shown in your bag.
+
+- There is a npc from who all your pokemon will be healed which means they will get full health points.
+
+- While you walking down, there is two sets of lawn. When you walking in them, there is a chance that
+you can meet wild pokemon. You can catch them with poke ball which you can buy in the shop. Or you can
+fight with them.
+
+- After you fight will all npc, you
