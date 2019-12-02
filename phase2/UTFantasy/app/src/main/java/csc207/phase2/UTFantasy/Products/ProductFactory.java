@@ -13,6 +13,10 @@ class ProductFactory {
         return new PurplePotion();
       case masterBall:
         return new MasterBall();
+      case pokeBall:
+        return new PokeBall();
+      case ultraBall:
+        return new UltraBall();
     }
     return null;
   }

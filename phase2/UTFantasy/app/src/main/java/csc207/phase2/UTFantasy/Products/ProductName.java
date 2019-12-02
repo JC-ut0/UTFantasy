@@ -4,5 +4,7 @@ public enum ProductName {
     redPotion,
     pinkPotion,
     purplePotion,
-    masterBall
+    masterBall,
+    pokeBall,
+    ultraBall
 }

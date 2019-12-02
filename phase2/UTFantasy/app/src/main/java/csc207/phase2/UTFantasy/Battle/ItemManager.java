@@ -1,7 +1,7 @@
 package csc207.phase2.UTFantasy.Battle;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
-import csc207.phase2.UTFantasy.Products.PokemonBall;
+import csc207.phase2.UTFantasy.Products.Ball;
 import csc207.phase2.UTFantasy.Products.Potion;
 import csc207.phase2.UTFantasy.Products.Product;
 
@@ -19,7 +19,7 @@ public class ItemManager {
     if (product != null) {
       battleData.getPlayer().useItem(product);
       text = battleData.getPlayer().getName() + " used " + product.getName();
-      if (product instanceof PokemonBall) {
+      if (product instanceof Ball) {
         if (!battleData.getCurrRivalPoke().isWild()) {
           productFailedToUse(product);
           text = "You can only catch wild pokemon.";
@@ -51,8 +51,8 @@ public class ItemManager {
   public String useBall() {
     Product pokemonBall = battleData.getPlayer().getSelectedProduct();
     String text = null;
-    if (pokemonBall instanceof PokemonBall) {
-      double rate = ((PokemonBall) pokemonBall).getRate();
+    if (pokemonBall instanceof Ball) {
+      double rate = ((Ball) pokemonBall).getRate();
       double random = Math.random();
       if (random < rate) {
         // the pokemon is successfully caught

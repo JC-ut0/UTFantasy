@@ -8,12 +8,12 @@ public class PurplePotion extends Potion {
 
   /** Constructor of PurplePotion */
   PurplePotion() {
-    super("Potion", 100, R.drawable.purple, 30);
+    super("Potion", 200, R.drawable.purple, 10);
   }
 
   @Override
   @NonNull
   public String toString() {
-    return "This is a potion, it can restore 30 hp.";
+    return "This is a potion, it can restore 10 hp.";
   }
 }
