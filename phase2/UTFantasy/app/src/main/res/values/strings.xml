@@ -26,7 +26,7 @@
     <string name="boy">boy</string>
     <string name="girl">girl</string>
     <string name="go">GO!</string>
-    <string name="cancel">CANCEL</string>
+    <string name="cancel">Cancel</string>
     <string name="name_gender">Name(Gender)</string>
     <string name="pokomonnum">PokomonNum</string>
     <string name="pokemonlv">PokemonLV</string>
@@ -39,4 +39,15 @@
     <string name="name">name</string>
     <string name="showingScore">Show score on the ScoreBoard</string>
     <string name="percentile">Percentile</string>
+    <string name="profilePic">profilepic</string>
+    <string name="duan_liu">Duan Liu</string>
+    <string name="yizhen_wang">Yizhen Wang</string>
+    <string name="yexiong_xu">Yexiong Xu</string>
+    <string name="qinxi_yu">Qinxi Yu</string>
+    <string name="yan_zhou">Yan Zhou</string>
+    <string name="producers">~Producers~</string>
+    <string name="press_here_to_continue">press here to continue</string>
+    <string name="description">Description</string>
+    <string name="username">username</string>
+    <string name="price">price</string>
 </resources>

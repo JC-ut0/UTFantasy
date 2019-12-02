@@ -9,7 +9,8 @@
         android:id="@+id/checkbox"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/check">
+        android:background="@drawable/check"
+        android:contentDescription="@string/profilePic">
 
     </ImageView>
 
@@ -33,7 +34,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="19dp">
+        android:layout_marginTop="19dp"
+        android:contentDescription="@string/profilePic">
 
     </ImageView>
 
