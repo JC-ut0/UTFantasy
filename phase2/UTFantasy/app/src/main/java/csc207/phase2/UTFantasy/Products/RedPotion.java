@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.R;
 
-public class RedPotion extends Potion {
+class RedPotion extends Potion {
   /** Constructor of RedPotion */
   RedPotion() {
     super("Super Potion", 500, R.drawable.red, 50);

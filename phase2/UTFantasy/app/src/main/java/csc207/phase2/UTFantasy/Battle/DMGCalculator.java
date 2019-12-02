@@ -5,8 +5,12 @@ import csc207.phase2.UTFantasy.Pet.Pokemon;
 
 import static java.lang.StrictMath.max;
 
-public class DMGCalculator extends FightTurnNode {
-    public DMGCalculator(BattleData battleData) {
+/**
+ * A fightTurnNode that is responsible for updating the damage of skill usage
+ * Return text informing the effect of this skill usage
+ */
+class DMGCalculator extends FightTurnNode {
+    DMGCalculator(BattleData battleData) {
         this.battleData = battleData;
     }
 
@@ -32,6 +36,9 @@ public class DMGCalculator extends FightTurnNode {
         return (int) Math.floor(modifier * damage);
     }
 
+    /**
+     * @return the message informing the effect of this skill usage
+     */
     @Override
     public String getText() {
         Pokemon attacker = battleData.getAttacker();

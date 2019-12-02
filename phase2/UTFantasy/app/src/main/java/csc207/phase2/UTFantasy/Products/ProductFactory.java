@@ -2,22 +2,29 @@ package csc207.phase2.UTFantasy.Products;
 
 /** Use Factory Design Pattern to create products. */
 class ProductFactory {
+  private Product product;
 
-  Product makePotion(ProductName potion) {
-    switch (potion) {
+  Product makeProduct(ProductName productName) {
+    switch (productName) {
       case redPotion:
-        return new RedPotion();
+        product = new RedPotion();
+        break;
       case pinkPotion:
-        return new PinkPotion();
+        product = new PinkPotion();
+        break;
       case purplePotion:
-        return new PurplePotion();
+        product = new PurplePotion();
+        break;
       case masterBall:
-        return new MasterBall();
+        product = new MasterBall();
+        break;
       case pokeBall:
-        return new PokeBall();
+        product = new PokeBall();
+        break;
       case ultraBall:
-        return new UltraBall();
+        product = new UltraBall();
+        break;
     }
-    return null;
+    return product;
   }
 }

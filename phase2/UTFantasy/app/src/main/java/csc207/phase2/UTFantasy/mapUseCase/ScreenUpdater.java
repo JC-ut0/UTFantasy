@@ -4,11 +4,14 @@ import android.content.res.Resources;
 
 import csc207.phase2.UTFantasy.Character.Player;
 
-public class ScreenUpdater {
+/**
+ * Responsible for return the lists of unitDraw that is supposed to be drawn on the screen
+ */
+class ScreenUpdater {
     private Player player;
     private Map map;
 
-    public ScreenUpdater(Player player) {
+    ScreenUpdater(Player player) {
         this.player = player;
         this.map = player.getPlayerMap();
     }
@@ -40,21 +43,21 @@ public class ScreenUpdater {
         return result;
     }
 
-    public UnitDraw[][] updateScreenOverLowMap() {
+    UnitDraw[][] updateScreenOverLowMap() {
         return updateScreenOverMap(map.getLowMap());
     }
 
-    public UnitDraw[][] updateScreenOverHighMap() {
+    UnitDraw[][] updateScreenOverHighMap() {
         return updateScreenOverMap(map.getHighMap());
     }
 
-    public int getScreenUnitWidth() {
+    int getScreenUnitWidth() {
         int screenWidthPixel = Resources.getSystem().getDisplayMetrics().widthPixels;
         int unitWidth = new UnitDraw().getUnitWidth();
         return screenWidthPixel / unitWidth + getExtendedWidth();
     }
 
-    public int getScreenUnitHeight() {
+    int getScreenUnitHeight() {
         int screenHeightPixel = Resources.getSystem().getDisplayMetrics().heightPixels;
         int unitHeight = new UnitDraw().getUnitHeight();
         return screenHeightPixel / unitHeight + getExtendedHeight();
@@ -65,7 +68,7 @@ public class ScreenUpdater {
      *
      * @return the extended number of units of the low map and high map
      */
-    public int getExtendedWidth() {
+    int getExtendedWidth() {
         return 24;
     }
 
@@ -74,7 +77,7 @@ public class ScreenUpdater {
      *
      * @return the extended number of units of the high map and high map
      */
-    public int getExtendedHeight() {
+    int getExtendedHeight() {
         return 24;
     }
 }

@@ -22,7 +22,7 @@ class Charmander extends Pokemon {
             "quick");
     setLevelToEvolve(16, new Charmeleon(16));
     SkillFactory factory = new SkillFactory();
-    skills[0] = factory.getSkill(SkillFactory.SkillClass.SCARTCH);
+    skills[0] = factory.getSkill(SkillFactory.SkillClass.EMBER);
   }
 
   /**

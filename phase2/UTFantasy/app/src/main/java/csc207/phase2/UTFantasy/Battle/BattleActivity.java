@@ -25,7 +25,6 @@ import csc207.phase2.UTFantasy.R;
 
 public class BattleActivity extends AppCompatActivity implements BattleActivityModel {
   private String username;
-  private Player player;
   /** the bottom layout */
   LinearLayout informationSection;
   /** skill section and menu section */
@@ -112,26 +111,21 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+      final Intent intent = getIntent();
+      // get the user from userIO
     UserIO userIO = UserIO.getSingletonUserIo();
-    final Intent intent = getIntent();
     username = intent.getStringExtra("username");
-    player = userIO.getUserData().getUser(username).getPlayer();
-
+      Player player = userIO.getUserData().getUser(username).getPlayer();
+      // get the npc from player
     String NPCname = intent.getStringExtra("npcName");
     NPC npc = player.getPlayerMap().getNpcRepository().getNPC(NPCname);
     if (npc == null) {
       onBackPressed();
-      //      npc = new NPC("poor student", Duty.FIGHT);
-      //      Pokemon squirtle = new Squirtle();
-      //      squirtle.setLevel(5);
-      //      npc.addPokemon(squirtle);
-      //      npc.addPokemon(new Psyduck());
     }
-    NPC rival = npc;
     initializeLayOuts();
     final BattlePresenter presenter = new BattlePresenter(this);
-    interactor = new BattleInteractor(new BattleData(player, rival), presenter);
-    controller = new BattleController(interactor, presenter);
+      interactor = new BattleInteractor(new BattleData(player, npc), presenter);
+      controller = new BattleController(interactor);
 
     informationSection.setOnClickListener(
         new View.OnClickListener() {
@@ -183,7 +177,6 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
           @Override
           public void onClick(View view) {
             endFight();
-            interactor.getBattleData().clearOberser();
           }
         });
 
@@ -260,15 +253,9 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
     controller.updateText();
   }
 
-  /**
-   * Update ImageView, ProgressBar, TextView of a pokemon.
-   *
-   * @param pokeNum the number of position of this pokemon in the player's bag
-   * @param isAttending if this pokemon is the current pokemon during the battle
-   * @param pokeId the profile icon of this pokemon
-   * @param hp the hp of this pokemon
-   * @param maxHp the maximum hp of this pokemon
-   */
+    // ================================================================================================
+    // implementation of methods from BattleActivityModel
+
   @Override
   public void showSinglePokemonForChoose(
       int pokeNum, boolean isAttending, int pokeId, int hp, int maxHp) {
@@ -313,14 +300,16 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
         pokemonHealthInfo = sixthPokemonHealthInfo;
         break;
     }
-    pokemonInBag.setBackgroundColor(0x00000000);
-    pokemonInBag.setImageDrawable(getResources().getDrawable(pokeId, null));
-    pokemonHealthBar.setVisibility(View.VISIBLE);
-    pokemonHealthBar.setMax(maxHp);
-    pokemonHealthBar.setProgress(hp);
-    pokemonHealthInfo.setText(hp + "/" + maxHp);
-    if (isAttending) {
-      pokemonInBag.setBackgroundColor(Color.parseColor("#2504E204"));
+      if (pokemonInBag != null && pokemonHealthBar != null && pokemonHealthInfo != null) {
+          pokemonInBag.setBackgroundColor(0x00000000);
+          pokemonInBag.setImageDrawable(getResources().getDrawable(pokeId, null));
+          pokemonHealthBar.setVisibility(View.VISIBLE);
+          pokemonHealthBar.setMax(maxHp);
+          pokemonHealthBar.setProgress(hp);
+          pokemonHealthInfo.setText(hp + "/" + maxHp);
+          if (isAttending) {
+              pokemonInBag.setBackgroundColor(Color.parseColor("#2504E204"));
+          }
     }
   }
 
@@ -361,6 +350,7 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
   /** heal the npc all pokemon and return to the main activity */
   @Override
   public void endFight() {
+      interactor.getBattleData().clearObserver();
     for (Pokemon pokemon : interactor.getBattleData().getRival().getPokemonList()) {
       pokemon.setHp(pokemon.getMaximumHp());
     }
@@ -439,7 +429,9 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
     catchAnimation.setVisibility(View.VISIBLE);
   }
 
-  /** Initialize layouts. */
+    /**
+     * Initialize layouts. private helper methods
+     */
   private void initializeLayOuts() {
     setContentView(R.layout.activity_fight);
     // the bottom layout

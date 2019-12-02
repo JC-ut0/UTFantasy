@@ -1,6 +1,10 @@
 package csc207.phase2.UTFantasy.mapUseCase;
 
-public class NPCDraw extends UnitDraw {
+/**
+ * represents one npc
+ * contains the name of the npc
+ */
+class NPCDraw extends UnitDraw {
     private String npcName;
 
     NPCDraw(Icon icon, String npcName) {
@@ -8,13 +12,7 @@ public class NPCDraw extends UnitDraw {
         this.npcName = npcName;
     }
 
-    public String getNpcName() {
+    String getNpcName() {
         return npcName;
-    }
-
-    @Override
-    public boolean isNPC() {
-        System.out.println("im");
-        return true;
     }
 }

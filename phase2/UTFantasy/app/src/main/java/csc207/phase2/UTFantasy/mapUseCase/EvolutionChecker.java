@@ -7,7 +7,7 @@ public class EvolutionChecker {
     private Player player;
     private MapDrawer drawer;
 
-    public EvolutionChecker(Player player) {
+    EvolutionChecker(Player player) {
         this.player = player;
     }
 

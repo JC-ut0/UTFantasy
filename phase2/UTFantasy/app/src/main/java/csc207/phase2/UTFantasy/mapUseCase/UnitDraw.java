@@ -2,6 +2,9 @@ package csc207.phase2.UTFantasy.mapUseCase;
 
 import java.io.Serializable;
 
+/**
+ * One unit that contains information about what is being drawn on the screen
+ */
 public class UnitDraw implements Serializable {
 
     /**
@@ -28,7 +31,7 @@ public class UnitDraw implements Serializable {
      *
      * @param icon the element this unitDraw represents
      */
-    public UnitDraw(Icon icon) {
+    UnitDraw(Icon icon) {
         this.icon = icon;
     }
 
@@ -36,7 +39,7 @@ public class UnitDraw implements Serializable {
         return screenX;
     }
 
-    public void setScreenX(float screenX) {
+    void setScreenX(float screenX) {
         this.screenX = screenX;
     }
 
@@ -44,7 +47,7 @@ public class UnitDraw implements Serializable {
         return screenY;
     }
 
-    public void setScreenY(float screenY) {
+    void setScreenY(float screenY) {
         this.screenY = screenY;
     }
 
@@ -61,10 +64,5 @@ public class UnitDraw implements Serializable {
      */
     public Icon getIcon() {
         return icon;
-    }
-
-    public boolean isNPC() {
-        System.out.println("im not");
-        return false;
     }
 }

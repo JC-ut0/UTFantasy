@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.R;
 
-public class MasterBall extends Ball {
+class MasterBall extends Ball {
   /** constructor of MasterBall */
   MasterBall() {
     super("Master Ball", 5000, R.drawable.masterball, 1);

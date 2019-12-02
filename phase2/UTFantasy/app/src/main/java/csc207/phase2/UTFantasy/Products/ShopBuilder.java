@@ -2,18 +2,20 @@ package csc207.phase2.UTFantasy.Products;
 
 import java.util.ArrayList;
 
-public class ProductBuilder {
+class ShopBuilder {
   /** a list of products */
   ArrayList<Product> products;
-
-  ProductBuilder() {
+  /** A ProductFactory used to make Product */
+  private ProductFactory productFactory;
+  /** constructor of ShopBuilder */
+  ShopBuilder() {
     products = new ArrayList<>();
+    productFactory = new ProductFactory();
   }
 
   /** add product to list products */
   void addProduct(ProductName name) {
-    ProductFactory productFactory = new ProductFactory();
-    products.add(productFactory.makePotion(name));
+    products.add(productFactory.makeProduct(name));
   }
 
   /** return a list of product */

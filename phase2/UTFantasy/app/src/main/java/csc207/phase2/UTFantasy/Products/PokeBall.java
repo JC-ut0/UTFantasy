@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.R;
 
-public class PokeBall extends Ball {
+class PokeBall extends Ball {
   PokeBall() {
     super("Poke Ball", 200, R.drawable.pokeball_shop, 0.3);
   }

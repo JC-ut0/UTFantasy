@@ -1,22 +1,22 @@
 package csc207.phase2.UTFantasy.Battle;
 
+/**
+ * A Node that is returning one text message about its specified responsibility
+ * Update corresponding battle data
+ */
 abstract class FightTurnNode {
 
-    protected BattleData battleData;
-    protected String text;
-    protected FightTurnNode next;
+  protected BattleData battleData;
+  protected String text;
+  private FightTurnNode next;
 
-    public boolean hasNext() {
-        return next != null;
-    }
+  FightTurnNode next() {
+    return next;
+  }
 
-    public FightTurnNode next() {
-        return next;
-    }
+  void setNext(FightTurnNode next) {
+    this.next = next;
+  }
 
-    public void setNext(FightTurnNode next) {
-        this.next = next;
-    }
-
-    abstract public String getText();
+  public abstract String getText();
 }

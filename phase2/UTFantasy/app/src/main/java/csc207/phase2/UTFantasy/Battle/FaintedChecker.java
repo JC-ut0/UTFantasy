@@ -2,9 +2,13 @@ package csc207.phase2.UTFantasy.Battle;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
-public class FaintedChecker extends FightTurnNode {
+/**
+ * A fightTurnNode that is responsible for checking if the current defender pokemon is fainted
+ * Return text informing if defender is fainted
+ */
+class FaintedChecker extends FightTurnNode {
 
-    public FaintedChecker(BattleData battleData) {
+    FaintedChecker(BattleData battleData) {
         this.battleData = battleData;
     }
 
