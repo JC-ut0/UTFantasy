@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Activities.select;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -54,8 +55,9 @@ public class ProductSelectActivity extends AppCompatActivity {
     setViewList();
   }
 
+  /** check whether the selected can be processed. */
   public void checkSelectedItem() {
-    //check if the selected item has only 1 amount
+    // check if the selected item has only 1 amount
     if (selectedProduct == null) {
       Toast.makeText(this, "Please choose one product", Toast.LENGTH_LONG).show();
     } else {
@@ -65,14 +67,17 @@ public class ProductSelectActivity extends AppCompatActivity {
     }
   }
 
+  /** set the text view. */
+  @SuppressLint("SetTextI18n")
   private void setTextView() {
     // set up the text view
     TextView textView = findViewById(R.id.textInfo);
     textView.setText("Please choose one Product from your bag.");
   }
 
+  /** set the buttons go and cancel. */
   private void setButtons() {
-    //set up the go button
+    // set up the go button
     Button goButton = findViewById(R.id.gobutton);
     goButton.setOnClickListener(
         new View.OnClickListener() {
@@ -81,7 +86,7 @@ public class ProductSelectActivity extends AppCompatActivity {
             checkSelectedItem();
           }
         });
-    //set up the cancel button
+    // set up the cancel button
     Button cancelButton = findViewById(R.id.cancelButton);
     cancelButton.setOnClickListener(
         new View.OnClickListener() {
@@ -93,8 +98,9 @@ public class ProductSelectActivity extends AppCompatActivity {
         });
   }
 
+  /** set the view list. */
   private void setViewList() {
-    //set up the view list and the adapter
+    // set up the view list and the adapter
     ListView listView = findViewById(R.id.pokemon_select_listView);
     final ProductSelectAdapter adapter = new ProductSelectAdapter(this, productHashMap);
     listView.setAdapter(adapter);
@@ -102,11 +108,11 @@ public class ProductSelectActivity extends AppCompatActivity {
         new AdapterView.OnItemClickListener() {
           @Override
           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Product product = (Product)adapter.getItem(position);
+            Product product = (Product) adapter.getItem(position);
             if (product.isSelected()) {
               product.setSelected(false);
               selectedProduct = null;
-            } else{
+            } else {
               checkOnlyOne(product);
             }
             // now update the adapter
@@ -115,16 +121,22 @@ public class ProductSelectActivity extends AppCompatActivity {
         });
   }
 
-  private void checkOnlyOne(Product product){
-    if (selectedProduct != null){
+  /**
+   * helper to check if the player chose only one product or the product is null.
+   *
+   * @param product the product
+   */
+  private void checkOnlyOne(Product product) {
+    if (selectedProduct != null) {
       Toast.makeText(this, "You can choose only one product", Toast.LENGTH_LONG).show();
-    }else{
+    } else {
       product.setSelected(true);
       selectedProduct = product;
     }
   }
 
-  private void reset(){
+  /** rest all the product to be not selected. */
+  private void reset() {
     infoMediator.resetSelect();
   }
 }

@@ -16,7 +16,7 @@ public class EndingActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ending);
-
+        //the profile and name of the producers
         ImageView dd = findViewById(R.id.pic1);
         dd.setImageResource(R.drawable.dd);
         ImageView yimi = findViewById(R.id.pic2);
@@ -28,6 +28,7 @@ public class EndingActivity extends AppCompatActivity {
         ImageView joy = findViewById(R.id.pic5);
         joy.setImageResource(R.drawable.yyqx);
 
+        //set the return to main button
         Button back = findViewById(R.id.ending_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

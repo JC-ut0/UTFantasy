@@ -16,12 +16,6 @@ public class SystemActivity extends AppCompatActivity {
   /** the unique UserIO */
   private UserIO userIO = UserIO.getSingletonUserIo();
 
-  /** The buttons. */
-  private Button save_button;
-
-  private Button logout_button;
-  private Button back_button;
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -35,7 +29,7 @@ public class SystemActivity extends AppCompatActivity {
 
   /** Set the save button. */
   private void setSave_button() {
-    save_button = findViewById(R.id.save);
+    Button save_button = findViewById(R.id.save);
     save_button.setOnClickListener(
         new View.OnClickListener() {
           @Override
@@ -48,7 +42,7 @@ public class SystemActivity extends AppCompatActivity {
 
   /** Set the logout button. */
   private void setLogout_button() {
-    logout_button = findViewById(R.id.logout);
+    Button logout_button = findViewById(R.id.logout);
     logout_button.setOnClickListener(
         new View.OnClickListener() {
           @Override
@@ -71,7 +65,7 @@ public class SystemActivity extends AppCompatActivity {
 
   /** Set the back button. */
   private void setBack_button() {
-    back_button = findViewById(R.id.backToStartUp);
+    Button back_button = findViewById(R.id.backToStartUp);
     back_button.setOnClickListener(
         new View.OnClickListener() {
           @Override
