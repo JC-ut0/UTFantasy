@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Pet;
 
+import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
 import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
@@ -19,6 +20,10 @@ class Squirtle extends Pokemon {
               43,
               "quick");
     setLevelToEvolve(16, new Wartortle(16));
+    SkillFactory sf = new SkillFactory();
+    skills[0] = sf.getSkill(SkillFactory.SkillClass.BUBBLE);
+    skills[1] = sf.getSkill(SkillFactory.SkillClass.TACKLE);
+
   }
 
   /**

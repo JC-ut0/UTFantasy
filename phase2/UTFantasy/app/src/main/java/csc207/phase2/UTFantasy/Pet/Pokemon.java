@@ -421,8 +421,9 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
      * @param exp the value of experience to be added.
      */
     public void addExp(int exp) {
-        if (this.getLevel() < 100) {
+        if (this.getLevel() < maxLevel) {
             this.totalExp += exp;
+            this.expAtCurrentLevel += exp;
         }
     }
 
