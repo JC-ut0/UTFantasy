@@ -125,7 +125,7 @@ public class MapBuilder {
 
     PokemonFactory pokemonFactory = new PokemonFactory();
 
-    npc = new NPC("Professor.P", Duty.FIGHT);
+    npc = new NPC("Professor.P", Duty.PROFESSOR);
     npc.setDialog("Ready for your final exam? great!");
     npc.setInteractedDialogue("Good job!");
     npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARIZARDSHINY, 50));

@@ -9,6 +9,7 @@ import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
+/** Represents that this NPC will giveaway a Charmander(Pokemon). */
 class CharmanderInteraction extends Interaction {
 
   CharmanderInteraction(MapDrawer drawer, Player player) {

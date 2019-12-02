@@ -9,6 +9,7 @@ import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
+/** Represents that this NPC will giveaway a Squirtle(Pokemon). */
 class SquirtleInteraction extends Interaction {
 
   SquirtleInteraction(MapDrawer drawer, Player player) {

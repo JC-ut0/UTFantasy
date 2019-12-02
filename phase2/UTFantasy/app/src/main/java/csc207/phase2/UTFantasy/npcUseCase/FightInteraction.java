@@ -4,6 +4,7 @@ import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
+/** Represents that this NPC coulkd have a battle against the user. */
 class FightInteraction extends Interaction {
 
   FightInteraction(MapDrawer drawer, Player player) {

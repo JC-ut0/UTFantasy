@@ -4,6 +4,10 @@ import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
+/**
+ * Represent the strategy used by NPCInteractor. Containing the actual implementation of interaction
+ * with NPCs.
+ */
 public abstract class Interaction {
   protected MapDrawer drawer;
   protected Player player;
