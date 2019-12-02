@@ -30,7 +30,7 @@
             android:name="csc207.phase2.UTFantasy.Activities.CustomizeActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name="csc207.phase2.UTFantasy.mapUI.MainActivity"
+            android:name=".Activities.mapUI.MainActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity

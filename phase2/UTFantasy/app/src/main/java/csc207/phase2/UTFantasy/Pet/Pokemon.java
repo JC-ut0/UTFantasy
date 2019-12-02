@@ -10,109 +10,109 @@ import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.Character.Person;
 
 public abstract class Pokemon implements Serializable, ObservablePokemon {
-    protected BattleObserver observer;
+    private BattleObserver observer;
     /**
      * the name of the Pokemon
      */
-    protected String pokemonName;
+    private String pokemonName;
     /**
      * The first type of this pokemon
      */
-    protected TypeMap.TypeEnum type1;
+    private TypeMap.TypeEnum type1;
     /**
      * The second type of this pokemon
      */
-    protected TypeMap.TypeEnum type2;
+    private TypeMap.TypeEnum type2;
     /**
      * Level growing type
      */
-    protected String growType;
+    private String growType;
     /**
      * The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
      */
-    protected int profileID;
+    private int profileID;
     /**
      * The unique icon of Pokemon back. ID can be used to draw the back of this Pokemon.
      */
-    protected int profileBackID;
+    private int profileBackID;
     /**
      * Base stat of hp
      */
-    protected int baseHp;
+    private int baseHp;
     /**
      * Base stat of attack
      */
-    protected int baseAttack;
+    private int baseAttack;
     /**
      * Base stat of defense
      */
-    protected int baseDefense;
+    private int baseDefense;
     /**
      * Base stat of speed
      */
-    protected int baseSpeed;
+    private int baseSpeed;
     /**
      * level of the Pokemon
      */
-    protected int level;
+    private int level;
 
     protected int maxLevel = 100;
     /**
      * the value of level when the Pokemon will be able to evolve
      */
-    protected int levelToEvolve;
+    private int levelToEvolve;
     /**
      * total experience points the pokemon has
      */
-    protected int totalExp;
+    private int totalExp;
     /**
      * the value of experience the Pokemon has at the current level
      */
-    protected int expAtCurrentLevel;
+    private int expAtCurrentLevel;
     /**
      * the value of experience the Pokemon needs to level up
      */
-    protected int expToLevelUp;
+    private int expToLevelUp;
     /**
      * person that the Pokemon belongs to
      */
-    protected Person master;
+    private Person master;
     /**
      * the health point of the Pokemon
      */
-    protected int hp;
+    private int hp;
     /**
      * the attack of this pokemon
      */
-    protected int attack;
+    private int attack;
     /**
      * the defense of this pokemon
      */
-    protected int defense;
+    private int defense;
     /**
      * the speed of this pokemon
      */
-    protected int speed;
+    private int speed;
     /**
      * Individual value of hp
      */
-    protected int ivHp;
+    private int ivHp;
     /**
      * Individual value of attack
      */
-    protected int ivAttack;
+    private int ivAttack;
     /**
      * Individual value of defense
      */
-    protected int ivDefense;
+    private int ivDefense;
     /**
      * Individual value of speed
      */
-    protected int ivSpeed;
+    private int ivSpeed;
     /**
      * Maximum health point
      */
-    protected int maximumHp;
+    private int maximumHp;
     /**
      * skills the Pokemon have there are four different skills
      */

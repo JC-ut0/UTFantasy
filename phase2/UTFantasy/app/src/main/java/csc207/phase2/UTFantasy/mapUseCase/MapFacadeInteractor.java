@@ -3,9 +3,6 @@ package csc207.phase2.UTFantasy.mapUseCase;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 
-/**
- * the facade for MapChecker, ScreenUpdater, MovementManager and ScreenTranser
- */
 class MapFacadeInteractor implements MapInteractor {
   private MapChecker mapChecker;
   private ScreenUpdater screenUpdater;

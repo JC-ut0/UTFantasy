@@ -20,7 +20,7 @@ import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.User.User;
 import csc207.phase2.UTFantasy.User.UserManagerFacade;
-import csc207.phase2.UTFantasy.mapUI.MainActivity;
+import csc207.phase2.UTFantasy.Activities.mapUI.MainActivity;
 
 /** The activity used to log into the game with username and passwords. */
 public class LoginActivity extends AppCompatActivity implements LoginView {

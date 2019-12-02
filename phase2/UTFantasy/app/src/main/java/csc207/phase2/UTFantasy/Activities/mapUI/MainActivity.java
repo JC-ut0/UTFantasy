@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.mapUI;
+package csc207.phase2.UTFantasy.Activities.mapUI;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -31,7 +31,7 @@ import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 import csc207.phase2.UTFantasy.mapUseCase.MapInteractor;
 import csc207.phase2.UTFantasy.mapUseCase.WildPokemonChecker;
 
-public class MainActivity extends AppCompatActivity implements MainActivityModel {
+public class MainActivity extends AppCompatActivity implements MainActivityInterface {
   private MapView mapView;
   private MapController mapController;
   private MapInteractor mapInteractor;
@@ -91,23 +91,23 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     // set onClickListener for the buttons
     final View.OnClickListener moveClick =
             new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                switch (view.getId()) {
-                  case R.id.leftButton:
-                    mapController.moveClick("left");
-                    break;
-                  case R.id.rightButton:
-                    mapController.moveClick("right");
-                    break;
-                  case R.id.upButton:
-                    mapController.moveClick("up");
-                    break;
-                  case R.id.downButton:
-                    mapController.moveClick("down");
-                    break;
+                @Override
+                public void onClick(View view) {
+                    switch (view.getId()) {
+                        case R.id.leftButton:
+                            mapController.moveClick("left");
+                            break;
+                        case R.id.rightButton:
+                            mapController.moveClick("right");
+                            break;
+                        case R.id.upButton:
+                            mapController.moveClick("up");
+                            break;
+                        case R.id.downButton:
+                            mapController.moveClick("down");
+                            break;
+                    }
                 }
-              }
             };
     leftButton.setOnClickListener(moveClick);
     rightButton.setOnClickListener(moveClick);
@@ -116,31 +116,31 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
 
     final View.OnTouchListener moveTouchListener =
             new View.OnTouchListener() {
-              @Override
-              public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()) {
-                  case MotionEvent.ACTION_DOWN:
-                    switch (view.getId()) {
-                      case R.id.leftButton:
-                        mapController.moveTouchDownAction("left");
-                        break;
-                      case R.id.rightButton:
-                        mapController.moveTouchDownAction("right");
-                        break;
-                      case R.id.upButton:
-                        mapController.moveTouchDownAction("up");
-                        break;
-                      case R.id.downButton:
-                        mapController.moveTouchDownAction("down");
-                        break;
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    switch (motionEvent.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            switch (view.getId()) {
+                                case R.id.leftButton:
+                                    mapController.moveTouchDownAction("left");
+                                    break;
+                                case R.id.rightButton:
+                                    mapController.moveTouchDownAction("right");
+                                    break;
+                                case R.id.upButton:
+                                    mapController.moveTouchDownAction("up");
+                                    break;
+                                case R.id.downButton:
+                                    mapController.moveTouchDownAction("down");
+                                    break;
+                            }
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            mapController.moveTouchUpAction();
+                            break;
                     }
-                    break;
-                  case MotionEvent.ACTION_UP:
-                    mapController.moveTouchUpAction();
-                    break;
+                    return true;
                 }
-                return true;
-              }
             };
     leftButton.setOnTouchListener(moveTouchListener);
     rightButton.setOnTouchListener(moveTouchListener);
@@ -149,63 +149,63 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
 
     menuButton.setOnClickListener(
             new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                mainButtonHolder.setVisibility(View.VISIBLE);
-              }
+                @Override
+                public void onClick(View view) {
+                    mainButtonHolder.setVisibility(View.VISIBLE);
+                }
             });
     menuBagButton.setOnClickListener(
             new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                intent.putExtra("username", username);
-                startActivity(intent);
-              }
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+                }
             });
 
     menuProfileButton.setOnClickListener(
             new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                Intent profileIntent = new Intent(MainActivity.this, PlayerInfoActivity.class);
-                profileIntent.putExtra("username", username);
-                startActivity(profileIntent);
-              }
+                @Override
+                public void onClick(View view) {
+                    Intent profileIntent = new Intent(MainActivity.this, PlayerInfoActivity.class);
+                    profileIntent.putExtra("username", username);
+                    startActivity(profileIntent);
+                }
             });
 
     menu_system.setOnClickListener(
             new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SystemActivity.class);
-                intent.putExtra("username", username);
-                startActivity(intent);
-              }
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, SystemActivity.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+                }
             });
 
     menuBackButton.setOnClickListener(
             new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                mainButtonHolder.setVisibility(View.GONE);
-              }
+                @Override
+                public void onClick(View view) {
+                    mainButtonHolder.setVisibility(View.GONE);
+                }
             });
 
     aButton.setOnClickListener(
             new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                mapController.buttonAClick();
-              }
+                @Override
+                public void onClick(View view) {
+                    mapController.buttonAClick();
+                }
             });
 
     bButton.setOnClickListener(
             new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                mapController.buttonBClick();
-              }
+                @Override
+                public void onClick(View view) {
+                    mapController.buttonBClick();
+                }
             });
 
     intent = getIntent();
@@ -220,8 +220,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
     MainThread mainThread = new MainThread(mapDrawer, mapInteractor);
     mapView.setThread(mainThread);
     mapViewHolder.addView(mapView);
-    WildPokemonObserver wildPokemonObserver = new WildPokemonChecker(player, mapDrawer);
-    player.addObserver(wildPokemonObserver);
   }
 
   /** resume this activity called when this activity is resumed from being paused */
@@ -238,12 +236,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityModel
       mapView.getThread().setRunning(true);
     }
     mapController.checkEvolution();
+      WildPokemonObserver wildPokemonObserver = new WildPokemonChecker(player, mapDrawer);
+      player.addObserver(wildPokemonObserver);
   }
 
   @Override
   protected void onPause() {
     super.onPause();
     mapView.getThread().setRunning(false);
+      mapController.clearObserver();
   }
 
   @Override

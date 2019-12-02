@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.mapUI;
+package csc207.phase2.UTFantasy.Activities.mapUI;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
@@ -6,6 +6,7 @@ import csc207.phase2.UTFantasy.mapUseCase.EvolutionChecker;
 import csc207.phase2.UTFantasy.mapUseCase.MapDirector;
 import csc207.phase2.UTFantasy.mapUseCase.MapInteractor;
 import csc207.phase2.UTFantasy.npcUseCase.NPCInteractor;
+
 
 class MapController {
   private MapInteractor mapInteractor;
@@ -106,4 +107,8 @@ class MapController {
   void checkEvolution() {
     evolutionChecker.checkEvolution();
   }
+
+    void clearObserver() {
+        npcInteractor.clearObserver();
+    }
 }

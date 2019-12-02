@@ -1,6 +1,6 @@
-package csc207.phase2.UTFantasy.mapUI;
+package csc207.phase2.UTFantasy.Activities.mapUI;
 
-public interface MainActivityModel {
+public interface MainActivityInterface {
   void fight();
 
   void popText(String text);

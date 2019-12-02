@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.mapUI;
+package csc207.phase2.UTFantasy.Activities.mapUI;
 
 import android.content.Context;
 import android.content.res.Resources;

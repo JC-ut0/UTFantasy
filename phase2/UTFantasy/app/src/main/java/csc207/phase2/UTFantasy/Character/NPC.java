@@ -1,7 +1,6 @@
 package csc207.phase2.UTFantasy.Character;
 
 public class NPC extends Person {
-  private String name;
   private String dialogue;
   private String interactedDialogue;
   private Duty duty;

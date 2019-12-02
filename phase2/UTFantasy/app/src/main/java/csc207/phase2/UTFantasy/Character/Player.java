@@ -19,6 +19,11 @@ public class Player extends Person {
   private boolean showingScore = true;
   private WildPokemonObserver observer;
   private Product selectedProduct;
+  private boolean clearance;
+  /**
+   * represents if the clearance picture is already shown
+   */
+  private boolean shownClearance;
 
   /**
    * construct a new player
@@ -34,15 +39,8 @@ public class Player extends Person {
     this.setX(10);
     this.setY(10);
     this.setDirection("down");
-    PokemonFactory factory = new PokemonFactory();
-    Pokemon pm = factory.createPokemon(PokemonFactory.PokemonClass.CHARMANDER, 15);
-    pm.setExpToLevelUp(100);
-    pm.setExpAtCurrentLevel(99);
-    addPokemon(pm);
-    Pokemon pm2 = factory.createPokemon(PokemonFactory.PokemonClass.SQUIRTLE, 15);
-    pm2.setExpToLevelUp(100);
-    pm2.setExpAtCurrentLevel(99);
-    addPokemon(pm2);
+    clearance = false;
+    shownClearance = false;
   }
 
   public int getX() {
@@ -157,7 +155,27 @@ public class Player extends Person {
     this.observer = observer;
   }
 
+  public void clearObserver() {
+    this.observer = null;
+  }
+
   public void notifyChange() {
     if (observer != null) observer.checkWildPokeBattle();
+  }
+
+  public boolean isClearance() {
+    return clearance;
+  }
+
+  public void setClearance(boolean clearance) {
+    this.clearance = clearance;
+  }
+
+  public boolean isShownClearance() {
+    return shownClearance;
+  }
+
+  public void setShownClearance(boolean shownClearance) {
+    this.shownClearance = shownClearance;
   }
 }

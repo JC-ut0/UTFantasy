@@ -3,6 +3,9 @@ package csc207.phase2.UTFantasy.mapUseCase;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 
+/**
+ * the facade for MapChecker, ScreenUpdater, MovementManager and ScreenTranser
+ */
 public interface MapInteractor {
   /**
    * @return true iff there is no blocking in front of player currently
