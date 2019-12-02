@@ -68,14 +68,14 @@ public class PlayerInfoActivity extends AppCompatActivity {
 
   /** Set the character's name. */
   private void setCharacter_name() {
-    TextView character_name = findViewById(R.id.profilename);
+    TextView character_name = findViewById(R.id.profileName);
     character_name.setText(player.getName());
   }
 
   /** Set the character's gender and it's profile. */
   private void setCharacter_gender_and_profile() {
     TextView character_gender = findViewById(R.id.gender);
-    ImageView profile = findViewById(R.id.profileimage);
+    ImageView profile = findViewById(R.id.profileImage);
     profile.setImageResource(infoMediator.getGenderImage());
     character_gender.setText(infoMediator.getGender());
   }

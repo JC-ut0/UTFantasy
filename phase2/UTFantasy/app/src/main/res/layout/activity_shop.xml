@@ -38,7 +38,8 @@
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/profilePic"/>
 
         <TextView
             android:id="@+id/productName"
@@ -46,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:text="Name"
+            android:text="@string/productName"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="15sp"
@@ -58,7 +59,7 @@
             android:layout_height="51dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:text="description"
+            android:text="@string/description"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="15sp"
@@ -86,7 +87,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_box"
-            android:text="ADD 1"
+            android:text="@string/add1"
             android:textColor="#FFFFFF"
             android:textSize="15sp" />
 
@@ -99,7 +100,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_box"
-            android:text="ADD 10"
+            android:text="@string/add10"
             android:textColor="#FFFFFF"
             android:textSize="15sp" />
 
@@ -112,7 +113,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
             android:autofillHints=""
-            android:hint="Enter amount"
+            android:hint="@string/enterAmount"
             android:inputType="number"
             android:textAlignment="center"
             android:textColor="#000000" />
@@ -125,7 +126,7 @@
             android:layout_marginStart="35dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_box"
-            android:text="APPLY"
+            android:text="@string/apply"
             android:textColor="#FFFFFF"
             android:textSize="15sp" />
 
@@ -138,7 +139,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_box"
-            android:text="BUY!"
+            android:text="@string/buy"
             android:textColor="#FFFFFF"
             android:textSize="15sp" />
 
@@ -151,7 +152,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_box"
-            android:text="My Bag"
+            android:text="@string/myBag"
             android:textColor="#FFFFFF"
             android:textSize="15sp" />
 
@@ -164,7 +165,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_box"
-            android:text="LEAVE"
+            android:text="@string/leave"
             android:textColor="#FFFFFF"
             android:textSize="15sp">
 
@@ -195,7 +196,7 @@
                 android:id="@+id/productOwed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number in bag:"
+                android:text="@string/numInBag"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -222,7 +223,7 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Amount selected:"
+                android:text="@string/amountSelected"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -269,7 +270,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
-                    android:text="Money in bag:"
+                    android:text="@string/moneyInBag"
                     android:textColor="#000000"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -300,7 +301,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="Total selected:"
+                    android:text="@string/total"
                     android:textColor="#000000"
                     android:textSize="15sp"
                     android:textStyle="bold" />
