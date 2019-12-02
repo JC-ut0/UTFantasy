@@ -8,7 +8,7 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.WildPokemonObserver;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
-import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
+import csc207.phase2.UTFantasy.npcUseCase.NPCRepository;
 
 public class WildPokemonChecker implements WildPokemonObserver, Serializable {
     private Player player;

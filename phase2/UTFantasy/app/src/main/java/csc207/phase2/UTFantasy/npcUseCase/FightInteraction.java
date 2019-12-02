@@ -1,12 +1,12 @@
-package csc207.phase2.UTFantasy.npcDomain;
+package csc207.phase2.UTFantasy.npcUseCase;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
-public class FightInteraction extends Interaction {
+class FightInteraction extends Interaction {
 
-    public FightInteraction(MapDrawer drawer, Player player) {
+    FightInteraction(MapDrawer drawer, Player player) {
         super(drawer, player);
     }
 

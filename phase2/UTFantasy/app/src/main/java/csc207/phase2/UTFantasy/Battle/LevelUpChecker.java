@@ -16,7 +16,7 @@ public class LevelUpChecker extends FightTurnNode {
       if (attacker.getExpAtCurrentLevel() >= attacker.getExpToLevelUp()) {
         attacker.setLevel(attacker.getLevel() + 1);
         attacker.setExpAtCurrentLevel(attacker.calculateExpAtCurrentLevel());
-        text = attacker.getPokemonName() + " leveled up!";
+        text = attacker.getPokemonName() + " level up!";
       }
     }
     return text;

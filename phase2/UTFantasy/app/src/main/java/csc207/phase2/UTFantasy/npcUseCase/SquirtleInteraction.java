@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.npcDomain;
+package csc207.phase2.UTFantasy.npcUseCase;
 
 import java.util.List;
 
@@ -9,23 +9,23 @@ import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.R;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
-public class CharmanderInteraction extends Interaction {
+class SquirtleInteraction extends Interaction {
 
-    public CharmanderInteraction(MapDrawer drawer, Player player) {
+    SquirtleInteraction(MapDrawer drawer, Player player) {
         super(drawer, player);
     }
 
     @Override
     public void openDialogue(NPC npc) {
         super.openDialogue(npc);
-        drawer.display(R.drawable.charmander);
+        drawer.display(R.drawable.squirtle);
     }
 
     @Override
     public void interact(NPC npc) {
         PokemonFactory pokemonFactory = new PokemonFactory();
-        Pokemon charmander = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARMANDER, 5);
-        player.addPokemon(charmander);
+        Pokemon squirtle = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.SQUIRTLE, 5);
+        player.addPokemon(squirtle);
         List<NPC> beginningPokemonNPCs =
                 player.getPlayerMap().getNpcRepository().getBeginningPokemonNPCs();
         for (NPC pokemonNPC : beginningPokemonNPCs) {

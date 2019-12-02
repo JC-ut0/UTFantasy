@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.npcDomain;
+package csc207.phase2.UTFantasy.npcUseCase;
 
 import java.io.Serializable;
 import java.util.ArrayList;

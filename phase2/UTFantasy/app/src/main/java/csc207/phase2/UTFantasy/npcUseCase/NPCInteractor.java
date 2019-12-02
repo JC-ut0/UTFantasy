@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.npcDomain;
+package csc207.phase2.UTFantasy.npcUseCase;
 
 import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
@@ -38,6 +38,8 @@ public class NPCInteractor {
             case SQUIRTLE:
                 interaction = interactionFactory.getSquirtleInteraction(drawer, player);
                 break;
+            case BULBASAUR:
+                interaction = interactionFactory.getBulbasaurInteraction(drawer, player);
         }
         interaction.openDialogue(npc);
     }

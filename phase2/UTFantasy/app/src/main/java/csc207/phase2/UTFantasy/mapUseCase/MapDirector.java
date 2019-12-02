@@ -1,7 +1,7 @@
 package csc207.phase2.UTFantasy.mapUseCase;
 
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.npcDomain.NPCInteractor;
+import csc207.phase2.UTFantasy.npcUseCase.NPCInteractor;
 
 public class MapDirector {
     private Map map;

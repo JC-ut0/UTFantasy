@@ -35,7 +35,14 @@ public class Player extends Person {
     this.setY(10);
     this.setDirection("down");
     PokemonFactory factory = new PokemonFactory();
-    addPokemon(factory.createPokemon(PokemonFactory.PokemonClass.SQUIRTLE, 16));
+    Pokemon pm = factory.createPokemon(PokemonFactory.PokemonClass.CHARMANDER, 15);
+    pm.setExpToLevelUp(100);
+    pm.setExpAtCurrentLevel(99);
+    addPokemon(pm);
+    Pokemon pm2 = factory.createPokemon(PokemonFactory.PokemonClass.SQUIRTLE, 15);
+    pm2.setExpToLevelUp(100);
+    pm2.setExpAtCurrentLevel(99);
+    addPokemon(pm2);
   }
 
   public int getX() {

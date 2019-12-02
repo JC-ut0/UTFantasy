@@ -2,7 +2,7 @@ package csc207.phase2.UTFantasy.mapUseCase;
 
 import java.io.Serializable;
 
-import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
+import csc207.phase2.UTFantasy.npcUseCase.NPCRepository;
 
 public class Map implements Serializable {
     private int mapWidth;

@@ -5,7 +5,7 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.mapUseCase.EvolutionChecker;
 import csc207.phase2.UTFantasy.mapUseCase.MapDirector;
 import csc207.phase2.UTFantasy.mapUseCase.MapInteractor;
-import csc207.phase2.UTFantasy.npcDomain.NPCInteractor;
+import csc207.phase2.UTFantasy.npcUseCase.NPCInteractor;
 
 public class MapController {
   private MapInteractor mapInteractor;

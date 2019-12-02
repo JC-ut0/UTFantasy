@@ -3,7 +3,7 @@ package csc207.phase2.UTFantasy.mapUseCase;
 import csc207.phase2.UTFantasy.Character.Duty;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
-import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
+import csc207.phase2.UTFantasy.npcUseCase.NPCRepository;
 
 public class MapBuilder {
     private Map product;
@@ -432,7 +432,7 @@ public class MapBuilder {
         npc = new NPC("Professor.P", Duty.FIGHT);
         npc.setDialog("ready for your final exam? great!");
         npc.setInteractedDialogue("Good job!");
-        npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARIZARDSHINY, 50));
+        npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.BLASTOISE, 10));
         buildSingleNpc(npc, Icon.PROFESSOR, 3, 10);
 
         npc = new NPC("Seller", Duty.SALE);
@@ -443,21 +443,27 @@ public class MapBuilder {
         npc.setDialog("welcome to hospital????");
         buildSingleNpc(npc, Icon.HEALER, 7, 10);
 
-        npc = new NPC("charmander", Duty.CHARMANDER);
-        npc.setDialog("This is a charmander, do you wanna choose it?");
-        npc.setInteractedDialogue("A charmander...");
+        npc = new NPC("Charmander", Duty.CHARMANDER);
+        npc.setDialog("This is a Charmander, do you wanna choose it?");
+        npc.setInteractedDialogue("A Charmander...");
+        buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 5, 3);
+        npcRepository.addBeginningPokemonNPC(npc);
+
+        npc = new NPC("Squirtle", Duty.SQUIRTLE);
+        npc.setDialog("This is a Squirtle, do you wanna choose it?");
+        npc.setInteractedDialogue("A Squirtle...");
+        buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 8, 3);
+        npcRepository.addBeginningPokemonNPC(npc);
+
+        npc = new NPC("Bulbasaur", Duty.BULBASAUR);
+        npc.setDialog("This is a Bulbasaur, do you wanna choose it?");
+        npc.setInteractedDialogue("A Bulbasaur...");
         buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 3, 3);
         npcRepository.addBeginningPokemonNPC(npc);
 
-        npc = new NPC("squirtle", Duty.SQUIRTLE);
-        npc.setDialog("This is a squirtle, do you wanna choose it?");
-        npc.setInteractedDialogue("A squirtle...");
-        buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 6, 3);
-        npcRepository.addBeginningPokemonNPC(npc);
-
         npc = new NPC("JC", Duty.FIGHT);
-        npc.setDialog("ready for your final exam? great!");
-        npc.setInteractedDialogue("Good job!");
+        npc.setDialog("Ready for lose? Hummm...............");
+        npc.setInteractedDialogue("That's a lucky shoot.........");
         npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.MEWTWO, 50));
         buildSingleNpc(npc, Icon.JESSE, 3, 6);
 

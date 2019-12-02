@@ -1,18 +1,17 @@
-package csc207.phase2.UTFantasy.npcDomain;
+package csc207.phase2.UTFantasy.npcUseCase;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
-public class HealInteraction extends Interaction {
+public class SaleInteraction extends Interaction {
 
-    public HealInteraction(MapDrawer drawer, Player player) {
+    public SaleInteraction(MapDrawer drawer, Player player) {
         super(drawer, player);
     }
 
     @Override
     public void interact(NPC npc) {
-        player.heal();
-        drawer.popText("You are healed.");
+        drawer.goToShopActivity(npc.getName());
     }
 }

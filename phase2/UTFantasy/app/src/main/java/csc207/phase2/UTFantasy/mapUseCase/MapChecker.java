@@ -2,7 +2,7 @@ package csc207.phase2.UTFantasy.mapUseCase;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
-import csc207.phase2.UTFantasy.npcDomain.NPCRepository;
+import csc207.phase2.UTFantasy.npcUseCase.NPCRepository;
 
 public class MapChecker {
     private Player player;
