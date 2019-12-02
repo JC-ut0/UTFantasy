@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Onix extends Pokemon {
   /** Constructor of a Onix. */
   Onix(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.ROCK,
-              TypeMap.TypeEnum.GROUND,
-              R.drawable.onix,
-              R.drawable.onix_back,
-              "Onix",
-              35,
-              45,
-              110,
-              70,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.ROCK,
+        TypeMap.TypeEnum.GROUND,
+        R.drawable.onix,
+        R.drawable.onix_back,
+        "Onix",
+        35,
+        45,
+        110,
+        70,
+        "quick");
     setLevelToEvolve(maxLevel, null);
   }
   /**

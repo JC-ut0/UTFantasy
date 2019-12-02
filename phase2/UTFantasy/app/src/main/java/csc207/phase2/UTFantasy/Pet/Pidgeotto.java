@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Pidgeotto extends Pokemon {
   /** Constructor of a Pidgeotto. */
   Pidgeotto(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.NORMAL,
-              TypeMap.TypeEnum.FLYING,
-              R.drawable.pidgeotto,
-              R.drawable.pidgeotto_back,
-              "Pidgeotto",
-              63,
-              55,
-              50,
-              71,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.NORMAL,
+        TypeMap.TypeEnum.FLYING,
+        R.drawable.pidgeotto,
+        R.drawable.pidgeotto_back,
+        "Pidgeotto",
+        63,
+        55,
+        50,
+        71,
+        "quick");
     setLevelToEvolve(36, new Pidgeot(36));
   }
   /**

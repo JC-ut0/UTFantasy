@@ -7,17 +7,17 @@ class Blaziken extends Pokemon {
   /** Constructor of a Blaziken. */
   Blaziken(int level) {
     super(
-            level,
-            TypeMap.TypeEnum.FIRE,
-            TypeMap.TypeEnum.FIGHT,
-            R.drawable.blaziken,
-            R.drawable.blaziken_back,
-            "Blaziken",
-            80,
-            105,
-            70,
-            80,
-            "slow");
+        level,
+        TypeMap.TypeEnum.FIRE,
+        TypeMap.TypeEnum.FIGHT,
+        R.drawable.blaziken,
+        R.drawable.blaziken_back,
+        "Blaziken",
+        80,
+        105,
+        70,
+        80,
+        "slow");
     setLevelToEvolve(maxLevel, null);
   }
   /**

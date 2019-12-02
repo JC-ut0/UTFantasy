@@ -19,12 +19,12 @@ public class NPC extends Person {
     return dialogue;
   }
 
-  public void setInteractedDialogue(String interactedDialogue) {
-    this.interactedDialogue = interactedDialogue;
-  }
-
   public String getInteractedDialogue() {
     return interactedDialogue;
+  }
+
+  public void setInteractedDialogue(String interactedDialogue) {
+    this.interactedDialogue = interactedDialogue;
   }
 
   public Duty getDuty() {

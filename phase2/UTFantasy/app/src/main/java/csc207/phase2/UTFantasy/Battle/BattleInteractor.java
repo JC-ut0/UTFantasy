@@ -11,8 +11,7 @@ import static csc207.phase2.UTFantasy.Battle.BattleData.Action.OPENMENU;
 
 /**
  * the interactor of this battle responsible for the connection between updating the correct data
- * and display them
- * acting as observer of pokemon responsible for update pokemon hp bar
+ * and display them acting as observer of pokemon responsible for update pokemon hp bar
  */
 public class BattleInteractor implements BattleObserver {
   private BattleData battleData;
@@ -132,9 +131,7 @@ public class BattleInteractor implements BattleObserver {
     return battleData;
   }
 
-  /**
-   * @return the correct text at the beginning of the battle
-   */
+  /** @return the correct text at the beginning of the battle */
   private String getBeginningText() {
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
     String text;
@@ -146,9 +143,7 @@ public class BattleInteractor implements BattleObserver {
     return text;
   }
 
-  /**
-   * update pokemons' observer to be this and update the images that is displaying
-   */
+  /** update pokemons' observer to be this and update the images that is displaying */
   private void updatePokemon() {
     Pokemon myPoke = battleData.getCurrPlayerPoke();
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
@@ -158,9 +153,7 @@ public class BattleInteractor implements BattleObserver {
     presenter.updateRivalPokeView(battleData.getCurrRivalPoke().getProfileID());
   }
 
-  /**
-   * update the text of skill buttons to be name of skills of current player's pokemon
-   */
+  /** update the text of skill buttons to be name of skills of current player's pokemon */
   private void updateSkillButtons() {
     Pokemon pokemon = battleData.getCurrPlayerPoke();
     for (int i = 0; i < 4; i++) {

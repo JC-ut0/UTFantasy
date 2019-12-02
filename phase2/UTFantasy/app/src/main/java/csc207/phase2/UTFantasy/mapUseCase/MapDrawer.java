@@ -4,23 +4,23 @@ import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
 public interface MapDrawer {
-    SurfaceHolder getHolder();
+  SurfaceHolder getHolder();
 
-    void draw(Canvas canvas, UnitDraw[][] map, int extendedWidth, int extendedHeight);
+  void draw(Canvas canvas, UnitDraw[][] map, int extendedWidth, int extendedHeight);
 
-    void drawPlayer(Canvas canvas, Icon playerIcon, int x, int y);
+  void drawPlayer(Canvas canvas, Icon playerIcon, int x, int y);
 
-    void popText(String text);
+  void popText(String text);
 
-    void openDialogue(String dialogue);
+  void openDialogue(String dialogue);
 
-    void hideDialogue();
+  void hideDialogue();
 
-    void display(int iconId);
+  void display(int iconId);
 
-    void goToBattleActivity(String npcName);
+  void goToBattleActivity(String npcName);
 
-    void goToShopActivity(String npcName);
+  void goToShopActivity(String npcName);
 
-    void goToEvolutionActivity(int pokemonIndex);
+  void goToEvolutionActivity(int pokemonIndex);
 }

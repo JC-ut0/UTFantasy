@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Raichu extends Pokemon {
   /** Constructor of a Raichu. */
   Raichu(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.ELECTRIC,
-              null,
-              R.drawable.raichu,
-              R.drawable.raichu_back,
-              "Raichu",
-              60,
-              90,
-              67,
-              110,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.ELECTRIC,
+        null,
+        R.drawable.raichu,
+        R.drawable.raichu_back,
+        "Raichu",
+        60,
+        90,
+        67,
+        110,
+        "slow");
     setLevelToEvolve(maxLevel, null);
   }
   /**

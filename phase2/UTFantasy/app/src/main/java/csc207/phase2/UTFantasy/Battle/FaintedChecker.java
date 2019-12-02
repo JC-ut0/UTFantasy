@@ -8,17 +8,17 @@ import csc207.phase2.UTFantasy.Pet.Pokemon;
  */
 class FaintedChecker extends FightTurnNode {
 
-    FaintedChecker(BattleData battleData) {
-        this.battleData = battleData;
-    }
+  FaintedChecker(BattleData battleData) {
+    this.battleData = battleData;
+  }
 
-    @Override
-    public String getText() {
-        Pokemon defender = battleData.getDefender();
-        if (!defender.isAlive()) {
-            text = defender.getPokemonName() + " fainted.";
-            battleData.setSecondSkillUsed(true);
-        }
-        return text;
+  @Override
+  public String getText() {
+    Pokemon defender = battleData.getDefender();
+    if (!defender.isAlive()) {
+      text = defender.getPokemonName() + " fainted.";
+      battleData.setSecondSkillUsed(true);
     }
+    return text;
+  }
 }

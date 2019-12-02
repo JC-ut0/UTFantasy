@@ -23,11 +23,6 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
   private Context context;
 
-  static class ViewHolder {
-    TextView name;
-    TextView price;
-  }
-
   /**
    * Default constructor for the ProductAdapter.
    *
@@ -65,5 +60,10 @@ public class ProductAdapter extends ArrayAdapter<Product> {
     holder.price.setText(text);
 
     return convertView;
+  }
+
+  static class ViewHolder {
+    TextView name;
+    TextView price;
   }
 }

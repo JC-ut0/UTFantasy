@@ -64,12 +64,13 @@ public class MenuActivity extends AppCompatActivity {
     ItemAdapter adapter2 = new ItemAdapter(this, infoMediator.getProductHashMap());
     pokemonList.setAdapter(adapter1);
     potionList.setAdapter(adapter2);
-    pokemonList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-      @Override
-      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        drawControlButton(position,adapter1);
-      }
-    });
+    pokemonList.setOnItemClickListener(
+        new AdapterView.OnItemClickListener() {
+          @Override
+          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            drawControlButton(position, adapter1);
+          }
+        });
   }
 
   /** Set up the Toggle button. */
@@ -105,50 +106,51 @@ public class MenuActivity extends AppCompatActivity {
         });
   }
 
-  private void drawControlButton(final int position, final ItemAdapter adapter){
-    //swap
+  private void drawControlButton(final int position, final ItemAdapter adapter) {
+    // swap
     final Button swap = findViewById(R.id.swap);
     swap.setVisibility(View.VISIBLE);
-    //discard
+    // discard
     final Button discard = findViewById(R.id.discard);
     discard.setVisibility(View.VISIBLE);
-    //back
+    // back
     final Button back = findViewById(R.id.nothing);
     back.setVisibility(View.VISIBLE);
 
-    //swap's listener
-    swap.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        infoMediator.swapPokemon(position);
-        adapter.updateRecords(infoMediator.getPokemonList());
-        swap.setVisibility(View.INVISIBLE);
-        discard.setVisibility(View.INVISIBLE);
-        back.setVisibility(View.INVISIBLE);
-      }
-    });
+    // swap's listener
+    swap.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            infoMediator.swapPokemon(position);
+            adapter.updateRecords(infoMediator.getPokemonList());
+            swap.setVisibility(View.INVISIBLE);
+            discard.setVisibility(View.INVISIBLE);
+            back.setVisibility(View.INVISIBLE);
+          }
+        });
 
-    //discard's listener
-    discard.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        infoMediator.discardPokemon(position);
-        adapter.updateRecords(infoMediator.getPokemonList());
-        swap.setVisibility(View.INVISIBLE);
-        discard.setVisibility(View.INVISIBLE);
-        back.setVisibility(View.INVISIBLE);
-      }
-    });
+    // discard's listener
+    discard.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            infoMediator.discardPokemon(position);
+            adapter.updateRecords(infoMediator.getPokemonList());
+            swap.setVisibility(View.INVISIBLE);
+            discard.setVisibility(View.INVISIBLE);
+            back.setVisibility(View.INVISIBLE);
+          }
+        });
 
-    back.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        swap.setVisibility(View.INVISIBLE);
-        discard.setVisibility(View.INVISIBLE);
-        back.setVisibility(View.INVISIBLE);
-      }
-    });
-
+    back.setOnClickListener(
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            swap.setVisibility(View.INVISIBLE);
+            discard.setVisibility(View.INVISIBLE);
+            back.setVisibility(View.INVISIBLE);
+          }
+        });
   }
-
 }

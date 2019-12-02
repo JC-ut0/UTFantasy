@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Mew extends Pokemon {
   /** Constructor of a Mew */
   Mew(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.PSYCHIC,
-              null,
-              R.drawable.mew,
-              R.drawable.mew,
-              "Mew",
-              100,
-              100,
-              100,
-              100,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.PSYCHIC,
+        null,
+        R.drawable.mew,
+        R.drawable.mew,
+        "Mew",
+        100,
+        100,
+        100,
+        100,
+        "quick");
     setLevelToEvolve(maxLevel, null);
   }
   /**

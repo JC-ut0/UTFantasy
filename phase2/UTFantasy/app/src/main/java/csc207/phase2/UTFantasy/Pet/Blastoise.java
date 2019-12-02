@@ -7,18 +7,18 @@ import csc207.phase2.UTFantasy.R;
 class Blastoise extends Pokemon {
   /** Constructor of a Blastoise. */
   Blastoise(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.WATER,
-              null,
-              R.drawable.blastoise,
-              R.drawable.blastoise_back,
-              "Blastoise",
-              79,
-              85,
-              105,
-              78,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.WATER,
+        null,
+        R.drawable.blastoise,
+        R.drawable.blastoise_back,
+        "Blastoise",
+        79,
+        85,
+        105,
+        78,
+        "slow");
     setLevelToEvolve(maxLevel, null);
     SkillFactory sf = new SkillFactory();
     skills[0] = sf.getSkill(SkillFactory.SkillClass.BUBBLE);

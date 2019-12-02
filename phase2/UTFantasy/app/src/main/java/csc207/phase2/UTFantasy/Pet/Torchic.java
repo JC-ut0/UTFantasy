@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Torchic extends Pokemon {
   /** Constructor of a Torchic. */
   Torchic(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.FIRE,
-              null,
-              R.drawable.torchic,
-              R.drawable.torchic_back,
-              "Torchic",
-              45,
-              65,
-              45,
-              45,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.FIRE,
+        null,
+        R.drawable.torchic,
+        R.drawable.torchic_back,
+        "Torchic",
+        45,
+        65,
+        45,
+        45,
+        "quick");
     setLevelToEvolve(16, new Combusken(16));
   }
   /**

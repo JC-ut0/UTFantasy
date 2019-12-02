@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Pidgey extends Pokemon {
   /** Constructor of a Pidgey. */
   Pidgey(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.NORMAL,
-              TypeMap.TypeEnum.FLYING,
-              R.drawable.pidgey,
-              R.drawable.pidgey_back,
-              "Pidgey",
-              40,
-              40,
-              35,
-              56,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.NORMAL,
+        TypeMap.TypeEnum.FLYING,
+        R.drawable.pidgey,
+        R.drawable.pidgey_back,
+        "Pidgey",
+        40,
+        40,
+        35,
+        56,
+        "quick");
     setLevelToEvolve(18, new Pidgeotto(18));
   }
   /**

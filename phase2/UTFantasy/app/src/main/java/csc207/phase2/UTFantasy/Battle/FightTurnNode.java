@@ -1,8 +1,8 @@
 package csc207.phase2.UTFantasy.Battle;
 
 /**
- * A Node that is returning one text message about its specified responsibility
- * Update corresponding battle data
+ * A Node that is returning one text message about its specified responsibility Update corresponding
+ * battle data
  */
 abstract class FightTurnNode {
 

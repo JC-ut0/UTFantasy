@@ -21,9 +21,7 @@ class FightManager {
 
   private Pokemon tempDefender;
   private Skill tempSkill;
-  /**
-   * the current node that is updating text
-   */
+  /** the current node that is updating text */
   private FightTurnNode curr;
 
   FightManager(BattleData battleData) {
@@ -37,8 +35,8 @@ class FightManager {
     Skill rivalSkill = null;
     while (rivalSkill == null) {
       rivalSkill =
-              battleData.getCurrRivalPoke()
-                      .getSkills()[(new Random().nextInt(battleData.getCurrRivalPoke().getSkillNum()))];
+          battleData.getCurrRivalPoke()
+              .getSkills()[(new Random().nextInt(battleData.getCurrRivalPoke().getSkillNum()))];
     }
     Skill secondSkill;
     // determine which pokemon attacks first
@@ -69,9 +67,7 @@ class FightManager {
     battleData.setSkill(tempSkill);
   }
 
-  /**
-   * @return the text that is supposed to be shown return null iff two skills both are used
-   */
+  /** @return the text that is supposed to be shown return null iff two skills both are used */
   String updateText() {
     String text = null;
     // get the next text that is supposed to be displayed
@@ -104,14 +100,14 @@ class FightManager {
   private void directFightTurnBuild() {
     FightTurnBuilder fightTurnBuilder = new FightTurnBuilder(battleData);
     LinkedList<FightTurnNode> fightTurn =
-            fightTurnBuilder
-                    .buildSkillCaller()
-                    .buildDMGCalculator()
-                    .buildFaintedChecker()
-                    .buildLevelUPChecker()
-                    .buildEndChecker()
-                    .buildRivalPokemonUpdater()
-                    .getProduct();
+        fightTurnBuilder
+            .buildSkillCaller()
+            .buildDMGCalculator()
+            .buildFaintedChecker()
+            .buildLevelUPChecker()
+            .buildEndChecker()
+            .buildRivalPokemonUpdater()
+            .getProduct();
     curr = fightTurn.getFirst();
   }
 }

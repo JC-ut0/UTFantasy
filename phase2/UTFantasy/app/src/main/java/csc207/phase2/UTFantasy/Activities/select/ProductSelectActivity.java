@@ -25,14 +25,14 @@ public class ProductSelectActivity extends AppCompatActivity {
 
   /** The player */
   Player player;
-  /** The unique UserIO */
-  private UserIO userIO = UserIO.getSingletonUserIo();
   /** The list of the selected list of product */
   Product selectedProduct;
   /** The HashMap of the product */
   HashMap<Product, Integer> productHashMap;
   /** The information mediator */
   InfoMediator infoMediator;
+  /** The unique UserIO */
+  private UserIO userIO = UserIO.getSingletonUserIo();
   /** the adapter of select */
   private ProductSelectAdapter adapter;
 

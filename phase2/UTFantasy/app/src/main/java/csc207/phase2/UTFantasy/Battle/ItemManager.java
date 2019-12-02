@@ -18,8 +18,7 @@ class ItemManager {
   }
 
   /**
-   * use the selected product by user
-   * update the corresponding battleData action
+   * use the selected product by user update the corresponding battleData action
    *
    * @return the message if the product is successfully used
    */
@@ -59,8 +58,7 @@ class ItemManager {
   }
 
   /**
-   * called when ball is successfully used
-   * update the usage of ball
+   * called when ball is successfully used update the usage of ball
    *
    * @return the message informing if the pokemon is used
    */
@@ -77,15 +75,15 @@ class ItemManager {
         battleData.getPlayer().addPokemon(battleData.getCurrRivalPoke());
         battleData.setAction(BattleData.Action.END);
         text =
-                "Congratulations! You have caught "
-                        + battleData.getCurrRivalPoke().getPokemonName()
-                        + "!!!";
+            "Congratulations! You have caught "
+                + battleData.getCurrRivalPoke().getPokemonName()
+                + "!!!";
         // delete this pokemon npc from player's npc repository
         battleData
-                .getPlayer()
-                .getPlayerMap()
-                .getNpcRepository()
-                .deleteNPC(battleData.getRival().getName());
+            .getPlayer()
+            .getPlayerMap()
+            .getNpcRepository()
+            .deleteNPC(battleData.getRival().getName());
       } else {
         // the pokemon is failed to be caught
         isCaught = false;
@@ -98,8 +96,7 @@ class ItemManager {
   }
 
   /**
-   * called when potion is successfully used
-   * update the usage of potion
+   * called when potion is successfully used update the usage of potion
    *
    * @return the message informing usage of potion
    */

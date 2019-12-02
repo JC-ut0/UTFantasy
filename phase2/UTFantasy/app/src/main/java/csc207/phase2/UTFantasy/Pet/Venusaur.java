@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Venusaur extends Pokemon {
   /** Constructor of a Venusaur. */
   Venusaur(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.GRASS,
-              TypeMap.TypeEnum.POISON,
-              R.drawable.venusaur,
-              R.drawable.venusaur_back,
-              "Venusaur",
-              80,
-              91,
-              92,
-              80,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.GRASS,
+        TypeMap.TypeEnum.POISON,
+        R.drawable.venusaur,
+        R.drawable.venusaur_back,
+        "Venusaur",
+        80,
+        91,
+        92,
+        80,
+        "slow");
     setLevelToEvolve(maxLevel, null);
   }
 

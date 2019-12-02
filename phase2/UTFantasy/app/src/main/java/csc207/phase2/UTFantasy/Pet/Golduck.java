@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Golduck extends Pokemon {
   /** Constructor of a Golduck. */
   Golduck(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.WATER,
-              null,
-              R.drawable.golduck,
-              R.drawable.golduck_back,
-              "Golduck",
-              80,
-              88,
-              79,
-              85,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.WATER,
+        null,
+        R.drawable.golduck,
+        R.drawable.golduck_back,
+        "Golduck",
+        80,
+        88,
+        79,
+        85,
+        "slow");
     setLevelToEvolve(maxLevel, null);
   }
   /**

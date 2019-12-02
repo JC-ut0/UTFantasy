@@ -6,12 +6,12 @@ import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
 public class SaleInteraction extends Interaction {
 
-    public SaleInteraction(MapDrawer drawer, Player player) {
-        super(drawer, player);
-    }
+  public SaleInteraction(MapDrawer drawer, Player player) {
+    super(drawer, player);
+  }
 
-    @Override
-    public void interact(NPC npc) {
-        drawer.goToShopActivity(npc.getName());
-    }
+  @Override
+  public void interact(NPC npc) {
+    drawer.goToShopActivity(npc.getName());
+  }
 }

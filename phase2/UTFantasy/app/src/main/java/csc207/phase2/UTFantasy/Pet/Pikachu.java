@@ -7,18 +7,18 @@ import csc207.phase2.UTFantasy.R;
 class Pikachu extends Pokemon {
   /** Constructor of a Pikachu. */
   Pikachu(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.ELECTRIC,
-              null,
-              R.drawable.pikachu,
-              R.drawable.pikachu_back,
-              "Pikachu",
-              35,
-              55,
-              30,
-              90,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.ELECTRIC,
+        null,
+        R.drawable.pikachu,
+        R.drawable.pikachu_back,
+        "Pikachu",
+        35,
+        55,
+        30,
+        90,
+        "quick");
     setLevelToEvolve(32, new Raichu(32));
     SkillFactory skillFactory = new SkillFactory();
     skills[0] = skillFactory.getSkill(SkillFactory.SkillClass.QUICKATTACK);

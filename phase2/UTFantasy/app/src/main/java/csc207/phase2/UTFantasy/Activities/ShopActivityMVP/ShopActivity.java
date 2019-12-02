@@ -27,17 +27,10 @@ import csc207.phase2.UTFantasy.R;
 /** The activity used to purchase products. */
 public class ShopActivity extends AppCompatActivity implements ShopView {
 
-  /** the unique UserIO */
-  private UserIO userIO = UserIO.getSingletonUserIo();
   /** the name of current user */
   String username;
-  /** a list of products provided in the shop */
-  private ArrayList<Product> productInShop;
-  /** presenter of ShopActivity */
-  private ShopPresenter presenter;
   /** views in the layout */
   TextView moneyLeft;
-
   TextView totalMoney;
   TextView productInBag;
   TextView productSelected;
@@ -50,6 +43,12 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   Button add10;
   Button apply;
   Button buy;
+  /** the unique UserIO */
+  private UserIO userIO = UserIO.getSingletonUserIo();
+  /** a list of products provided in the shop */
+  private ArrayList<Product> productInShop;
+  /** presenter of ShopActivity */
+  private ShopPresenter presenter;
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {

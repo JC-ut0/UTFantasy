@@ -11,8 +11,9 @@ public class ShopPresenter implements ShopInteractor.Listener {
     this.shopView = shopView;
   }
 
-  /***
-   * Update all information of the product and initialize the TextViews.
+  /**
+   * * Update all information of the product and initialize the TextViews.
+   *
    * @param product the chosen product
    */
   void updateAll(Product product) {
@@ -31,7 +32,7 @@ public class ShopPresenter implements ShopInteractor.Listener {
     }
   }
 
-  /** return the chosen product*/
+  /** return the chosen product */
   Product getProduct() {
     return shopInteractor.getProduct();
   }
