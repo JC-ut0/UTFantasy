@@ -1,6 +1,6 @@
 package csc207.phase2.UTFantasy.Products;
 
-abstract class Ball extends Product {
+public abstract class Ball extends Product {
   /** the probability of catching a pokemon, range from 0 to 1 */
   private double getRate;
 

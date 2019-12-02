@@ -13,14 +13,14 @@ import static csc207.phase2.UTFantasy.Products.ProductName.ultraBall;
 public class ShopCreator {
   private ShopBuilder builder = new ShopBuilder();
 
-  public ShopBuilder importProduct() {
+  public ShopCreator importProduct() {
     builder.addProduct(masterBall);
     builder.addProduct(ultraBall);
     builder.addProduct(pokeBall);
     builder.addProduct(pinkPotion);
     builder.addProduct(redPotion);
     builder.addProduct(purplePotion);
-    return builder;
+    return this;
   }
 
   public ArrayList<Product> getProducts() {

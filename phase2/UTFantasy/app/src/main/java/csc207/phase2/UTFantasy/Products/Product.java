@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 
 import java.io.Serializable;
 
-abstract class Product implements Serializable {
+public abstract class Product implements Serializable {
 
   /** the name of this product */
   private String name;
@@ -25,7 +25,7 @@ abstract class Product implements Serializable {
   }
 
   /** the constructor of product */
-  Product(String name, int price, int photoId) {
+  public Product(String name, int price, int photoId) {
     this.name = name;
     this.price = price;
     this.profileID = photoId;

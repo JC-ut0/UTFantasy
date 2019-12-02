@@ -1,6 +1,6 @@
 package csc207.phase2.UTFantasy.Products;
 
-abstract class Potion extends Product {
+public abstract class Potion extends Product {
   /** the health point that Potion can restore */
   private int healthPoint;
   /** Construct of Potion, inherit from Product */
