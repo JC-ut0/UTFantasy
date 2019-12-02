@@ -4,18 +4,19 @@ import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
+/** Represents that this NPC coulkd have a battle against the user. */
 class FightInteraction extends Interaction {
 
-    FightInteraction(MapDrawer drawer, Player player) {
-        super(drawer, player);
-    }
+  FightInteraction(MapDrawer drawer, Player player) {
+    super(drawer, player);
+  }
 
-    @Override
-    public void interact(NPC npc) {
-        if (player.isFightAble()) {
-            drawer.goToBattleActivity(npc.getName());
-        } else {
-            drawer.popText("You can't fight since you don't have an alive pokemon rn...");
-        }
+  @Override
+  public void interact(NPC npc) {
+    if (player.isFightAble()) {
+      drawer.goToBattleActivity(npc.getName());
+    } else {
+      drawer.popText("You can't fight since you don't have an alive pokemon rn...");
     }
+  }
 }

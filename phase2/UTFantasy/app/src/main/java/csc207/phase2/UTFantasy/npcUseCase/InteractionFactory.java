@@ -3,6 +3,7 @@ package csc207.phase2.UTFantasy.npcUseCase;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
+/** The factory that creates Interaction strategy and solves dependency injection. */
 class InteractionFactory {
 
   Interaction getFightInteraction(MapDrawer drawer, Player player) {
