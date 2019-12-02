@@ -158,28 +158,39 @@ Add feature that make the drawn screen size changeable.
 
 ########
 # Step 27
+File affected: mapBuilder, mapPresenter
+Designed and implemented the game map by Bitmap.
+
+########
+# Step 28
 File affected: Player, MovementManager, WildPokemonChecker, MainActivity, ItemManager
 Add feature that player can encounter wild pokemons. Fix bug that pokemon didn't get set master
 after got caught
 
 ########
-# Step 28
+# Step 29
+File affected: all files under AllSkills package
+- add a Skill Factory
+- refactored all skill constructors following builder and factory pattern.
+
+########
+# Step 30
 File affected: all files under pet package
 - add a Pokemon Factory
 - refactored all pokemon constructors following builder and factory patten.
 
 ########
-# Step 29
+# Step 31
 File affected: ItemManager, BattleInteractor
 Make the shown text during battle more reasonable, add grass to the map, fix bugs.
 
 ########
-# Step 30
+# Step 32
 File affected: Package(Battle, Activities.evolutionUI)
 Add feature that certain pokemons can evolve at certain levels.
 
 #######
-# Step 31
+# Step 33
 File affected: Package: Battle, MapUI, MapUseCase, Evolution
 Make pokemons able to evolve after fight instead of during fight. Fix bugs possibly that possibly
 occur during evolution. Improve evolution animation, improve battle dialogue.
