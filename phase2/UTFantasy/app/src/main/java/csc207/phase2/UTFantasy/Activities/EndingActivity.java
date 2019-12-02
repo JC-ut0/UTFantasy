@@ -34,8 +34,7 @@ public class EndingActivity extends AppCompatActivity {
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            Intent startup = new Intent(EndingActivity.this, StartUpActivity.class);
-            startActivity(startup);
+              onBackPressed();
           }
         });
   }
