@@ -9,7 +9,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.R;
@@ -41,9 +44,9 @@ public class ProductAdapter extends ArrayAdapter<Product> {
   /** return a view with information */
   @NonNull
   @Override
-  public View getView(int position, View convertView, ViewGroup parent) {
-    String name = getItem(position).getName();
-    int price = getItem(position).getPrice();
+  public View getView(int position, View convertView, @NotNull ViewGroup parent) {
+    String name = Objects.requireNonNull(getItem(position)).getName();
+    int price = Objects.requireNonNull(getItem(position)).getPrice();
     ViewHolder holder;
 
     if (convertView == null) {

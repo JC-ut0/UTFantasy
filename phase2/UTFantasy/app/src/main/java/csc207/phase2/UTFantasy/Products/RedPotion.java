@@ -10,7 +10,6 @@ public class RedPotion extends Potion {
     super("Super Potion", 500, R.drawable.red, 50);
   }
 
-
   @Override
   @NonNull
   public String toString() {

@@ -11,20 +11,19 @@ import static csc207.phase2.UTFantasy.Products.ProductName.ultraBall;
 
 /** Create a list of products on sale in shop */
 public class ProductCreator {
-  private ArrayList<Product> products;
+  private ProductBuilder builder = new ProductBuilder();
 
-  public ProductCreator() {
-    ProductBuilder builder = new ProductBuilder();
+  public ProductBuilder importProduct() {
     builder.addProduct(masterBall);
-    builder.addProduct(pokeBall);
     builder.addProduct(ultraBall);
+    builder.addProduct(pokeBall);
     builder.addProduct(pinkPotion);
     builder.addProduct(redPotion);
     builder.addProduct(purplePotion);
-    products = builder.getProducts();
+    return builder;
   }
 
   public ArrayList<Product> getProducts() {
-    return products;
+    return builder.getProducts();
   }
 }
