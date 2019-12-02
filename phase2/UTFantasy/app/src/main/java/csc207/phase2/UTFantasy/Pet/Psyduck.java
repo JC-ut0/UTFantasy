@@ -34,7 +34,7 @@ class Psyduck extends Pokemon {
   @Override
   public int getProfileID() {
     // The unique profile icon for each Pokemon. ID can be used to draw this Pokemon.
-    return R.drawable.psyduck;
+    return R.drawable.psyduck_notpixel;
   }
 
   /**
