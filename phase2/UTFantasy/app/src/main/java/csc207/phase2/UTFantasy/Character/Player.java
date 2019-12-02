@@ -34,8 +34,8 @@ public class Player extends Person {
     this.setX(10);
     this.setY(10);
     this.setDirection("down");
-      PokemonFactory factory = new PokemonFactory();
-      addPokemon(factory.createPokemon(PokemonFactory.PokemonClass.SQUIRTLE, 16));
+    PokemonFactory factory = new PokemonFactory();
+    addPokemon(factory.createPokemon(PokemonFactory.PokemonClass.SQUIRTLE, 16));
   }
 
   public int getX() {
@@ -99,15 +99,16 @@ public class Player extends Person {
   public void useItem(Product product) {
     Integer num = bag.get(product);
     if (num != null) {
-        if (num <= 1) bag.remove(product);
-        else bag.replace(product, num - 1);
+      if (num <= 1) bag.remove(product);
+      else bag.replace(product, num - 1);
     }
   }
 
   public void swapPokemon(int i1) {
-    if (i1 < 6) {
-      Pokemon temp = pokemonList.remove(i1);
-      pokemonList.add(temp);
+    if (0 <= i1 && i1 < pokemonList.size()) {
+      Pokemon temp = pokemonList.get(i1);
+      pokemonList.set(i1, pokemonList.get(0));
+      pokemonList.set(0, temp);
     }
   }
 
