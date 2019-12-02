@@ -1,4 +1,7 @@
 #######
+- NOTE: Our packages' name should all be lowercase, however, we cannot rename all packages into
+lowercase because non fixable bugs.
+
 - All UML diagrams are in UML folder, please take a look.
 
 - We SIMPLIFY the game and put all elements in a small map for presentation.
