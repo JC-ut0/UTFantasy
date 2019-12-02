@@ -152,7 +152,7 @@ public class MapBuilder {
         npc = new NPC("Squirtle", Duty.SQUIRTLE);
         npc.setDialog("This is a Squirtle, do you wanna choose it?");
         npc.setInteractedDialogue("A Squirtle...");
-        buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 8, 3);
+        buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 7, 3);
         npcRepository.addBeginningPokemonNPC(npc);
 
         npc = new NPC("Bulbasaur", Duty.BULBASAUR);
