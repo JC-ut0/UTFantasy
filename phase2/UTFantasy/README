@@ -31,10 +31,10 @@ walking, battle and shopping. Following by some small games such as healing, cat
 - There are 6 npc who you can fight with using your pokemon. 5 of them stand for each of our
 producers, and the last one with the white lab coat is the professor.
 
-- There is a lady npc on the right of the professor, you can buy different products from her.
+- There is a Sales npc on the right of the professor, you can buy different products from her.
 We have 3 different potions can 3 different poke balls in the shop.
 
-- There is another lady npc on the left of the Sales. Talk to her and your pokemon will be healed
+- There is Healer npc on the left of the Sales. Talk to her and your pokemon will be healed
 which means they will get full health points.
 
 - While you are walking down, there is two sets of lawn. When you walking in them, there is a chance
@@ -45,6 +45,8 @@ a wild pokemon.
 
 
 ###### Battle ######
+- Each NPC can only fight ONCE.
+
 - Click "FIGHT" and select a skill to attack.
 
 - Click "RUN" and quit the battle.
