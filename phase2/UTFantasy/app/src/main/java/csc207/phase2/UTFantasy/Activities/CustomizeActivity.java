@@ -11,13 +11,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import csc207.phase2.UTFantasy.Activities.mapUI.MainActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.CustomizeException.ImproperPlayerNameException;
 import csc207.phase2.UTFantasy.IO.UserIO;
-import csc207.phase2.UTFantasy.Activities.mapUI.MainActivity;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.User.User;
-import csc207.phase2.UTFantasy.User.UserManagerFacade;
+import csc207.phase2.UTFantasy.userUseCase.User;
+import csc207.phase2.UTFantasy.userUseCase.UserManagerFacade;
 
 /** The activity used to create a new user. */
 public class CustomizeActivity extends Activity {

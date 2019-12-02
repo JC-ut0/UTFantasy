@@ -3,8 +3,8 @@ package csc207.phase2.UTFantasy.Battle;
 import java.util.HashMap;
 
 /**
- * the entity that stores data about the type index of skill usage
- * damage of skill usage is affected by type index
+ * the entity that stores data about the type index of skill usage damage of skill usage is affected
+ * by type index
  */
 public class TypeMap {
   private HashMap<TypeEnum, HashMap<TypeEnum, Double>> typeMap = new HashMap<>();

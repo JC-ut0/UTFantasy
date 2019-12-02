@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.User;
+package csc207.phase2.UTFantasy.userUseCase;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Character.Player;
 
 public class UserData implements Serializable {
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
   /** A HashMap that keys are UserName, values are User instance. */
   private HashMap<String, User> userHashMap;
@@ -16,6 +16,7 @@ public class UserData implements Serializable {
   public UserData() {
     userHashMap = new HashMap<>();
   }
+
   /**
    * Get the User in userHashMap if the username is in the userHapMap.
    *
@@ -29,11 +30,11 @@ public class UserData implements Serializable {
     return null;
   }
 
-  public HashMap<String, User> getUserHashMap() {
+  HashMap<String, User> getUserHashMap() {
     return userHashMap;
   }
 
-    public void addUser(String username, User user) {
+  public void addUser(String username, User user) {
     userHashMap.put(username, user);
   }
 

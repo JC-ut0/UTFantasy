@@ -13,9 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import csc207.phase2.UTFantasy.Activities.InfoMediator;
 import csc207.phase2.UTFantasy.Character.Player;
@@ -27,14 +25,14 @@ public class ProductSelectActivity extends AppCompatActivity {
 
   /** The player */
   Player player;
-  /** The unique UserIO */
-  private UserIO userIO = UserIO.getSingletonUserIo();
   /** The list of the selected list of product */
   Product selectedProduct;
   /** The HashMap of the product */
   HashMap<Product, Integer> productHashMap;
   /** The information mediator */
   InfoMediator infoMediator;
+  /** The unique UserIO */
+  private UserIO userIO = UserIO.getSingletonUserIo();
   /** the adapter of select */
   private ProductSelectAdapter adapter;
 

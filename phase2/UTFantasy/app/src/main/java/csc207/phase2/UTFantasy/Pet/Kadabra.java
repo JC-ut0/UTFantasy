@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Kadabra extends Pokemon {
   /** Constructor of a Kadabra. */
   Kadabra(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.PSYCHIC,
-              null,
-              R.drawable.kadabra,
-              R.drawable.kadabra_back,
-              "Kadabra",
-              40,
-              80,
-              50,
-              105,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.PSYCHIC,
+        null,
+        R.drawable.kadabra,
+        R.drawable.kadabra_back,
+        "Kadabra",
+        40,
+        80,
+        50,
+        105,
+        "quick");
     setLevelToEvolve(40, new Alakazam(40));
   }
   /**

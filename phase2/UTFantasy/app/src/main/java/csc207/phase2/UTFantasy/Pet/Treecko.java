@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Treecko extends Pokemon {
   /** Constructor of a Treecko. */
   Treecko(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.GRASS,
-              null,
-              R.drawable.treecko,
-              R.drawable.treecko_back,
-              "Treecko",
-              40,
-              55,
-              45,
-              70,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.GRASS,
+        null,
+        R.drawable.treecko,
+        R.drawable.treecko_back,
+        "Treecko",
+        40,
+        55,
+        45,
+        70,
+        "quick");
     setLevelToEvolve(16, new Grovyle(16));
   }
   /**

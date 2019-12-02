@@ -27,9 +27,7 @@ public class PlayerInfoActivity extends AppCompatActivity {
   private UserIO userIO = UserIO.getSingletonUserIo();
   /** The information mediator. */
   private InfoMediator infoMediator;
-  /**
-   * The checkbox for showing score
-   */
+  /** The checkbox for showing score */
   private CheckBox showingScoreCheckBox;
 
   @Override
@@ -96,12 +94,12 @@ public class PlayerInfoActivity extends AppCompatActivity {
   private void setBackToMain() {
     ImageButton backToMain = findViewById(R.id.back_to_main);
     backToMain.setOnClickListener(
-            new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                onBackPressed();
-              }
-            });
+        new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            onBackPressed();
+          }
+        });
   }
 
   /**
@@ -125,7 +123,6 @@ public class PlayerInfoActivity extends AppCompatActivity {
    *     to show their scores.
    */
   public String getTopPercentilByPokemonLv(Player player) {
-    UserIO userIO = UserIO.getSingletonUserIo();
     List<Player> playerList = userIO.getUserData().getScoreBoardPlayerList();
     ScoreCalculator scoreCalculator = new ScoreCalculator(playerList);
     return scoreCalculator.getTopPercentileByPokemonLv(player);

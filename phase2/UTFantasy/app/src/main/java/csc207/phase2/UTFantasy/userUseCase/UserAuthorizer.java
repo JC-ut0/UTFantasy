@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.User;
+package csc207.phase2.UTFantasy.userUseCase;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ class UserAuthorizer implements Serializable {
     this.userIOInterface = userIOInterface;
   }
 
-  UserData getUserData() {
+  private UserData getUserData() {
     return userIOInterface.getUserData();
   }
 

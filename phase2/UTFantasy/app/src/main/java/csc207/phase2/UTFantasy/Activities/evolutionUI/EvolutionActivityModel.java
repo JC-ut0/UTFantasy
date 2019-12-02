@@ -1,12 +1,10 @@
 package csc207.phase2.UTFantasy.Activities.evolutionUI;
 
-import android.graphics.drawable.AnimationDrawable;
-
 public interface EvolutionActivityModel {
   /**
    * start the animation of evlution
    *
-   * @param preEvolve  the image of the pokemon before evolution
+   * @param preEvolve the image of the pokemon before evolution
    * @param postEvolve the image of the pokemon after evolution
    */
   void runAnimation(int preEvolve, int postEvolve);

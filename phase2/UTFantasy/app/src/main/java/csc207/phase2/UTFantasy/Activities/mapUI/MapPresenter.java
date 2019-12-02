@@ -14,7 +14,7 @@ import csc207.phase2.UTFantasy.mapUseCase.UnitDraw;
 public class MapPresenter implements MapDrawer {
 
   private MapViewModel mapView;
-    private MainActivityInterface activityModel;
+  private MainActivityInterface activityModel;
   // all the bitmaps used to draw
   private Bitmap lawn;
   private Bitmap grass0;
@@ -66,7 +66,7 @@ public class MapPresenter implements MapDrawer {
   private Bitmap rightPlayer2;
   private Bitmap rightPlayer3;
 
-    MapPresenter(MapViewModel mapView, MainActivityInterface activityModel) {
+  MapPresenter(MapViewModel mapView, MainActivityInterface activityModel) {
     this.mapView = mapView;
     this.activityModel = activityModel;
     initializeBitMap();
@@ -105,7 +105,7 @@ public class MapPresenter implements MapDrawer {
     joy = getBitmap(R.drawable.yyqx, (float) 1.9, (float) 1.75);
     deniska = getBitmap(R.drawable.dd, (float) 1.9, (float) 1.8);
     quincy = getBitmap(R.drawable.psyduck, (float) 1.2, (float) 1.25);
-    pokemonBallOnMap = getBitmap(R.drawable.pokeballonmap, (float) 0.4, (float) 0.4);
+    pokemonBallOnMap = getBitmap(R.drawable.pokeball, (float) 0.8, (float) 0.8);
     pokemonBall = getBitmap(R.drawable.pokeball, (float) 0.3, (float) 0.3);
     // initialize the bitmap of buildings.
     hallOfFame = getBitmap(R.drawable.halloffame, (float) 2.2, (float) 2);

@@ -16,19 +16,19 @@ public abstract class Product implements Serializable {
 
   private boolean isSelected;
 
+  /** the constructor of product */
+  public Product(String name, int price, int photoId) {
+    this.name = name;
+    this.price = price;
+    this.profileID = photoId;
+  }
+
   public boolean isSelected() {
     return isSelected;
   }
 
   public void setSelected(boolean selected) {
     isSelected = selected;
-  }
-
-  /** the constructor of product */
-  public Product(String name, int price, int photoId) {
-    this.name = name;
-    this.price = price;
-    this.profileID = photoId;
   }
 
   /** the getter of price */

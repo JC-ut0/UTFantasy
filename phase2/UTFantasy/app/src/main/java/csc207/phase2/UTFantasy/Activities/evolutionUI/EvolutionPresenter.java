@@ -1,8 +1,5 @@
 package csc207.phase2.UTFantasy.Activities.evolutionUI;
 
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
-
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
@@ -11,13 +8,9 @@ public class EvolutionPresenter {
   private Player player;
   private Pokemon pokemon;
   private int pokemonIndex;
-  /**
-   * represents if the animation of evolution is displaying
-   */
+  /** represents if the animation of evolution is displaying */
   private boolean isOnGoing;
-  /**
-   * representes if this activity is supposed to be ended in next user's interaction
-   */
+  /** representes if this activity is supposed to be ended in next user's interaction */
   private boolean isEnding;
 
   EvolutionPresenter(EvolutionActivityModel activityModel, Player player) {
@@ -51,11 +44,11 @@ public class EvolutionPresenter {
       activityModel.showImg(pokemon.getEvolution().getProfileID());
       player.getPokemonList().set(pokemonIndex, pokemon.getSelfEvolved());
       String text =
-              "Congratulations! "
-                      + pokemon.getPokemonName()
-                      + " has evolved into "
-                      + pokemon.getEvolution().getPokemonName()
-                      + "!!!";
+          "Congratulations! "
+              + pokemon.getPokemonName()
+              + " has evolved into "
+              + pokemon.getEvolution().getPokemonName()
+              + "!!!";
       activityModel.showText(text);
       isOnGoing = false;
       isEnding = true;

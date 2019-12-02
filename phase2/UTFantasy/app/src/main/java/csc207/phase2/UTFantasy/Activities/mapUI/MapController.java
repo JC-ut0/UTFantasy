@@ -7,15 +7,13 @@ import csc207.phase2.UTFantasy.mapUseCase.MapDirector;
 import csc207.phase2.UTFantasy.mapUseCase.MapInteractor;
 import csc207.phase2.UTFantasy.npcUseCase.NPCInteractor;
 
-
 class MapController {
   private MapInteractor mapInteractor;
   private NPCInteractor npcInteractor;
   private EvolutionChecker evolutionChecker;
-  /**
-   * represents if the player is currently talking with any npc
-   */
+  /** represents if the player is currently talking with any npc */
   private boolean dialogueOnGoing;
+
   private NPC interactingNpc;
 
   MapController(Player player) {
@@ -49,9 +47,7 @@ class MapController {
     }
   }
 
-  /**
-   * called when moving buttons stop being touched
-   */
+  /** called when moving buttons stop being touched */
   void moveTouchUpAction() {
     mapInteractor.endMove();
   }
@@ -70,8 +66,8 @@ class MapController {
   }
 
   /**
-   * try to interact with a npc
-   * either open an dialogue or executes the interaction depending on the situation
+   * try to interact with a npc either open an dialogue or executes the interaction depending on the
+   * situation
    */
   void buttonAClick() {
     if (!dialogueOnGoing) {
@@ -81,7 +77,7 @@ class MapController {
         dialogueOnGoing = true;
         // player is not yet done interacting with this npc
         if (!npc.isInteracted()) npcInteractor.openDialogue(npc);
-          // player already finished interacting with this npc before
+        // player already finished interacting with this npc before
         else npcInteractor.openInteractedDialogue(npc);
       }
     } else {
@@ -92,23 +88,19 @@ class MapController {
     }
   }
 
-  /**
-   * try to cancel the interaction with the npc that player is currently talking with
-   */
+  /** try to cancel the interaction with the npc that player is currently talking with */
   void buttonBClick() {
     npcInteractor.closeDialogue();
     dialogueOnGoing = false;
     interactingNpc = null;
   }
 
-  /**
-   * check if the player has any pokemon that needs to evolve
-   */
+  /** check if the player has any pokemon that needs to evolve */
   void checkEvolution() {
     evolutionChecker.checkEvolution();
   }
 
-    void clearObserver() {
-        npcInteractor.clearObserver();
-    }
+  void clearObserver() {
+    npcInteractor.clearObserver();
+  }
 }

@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Dragonite extends Pokemon {
   /** Constructor of a Dragonite */
   Dragonite(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.DRAGON,
-              TypeMap.TypeEnum.FLYING,
-              R.drawable.dragonite,
-              R.drawable.dragonite_back,
-              "Dragonite",
-              91,
-              117,
-              98,
-              80,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.DRAGON,
+        TypeMap.TypeEnum.FLYING,
+        R.drawable.dragonite,
+        R.drawable.dragonite_back,
+        "Dragonite",
+        91,
+        117,
+        98,
+        80,
+        "slow");
     setLevelToEvolve(maxLevel, null);
   }
   /**

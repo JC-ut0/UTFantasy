@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Metagross extends Pokemon {
   /** Constructor of a Metagross. */
   Metagross(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.STEEL,
-              TypeMap.TypeEnum.PSYCHIC,
-              R.drawable.metagross,
-              R.drawable.metagross_back,
-              "Metagross",
-              80,
-              115,
-              110,
-              70,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.STEEL,
+        TypeMap.TypeEnum.PSYCHIC,
+        R.drawable.metagross,
+        R.drawable.metagross_back,
+        "Metagross",
+        80,
+        115,
+        110,
+        70,
+        "slow");
     setLevelToEvolve(maxLevel, null);
   }
   /**

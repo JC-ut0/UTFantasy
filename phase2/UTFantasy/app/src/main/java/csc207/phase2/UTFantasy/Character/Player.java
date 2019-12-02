@@ -19,9 +19,7 @@ public class Player extends Person {
   private WildPokemonObserver observer;
   private Product selectedProduct;
   private boolean clearance;
-  /**
-   * represents if the clearance picture is already shown
-   */
+  /** represents if the clearance picture is already shown */
   private boolean shownClearance;
 
   /**

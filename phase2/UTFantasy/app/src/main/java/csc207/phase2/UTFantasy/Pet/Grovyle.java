@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Grovyle extends Pokemon {
   /** Constructor of a Grovyle. */
   Grovyle(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.GRASS,
-              null,
-              R.drawable.grovyle,
-              R.drawable.grovyle_back,
-              "Grovyle",
-              50,
-              75,
-              55,
-              95,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.GRASS,
+        null,
+        R.drawable.grovyle,
+        R.drawable.grovyle_back,
+        "Grovyle",
+        50,
+        75,
+        55,
+        95,
+        "quick");
     setLevelToEvolve(36, new Sceptile(36));
   }
   /**

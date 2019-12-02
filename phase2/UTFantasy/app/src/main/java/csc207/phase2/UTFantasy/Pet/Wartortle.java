@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Wartortle extends Pokemon {
   /** Constructor of a Wartortle. */
   Wartortle(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.WATER,
-              null,
-              R.drawable.wartortle,
-              R.drawable.wartortle_back,
-              "Wartortle",
-              59,
-              64,
-              80,
-              58,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.WATER,
+        null,
+        R.drawable.wartortle,
+        R.drawable.wartortle_back,
+        "Wartortle",
+        59,
+        64,
+        80,
+        58,
+        "quick");
     setLevelToEvolve(36, new Blastoise(36));
   }
 

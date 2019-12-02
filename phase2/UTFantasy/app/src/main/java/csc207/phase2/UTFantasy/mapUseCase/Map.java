@@ -4,9 +4,7 @@ import java.io.Serializable;
 
 import csc207.phase2.UTFantasy.npcUseCase.NPCRepository;
 
-/**
- * The entity that stores the data of this player's map
- */
+/** The entity that stores the data of this player's map */
 public class Map implements Serializable {
   private int mapWidth;
   private int mapHeight;
@@ -33,12 +31,12 @@ public class Map implements Serializable {
     return lowMap;
   }
 
-  UnitDraw[][] getHighMap() {
-    return highMap;
-  }
-
   void setLowMap(UnitDraw[][] lowMap) {
     this.lowMap = lowMap;
+  }
+
+  UnitDraw[][] getHighMap() {
+    return highMap;
   }
 
   void setHighMap(UnitDraw[][] highMap) {

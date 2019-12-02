@@ -13,6 +13,7 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.R;
 
+/** An adapter for list view in Scoreboard Activity */
 class ScoreBoardAdapter extends BaseAdapter {
   /** the list of player */
   private List<Player> playerList;
@@ -42,7 +43,7 @@ class ScoreBoardAdapter extends BaseAdapter {
   @SuppressLint("SetTextI18n")
   @Override
   public View getView(int position, View view, ViewGroup viewGroup) {
-    //set up the view of the view list
+    // set up the view of the view list
     ViewHolder holder;
     if (view == null) {
       view = inflater.inflate(R.layout.scoreboard_layout, viewGroup, false);

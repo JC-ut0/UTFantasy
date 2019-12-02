@@ -7,18 +7,18 @@ import csc207.phase2.UTFantasy.R;
 class Charmeleon extends Pokemon {
   /** Constructor of a Charmeleon. */
   Charmeleon(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.FIRE,
-              null,
-              R.drawable.charmeleon,
-              R.drawable.charmeleon_back,
-              "Charmeleon",
-              58,
-              72,
-              62,
-              80,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.FIRE,
+        null,
+        R.drawable.charmeleon,
+        R.drawable.charmeleon_back,
+        "Charmeleon",
+        58,
+        72,
+        62,
+        80,
+        "quick");
     setLevelToEvolve(36, new Charizard(36));
     SkillFactory factory = new SkillFactory();
     skills[0] = factory.getSkill(SkillFactory.SkillClass.EMBER);

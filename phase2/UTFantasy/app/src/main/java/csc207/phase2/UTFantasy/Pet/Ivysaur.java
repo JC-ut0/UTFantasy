@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Ivysaur extends Pokemon {
   /** Constructor of a Ivysaur. */
   Ivysaur(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.GRASS,
-              TypeMap.TypeEnum.POISON,
-              R.drawable.ivysaur,
-              R.drawable.ivysaur_back,
-              "Ivysaur",
-              60,
-              71,
-              72,
-              60,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.GRASS,
+        TypeMap.TypeEnum.POISON,
+        R.drawable.ivysaur,
+        R.drawable.ivysaur_back,
+        "Ivysaur",
+        60,
+        71,
+        72,
+        60,
+        "quick");
     setLevelToEvolve(36, new Venusaur(36));
   }
   /**

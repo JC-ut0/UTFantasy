@@ -10,7 +10,7 @@ class MapFacadeInteractor implements MapInteractor {
   private ScreenTranser screenTranser;
 
   MapFacadeInteractor(
-          MapChecker checker, ScreenUpdater updater, MovementManager manager, ScreenTranser transer) {
+      MapChecker checker, ScreenUpdater updater, MovementManager manager, ScreenTranser transer) {
     this.mapChecker = checker;
     this.screenUpdater = updater;
     this.movementManager = manager;

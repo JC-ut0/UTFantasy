@@ -14,7 +14,7 @@ public interface BattleOutputBoundary {
   /**
    * display pokemons for choose pokemon action
    *
-   * @param pokeList          the list of pokemons owned by the player
+   * @param pokeList the list of pokemons owned by the player
    * @param currPlayerPokemon the player's pokemon that is currently attending the battle
    */
   void showPokeList(List<Pokemon> pokeList, Pokemon currPlayerPokemon);

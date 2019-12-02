@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Dragonair extends Pokemon {
   /** Constructor of a Dragonair. */
   Dragonair(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.DRAGON,
-              null,
-              R.drawable.dragonair,
-              R.drawable.dragonair_back,
-              "Dragonair",
-              61,
-              77,
-              68,
-              70,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.DRAGON,
+        null,
+        R.drawable.dragonair,
+        R.drawable.dragonair_back,
+        "Dragonair",
+        61,
+        77,
+        68,
+        70,
+        "slow");
     setLevelToEvolve(55, new Dragonite(55));
   }
   /**

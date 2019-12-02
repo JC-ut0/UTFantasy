@@ -7,21 +7,21 @@ import csc207.phase2.UTFantasy.R;
 class Mewtwo extends Pokemon {
   /** Constructor of a Mewtwo. */
   Mewtwo(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.PSYCHIC,
-              null,
-              R.drawable.mewtwo,
-              R.drawable.mewtwo,
-              "Mewtwo",
-              106,
-              134,
-              90,
-              130,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.PSYCHIC,
+        null,
+        R.drawable.mewtwo,
+        R.drawable.mewtwo,
+        "Mewtwo",
+        106,
+        134,
+        90,
+        130,
+        "slow");
     setLevelToEvolve(maxLevel, null);
-      SkillFactory factory = new SkillFactory();
-      skills[0] = factory.getSkill(SkillFactory.SkillClass.BODYSLAM);
+    SkillFactory factory = new SkillFactory();
+    skills[0] = factory.getSkill(SkillFactory.SkillClass.BODYSLAM);
   }
   /**
    * Get the profile ID of Mewtwo.

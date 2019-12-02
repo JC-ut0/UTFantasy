@@ -7,11 +7,11 @@ import java.util.List;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
 public class Person implements Serializable {
+  private final int maxSizeOfPokemonList = 6;
   protected String name;
-  protected String direction;
+  private String direction;
   protected int money;
-  protected List<Pokemon> pokemonList;
-  protected final int maxSizeOfPokemonList = 6;
+  List<Pokemon> pokemonList;
 
   Person(String name) {
     this.name = name;

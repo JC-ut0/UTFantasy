@@ -8,17 +8,17 @@ class Charizard extends Pokemon {
   /** Constructor of a Charizard. */
   Charizard(int level) {
     super(
-            level,
-            TypeMap.TypeEnum.FIRE,
-            TypeMap.TypeEnum.FLYING,
-            R.drawable.charizard,
-            R.drawable.charizard_back,
-            "Charizard",
-            78,
-            97,
-            82,
-            100,
-            "slow");
+        level,
+        TypeMap.TypeEnum.FIRE,
+        TypeMap.TypeEnum.FLYING,
+        R.drawable.charizard,
+        R.drawable.charizard_back,
+        "Charizard",
+        78,
+        97,
+        82,
+        100,
+        "slow");
     setLevelToEvolve(maxLevel, null);
     SkillFactory factory = new SkillFactory();
     skills[0] = factory.getSkill(SkillFactory.SkillClass.FLAMETHROWER);

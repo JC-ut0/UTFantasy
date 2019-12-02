@@ -15,12 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import csc207.phase2.UTFantasy.Activities.CustomizeActivity;
+import csc207.phase2.UTFantasy.Activities.mapUI.MainActivity;
 import csc207.phase2.UTFantasy.CustomizeException.ImproperUserSettingException;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.R;
-import csc207.phase2.UTFantasy.User.User;
-import csc207.phase2.UTFantasy.User.UserManagerFacade;
-import csc207.phase2.UTFantasy.Activities.mapUI.MainActivity;
+import csc207.phase2.UTFantasy.userUseCase.User;
+import csc207.phase2.UTFantasy.userUseCase.UserManagerFacade;
 
 /** The activity used to log into the game with username and passwords. */
 public class LoginActivity extends AppCompatActivity implements LoginView {
