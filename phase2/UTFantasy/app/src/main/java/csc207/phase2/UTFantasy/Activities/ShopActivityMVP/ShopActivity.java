@@ -21,7 +21,7 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.PlayerManager;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Products.Product;
-import csc207.phase2.UTFantasy.Products.ProductCreator;
+import csc207.phase2.UTFantasy.Products.ShopCreator;
 import csc207.phase2.UTFantasy.R;
 
 /** The activity used to purchase products. */
@@ -78,8 +78,8 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     final Button backBtn = findViewById(R.id.back_to_main);
     final Button bagBtn = findViewById(R.id.my_bag);
 
-    ProductCreator productCreator = new ProductCreator();
-    productInShop = productCreator.importProduct().getProducts();
+    ShopCreator shopCreator = new ShopCreator();
+    productInShop = shopCreator.importProduct().getProducts();
 
     ProductAdapter productAdapter =
         new ProductAdapter(this, R.layout.product_layout, productInShop);

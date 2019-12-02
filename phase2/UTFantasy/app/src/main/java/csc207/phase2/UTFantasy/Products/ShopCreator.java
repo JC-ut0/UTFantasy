@@ -10,10 +10,10 @@ import static csc207.phase2.UTFantasy.Products.ProductName.redPotion;
 import static csc207.phase2.UTFantasy.Products.ProductName.ultraBall;
 
 /** Create a list of products on sale in shop */
-public class ProductCreator {
-  private ProductBuilder builder = new ProductBuilder();
+public class ShopCreator {
+  private ShopBuilder builder = new ShopBuilder();
 
-  public ProductBuilder importProduct() {
+  public ShopBuilder importProduct() {
     builder.addProduct(masterBall);
     builder.addProduct(ultraBall);
     builder.addProduct(pokeBall);
