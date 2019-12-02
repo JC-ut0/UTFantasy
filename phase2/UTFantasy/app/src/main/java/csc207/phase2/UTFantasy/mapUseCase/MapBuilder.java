@@ -5,9 +5,7 @@ import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.npcUseCase.NPCRepository;
 
-/**
- * The builder that builds the map
- */
+/** The builder that builds the map */
 public class MapBuilder {
   private Map product;
   private NPCRepository npcRepository;
@@ -95,11 +93,9 @@ public class MapBuilder {
     }
   }
 
-  void buildRoad() {
-  }
+  void buildRoad() {}
 
-  void buildWater() {
-  }
+  void buildWater() {}
 
   void buildBuilding() {
     buildSingleBuilding(2, 14, 95, 101, 2, 95, Icon.HALLOFFAME);
@@ -112,7 +108,7 @@ public class MapBuilder {
   }
 
   private void buildSingleBuilding(
-          int left, int right, int top, int bottom, int buildingX, int buildingY, Icon icon) {
+      int left, int right, int top, int bottom, int buildingX, int buildingY, Icon icon) {
     for (int x = left; x < right; x++) {
       for (int y = top; y < bottom; y++) {
         if (x == buildingX && y == buildingY) {
@@ -130,7 +126,7 @@ public class MapBuilder {
     PokemonFactory pokemonFactory = new PokemonFactory();
 
     npc = new NPC("Professor.P", Duty.FIGHT);
-    npc.setDialog("ready for your final exam? great!");
+    npc.setDialog("Ready for your final exam? great!");
     npc.setInteractedDialogue("Good job!");
     npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARIZARDSHINY, 50));
     buildSingleNpc(npc, Icon.PROFESSOR, 3, 10);
@@ -140,32 +136,32 @@ public class MapBuilder {
     buildSingleNpc(npc, Icon.SELLER, 5, 10);
 
     npc = new NPC("Healer", Duty.HEAL);
-    npc.setDialog("welcome to hospital????");
+    npc.setDialog("Free hug.");
     buildSingleNpc(npc, Icon.HEALER, 7, 10);
 
-        npc = new NPC("Charmander", Duty.CHARMANDER);
-        npc.setDialog("This is a Charmander, do you wanna choose it?");
-        npc.setInteractedDialogue("A Charmander...");
-        buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 5, 3);
-        npcRepository.addBeginningPokemonNPC(npc);
+    npc = new NPC("Charmander", Duty.CHARMANDER);
+    npc.setDialog("This is a Charmander, do you wanna choose it?");
+    npc.setInteractedDialogue("A Charmander...");
+    buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 5, 3);
+    npcRepository.addBeginningPokemonNPC(npc);
 
-        npc = new NPC("Squirtle", Duty.SQUIRTLE);
-        npc.setDialog("This is a Squirtle, do you wanna choose it?");
-        npc.setInteractedDialogue("A Squirtle...");
-        buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 7, 3);
-        npcRepository.addBeginningPokemonNPC(npc);
+    npc = new NPC("Squirtle", Duty.SQUIRTLE);
+    npc.setDialog("This is a Squirtle, do you wanna choose it?");
+    npc.setInteractedDialogue("A Squirtle...");
+    buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 7, 3);
+    npcRepository.addBeginningPokemonNPC(npc);
 
-        npc = new NPC("Bulbasaur", Duty.BULBASAUR);
-        npc.setDialog("This is a Bulbasaur, do you wanna choose it?");
-        npc.setInteractedDialogue("A Bulbasaur...");
-        buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 3, 3);
-        npcRepository.addBeginningPokemonNPC(npc);
+    npc = new NPC("Bulbasaur", Duty.BULBASAUR);
+    npc.setDialog("This is a Bulbasaur, do you wanna choose it?");
+    npc.setInteractedDialogue("A Bulbasaur...");
+    buildSingleNpc(npc, Icon.POKEMONBALLONMAP, 3, 3);
+    npcRepository.addBeginningPokemonNPC(npc);
 
-        npc = new NPC("JC", Duty.FIGHT);
-        npc.setDialog("Ready for lose? Hummm...............");
-        npc.setInteractedDialogue("That's a lucky shoot.........");
-        npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.MEWTWO, 50));
-        buildSingleNpc(npc, Icon.JESSE, 3, 6);
+    npc = new NPC("JC", Duty.FIGHT);
+    npc.setDialog("Ready for lose? Hummm...............");
+    npc.setInteractedDialogue("That's a lucky shoot.........");
+    npc.addPokemon(pokemonFactory.createPokemon(PokemonFactory.PokemonClass.MEWTWO, 50));
+    buildSingleNpc(npc, Icon.JESSE, 3, 6);
 
     npc = new NPC("Quincy", Duty.FIGHT);
     npc.setDialog("Pick the duck, lost the luck!!!");
