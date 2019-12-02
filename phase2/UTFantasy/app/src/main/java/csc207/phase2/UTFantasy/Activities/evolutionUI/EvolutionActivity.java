@@ -20,8 +20,6 @@ import csc207.phase2.UTFantasy.R;
 public class EvolutionActivity extends Activity implements EvolutionActivityModel {
   private ImageView evolutionImage;
   private TextView evolutionText;
-  private Button aButton;
-  private Button bButton;
   private EvolutionPresenter presenter;
 
   @Override
@@ -29,11 +27,13 @@ public class EvolutionActivity extends Activity implements EvolutionActivityMode
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_evolution);
 
+      // find instances of widgets
     evolutionImage = findViewById(R.id.evolutionImage);
     evolutionText = findViewById(R.id.evolutionText);
-    aButton = findViewById(R.id.evolution_A_Button);
-    bButton = findViewById(R.id.evolution_B_Button);
+      Button aButton = findViewById(R.id.evolution_A_Button);
+      Button bButton = findViewById(R.id.evolution_B_Button);
 
+      // initialize presenter
     Intent intent = getIntent();
     String username = intent.getStringExtra("username");
     Player player = UserIO.getSingletonUserIo().getUserData().getUser(username).getPlayer();
@@ -41,6 +41,7 @@ public class EvolutionActivity extends Activity implements EvolutionActivityMode
     this.presenter = new EvolutionPresenter(this, player);
     presenter.setPokemon(pokemonIndex);
 
+      // set buttons' onClickListeners
     aButton.setOnClickListener(
             new View.OnClickListener() {
               @Override
@@ -58,24 +59,27 @@ public class EvolutionActivity extends Activity implements EvolutionActivityMode
         });
   }
 
-  @Override
-  public void runAnimation(int preEvolve, int postEvolve) {
-    AnimationDrawable animation = new AnimationDrawable();
-    Drawable preImg = getResources().getDrawable(preEvolve, null);
-    Drawable postImg = getResources().getDrawable(postEvolve, null);
-    for (int i = 0; i < 30; i++) {
-      int duration = 300 - i * i * i / 10;
-      if (i % 2 == 0) animation.addFrame(preImg, duration);
-      else animation.addFrame(postImg, duration);
+    // ================================================================================================
+    // implementation of methods of EvolutionActivityModel
+    @Override
+    public void runAnimation(int preEvolve, int postEvolve) {
+        // create animation with 30 frames;
+        AnimationDrawable animation = new AnimationDrawable();
+        Drawable preImg = getResources().getDrawable(preEvolve, null);
+        Drawable postImg = getResources().getDrawable(postEvolve, null);
+        for (int i = 0; i < 30; i++) {
+            int duration = 300 - i * i * i / 10;
+            if (i % 2 == 0) animation.addFrame(preImg, duration);
+            else animation.addFrame(postImg, duration);
+        }
+        animation.setOneShot(true);
+        evolutionImage.setBackground(animation);
+        ((AnimationDrawable) evolutionImage.getBackground()).start();
     }
-    animation.setOneShot(true);
-    evolutionImage.setBackground(animation);
-    ((AnimationDrawable) evolutionImage.getBackground()).start();
-  }
 
   @Override
-  public void showImg(int preEvolve) {
-    evolutionImage.setBackground(getResources().getDrawable(preEvolve, null));
+  public void showImg(int img) {
+      evolutionImage.setBackground(getResources().getDrawable(img, null));
   }
 
   @Override

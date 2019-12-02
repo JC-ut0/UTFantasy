@@ -5,7 +5,10 @@ import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
-public class BattleData {
+/**
+ * The entity that stores all the necessary data of this battle
+ */
+class BattleData {
   private Player player;
   private NPC rival;
   private Pokemon currPlayerPoke;
@@ -15,10 +18,6 @@ public class BattleData {
   private Skill skill;
   private boolean secondSkillUsed;
   private TypeMap typeMap;
-  /**
-   * if player's pokemon is ready for evolution next time update text
-   */
-  private boolean isEvolving;
   /**
    * the action that supposed to be done in next updateText() call inside BattleInteractor
    */
@@ -31,55 +30,55 @@ public class BattleData {
     this.action = Action.BEGIN;
   }
 
-  public Player getPlayer() {
+  Player getPlayer() {
     return player;
   }
 
-  public NPC getRival() {
+  NPC getRival() {
     return rival;
   }
 
-  public Pokemon getCurrPlayerPoke() {
+  Pokemon getCurrPlayerPoke() {
     return currPlayerPoke;
   }
 
-  public Pokemon getCurrRivalPoke() {
+  Pokemon getCurrRivalPoke() {
     return currRivalPoke;
   }
 
-  public void setCurrPlayerPoke(Pokemon currPlayerPoke) {
+  void setCurrPlayerPoke(Pokemon currPlayerPoke) {
     this.currPlayerPoke = currPlayerPoke;
   }
 
-  public void setCurrRivalPoke(Pokemon currRivalPoke) {
+  void setCurrRivalPoke(Pokemon currRivalPoke) {
     this.currRivalPoke = currRivalPoke;
   }
 
-  public Pokemon getAttacker() {
+  Pokemon getAttacker() {
     return attacker;
   }
 
-  public Pokemon getDefender() {
+  Pokemon getDefender() {
     return defender;
   }
 
-  public Skill getSkill() {
+  Skill getSkill() {
     return skill;
   }
 
-  public void setAttacker(Pokemon attacker) {
+  void setAttacker(Pokemon attacker) {
     this.attacker = attacker;
   }
 
-  public void setDefender(Pokemon defender) {
+  void setDefender(Pokemon defender) {
     this.defender = defender;
   }
 
-  public void setSkill(Skill skill) {
+  void setSkill(Skill skill) {
     this.skill = skill;
   }
 
-  public double getTypeIndex(TypeMap.TypeEnum attackType, TypeMap.TypeEnum defendType) {
+  double getTypeIndex(TypeMap.TypeEnum attackType, TypeMap.TypeEnum defendType) {
     return typeMap.getTypeIndex(attackType, defendType);
   }
 
@@ -94,36 +93,31 @@ public class BattleData {
     END
   }
 
-  public void setAction(Action action) {
+  void setAction(Action action) {
     this.action = action;
   }
 
-  public Action getAction() {
+  Action getAction() {
     return action;
   }
 
-  public boolean isSecondSkillUsed() {
+  boolean isSecondSkillUsed() {
     return secondSkillUsed;
   }
 
-  public void setSecondSkillUsed(boolean secondSkillUsed) {
+  void setSecondSkillUsed(boolean secondSkillUsed) {
     this.secondSkillUsed = secondSkillUsed;
   }
 
-  void clearOberser() {
+  /**
+   * clear the observer of all pokemons engaged during this battle
+   */
+  void clearObserver() {
     for (Pokemon pokemon : player.getPokemonList()) {
       pokemon.setObserver(null);
     }
     for (Pokemon pokemon : rival.getPokemonList()) {
       pokemon.setObserver(null);
     }
-  }
-
-  public boolean isEvolving() {
-    return isEvolving;
-  }
-
-  public void setEvolving(boolean isEvolving) {
-    this.isEvolving = isEvolving;
   }
 }

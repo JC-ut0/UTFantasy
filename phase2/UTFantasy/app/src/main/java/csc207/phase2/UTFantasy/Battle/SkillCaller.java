@@ -1,9 +1,13 @@
 package csc207.phase2.UTFantasy.Battle;
 
+/**
+ * A fightTurnNode that is responsible for getting name of attacker and skill name
+ * Return text informing the usage of skill
+ */
 public class SkillCaller extends FightTurnNode {
     private BattleData battleData;
 
-    public SkillCaller(BattleData battleData) {
+    SkillCaller(BattleData battleData) {
         this.battleData = battleData;
     }
 

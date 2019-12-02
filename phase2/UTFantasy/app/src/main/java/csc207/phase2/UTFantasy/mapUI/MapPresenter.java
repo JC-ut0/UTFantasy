@@ -66,7 +66,7 @@ public class MapPresenter implements MapDrawer {
   private Bitmap rightPlayer2;
   private Bitmap rightPlayer3;
 
-  public MapPresenter(MapViewModel mapView, MainActivityModel activityModel) {
+  MapPresenter(MapViewModel mapView, MainActivityModel activityModel) {
     this.mapView = mapView;
     this.activityModel = activityModel;
     initializeBitMap();

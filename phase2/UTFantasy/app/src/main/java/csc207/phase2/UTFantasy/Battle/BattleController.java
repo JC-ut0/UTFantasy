@@ -5,11 +5,16 @@ import csc207.phase2.UTFantasy.AllSkills.Skill;
 public class BattleController {
     private BattleInteractor interactor;
 
-    public BattleController(BattleInteractor interactor, BattlePresenter presenter) {
+    BattleController(BattleInteractor interactor) {
         this.interactor = interactor;
     }
 
-    public void skillClick(int i) {
+    /**
+     * called when one skill is used
+     *
+     * @param i the skill being used is the i-th skill of current player pokemon's skills
+     */
+    void skillClick(int i) {
         Skill skill = interactor.getBattleData().getCurrPlayerPoke().getSkills()[i];
         if (skill != null) {
             interactor.useSkill(skill);
@@ -17,19 +22,19 @@ public class BattleController {
         updateText();
     }
 
-    public void updateText() {
+    void updateText() {
         interactor.updateText();
     }
 
-    public void openPokemonChoose() {
+    void openPokemonChoose() {
         interactor.openPokemonChoose();
     }
 
-    public void choosePokemon(int i) {
+    void choosePokemon(int i) {
         interactor.choosePokemon(i);
     }
 
-    public void useItem() {
+    void useItem() {
         interactor.useItem();
     }
 

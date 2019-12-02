@@ -4,35 +4,83 @@ import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 
 public interface MapInteractor {
-    boolean checkMoveAble();
+  /**
+   * @return true iff there is no blocking in front of player currently
+   */
+  boolean checkMoveAble();
 
-    NPC getFacingNpc();
+  /**
+   * return null iff there is no available npc in front of player
+   *
+   * @return the facing npc in front of the player
+   */
+  NPC getFacingNpc();
 
-    Player getPlayer();
+  Player getPlayer();
 
-    UnitDraw[][] updateScreenOverLowMap();
+  /**
+   * @return the collection of unitDraws that is supposed to be drawn on the screen at a low height
+   */
+  UnitDraw[][] updateScreenOverLowMap();
 
-    UnitDraw[][] updateScreenOverHighMap();
+  /**
+   * @return the collection of unitDraws that is supposed to be drawn on the screen at a high height
+   */
+  UnitDraw[][] updateScreenOverHighMap();
 
-    int getScreenUnitWidth();
+  /**
+   * @return the width of the drawn screen counted in units
+   */
+  int getScreenUnitWidth();
 
-    int getScreenUnitHeight();
+  /**
+   * @return the height of the drawn screen counted in units
+   */
+  int getScreenUnitHeight();
 
-    int getExtendedWidth();
+  /**
+   * extend width of drawn screen in case that some bitmap width get too big to be partly shown on
+   * the screen when its actual position is not within the screen
+   *
+   * @return the extended width of the drawn screen counted in units
+   */
+  int getExtendedWidth();
 
-    int getExtendedHeight();
+  /**
+   * extend height of drawn screen in case that some bitmap height get too big to be partly shown on
+   * the screen when its actual position is not within the screen
+   *
+   * @return the extended height of the drawn screen counted in units
+   */
+  int getExtendedHeight();
 
-    void startMove(String direction);
+  void startMove(String direction);
 
-    void endMove();
+  void endMove();
 
-    void updateProgress(boolean moveAble);
+  /**
+   * use the progress to show the movement of player
+   *
+   * @param moveAble if this player is allowed on the current map
+   */
+  void updateProgress(boolean moveAble);
 
-    int getProgress();
+  int getProgress();
 
-    void setProgress(int Progress);
+  void setProgress(int Progress);
 
-    void transScreen(UnitDraw[][] map, int progress, boolean moveAble);
+  /**
+   * translate the drawn screen by progress is movable
+   *
+   * @param map      the map that gets translated
+   * @param progress the progress used to track and show player's movement
+   * @param moveAble if this player is allowed to move on the current map
+   */
+  void transScreen(UnitDraw[][] map, int progress, boolean moveAble);
 
-    Icon getPlayerIcon(int progress);
+  /**
+   * @param progress the progress used to track and show player's movement
+   * @return the correct player image that is supposed to be drawn depending on the progress
+   */
+  Icon getPlayerIcon(int progress);
 }

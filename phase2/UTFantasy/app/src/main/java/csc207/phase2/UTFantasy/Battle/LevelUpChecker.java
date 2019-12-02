@@ -2,9 +2,13 @@ package csc207.phase2.UTFantasy.Battle;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
-public class LevelUpChecker extends FightTurnNode {
+/**
+ * A fightTurnNode that is responsible for checking if the current attacker has leveled up Return
+ * text informing if attacker leveled up
+ */
+class LevelUpChecker extends FightTurnNode {
 
-  public LevelUpChecker(BattleData battleData) {
+  LevelUpChecker(BattleData battleData) {
     this.battleData = battleData;
   }
 
@@ -15,8 +19,8 @@ public class LevelUpChecker extends FightTurnNode {
       attacker.addExp(75);
       if (attacker.getExpAtCurrentLevel() >= attacker.getExpToLevelUp()) {
         attacker.setLevel(attacker.getLevel() + 1);
-        attacker.setExpAtCurrentLevel(attacker.calculateExpAtCurrentLevel());
-        text = attacker.getPokemonName() + " leveled up!";
+        attacker.setExpAtCurrentLevel(attacker.getExpAtCurrentLevel() - attacker.getExpToLevelUp());
+        text = attacker.getPokemonName() + "level up!";
       }
     }
     return text;

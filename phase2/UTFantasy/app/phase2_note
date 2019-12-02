@@ -194,3 +194,8 @@ Add feature that certain pokemons can evolve at certain levels.
 File affected: Package: Battle, MapUI, MapUseCase, Evolution
 Make pokemons able to evolve after fight instead of during fight. Fix bugs possibly that possibly
 occur during evolution. Improve evolution animation, improve battle dialogue.
+
+#######
+# Step 32
+File affected: Package: evolution, battle, mapUI, mapUseCase, class: BattleObserver, WildPokemonObserver
+Write docStrings for those files, handles exception, solve warnings

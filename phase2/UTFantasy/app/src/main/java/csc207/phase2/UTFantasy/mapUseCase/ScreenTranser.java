@@ -2,14 +2,18 @@ package csc207.phase2.UTFantasy.mapUseCase;
 
 import csc207.phase2.UTFantasy.Character.Player;
 
-public class ScreenTranser {
+/**
+ * Responsible for translation of drawnMap to show the movement of player
+ * Responsible for return the correct player image
+ */
+class ScreenTranser {
     private Player player;
 
-    public ScreenTranser(Player player) {
+    ScreenTranser(Player player) {
         this.player = player;
     }
 
-    public void transScreen(UnitDraw[][] map, int progress, boolean moveAble) {
+    void transScreen(UnitDraw[][] map, int progress, boolean moveAble) {
         for (UnitDraw[] unitDraws : map) {
             for (UnitDraw unit : unitDraws) {
                 if (unit != null) {
@@ -36,7 +40,7 @@ public class ScreenTranser {
         }
     }
 
-    public Icon getPlayer(int progress) {
+    Icon getPlayer(int progress) {
         Icon playerIcon = null;
         switch (player.getDirection()) {
             case ("down"):
