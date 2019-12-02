@@ -2,7 +2,7 @@ package csc207.phase2.UTFantasy.AllSkills;
 
 import androidx.annotation.NonNull;
 
-import csc207.phase2.UTFantasy.Battle.TypeMap;
+import csc207.phase2.UTFantasy.BattleUseCase.TypeMap;
 
 class ThunderShock extends Skill {
   /** Constructor of a ThunderShock Skill. */

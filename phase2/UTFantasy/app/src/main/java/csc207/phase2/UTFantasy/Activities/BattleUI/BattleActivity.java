@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.Activities.BattleUI;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -18,13 +18,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import csc207.phase2.UTFantasy.Activities.select.ProductSelectActivity;
+import csc207.phase2.UTFantasy.BattleUseCase.BattleData;
+import csc207.phase2.UTFantasy.BattleUseCase.BattleInteractor;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.IO.UserIO;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.R;
 
-public class BattleActivity extends AppCompatActivity implements BattleActivityModel {
+public class BattleActivity extends AppCompatActivity implements BattleActivityInterface {
   /** the bottom layout */
   LinearLayout informationSection;
   /** skill section and menu section */
@@ -249,7 +251,7 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityM
   }
 
   // ================================================================================================
-  // implementation of methods from BattleActivityModel
+  // implementation of methods from BattleActivityInterface
 
   @SuppressLint("SetTextI18n")
   @Override

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import csc207.phase2.UTFantasy.mapUseCase.MainThread;
 
 public class MapView extends SurfaceView
-    implements SurfaceHolder.Callback, Serializable, MapViewModel {
+        implements SurfaceHolder.Callback, Serializable, MapViewInterface {
   /** The part of the program that manages time. */
   private MainThread thread;
 

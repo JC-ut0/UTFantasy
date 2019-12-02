@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.BattleUseCase;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Products.Ball;
@@ -29,7 +29,7 @@ class ItemManager {
       battleData.getPlayer().useItem(product);
       text = battleData.getPlayer().getName() + " used " + product.getName();
       if (product instanceof Ball) {
-        if (!battleData.getCurrRivalPoke().isWild()) {
+        if (battleData.getCurrRivalPoke().setNotWild()) {
           productFailedToUse(product);
           text = "You can only catch wild pokemon.";
         } else {

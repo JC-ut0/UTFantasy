@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.BattleUseCase;
 
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Pet.Pokemon;

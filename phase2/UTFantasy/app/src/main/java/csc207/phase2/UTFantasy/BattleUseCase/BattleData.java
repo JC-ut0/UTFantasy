@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.BattleUseCase;
 
 import csc207.phase2.UTFantasy.AllSkills.Skill;
 import csc207.phase2.UTFantasy.Character.NPC;
@@ -6,7 +6,7 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
 /** The entity that stores all the necessary data of this battle */
-class BattleData {
+public class BattleData {
   private Player player;
   private NPC rival;
   private Pokemon currPlayerPoke;
@@ -26,15 +26,15 @@ class BattleData {
     this.action = Action.BEGIN;
   }
 
-  Player getPlayer() {
+    public Player getPlayer() {
     return player;
   }
 
-  NPC getRival() {
+    public NPC getRival() {
     return rival;
   }
 
-  Pokemon getCurrPlayerPoke() {
+    public Pokemon getCurrPlayerPoke() {
     return currPlayerPoke;
   }
 
@@ -95,7 +95,7 @@ class BattleData {
   }
 
   /** clear the observer of all pokemons engaged during this battle */
-  void clearObserver() {
+  public void clearObserver() {
     for (Pokemon pokemon : player.getPokemonList()) {
       pokemon.setObserver(null);
     }

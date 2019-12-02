@@ -1,6 +1,7 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.Activities.BattleUI;
 
 import csc207.phase2.UTFantasy.AllSkills.Skill;
+import csc207.phase2.UTFantasy.BattleUseCase.BattleInteractor;
 
 public class BattleController {
   private BattleInteractor interactor;

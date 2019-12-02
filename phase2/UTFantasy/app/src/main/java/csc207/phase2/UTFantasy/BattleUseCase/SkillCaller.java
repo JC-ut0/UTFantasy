@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.BattleUseCase;
 
 /**
  * A fightTurnNode that is responsible for getting name of attacker and skill name Return text

@@ -1,13 +1,14 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.BattleUseCase;
 
 import java.util.List;
 
 import csc207.phase2.UTFantasy.AllSkills.Skill;
+import csc207.phase2.UTFantasy.Activities.BattleUI.BattleOutputBoundary;
 import csc207.phase2.UTFantasy.Pet.BattleObserver;
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
-import static csc207.phase2.UTFantasy.Battle.BattleData.Action.CATCHDECISION;
-import static csc207.phase2.UTFantasy.Battle.BattleData.Action.OPENMENU;
+import static csc207.phase2.UTFantasy.BattleUseCase.BattleData.Action.CATCHDECISION;
+import static csc207.phase2.UTFantasy.BattleUseCase.BattleData.Action.OPENMENU;
 
 /**
  * the interactor of this battle responsible for the connection between updating the correct data
@@ -33,7 +34,7 @@ public class BattleInteractor implements BattleObserver {
    * check if fight action can be done fight action can be done iff the current player pokemon is
    * alive
    */
-  void fight() {
+  public void fight() {
     Pokemon playerPoke = battleData.getCurrPlayerPoke();
     if (playerPoke.isAlive()) presenter.openSkillBox();
     else presenter.popText(playerPoke.getPokemonName() + " is not alive...");
@@ -51,7 +52,7 @@ public class BattleInteractor implements BattleObserver {
     updateHpBar();
   }
 
-  void useSkill(Skill skill) {
+  public void useSkill(Skill skill) {
     fightManager.useSkill(skill);
     presenter.closeSkillMenu();
   }
@@ -60,7 +61,7 @@ public class BattleInteractor implements BattleObserver {
    * update the correct text information to display them to user the one that is responsible for
    * updating text depending on the situation
    */
-  void updateText() {
+  public void updateText() {
     updatePokemon();
     updateHpBar();
     switch (battleData.getAction()) {
@@ -97,11 +98,11 @@ public class BattleInteractor implements BattleObserver {
     }
   }
 
-  void openPokemonChoose() {
+  public void openPokemonChoose() {
     presenter.showPokeList(battleData.getPlayer().getPokemonList(), battleData.getCurrPlayerPoke());
   }
 
-  void choosePokemon(int i) {
+  public void choosePokemon(int i) {
     Pokemon pokemon = null;
     List<Pokemon> pokemonList = battleData.getPlayer().getPokemonList();
     if (0 <= i && i < battleData.getPlayer().getPokemonList().size()) {
@@ -122,12 +123,12 @@ public class BattleInteractor implements BattleObserver {
     }
   }
 
-  void useItem() {
+  public void useItem() {
     battleData.setAction(BattleData.Action.USEITEM);
     presenter.showText("...");
   }
 
-  BattleData getBattleData() {
+  public BattleData getBattleData() {
     return battleData;
   }
 
@@ -135,7 +136,7 @@ public class BattleInteractor implements BattleObserver {
   private String getBeginningText() {
     Pokemon rivalPoke = battleData.getCurrRivalPoke();
     String text;
-    if (!rivalPoke.isWild()) {
+    if (rivalPoke.setNotWild()) {
       text = battleData.getRival().getName() + " sent out " + rivalPoke.getPokemonName();
     } else {
       text = "A wild " + rivalPoke.getPokemonName() + " has appeared!";
