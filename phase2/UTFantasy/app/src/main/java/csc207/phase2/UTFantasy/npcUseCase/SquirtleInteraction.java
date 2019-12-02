@@ -31,6 +31,6 @@ class SquirtleInteraction extends Interaction {
         for (NPC pokemonNPC : beginningPokemonNPCs) {
             pokemonNPC.setInteracted(true);
         }
-        drawer.popText("Congratulations! You get a charmander!!!");
+        drawer.popText("Congratulations! You get a squirtle!!!");
     }
 }

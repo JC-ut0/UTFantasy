@@ -4,12 +4,16 @@ import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.npcUseCase.NPCRepository;
 
+/**
+ * Responsible for check if the player is movable on the map and return the facing unitDraw of this
+ * player
+ */
 public class MapChecker {
     private Player player;
     private Map map;
     private NPCRepository npcRepository;
 
-    public MapChecker(Player player) {
+    MapChecker(Player player) {
         this.player = player;
         this.map = player.getPlayerMap();
         this.npcRepository = map.getNpcRepository();
@@ -36,13 +40,13 @@ public class MapChecker {
         return frontObject;
     }
 
-    public boolean checkMoveAble() {
+    boolean checkMoveAble() {
         return getFacingUnitDraw() == null;
     }
 
-    public NPC getFacingNpc() {
+    NPC getFacingNpc() {
         UnitDraw facingUnitDraw = getFacingUnitDraw();
-        if (facingUnitDraw != null && facingUnitDraw.isNPC()) {
+        if (facingUnitDraw instanceof NPCDraw) {
             String npcName = ((NPCDraw) facingUnitDraw).getNpcName();
             return npcRepository.getNPC(npcName);
         }

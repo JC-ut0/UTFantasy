@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import csc207.phase2.UTFantasy.R;
 
-public class PurplePotion extends Potion {
+class PurplePotion extends Potion {
 
   /** Constructor of PurplePotion */
   PurplePotion() {

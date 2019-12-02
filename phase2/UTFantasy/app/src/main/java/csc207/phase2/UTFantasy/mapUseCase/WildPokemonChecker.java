@@ -10,6 +10,10 @@ import csc207.phase2.UTFantasy.Pet.Pokemon;
 import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.npcUseCase.NPCRepository;
 
+/**
+ * Responsible for determine if the player encounters a wild pokemon
+ * Player encounters wild pokemon iff he or she is walking in the grass
+ */
 public class WildPokemonChecker implements WildPokemonObserver, Serializable {
     private Player player;
     private Map map;
@@ -30,6 +34,7 @@ public class WildPokemonChecker implements WildPokemonObserver, Serializable {
         Icon icon = map.getLowMap()[x][y].getIcon();
         double rate = 0;
         Pokemon pokemon = null;
+        // check if the player is standing on some grass
         switch (icon) {
             case GRASS0:
                 rate = 0.2;
@@ -40,6 +45,7 @@ public class WildPokemonChecker implements WildPokemonObserver, Serializable {
                 pokemon = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARIZARD, 5);
                 break;
         }
+        // determine if the player encounters the pokemon
         if (rate != 0) {
             double r = Math.random();
             if (r <= rate && player.isFightAble()) {

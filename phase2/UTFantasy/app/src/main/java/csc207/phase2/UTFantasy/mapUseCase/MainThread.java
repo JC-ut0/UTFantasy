@@ -15,10 +15,6 @@ public class MainThread extends Thread {
      */
     private boolean isRunning;
     /**
-     * The canvas on which to draw all characters.
-     */
-    private Canvas canvas;
-    /**
      * the drawer that is used by this MainThread to present.
      */
     private MapDrawer drawer;
@@ -39,19 +35,24 @@ public class MainThread extends Thread {
     @Override
     public void run() {
         while (isRunning) {
-            canvas = null;
+            Canvas canvas = null;
             try {
                 canvas = surfaceHolder.lockCanvas();
                 canvas.drawColor(Color.BLACK);
+                // check if player can move on the current map
                 boolean moveAble = interactor.checkMoveAble();
                 interactor.updateProgress(moveAble);
                 int progress = interactor.getProgress();
+                // get the lists of unitDraw that are supposed to be drawn on the screen
                 UnitDraw[][] lowScreen = interactor.updateScreenOverLowMap();
                 UnitDraw[][] highScreen = interactor.updateScreenOverHighMap();
+                // translate the position of drawn unitDraws to show the movement of player
                 interactor.transScreen(lowScreen, progress, moveAble);
                 interactor.transScreen(highScreen, progress, moveAble);
+                // the second translation of drawn unitDraws to center the screen on the drawn bitmaps
                 int translatedWidth = interactor.getExtendedWidth() / 2;
                 int translatedHeight = interactor.getExtendedHeight() / 2;
+                // actual action of drawing
                 drawer.draw(canvas, lowScreen, translatedWidth, translatedHeight);
                 drawer.draw(canvas, highScreen, translatedWidth, translatedHeight);
                 drawer.drawPlayer(
@@ -59,7 +60,7 @@ public class MainThread extends Thread {
                         interactor.getPlayerIcon(progress),
                         interactor.getScreenUnitWidth() / 2 - translatedWidth,
                         interactor.getScreenUnitHeight() / 2 - translatedHeight);
-                sleep(1);
+                sleep(30);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
