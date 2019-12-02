@@ -58,11 +58,13 @@ public class StartUpActivity extends Activity {
         });
   }
 
+  /** navigate to the login activity. */
   private void navigateToLoginActivity() {
     startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
   }
 
+  /** navigate to the score board activity. */
   private void navigateToScoreBoardActivity() {
-      startActivity(new Intent(StartUpActivity.this, ScoreBoardActivity.class));
+    startActivity(new Intent(StartUpActivity.this, ScoreBoardActivity.class));
   }
 }

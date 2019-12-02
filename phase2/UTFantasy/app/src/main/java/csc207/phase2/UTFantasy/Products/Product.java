@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Products;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.Serializable;
@@ -12,6 +13,7 @@ public abstract class Product implements Serializable {
   private int price;
   /** the profileID of this product */
   private int profileID;
+
   private boolean isSelected;
 
   public boolean isSelected() {
@@ -39,7 +41,7 @@ public abstract class Product implements Serializable {
     return name;
   }
 
-
+  @NonNull
   public abstract String toString();
 
   /** the getter of ProfileID */

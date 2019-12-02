@@ -14,7 +14,7 @@ import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.R;
 
 class ScoreBoardAdapter extends BaseAdapter {
-  /** the lsit of player */
+  /** the list of player */
   private List<Player> playerList;
   /** the inflater */
   private LayoutInflater inflater;

@@ -7,19 +7,28 @@
     android:orientation="vertical">
 
     <ImageView
+        android:layout_width="485dp"
+        android:layout_height="140dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="23dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/congrads"
+        android:contentDescription="@string/congrads" />
+
+    <ImageView
         android:id="@+id/pic1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="135dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="220dp"
         android:contentDescription="@string/profilePic" />
 
     <ImageView
         android:id="@+id/pic3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignStart="@+id/pic2"
         android:layout_alignTop="@+id/pic2"
         android:layout_alignBottom="@+id/pic2"
@@ -30,8 +39,8 @@
 
     <ImageView
         android:id="@+id/pic4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignStart="@+id/pic3"
         android:layout_alignTop="@+id/pic3"
         android:layout_alignBottom="@+id/pic3"
@@ -42,8 +51,8 @@
 
     <ImageView
         android:id="@+id/pic5"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignStart="@+id/pic4"
         android:layout_alignTop="@+id/pic4"
         android:layout_alignBottom="@+id/pic4"
@@ -54,8 +63,8 @@
 
     <ImageView
         android:id="@+id/pic2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignStart="@+id/pic1"
         android:layout_alignTop="@+id/pic1"
         android:layout_alignBottom="@+id/pic1"
@@ -67,20 +76,21 @@
     <TextView
         android:id="@+id/name1"
         android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_height="20dp"
         android:layout_below="@+id/pic1"
         android:layout_alignStart="@+id/pic1"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="3dp"
         android:gravity="center"
         android:text="@string/duan_liu"
         android:textColor="#FFFFFF"
-        android:textSize="12sp"/>
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/name2"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
         android:layout_alignStart="@+id/pic2"
         android:layout_alignTop="@+id/name1"
         android:layout_alignBottom="@+id/name1"
@@ -90,12 +100,13 @@
         android:gravity="center"
         android:text="@string/yizhen_wang"
         android:textColor="#FFFFFF"
-        android:textSize="12sp"/>
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/name3"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
         android:layout_alignStart="@+id/pic3"
         android:layout_alignTop="@+id/name2"
         android:layout_alignBottom="@+id/name2"
@@ -105,12 +116,13 @@
         android:gravity="center"
         android:text="@string/yexiong_xu"
         android:textColor="#FFFFFF"
-        android:textSize="12sp"/>
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/name4"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
         android:layout_alignStart="@+id/pic4"
         android:layout_alignTop="@+id/name3"
         android:layout_alignBottom="@+id/name3"
@@ -120,12 +132,13 @@
         android:gravity="center"
         android:text="@string/qinxi_yu"
         android:textColor="#FFFFFF"
-        android:textSize="12sp"/>
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/name5"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
         android:layout_alignStart="@+id/pic5"
         android:layout_alignTop="@+id/name4"
         android:layout_alignBottom="@+id/name4"
@@ -135,15 +148,16 @@
         android:gravity="center"
         android:text="@string/yan_zhou"
         android:textColor="#FFFFFF"
-        android:textSize="12sp"/>
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="185dp"
         android:text="@string/producers"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:textColor="#FFFFFF"/>

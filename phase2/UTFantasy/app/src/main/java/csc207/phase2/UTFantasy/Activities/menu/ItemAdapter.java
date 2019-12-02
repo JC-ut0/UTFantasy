@@ -1,5 +1,6 @@
 package csc207.phase2.UTFantasy.Activities.menu;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,10 +72,11 @@ public class ItemAdapter extends BaseAdapter {
     return position;
   }
 
+  @SuppressLint("SetTextI18n")
   @Override
   public View getView(int position, View view, ViewGroup viewGroup) {
 
-    ViewHolder holder = null;
+    ViewHolder holder;
     // set up the list view
     if (view == null) {
       view = inflater.inflate(R.layout.pokemon_layout, viewGroup, false);
@@ -102,6 +104,11 @@ public class ItemAdapter extends BaseAdapter {
     return view;
   }
 
+  /**
+   * update the pokemon list after each select action
+   *
+   * @param pokemonList the pokemon list
+   */
   void updateRecords(List<Pokemon> pokemonList) {
     this.pokemonList = pokemonList;
     notifyDataSetChanged();

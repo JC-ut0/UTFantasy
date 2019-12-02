@@ -60,6 +60,7 @@
     <string name="amountSelected">Amount selected:</string>
     <string name="moneyInBag">Money in bag:</string>
     <string name="total">Total selected:</string>
+    <string name="congrads">congrads</string>
 
 
 </resources>

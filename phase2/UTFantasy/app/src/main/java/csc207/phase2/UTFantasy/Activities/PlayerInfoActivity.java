@@ -128,6 +128,6 @@ public class PlayerInfoActivity extends AppCompatActivity {
     UserIO userIO = UserIO.getSingletonUserIo();
     List<Player> playerList = userIO.getUserData().getScoreBoardPlayerList();
     ScoreCalculator scoreCalculator = new ScoreCalculator(playerList);
-    return scoreCalculator.getTopPercentilByPokemonLv(player);
+    return scoreCalculator.getTopPercentileByPokemonLv(player);
   }
 }
