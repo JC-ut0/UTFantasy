@@ -1,5 +1,7 @@
 package csc207.phase2.UTFantasy.Battle;
 
+import csc207.phase2.UTFantasy.Character.Duty;
+
 /**
  * A fightTurnNode that is responsible for checking if the battle should end after current turn end
  * Return text informing if player wins or not
@@ -17,8 +19,10 @@ class EndChecker extends FightTurnNode {
       text = "You lost...";
       battleData.setAction(BattleData.Action.END);
     } else if (!battleData.getRival().isFightAble()) {
-      battleData.getRival().setInteracted(true);
       text = "You win!!!";
+        if (battleData.getRival().getDuty() == Duty.PROFESSOR)
+            battleData.getPlayer().setClearance(true);
+        battleData.getRival().setInteracted(true);
       battleData.setAction(BattleData.Action.END);
     }
     return text;
