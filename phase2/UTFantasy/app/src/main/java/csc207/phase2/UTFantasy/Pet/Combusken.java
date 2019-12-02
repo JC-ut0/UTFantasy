@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Combusken extends Pokemon {
   /** Constructor of a Combusken. */
   Combusken(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.STEEL,
-              TypeMap.TypeEnum.PSYCHIC,
-              R.drawable.combusken,
-              R.drawable.combusken_back,
-              "Combusken",
-              60,
-              85,
-              60,
-              55,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.STEEL,
+        TypeMap.TypeEnum.PSYCHIC,
+        R.drawable.combusken,
+        R.drawable.combusken_back,
+        "Combusken",
+        60,
+        85,
+        60,
+        55,
+        "quick");
     setLevelToEvolve(36, new Blaziken(36));
   }
   /**

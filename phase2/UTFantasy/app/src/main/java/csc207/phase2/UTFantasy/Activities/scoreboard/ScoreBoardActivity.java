@@ -26,7 +26,6 @@ public class ScoreBoardActivity extends AppCompatActivity {
   /** the adapter of scoreboard */
   private ScoreBoardAdapter adapter;
 
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

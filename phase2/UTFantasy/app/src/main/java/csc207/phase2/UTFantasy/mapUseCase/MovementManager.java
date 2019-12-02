@@ -45,9 +45,7 @@ class MovementManager {
     this.progress = progress;
   }
 
-  /**
-   * move the player in the specified direction by 1 unit
-   */
+  /** move the player in the specified direction by 1 unit */
   private void move() {
     switch (player.getDirection()) {
       case ("left"):

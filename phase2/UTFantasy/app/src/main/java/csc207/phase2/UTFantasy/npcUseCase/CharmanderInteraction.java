@@ -11,26 +11,26 @@ import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
 class CharmanderInteraction extends Interaction {
 
-    CharmanderInteraction(MapDrawer drawer, Player player) {
-        super(drawer, player);
-    }
+  CharmanderInteraction(MapDrawer drawer, Player player) {
+    super(drawer, player);
+  }
 
-    @Override
-    public void openDialogue(NPC npc) {
-        super.openDialogue(npc);
-        drawer.display(R.drawable.charmander);
-    }
+  @Override
+  public void openDialogue(NPC npc) {
+    super.openDialogue(npc);
+    drawer.display(R.drawable.charmander);
+  }
 
-    @Override
-    public void interact(NPC npc) {
-        PokemonFactory pokemonFactory = new PokemonFactory();
-        Pokemon charmander = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARMANDER, 5);
-        player.addPokemon(charmander);
-        List<NPC> beginningPokemonNPCs =
-                player.getPlayerMap().getNpcRepository().getBeginningPokemonNPCs();
-        for (NPC pokemonNPC : beginningPokemonNPCs) {
-            pokemonNPC.setInteracted(true);
-        }
-        drawer.popText("Congratulations! You get a charmander!!!");
+  @Override
+  public void interact(NPC npc) {
+    PokemonFactory pokemonFactory = new PokemonFactory();
+    Pokemon charmander = pokemonFactory.createPokemon(PokemonFactory.PokemonClass.CHARMANDER, 5);
+    player.addPokemon(charmander);
+    List<NPC> beginningPokemonNPCs =
+        player.getPlayerMap().getNpcRepository().getBeginningPokemonNPCs();
+    for (NPC pokemonNPC : beginningPokemonNPCs) {
+      pokemonNPC.setInteracted(true);
     }
+    drawer.popText("Congratulations! You get a charmander!!!");
+  }
 }

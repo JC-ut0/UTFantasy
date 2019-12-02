@@ -20,25 +20,25 @@ public class ScoreCalculator {
     this.playerList = playerList;
   }
 
-    /**
-     * Retrun a list of players sorted by pokemon max level from highest to lowest
-     *
-     * @return a list of players sorted by pokemon max level from highest to lowest
-     */
-    public List<Player> getListsortByPokemonLv() {
-        playerList.sort(new PlayerPokemonLvComparator().reversed());
-        return playerList;
-    }
+  /**
+   * Retrun a list of players sorted by pokemon max level from highest to lowest
+   *
+   * @return a list of players sorted by pokemon max level from highest to lowest
+   */
+  public List<Player> getListsortByPokemonLv() {
+    playerList.sort(new PlayerPokemonLvComparator().reversed());
+    return playerList;
+  }
 
-    /**
-     * Retrun a list of players sorted by pokemon max level from highest to lowest
-     *
-     * @return a list of players sorted by pokemon max level from highest to lowest
-     */
-    public List<Player> getListSortByPokemonNum() {
-        playerList.sort(new PlayerPokemonNumComparator().reversed());
-        return playerList;
-    }
+  /**
+   * Retrun a list of players sorted by pokemon max level from highest to lowest
+   *
+   * @return a list of players sorted by pokemon max level from highest to lowest
+   */
+  public List<Player> getListSortByPokemonNum() {
+    playerList.sort(new PlayerPokemonNumComparator().reversed());
+    return playerList;
+  }
 
   /**
    * get the player's top percentile by the pokemon's level

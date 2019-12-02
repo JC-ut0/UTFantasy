@@ -7,23 +7,22 @@ import csc207.phase2.UTFantasy.R;
 class Squirtle extends Pokemon {
   /** Constructor of a Squirtle. */
   Squirtle(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.WATER,
-              null,
-              R.drawable.squirtle,
-              R.drawable.squirtle_back,
-              "Squirtle",
-              44,
-              48,
-              65,
-              43,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.WATER,
+        null,
+        R.drawable.squirtle,
+        R.drawable.squirtle_back,
+        "Squirtle",
+        44,
+        48,
+        65,
+        43,
+        "quick");
     setLevelToEvolve(16, new Wartortle(16));
     SkillFactory sf = new SkillFactory();
     skills[0] = sf.getSkill(SkillFactory.SkillClass.BUBBLE);
     skills[1] = sf.getSkill(SkillFactory.SkillClass.TACKLE);
-
   }
 
   /**

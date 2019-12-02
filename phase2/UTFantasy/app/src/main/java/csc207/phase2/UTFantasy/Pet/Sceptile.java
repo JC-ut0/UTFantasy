@@ -4,23 +4,21 @@ import csc207.phase2.UTFantasy.Battle.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 class Sceptile extends Pokemon {
-    /**
-     * Constructor of a Sceptile.
-     */
-    Sceptile(int level) {
-        super(
-                level,
-                TypeMap.TypeEnum.GRASS,
-                null,
-                R.drawable.sceptile,
-                R.drawable.sceptile_back,
-                "Sceptile",
-                70,
-                95,
-                75,
-                120,
-                "slow");
-        setLevelToEvolve(maxLevel, null);
+  /** Constructor of a Sceptile. */
+  Sceptile(int level) {
+    super(
+        level,
+        TypeMap.TypeEnum.GRASS,
+        null,
+        R.drawable.sceptile,
+        R.drawable.sceptile_back,
+        "Sceptile",
+        70,
+        95,
+        75,
+        120,
+        "slow");
+    setLevelToEvolve(maxLevel, null);
   }
   /**
    * Get the profile ID of Sceptile.

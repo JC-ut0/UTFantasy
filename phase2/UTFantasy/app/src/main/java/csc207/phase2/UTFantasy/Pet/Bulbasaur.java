@@ -7,22 +7,22 @@ import csc207.phase2.UTFantasy.R;
 class Bulbasaur extends Pokemon {
   /** Constructor of a Bulbasaur. */
   Bulbasaur(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.GRASS,
-              TypeMap.TypeEnum.POISON,
-              R.drawable.bulbasaur,
-              R.drawable.bulbasaur_back,
-              "Bulbasaur",
-              45,
-              57,
-              57,
-              45,
-              "quick");
-      setLevelToEvolve(16, new Ivysaur(16));
-      SkillFactory sf = new SkillFactory();
-      skills[0] = sf.getSkill(SkillFactory.SkillClass.TACKLE);
-      skills[1] = sf.getSkill(SkillFactory.SkillClass.VINEWHIP);
+    super(
+        level,
+        TypeMap.TypeEnum.GRASS,
+        TypeMap.TypeEnum.POISON,
+        R.drawable.bulbasaur,
+        R.drawable.bulbasaur_back,
+        "Bulbasaur",
+        45,
+        57,
+        57,
+        45,
+        "quick");
+    setLevelToEvolve(16, new Ivysaur(16));
+    SkillFactory sf = new SkillFactory();
+    skills[0] = sf.getSkill(SkillFactory.SkillClass.TACKLE);
+    skills[1] = sf.getSkill(SkillFactory.SkillClass.VINEWHIP);
   }
 
   /**

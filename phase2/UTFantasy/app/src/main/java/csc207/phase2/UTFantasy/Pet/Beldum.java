@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Beldum extends Pokemon {
   /** Constructor of a Beldum. */
   Beldum(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.STEEL,
-              TypeMap.TypeEnum.PSYCHIC,
-              R.drawable.beldum,
-              R.drawable.beldum_back,
-              "Beldum",
-              40,
-              45,
-              70,
-              30,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.STEEL,
+        TypeMap.TypeEnum.PSYCHIC,
+        R.drawable.beldum,
+        R.drawable.beldum_back,
+        "Beldum",
+        40,
+        45,
+        70,
+        30,
+        "quick");
     setLevelToEvolve(20, new Metang(20));
   }
   /**

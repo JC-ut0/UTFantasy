@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Alakazam extends Pokemon {
   /** Constructor of a Alakazam. */
   Alakazam(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.PSYCHIC,
-              null,
-              R.drawable.alakazam,
-              R.drawable.alakazam_back,
-              "Alakazam",
-              55,
-              110,
-              75,
-              120,
-              "slow");
+    super(
+        level,
+        TypeMap.TypeEnum.PSYCHIC,
+        null,
+        R.drawable.alakazam,
+        R.drawable.alakazam_back,
+        "Alakazam",
+        55,
+        110,
+        75,
+        120,
+        "slow");
     setLevelToEvolve(maxLevel, null);
   }
   /**

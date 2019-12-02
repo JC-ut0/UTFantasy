@@ -7,17 +7,17 @@ class Metang extends Pokemon {
   /** Constructor of a Metang. */
   Metang(int level) {
     super(
-            level,
-            TypeMap.TypeEnum.STEEL,
-            TypeMap.TypeEnum.PSYCHIC,
-            R.drawable.metang,
-            R.drawable.metang_back,
-            "Metang",
-            60,
-            65,
-            90,
-            50,
-            "slow");
+        level,
+        TypeMap.TypeEnum.STEEL,
+        TypeMap.TypeEnum.PSYCHIC,
+        R.drawable.metang,
+        R.drawable.metang_back,
+        "Metang",
+        60,
+        65,
+        90,
+        50,
+        "slow");
     setLevelToEvolve(45, new Metagross(45));
   }
   /**

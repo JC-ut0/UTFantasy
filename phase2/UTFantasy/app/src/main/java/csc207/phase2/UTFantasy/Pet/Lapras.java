@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Lapras extends Pokemon {
   /** Constructor of a Lapras. */
   Lapras(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.WATER,
-              TypeMap.TypeEnum.ICE,
-              R.drawable.lapras,
-              R.drawable.lapras_back,
-              "Lapras",
-              130,
-              85,
-              90,
-              60,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.WATER,
+        TypeMap.TypeEnum.ICE,
+        R.drawable.lapras,
+        R.drawable.lapras_back,
+        "Lapras",
+        130,
+        85,
+        90,
+        60,
+        "quick");
     setLevelToEvolve(maxLevel, null);
   }
   /**

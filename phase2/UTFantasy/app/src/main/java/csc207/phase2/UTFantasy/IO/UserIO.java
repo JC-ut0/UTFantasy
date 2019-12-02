@@ -24,9 +24,7 @@ import csc207.phase2.UTFantasy.userUseCase.UserIOInterface;
 /** A Singleton class to manage UserData. Will be initialized in the StartUp activity. */
 public class UserIO implements UserIOInterface {
 
-  /**
-   * A unique UserIO that will be only created once.
-   */
+  /** A unique UserIO that will be only created once. */
   private static UserIO SINGLETON_USER_IO = new UserIO();
   /** The file to store UserData */
   private String userFile = "user.txt";
@@ -91,7 +89,7 @@ public class UserIO implements UserIOInterface {
     } catch (FileNotFoundException | ClassNotFoundException e) {
       Toast.makeText(
               context, "Created a new UserData\n" + e.getClass().toString(), Toast.LENGTH_LONG)
-              .show();
+          .show();
       e.printStackTrace();
       Log.e("Exception", e.getMessage() + e.getMessage());
       createNewUserData();
@@ -106,9 +104,7 @@ public class UserIO implements UserIOInterface {
     }
   }
 
-  /**
-   * This method is only used for demo, should not be include in this class.
-   */
+  /** This method is only used for demo, should not be include in this class. */
   private void createNewUserData() {
     userData = new UserData();
     User user = new User("yimi", "20191128");

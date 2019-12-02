@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Haunter extends Pokemon {
   /** Constructor of a Haunter. */
   Haunter(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.GHOST,
-              TypeMap.TypeEnum.POISON,
-              R.drawable.haunter,
-              R.drawable.haunter_back,
-              "Haunter",
-              45,
-              75,
-              50,
-              95,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.GHOST,
+        TypeMap.TypeEnum.POISON,
+        R.drawable.haunter,
+        R.drawable.haunter_back,
+        "Haunter",
+        45,
+        75,
+        50,
+        95,
+        "quick");
     setLevelToEvolve(40, new Gengar(40));
   }
   /**

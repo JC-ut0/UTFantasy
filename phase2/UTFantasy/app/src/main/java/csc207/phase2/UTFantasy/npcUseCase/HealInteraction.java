@@ -6,13 +6,13 @@ import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 
 class HealInteraction extends Interaction {
 
-    HealInteraction(MapDrawer drawer, Player player) {
-        super(drawer, player);
-    }
+  HealInteraction(MapDrawer drawer, Player player) {
+    super(drawer, player);
+  }
 
-    @Override
-    public void interact(NPC npc) {
-        player.heal();
-        drawer.popText("You are healed.");
-    }
+  @Override
+  public void interact(NPC npc) {
+    player.heal();
+    drawer.popText("You are healed.");
+  }
 }

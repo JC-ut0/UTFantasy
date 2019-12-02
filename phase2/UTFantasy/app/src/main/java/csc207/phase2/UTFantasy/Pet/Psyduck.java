@@ -7,18 +7,18 @@ import csc207.phase2.UTFantasy.R;
 class Psyduck extends Pokemon {
   /** Constructor of a Psyduck. */
   Psyduck(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.WATER,
-              null,
-              R.drawable.psyduck_notpixel,
-              R.drawable.psyduck_back,
-              "Psyduck",
-              50,
-              58,
-              48,
-              55,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.WATER,
+        null,
+        R.drawable.psyduck_notpixel,
+        R.drawable.psyduck_back,
+        "Psyduck",
+        50,
+        58,
+        48,
+        55,
+        "quick");
     setLevelToEvolve(33, new Golduck(33));
     SkillFactory factory = new SkillFactory();
     skills[0] = factory.getSkill(SkillFactory.SkillClass.SCARTCH);

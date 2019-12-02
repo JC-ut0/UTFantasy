@@ -38,11 +38,11 @@ public class BattlePresenter implements BattleOutputBoundary {
       if (pokemon != null) {
 
         activityModel.showSinglePokemonForChoose(
-                i,
-                pokemon == currPlayerPoke,
-                pokemon.getProfileID(),
-                pokemon.getHp(),
-                pokemon.getMaximumHp());
+            i,
+            pokemon == currPlayerPoke,
+            pokemon.getProfileID(),
+            pokemon.getHp(),
+            pokemon.getMaximumHp());
       }
     }
   }

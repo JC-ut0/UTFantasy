@@ -5,9 +5,7 @@ import csc207.phase2.UTFantasy.userUseCase.User;
 import csc207.phase2.UTFantasy.userUseCase.UserManagerFacade;
 import csc207.phase2.UTFantasy.userUseCase.UserManagerFacadeInterface;
 
-/**
- * Presenter of LoginActivity.
- */
+/** Presenter of LoginActivity. */
 class LoginPresenter {
 
   private LoginView loginView;
@@ -24,7 +22,7 @@ class LoginPresenter {
    * @throws ImproperUserSettingException if username and password are not valid
    */
   void validateUsernameAndPasswordForRegister(String username, String password)
-          throws ImproperUserSettingException {
+      throws ImproperUserSettingException {
     if (username.equals("")) {
       throw new ImproperUserSettingException("Please Enter your Account");
     } else if (password.equals("")) {
@@ -54,7 +52,7 @@ class LoginPresenter {
    * @throws ImproperUserSettingException if username and password are not valid
    */
   void validateUsernameAndPasswordForLogin(String username, String password)
-          throws ImproperUserSettingException {
+      throws ImproperUserSettingException {
     if (username.equals("")) {
       throw new ImproperUserSettingException("Please Enter your Account");
     } else if (password.equals("")) {

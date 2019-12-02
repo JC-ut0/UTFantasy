@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Dratini extends Pokemon {
   /** Constructor of a Dratini. */
   Dratini(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.DRAGON,
-              null,
-              R.drawable.dratini,
-              R.drawable.dratini_back,
-              "Dratini",
-              41,
-              57,
-              48,
-              50,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.DRAGON,
+        null,
+        R.drawable.dratini,
+        R.drawable.dratini_back,
+        "Dratini",
+        41,
+        57,
+        48,
+        50,
+        "quick");
     setLevelToEvolve(30, new Dragonair(30));
   }
   /**

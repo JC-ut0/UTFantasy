@@ -6,18 +6,18 @@ import csc207.phase2.UTFantasy.R;
 class Gastly extends Pokemon {
   /** Constructor of a Gastly. */
   Gastly(int level) {
-      super(
-              level,
-              TypeMap.TypeEnum.GHOST,
-              TypeMap.TypeEnum.POISON,
-              R.drawable.gastly,
-              R.drawable.gastly_back,
-              "Gastly",
-              30,
-              65,
-              30,
-              80,
-              "quick");
+    super(
+        level,
+        TypeMap.TypeEnum.GHOST,
+        TypeMap.TypeEnum.POISON,
+        R.drawable.gastly,
+        R.drawable.gastly_back,
+        "Gastly",
+        30,
+        65,
+        30,
+        80,
+        "quick");
     setLevelToEvolve(25, new Haunter(25));
   }
   /**

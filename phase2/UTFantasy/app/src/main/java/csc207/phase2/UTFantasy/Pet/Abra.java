@@ -7,18 +7,17 @@ class Abra extends Pokemon {
   /** Constructor of a Abra. */
   Abra(int level) {
     super(
-            level,
-            TypeMap.TypeEnum.PSYCHIC,
-            null,
-            R.drawable.abra,
-            R.drawable.abra_back,
-            "Abra",
-            25,
-            65,
-            35,
-            90,
-            "quick"
-    );
+        level,
+        TypeMap.TypeEnum.PSYCHIC,
+        null,
+        R.drawable.abra,
+        R.drawable.abra_back,
+        "Abra",
+        25,
+        65,
+        35,
+        90,
+        "quick");
     setLevelToEvolve(16, new Kadabra(16));
   }
   /**

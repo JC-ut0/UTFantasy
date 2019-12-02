@@ -3,13 +3,9 @@ package csc207.phase2.UTFantasy.mapUseCase;
 import csc207.phase2.UTFantasy.Character.NPC;
 import csc207.phase2.UTFantasy.Character.Player;
 
-/**
- * the facade for MapChecker, ScreenUpdater, MovementManager and ScreenTranser
- */
+/** the facade for MapChecker, ScreenUpdater, MovementManager and ScreenTranser */
 public interface MapInteractor {
-  /**
-   * @return true iff there is no blocking in front of player currently
-   */
+  /** @return true iff there is no blocking in front of player currently */
   boolean checkMoveAble();
 
   /**
@@ -31,14 +27,10 @@ public interface MapInteractor {
    */
   UnitDraw[][] updateScreenOverHighMap();
 
-  /**
-   * @return the width of the drawn screen counted in units
-   */
+  /** @return the width of the drawn screen counted in units */
   int getScreenUnitWidth();
 
-  /**
-   * @return the height of the drawn screen counted in units
-   */
+  /** @return the height of the drawn screen counted in units */
   int getScreenUnitHeight();
 
   /**
@@ -75,7 +67,7 @@ public interface MapInteractor {
   /**
    * translate the drawn screen by progress is movable
    *
-   * @param map      the map that gets translated
+   * @param map the map that gets translated
    * @param progress the progress used to track and show player's movement
    * @param moveAble if this player is allowed to move on the current map
    */

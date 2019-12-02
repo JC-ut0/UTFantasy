@@ -14,7 +14,7 @@ import csc207.phase2.UTFantasy.mapUseCase.UnitDraw;
 public class MapPresenter implements MapDrawer {
 
   private MapViewModel mapView;
-    private MainActivityInterface activityModel;
+  private MainActivityInterface activityModel;
   // all the bitmaps used to draw
   private Bitmap lawn;
   private Bitmap grass0;
@@ -66,7 +66,7 @@ public class MapPresenter implements MapDrawer {
   private Bitmap rightPlayer2;
   private Bitmap rightPlayer3;
 
-    MapPresenter(MapViewModel mapView, MainActivityInterface activityModel) {
+  MapPresenter(MapViewModel mapView, MainActivityInterface activityModel) {
     this.mapView = mapView;
     this.activityModel = activityModel;
     initializeBitMap();

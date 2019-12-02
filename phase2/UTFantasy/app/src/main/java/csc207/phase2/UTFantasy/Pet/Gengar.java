@@ -7,17 +7,17 @@ class Gengar extends Pokemon {
   /** Constructor of a Gengar. */
   Gengar(int level) {
     super(
-            level,
-            TypeMap.TypeEnum.GHOST,
-            TypeMap.TypeEnum.POISON,
-            R.drawable.genger,
-            R.drawable.gengar_back,
-            "Gengar",
-            60,
-            100,
-            70,
-            110,
-            "slow");
+        level,
+        TypeMap.TypeEnum.GHOST,
+        TypeMap.TypeEnum.POISON,
+        R.drawable.genger,
+        R.drawable.gengar_back,
+        "Gengar",
+        60,
+        100,
+        70,
+        110,
+        "slow");
     setLevelToEvolve(maxLevel, null);
   }
   /**
