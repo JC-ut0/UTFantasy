@@ -37,6 +37,7 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
   private ShopPresenter presenter;
   /** views in the layout */
   TextView moneyLeft;
+
   TextView totalMoney;
   TextView productInBag;
   TextView productSelected;
@@ -78,7 +79,7 @@ public class ShopActivity extends AppCompatActivity implements ShopView {
     final Button bagBtn = findViewById(R.id.my_bag);
 
     ProductCreator productCreator = new ProductCreator();
-    productInShop = productCreator.getProducts();
+    productInShop = productCreator.importProduct().getProducts();
 
     ProductAdapter productAdapter =
         new ProductAdapter(this, R.layout.product_layout, productInShop);
