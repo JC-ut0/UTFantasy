@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import java.util.HashMap;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
-import csc207.phase2.UTFantasy.Pet.PokemonFactory;
 import csc207.phase2.UTFantasy.Products.Product;
 import csc207.phase2.UTFantasy.mapUseCase.Map;
 

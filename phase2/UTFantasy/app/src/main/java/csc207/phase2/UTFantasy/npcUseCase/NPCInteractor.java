@@ -59,4 +59,8 @@ public class NPCInteractor {
             interaction = null;
         }
     }
+
+    public void clearObserver() {
+        player.clearObserver();
+    }
 }
