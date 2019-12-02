@@ -16,8 +16,8 @@ public class ProductCreator {
   public ProductCreator() {
     ProductBuilder builder = new ProductBuilder();
     builder.addProduct(masterBall);
-    builder.addProduct(pokeBall);
     builder.addProduct(ultraBall);
+    builder.addProduct(pokeBall);
     builder.addProduct(pinkPotion);
     builder.addProduct(redPotion);
     builder.addProduct(purplePotion);
