@@ -6,6 +6,10 @@ import csc207.phase2.UTFantasy.mapUseCase.MapDrawer;
 /** The factory that creates Interaction strategy and solves dependency injection. */
 class InteractionFactory {
 
+  Interaction getProfessorInteraction(MapDrawer drawer, Player player) {
+    return new ProfessorInteraction(drawer, player);
+  }
+
   Interaction getFightInteraction(MapDrawer drawer, Player player) {
     return new FightInteraction(drawer, player);
   }
