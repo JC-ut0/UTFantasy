@@ -2,7 +2,7 @@ package csc207.phase2.UTFantasy.Products;
 
 import java.util.ArrayList;
 
-public class ShopBuilder {
+class ShopBuilder {
   /** a list of products */
   ArrayList<Product> products;
   /** A ProductFactory used to make Product */
