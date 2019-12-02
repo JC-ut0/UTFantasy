@@ -29,6 +29,8 @@ public class MenuActivity extends AppCompatActivity {
   private ListView pokemonList;
   /** The information mediator. */
   private InfoMediator infoMediator;
+  /** the pokemon adapter of menu */
+  private ItemAdapter adapter1;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,7 @@ public class MenuActivity extends AppCompatActivity {
     pokemonList = findViewById(R.id.list_view2);
 
     // Create new adapters for the listViews and adapt them.
-    final ItemAdapter adapter1 = new ItemAdapter(this, infoMediator.getPokemonList());
+    adapter1 = new ItemAdapter(this, infoMediator.getPokemonList());
     ItemAdapter adapter2 = new ItemAdapter(this, infoMediator.getProductHashMap());
     pokemonList.setAdapter(adapter1);
     potionList.setAdapter(adapter2);

@@ -31,10 +31,12 @@ public class ProductSelectActivity extends AppCompatActivity {
   private UserIO userIO = UserIO.getSingletonUserIo();
   /** The list of the selected list of product */
   Product selectedProduct;
-  /** The hashmap of the product */
+  /** The HashMap of the product */
   HashMap<Product, Integer> productHashMap;
   /** The information mediator */
   InfoMediator infoMediator;
+  /** the adapter of select */
+  private ProductSelectAdapter adapter;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -102,7 +104,7 @@ public class ProductSelectActivity extends AppCompatActivity {
   private void setViewList() {
     // set up the view list and the adapter
     ListView listView = findViewById(R.id.pokemon_select_listView);
-    final ProductSelectAdapter adapter = new ProductSelectAdapter(this, productHashMap);
+    adapter = new ProductSelectAdapter(this, productHashMap);
     listView.setAdapter(adapter);
     listView.setOnItemClickListener(
         new AdapterView.OnItemClickListener() {
