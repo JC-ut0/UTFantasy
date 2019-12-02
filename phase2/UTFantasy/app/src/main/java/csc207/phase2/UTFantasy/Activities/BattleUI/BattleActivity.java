@@ -31,27 +31,33 @@ public class BattleActivity extends AppCompatActivity implements BattleActivityI
   LinearLayout informationSection;
   /** skill section and menu section */
   LinearLayout fightBox;
+
   RelativeLayout skillSection;
   FrameLayout menuSection;
   /** text view and corresponding layout */
   FrameLayout battleSection;
+
   FrameLayout skillInfoSection;
   TextView battleInfo;
   TextView skillInfo;
   /** instance of menu buttons */
   Button fight;
+
   Button bag;
   Button newPokemon;
   Button run;
   /** Pokemon View */
   ImageView myPokemon;
+
   ImageView rivalPokemon;
   ImageView catchAnimation;
   /** healthBar */
   ProgressBar myHealth;
+
   ProgressBar rivalHealth;
   /** healthBar Text */
   TextView myHealthInfo;
+
   TextView rivalHealthInfo;
   LinearLayout choosePokemon;
   private String username;

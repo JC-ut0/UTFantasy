@@ -6,7 +6,7 @@ import java.util.List;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
-public class Person implements Serializable {
+class Person implements Serializable {
   private final int maxSizeOfPokemonList = 6;
   protected String name;
   private String direction;
@@ -41,7 +41,6 @@ public class Person implements Serializable {
   public void addPokemon(Pokemon pokemon) {
     if (this.pokemonList.size() < maxSizeOfPokemonList) {
       this.pokemonList.add(pokemon);
-      pokemon.setMaster(this);
     }
   }
 

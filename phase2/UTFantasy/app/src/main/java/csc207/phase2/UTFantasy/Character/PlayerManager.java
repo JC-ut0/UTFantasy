@@ -16,10 +16,6 @@ public class PlayerManager {
     player.addItem(item, num);
   }
 
-  public void deleteItem(Product product) {
-    player.useItem(product);
-  }
-
   public int getMoney() {
     return player.getMoney();
   }

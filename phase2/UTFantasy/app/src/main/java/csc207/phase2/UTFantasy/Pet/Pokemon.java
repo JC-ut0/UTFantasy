@@ -7,12 +7,12 @@ import java.util.Random;
 
 import csc207.phase2.UTFantasy.AllSkills.Skill;
 import csc207.phase2.UTFantasy.BattleUseCase.TypeMap;
-import csc207.phase2.UTFantasy.Character.Person;
 
-public abstract class Pokemon implements Serializable, ObservablePokemon {
+public abstract class Pokemon implements Serializable {
   protected int maxLevel = 100;
   /** skills the Pokemon have there are four different skills */
   protected Skill[] skills;
+
   private BattleObserver observer;
   /** the name of the Pokemon */
   private String pokemonName;
@@ -44,8 +44,6 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   private int expAtCurrentLevel;
   /** the value of experience the Pokemon needs to level up */
   private int expToLevelUp;
-  /** person that the Pokemon belongs to */
-  private Person master;
   /** the health point of the Pokemon */
   private int hp;
   /** the attack of this pokemon */
@@ -401,25 +399,6 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
   public void setExpToLevelUp(int exp) {
     this.expToLevelUp = exp;
   }
-
-  /**
-   * Get the master of the Pokemon.
-   *
-   * @return a Person which is the master of the Pokemon.
-   */
-  public Person getMaster() {
-    return master;
-  }
-
-  /**
-   * Set the Pokemon's master.
-   *
-   * @param master a master to be set.
-   */
-  public void setMaster(Person master) {
-    this.master = master;
-  }
-
   /**
    * Get the current health point of the Pokemon.
    *
@@ -747,12 +726,10 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
     return hp != 0;
   }
 
-  @Override
   public void setObserver(BattleObserver o) {
     this.observer = o;
   }
 
-  @Override
   public void notifyObserverHpChange() {
     if (observer != null) observer.updateHpBar();
   }
