@@ -27,7 +27,8 @@ walking, battle and shopping. Following by some small games such as healing, cat
 
 - MENU -> BAG: you can see your products and pokemon by click the button on the left bottom.
 
-- MENU -> SYSTEM: you can logout and save during the game.
+- MENU -> SYSTEM: When you logout, all the information will be saved, while if you click save,
+the information will be saved instantly.
 
 - MENU -> PROFILE: you can check your profile.
 
@@ -76,21 +77,21 @@ button "BUY!".
 - If you have enough money, you can buy products with applied amount, else the trading
 process failed and the number you added will be cleared.
 
-- Button "ADD 1" means you add 1 product while "ADD 10" means you can add 10, the number shown on the
+- Button "ADD 1" means you add 1 product while "ADD 10" means you can add 10. The number shown on the
 left bottom corner of the screen is cumulative for buttons while if you enter the number and click
-"APPLY", the number will be override.
+"APPLY", the number will rewrite.
 
 - You can also access bag from the shop
 
 
 
 ###### To win the game ######
-- After you beat the professor, you will win the game.
+- After beating the professor, you will win the game.
 
 
 
 ###### Other ######
 - Pokemon can level up and evolve after battles.
 
-- Evolve can be canceled by click Button "B".
+- Evolve can be cancelled by click Button "B".
 
