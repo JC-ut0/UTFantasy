@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.Activities.BattleUI;
 
 import java.util.List;
 

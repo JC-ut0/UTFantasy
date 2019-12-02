@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 import csc207.phase2.UTFantasy.AllSkills.Skill;
-import csc207.phase2.UTFantasy.Battle.TypeMap;
+import csc207.phase2.UTFantasy.BattleUseCase.TypeMap;
 import csc207.phase2.UTFantasy.Character.Person;
 
 public abstract class Pokemon implements Serializable, ObservablePokemon {
@@ -600,8 +600,8 @@ public abstract class Pokemon implements Serializable, ObservablePokemon {
    *
    * @return a boolean represent the Pokemon is wild or not.
    */
-  public boolean isWild() {
-    return isWild;
+  public boolean setNotWild() {
+    return !isWild;
   }
 
   public void setWild(boolean isWild) {

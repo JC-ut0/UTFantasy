@@ -22,7 +22,7 @@ import csc207.phase2.UTFantasy.Activities.PlayerInfoActivity;
 import csc207.phase2.UTFantasy.Activities.ShopActivityMVP.ShopActivity;
 import csc207.phase2.UTFantasy.Activities.SystemActivity;
 import csc207.phase2.UTFantasy.Activities.evolutionUI.EvolutionActivity;
-import csc207.phase2.UTFantasy.Battle.BattleActivity;
+import csc207.phase2.UTFantasy.Activities.BattleUI.BattleActivity;
 import csc207.phase2.UTFantasy.Character.Player;
 import csc207.phase2.UTFantasy.Character.WildPokemonObserver;
 import csc207.phase2.UTFantasy.IO.UserIO;

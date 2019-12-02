@@ -1,6 +1,6 @@
 package csc207.phase2.UTFantasy.Pet;
 
-import csc207.phase2.UTFantasy.Battle.TypeMap;
+import csc207.phase2.UTFantasy.BattleUseCase.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 class Pidgeot extends Pokemon {

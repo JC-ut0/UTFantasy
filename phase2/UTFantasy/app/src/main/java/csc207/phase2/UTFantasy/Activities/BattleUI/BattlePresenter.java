@@ -1,13 +1,13 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.Activities.BattleUI;
 
 import java.util.List;
 
 import csc207.phase2.UTFantasy.Pet.Pokemon;
 
 public class BattlePresenter implements BattleOutputBoundary {
-  private BattleActivityModel activityModel;
+  private BattleActivityInterface activityModel;
 
-  BattlePresenter(BattleActivityModel activityModel) {
+  BattlePresenter(BattleActivityInterface activityModel) {
     this.activityModel = activityModel;
   }
 

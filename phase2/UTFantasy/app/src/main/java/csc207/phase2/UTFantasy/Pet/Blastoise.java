@@ -1,7 +1,7 @@
 package csc207.phase2.UTFantasy.Pet;
 
 import csc207.phase2.UTFantasy.AllSkills.SkillFactory;
-import csc207.phase2.UTFantasy.Battle.TypeMap;
+import csc207.phase2.UTFantasy.BattleUseCase.TypeMap;
 import csc207.phase2.UTFantasy.R;
 
 class Blastoise extends Pokemon {

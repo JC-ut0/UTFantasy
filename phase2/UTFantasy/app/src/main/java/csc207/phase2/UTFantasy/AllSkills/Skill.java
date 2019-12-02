@@ -4,17 +4,17 @@ import androidx.annotation.NonNull;
 
 import java.io.Serializable;
 
-import csc207.phase2.UTFantasy.Battle.TypeMap;
+import csc207.phase2.UTFantasy.BattleUseCase.TypeMap;
 
 public abstract class Skill implements Serializable {
   /** The maximum amount of times of the Skill could be used. */
-  protected int maximumPp;
+  private int maximumPp;
   /** The power of the skill. */
-  protected int power;
+  private int power;
   /** power points of this skill */
-  protected int pp;
+  private int pp;
   /** The type of the skill. */
-  protected TypeMap.TypeEnum type;
+  private TypeMap.TypeEnum type;
   /** The name of the skill. */
   protected String name;
 

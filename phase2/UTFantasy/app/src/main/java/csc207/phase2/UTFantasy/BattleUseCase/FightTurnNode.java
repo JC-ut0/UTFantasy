@@ -1,4 +1,4 @@
-package csc207.phase2.UTFantasy.Battle;
+package csc207.phase2.UTFantasy.BattleUseCase;
 
 /**
  * A Node that is returning one text message about its specified responsibility Update corresponding
