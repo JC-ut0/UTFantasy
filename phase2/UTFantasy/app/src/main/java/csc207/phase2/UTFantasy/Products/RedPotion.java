@@ -7,7 +7,7 @@ import csc207.phase2.UTFantasy.R;
 public class RedPotion extends Potion {
   /** Constructor of RedPotion */
   RedPotion() {
-    super("Super Potion", 200, R.drawable.red, 50);
+    super("Super Potion", 500, R.drawable.red, 50);
   }
 
 

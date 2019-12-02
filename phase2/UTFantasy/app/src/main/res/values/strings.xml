@@ -6,7 +6,7 @@
     <string name="register">register</string>
     <string name="save">Save</string>
     <string name="menu">MENU</string>
-    <string name="mybag">MY BAG</string>
+    <string name="myBag">MY BAG</string>
     <string name="remember_password">remember password</string>
     <string name="logo">logo of UTFantasy</string>
     <string name="game_start">Game Start</string>
@@ -28,18 +28,18 @@
     <string name="go">GO!</string>
     <string name="cancel">Cancel</string>
     <string name="name_gender">Name(Gender)</string>
-    <string name="pokomonnum">PokomonNum</string>
-    <string name="pokemonlv">PokemonLV</string>
+    <string name="pokemonNum">PokemonNum</string>
+    <string name="pokemonLevel">PokemonLV</string>
     <string name="level">level</string>
     <string name="idk">idk</string>
-    <string name="pokenum">pokenum</string>
-    <string name="soceboardlogo">SoceboardLogo</string>
+    <string name="pokeNum">pokeNum</string>
+    <string name="scoreboardLogo">ScoreboardLogo</string>
     <string name="_1">1.</string>
     <string name="num">Num</string>
     <string name="name">name</string>
     <string name="showingScore">Show score on the ScoreBoard</string>
     <string name="percentile">Percentile</string>
-    <string name="profilePic">profilepic</string>
+    <string name="profilePic">profilePic</string>
     <string name="duan_liu">Duan Liu</string>
     <string name="yizhen_wang">Yizhen Wang</string>
     <string name="yexiong_xu">Yexiong Xu</string>
@@ -50,4 +50,16 @@
     <string name="description">Description</string>
     <string name="username">username</string>
     <string name="price">price</string>
+    <string name="productName">Product Name</string>
+    <string name="add1">ADD 1</string>
+    <string name="add10">ADD 10</string>
+    <string name="enterAmount">Enter amount</string>
+    <string name="apply">APPLY</string>
+    <string name="buy">BUY!</string>
+    <string name="numInBag">Number in bag:</string>
+    <string name="amountSelected">Amount selected:</string>
+    <string name="moneyInBag">Money in bag:</string>
+    <string name="total">Total selected:</string>
+
+
 </resources>
