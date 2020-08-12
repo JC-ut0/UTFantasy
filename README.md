@@ -1,4 +1,19 @@
 # UTFantasy
+## Preview
+
+![Home](img/1.png)
+![Scoreboard](img/2.png)
+![Login](img/3.png)
+![Map](img/4.png)
+![Bag](img/5.png)
+
+
+
+
+
+
+## About
+
 The Project has 2 phases.
 Phase1 is not completely completed.
 Phase2 is the final project.
