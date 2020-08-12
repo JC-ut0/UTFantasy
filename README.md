@@ -39,7 +39,7 @@ walking, battle and shopping. Following by some small games such as healing, cat
 
 
 
-###### MAP ######
+### MAP
 - Use four buttons down on the left to control the player.
 
 - Button "A" is confirm and Button "B" is cancel.
@@ -69,7 +69,7 @@ a wild pokemon.
 
 
 
-###### Battle ######
+### Battle
 - Each NPC can only fight ONCE.
 
 - Click "FIGHT" and select a skill to attack.
@@ -91,7 +91,7 @@ heal by click "GO!".
 
 
 
-###### Shop ######
+### Shop
 - In the shop, you have to click the product first and then you can add numbers. Remember to click
 button "BUY!".
 
