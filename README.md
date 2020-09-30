@@ -2,10 +2,10 @@
 ## Preview
 
 ![Home](img/1.png)
-![Scoreboard](img/2.png)
 ![Login](img/3.png)
 ![Map](img/4.png)
 ![Bag](img/5.png)
+![Scoreboard](img/2.png)
 
 
 
