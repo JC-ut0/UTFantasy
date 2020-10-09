@@ -1,6 +1,6 @@
 # UTFantasy
 ## UML
-you can find all UML [here](UTFantasy/phase2/UTFantasy/UML/)
+you can find all UML [here](/phase2/UTFantasy/UML/)
 ## Preview
 
 ![Home](img/1.png)
